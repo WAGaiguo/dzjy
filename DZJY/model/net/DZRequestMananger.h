@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
-#import "HZResponseHandler.h"
+#import "DZResponseHandler.h"
 
-@interface HZRequestMananger : NSObject
+@interface DZRequestMananger : NSObject
 {
     
 }
 @property (nonatomic,strong)NSString       *urlString;
 @property (nonatomic,strong)NSDictionary   *params;
-@property (nonatomic,strong)HZResponseHandler   *handler;
+@property (nonatomic,strong)DZResponseHandler   *handler;
 
 - (void)get;
 - (void)post;

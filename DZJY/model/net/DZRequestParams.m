@@ -6,9 +6,9 @@
 //  Copyright © 2016年 kelamo. All rights reserved.
 //
 
-#import "HZRequestParams.h"
+#import "DZRequestParams.h"
 
-@implementation HZRequestParams
+@implementation DZRequestParams
 - (instancetype)init
 {
     self = [super init];
@@ -43,7 +43,7 @@
     return [_dictionary copy];
 }
 + (NSDictionary *)defaultParams{
-    HZRequestParams *p = [HZRequestParams new];
+    DZRequestParams *p = [DZRequestParams new];
     return [p params];
 }
 @end

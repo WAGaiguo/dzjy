@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HZRequestParams : NSObject
+@interface DZRequestParams : NSObject
 {
     NSMutableDictionary<NSString *,NSString *> *_dictionary;
 }

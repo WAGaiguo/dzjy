@@ -6,13 +6,13 @@
 //  Copyright © 2016年 kelamo. All rights reserved.
 //
 
-#import "HZRequestMananger.h"
+#import "DZRequestMananger.h"
 
-@interface HZRequestMananger()
+@interface DZRequestMananger()
 
 @end
 
-@implementation HZRequestMananger
+@implementation DZRequestMananger
 AFHTTPSessionManager* defaultRequestManager;
 - (AFHTTPSessionManager*)defaultManager
 {

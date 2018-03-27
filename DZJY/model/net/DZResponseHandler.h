@@ -16,17 +16,17 @@ typedef NS_ENUM(NSInteger,HZRequestManangerType) {
 };
 
 
-@class HZRequestMananger;
+@class DZRequestMananger;
 @protocol HZResponseHandlerProtocol <NSObject>
 @required
-- (void)requestStarted:(HZRequestMananger *)request;
-- (void)request:(HZRequestMananger *)request success:(id)responseData;
-- (void)requestFailed:(HZRequestMananger *)request error:(NSError *)error;
+- (void)requestStarted:(DZRequestMananger *)request;
+- (void)request:(DZRequestMananger *)request success:(id)responseData;
+- (void)requestFailed:(DZRequestMananger *)request error:(NSError *)error;
 @end
 
 
 
-@interface HZResponseHandler : NSObject<HZResponseHandlerProtocol>
+@interface DZResponseHandler : NSObject<HZResponseHandlerProtocol>
 @property (nonatomic,weak)UIView  *hudView;
 
 @property (nonatomic,assign)BOOL logEnabled;
@@ -37,9 +37,9 @@ typedef NS_ENUM(NSInteger,HZRequestManangerType) {
 
 
 
-+ (HZResponseHandler *)handlerWithView:(UIView *)view;
-@property (nonatomic,copy)void(^didStarted)(HZRequestMananger *);
-@property (nonatomic,copy)void(^didSuccess)(HZRequestMananger *,id obj);
-@property (nonatomic,copy)void(^didFailed)(HZRequestMananger *);
++ (DZResponseHandler *)handlerWithView:(UIView *)view;
+@property (nonatomic,copy)void(^didStarted)(DZRequestMananger *);
+@property (nonatomic,copy)void(^didSuccess)(DZRequestMananger *,id obj);
+@property (nonatomic,copy)void(^didFailed)(DZRequestMananger *);
 
 @end

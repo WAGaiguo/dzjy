@@ -6,16 +6,16 @@
 //  Copyright © 2016年 kelamo. All rights reserved.
 //
 
-#import "HZResponseHandler.h"
+#import "DZResponseHandler.h"
 #import "HudUtils.h"
 //#import "KickoutUtils.h"
 //#import "HZIdentityVerifyViewController.h"
 
-@interface HZResponseHandler()
+@interface DZResponseHandler()
 
 @end
 
-@implementation HZResponseHandler
+@implementation DZResponseHandler
 - (instancetype)init
 {
     self = [super init];
@@ -26,8 +26,8 @@
     }
     return self;
 }
-+ (HZResponseHandler *)handlerWithView:(UIView *)view{
-    HZResponseHandler *handler  = [HZResponseHandler new];
++ (DZResponseHandler *)handlerWithView:(UIView *)view{
+    DZResponseHandler *handler  = [DZResponseHandler new];
     handler.hudView = view;
     return handler;
 }
@@ -55,12 +55,12 @@
     [HudUtils show:self.hudView];
 }
 
-- (void)requestStarted:(HZRequestMananger *)request{
+- (void)requestStarted:(DZRequestMananger *)request{
     if ([self willShowLoading]) {
         [self showLoading];
     }
 }
-- (void)callOnSuccess:(NSData *)responseData request:(HZRequestMananger *)request{
+- (void)callOnSuccess:(NSData *)responseData request:(DZRequestMananger *)request{
     NSError *jsonError;
     id object = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&jsonError];
     if (jsonError != nil) {
@@ -79,7 +79,7 @@
         [self requestFailed:request error:error];
     }
 }
-- (void)request:(HZRequestMananger *)request success:(id)responseData{
+- (void)request:(DZRequestMananger *)request success:(id)responseData{
     [self dismissLoading];
     if(_logEnabled){
         NSLog(@"%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
@@ -94,7 +94,7 @@
         }
     }
 }
-- (void)requestFailed:(HZRequestMananger *)request error:(NSError *)error{
+- (void)requestFailed:(DZRequestMananger *)request error:(NSError *)error{
     [self dismissLoading];
     NSString  *message = [error localizedDescription];
     if(error.code == 3840){

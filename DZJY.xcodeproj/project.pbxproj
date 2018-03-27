@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E530296206934E20010D78A /* HZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* HZRequestMananger.m */; };
-		1E530297206934E50010D78A /* HZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* HZRequestParams.m */; };
-		1E530298206934E80010D78A /* HZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* HZResponseHandler.m */; };
+		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
+		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
+		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
 		1EAD73CA2068CD1C00BD7EF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C92068CD1C00BD7EF7 /* ViewController.m */; };
 		1EAD73CD2068CD1C00BD7EF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CB2068CD1C00BD7EF7 /* Main.storyboard */; };
@@ -31,12 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E530290206934DC0010D78A /* HZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HZResponseHandler.h; path = DZJY/model/net/HZResponseHandler.h; sourceTree = SOURCE_ROOT; };
-		1E530291206934DC0010D78A /* HZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HZResponseHandler.m; path = DZJY/model/net/HZResponseHandler.m; sourceTree = SOURCE_ROOT; };
-		1E530292206934DC0010D78A /* HZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HZRequestParams.h; path = DZJY/model/net/HZRequestParams.h; sourceTree = SOURCE_ROOT; };
-		1E530293206934DC0010D78A /* HZRequestMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HZRequestMananger.h; path = DZJY/model/net/HZRequestMananger.h; sourceTree = SOURCE_ROOT; };
-		1E530294206934DC0010D78A /* HZRequestMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HZRequestMananger.m; path = DZJY/model/net/HZRequestMananger.m; sourceTree = SOURCE_ROOT; };
-		1E530295206934DC0010D78A /* HZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HZRequestParams.m; path = DZJY/model/net/HZRequestParams.m; sourceTree = SOURCE_ROOT; };
+		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
+		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
+		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
+		1E530293206934DC0010D78A /* DZRequestMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestMananger.h; path = DZJY/model/net/DZRequestMananger.h; sourceTree = SOURCE_ROOT; };
+		1E530294206934DC0010D78A /* DZRequestMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestMananger.m; path = DZJY/model/net/DZRequestMananger.m; sourceTree = SOURCE_ROOT; };
+		1E530295206934DC0010D78A /* DZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestParams.m; path = DZJY/model/net/DZRequestParams.m; sourceTree = SOURCE_ROOT; };
 		1EAD73C22068CD1C00BD7EF7 /* DZJY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZJY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,12 +91,12 @@
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
-				1E530293206934DC0010D78A /* HZRequestMananger.h */,
-				1E530294206934DC0010D78A /* HZRequestMananger.m */,
-				1E530292206934DC0010D78A /* HZRequestParams.h */,
-				1E530295206934DC0010D78A /* HZRequestParams.m */,
-				1E530290206934DC0010D78A /* HZResponseHandler.h */,
-				1E530291206934DC0010D78A /* HZResponseHandler.m */,
+				1E530293206934DC0010D78A /* DZRequestMananger.h */,
+				1E530294206934DC0010D78A /* DZRequestMananger.m */,
+				1E530292206934DC0010D78A /* DZRequestParams.h */,
+				1E530295206934DC0010D78A /* DZRequestParams.m */,
+				1E530290206934DC0010D78A /* DZResponseHandler.h */,
+				1E530291206934DC0010D78A /* DZResponseHandler.m */,
 			);
 			name = net;
 			path = "New Group";
@@ -360,18 +360,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
-				1E530296206934E20010D78A /* HZRequestMananger.m in Sources */,
+				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
 				1EAD73CA2068CD1C00BD7EF7 /* ViewController.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
-				1E530298206934E80010D78A /* HZResponseHandler.m in Sources */,
+				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
 				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
-				1E530297206934E50010D78A /* HZRequestParams.m in Sources */,
+				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
