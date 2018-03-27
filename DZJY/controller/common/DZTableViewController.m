@@ -41,7 +41,7 @@
     _tableView.estimatedSectionHeaderHeight = 0;
     _tableView.showsVerticalScrollIndicator = NO;
     [_tableView setSeparatorColor:UISeperatorColor];
-    [_tableView setBackgroundColor:UIWhiteColor];
+    [_tableView setBackgroundColor:UIGreenColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     if (@available(iOS 11.0, *)) {
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -58,14 +58,12 @@
 - (void)addPullToRefresh{
     WEAK_SELF
 
-//    _tableView.showsPullToRefresh = YES;
     [_tableView addPullToRefreshWithActionHandler:^{
         [me pullToRefresh];
     }];
 //    [_tableView.pullToRefreshView setTitle:@"下拉刷新" forState:SVPullToRefreshStateTriggered];
 //    [_tableView.pullToRefreshView setTitle:@"正在加载中..." forState:SVPullToRefreshStateLoading];
 //    [_tableView.pullToRefreshView setTitle:@"刷新完成" forState:SVPullToRefreshStateStopped];
-//    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
 }
 
 - (void)pullToRefresh{

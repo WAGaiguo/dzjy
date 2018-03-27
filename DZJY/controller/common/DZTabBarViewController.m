@@ -34,9 +34,20 @@
     _mineViewController.tabBarItem.image = [UIImage imageNamed:@"icon-mine"];
     
     self.tabBar.tintColor = [UIColor orangeColor];
-//    self.tabBar.backgroundColor = UIOrangeColor;
     
     self.viewControllers = @[_homeViewController, _mineViewController];
+    
+    WEAK_SELF
+    me.delegate = self;
+}
+
+
+// 处理点击其它 item 返回自定义事件
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([viewController isKindOfClass:[DZMineViewController class]]) {
+        return NO;
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
