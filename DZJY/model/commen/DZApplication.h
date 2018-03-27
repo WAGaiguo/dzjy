@@ -15,7 +15,7 @@
 #define DIMENSION(dimen)   [[DZApplication currentApplication] dimension:dimen]
 #define WEAK_SELF __weak typeof(self) me = self;
 #define ONE_PIXEL 1.0/[UIScreen mainScreen].scale
-#define IS_IPHONE_X     (SCREEN_HEIGHT > 736.0)
+#define IS_IPHONE_X    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 @class AppDelegate;
 @interface DZApplication : NSObject

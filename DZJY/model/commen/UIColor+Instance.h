@@ -19,6 +19,8 @@
 #define UIDarkGrayColor           RGBCOLOR(153, 153, 153)
 #define UILightGrayColor          RGBCOLOR(220, 220, 220)
 #define UIGrayColor         [UIColor grayColor]
+#define UIOrangeColor       [UIColor orangeColor]
+#define UISeperatorColor    [UIColor seperatorColor]
 
 
 
@@ -32,6 +34,9 @@
 + (UIColor *)grayColor;
 + (UIColor *)lightGrayColor;
 + (UIColor *)backgroundColor;
+
++ (UIColor *)seperatorColor;
+
 
 
 UIKIT_EXTERN UIColor* RGBCOLORA(int r,int g,int b,float a);

@@ -10,11 +10,13 @@
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
+		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
+		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
+		1EA047A52069EDAD0029C481 /* DZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A42069EDAD0029C481 /* DZHomeViewController.m */; };
+		1EA047A82069EE360029C481 /* DZMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A72069EE360029C481 /* DZMineViewController.m */; };
+		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
-		1EAD73CA2068CD1C00BD7EF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C92068CD1C00BD7EF7 /* ViewController.m */; };
-		1EAD73CD2068CD1C00BD7EF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CB2068CD1C00BD7EF7 /* Main.storyboard */; };
 		1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */; };
-		1EAD73D22068CD1C00BD7EF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73D02068CD1C00BD7EF7 /* LaunchScreen.storyboard */; };
 		1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73D42068CD1C00BD7EF7 /* main.m */; };
 		1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73E72068E3F100BD7EF7 /* UIColor+Instance.m */; };
 		1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73EC2068E62B00BD7EF7 /* DZApplication.m */; };
@@ -37,14 +39,20 @@
 		1E530293206934DC0010D78A /* DZRequestMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestMananger.h; path = DZJY/model/net/DZRequestMananger.h; sourceTree = SOURCE_ROOT; };
 		1E530294206934DC0010D78A /* DZRequestMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestMananger.m; path = DZJY/model/net/DZRequestMananger.m; sourceTree = SOURCE_ROOT; };
 		1E530295206934DC0010D78A /* DZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestParams.m; path = DZJY/model/net/DZRequestParams.m; sourceTree = SOURCE_ROOT; };
+		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
+		1EA0479D2069E6D30029C481 /* DZTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTitleView.m; sourceTree = "<group>"; };
+		1EA047A02069EA8B0029C481 /* DZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZBaseViewController.h; sourceTree = "<group>"; };
+		1EA047A12069EA8B0029C481 /* DZBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZBaseViewController.m; sourceTree = "<group>"; };
+		1EA047A32069EDAD0029C481 /* DZHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeViewController.h; sourceTree = "<group>"; };
+		1EA047A42069EDAD0029C481 /* DZHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeViewController.m; sourceTree = "<group>"; };
+		1EA047A62069EE360029C481 /* DZMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineViewController.h; sourceTree = "<group>"; };
+		1EA047A72069EE360029C481 /* DZMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineViewController.m; sourceTree = "<group>"; };
+		1EA047A92069F09F0029C481 /* DZTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTabBarViewController.h; sourceTree = "<group>"; };
+		1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTabBarViewController.m; sourceTree = "<group>"; };
 		1EAD73C22068CD1C00BD7EF7 /* DZJY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZJY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1EAD73C82068CD1C00BD7EF7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1EAD73C92068CD1C00BD7EF7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1EAD73CC2068CD1C00BD7EF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1EAD73D12068CD1C00BD7EF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EAD73D32068CD1C00BD7EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EAD73D42068CD1C00BD7EF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1EAD73E62068E3F100BD7EF7 /* CWLSynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWLSynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -102,6 +110,30 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		1EA0479B2069E6A90029C481 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				1EA0479C2069E6D30029C481 /* DZTitleView.h */,
+				1EA0479D2069E6D30029C481 /* DZTitleView.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		1EA0479F2069EA660029C481 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				1EA047A02069EA8B0029C481 /* DZBaseViewController.h */,
+				1EA047A12069EA8B0029C481 /* DZBaseViewController.m */,
+				1EA047A32069EDAD0029C481 /* DZHomeViewController.h */,
+				1EA047A42069EDAD0029C481 /* DZHomeViewController.m */,
+				1EA047A62069EE360029C481 /* DZMineViewController.h */,
+				1EA047A72069EE360029C481 /* DZMineViewController.m */,
+				1EA047A92069F09F0029C481 /* DZTabBarViewController.h */,
+				1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		1EAD73B92068CD1C00BD7EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -129,11 +161,7 @@
 				1EAD73E12068E34900BD7EF7 /* model */,
 				1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */,
 				1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */,
-				1EAD73C82068CD1C00BD7EF7 /* ViewController.h */,
-				1EAD73C92068CD1C00BD7EF7 /* ViewController.m */,
-				1EAD73CB2068CD1C00BD7EF7 /* Main.storyboard */,
 				1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */,
-				1EAD73D02068CD1C00BD7EF7 /* LaunchScreen.storyboard */,
 				1EAD73D32068CD1C00BD7EF7 /* Info.plist */,
 				1EAD73D42068CD1C00BD7EF7 /* main.m */,
 				1EAD73EB2068E4E500BD7EF7 /* DZHeader.h */,
@@ -162,6 +190,7 @@
 		1EAD73E32068E36100BD7EF7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1EA0479B2069E6A90029C481 /* common */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -169,6 +198,7 @@
 		1EAD73E42068E36A00BD7EF7 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1EA0479F2069EA660029C481 /* common */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -295,9 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EAD73D22068CD1C00BD7EF7 /* LaunchScreen.storyboard in Resources */,
 				1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */,
-				1EAD73CD2068CD1C00BD7EF7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,45 +388,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
+				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
-				1EAD73CA2068CD1C00BD7EF7 /* ViewController.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
 				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
+				1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
+				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
+				1EA047A82069EE360029C481 /* DZMineViewController.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,
+				1EA047A52069EDAD0029C481 /* DZHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		1EAD73CB2068CD1C00BD7EF7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1EAD73CC2068CD1C00BD7EF7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1EAD73D02068CD1C00BD7EF7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1EAD73D12068CD1C00BD7EF7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1EAD73D62068CD1C00BD7EF7 /* Debug */ = {
