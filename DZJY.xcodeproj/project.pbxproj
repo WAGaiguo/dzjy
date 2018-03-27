@@ -15,6 +15,8 @@
 		1EA047A52069EDAD0029C481 /* DZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A42069EDAD0029C481 /* DZHomeViewController.m */; };
 		1EA047A82069EE360029C481 /* DZMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A72069EE360029C481 /* DZMineViewController.m */; };
 		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
+		1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AD206A10170029C481 /* DZTableViewController.m */; };
+		1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B0206A1D190029C481 /* DZTestAdapter.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
 		1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */; };
 		1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73D42068CD1C00BD7EF7 /* main.m */; };
@@ -49,6 +51,10 @@
 		1EA047A72069EE360029C481 /* DZMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineViewController.m; sourceTree = "<group>"; };
 		1EA047A92069F09F0029C481 /* DZTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTabBarViewController.h; sourceTree = "<group>"; };
 		1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTabBarViewController.m; sourceTree = "<group>"; };
+		1EA047AC206A10170029C481 /* DZTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTableViewController.h; sourceTree = "<group>"; };
+		1EA047AD206A10170029C481 /* DZTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTableViewController.m; sourceTree = "<group>"; };
+		1EA047AF206A1D190029C481 /* DZTestAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTestAdapter.h; sourceTree = "<group>"; };
+		1EA047B0206A1D190029C481 /* DZTestAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTestAdapter.m; sourceTree = "<group>"; };
 		1EAD73C22068CD1C00BD7EF7 /* DZJY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZJY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 				1EA047A72069EE360029C481 /* DZMineViewController.m */,
 				1EA047A92069F09F0029C481 /* DZTabBarViewController.h */,
 				1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */,
+				1EA047AC206A10170029C481 /* DZTableViewController.h */,
+				1EA047AD206A10170029C481 /* DZTableViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -243,6 +251,8 @@
 				1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */,
 				1EAD740E2068EF9900BD7EF7 /* DZTableViewAdapter.h */,
 				1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */,
+				1EA047AF206A1D190029C481 /* DZTestAdapter.h */,
+				1EA047B0206A1D190029C481 /* DZTestAdapter.m */,
 			);
 			path = tableView;
 			sourceTree = "<group>";
@@ -395,7 +405,9 @@
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
 				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
+				1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */,
 				1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */,
+				1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,

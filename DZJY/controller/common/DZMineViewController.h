@@ -7,7 +7,8 @@
 //
 
 #import "DZBaseViewController.h"
+#import "DZTableViewController.h"
 
-@interface DZMineViewController : DZBaseViewController
+@interface DZMineViewController : DZTableViewController
 
 @end
