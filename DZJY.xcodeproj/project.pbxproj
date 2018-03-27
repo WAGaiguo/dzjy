@@ -7,15 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E530296206934E20010D78A /* HZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* HZRequestMananger.m */; };
+		1E530297206934E50010D78A /* HZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* HZRequestParams.m */; };
+		1E530298206934E80010D78A /* HZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* HZResponseHandler.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
 		1EAD73CA2068CD1C00BD7EF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C92068CD1C00BD7EF7 /* ViewController.m */; };
 		1EAD73CD2068CD1C00BD7EF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CB2068CD1C00BD7EF7 /* Main.storyboard */; };
 		1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */; };
 		1EAD73D22068CD1C00BD7EF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73D02068CD1C00BD7EF7 /* LaunchScreen.storyboard */; };
 		1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73D42068CD1C00BD7EF7 /* main.m */; };
+		1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73E72068E3F100BD7EF7 /* UIColor+Instance.m */; };
+		1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73EC2068E62B00BD7EF7 /* DZApplication.m */; };
+		1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73EF2068E77300BD7EF7 /* HudUtils.m */; };
+		1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73F42068EB8800BD7EF7 /* DZAlertview.m */; };
+		1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73F72068ECCB00BD7EF7 /* DZPathGetter.m */; };
+		1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD74022068EE4400BD7EF7 /* UIToolbar+Builder.m */; };
+		1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD74002068EE4400BD7EF7 /* NSString+PDRegex.m */; };
+		1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73FE2068EE4400BD7EF7 /* NSString+MD5.m */; };
+		1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73FC2068EE4400BD7EF7 /* NSDate+AES.m */; };
+		1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */; };
+		1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */; };
+		340AD05E867BF2A0E9D98DE5 /* libPods-DZJY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE38328D711D756068A077C2 /* libPods-DZJY.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E530290206934DC0010D78A /* HZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HZResponseHandler.h; path = DZJY/model/net/HZResponseHandler.h; sourceTree = SOURCE_ROOT; };
+		1E530291206934DC0010D78A /* HZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HZResponseHandler.m; path = DZJY/model/net/HZResponseHandler.m; sourceTree = SOURCE_ROOT; };
+		1E530292206934DC0010D78A /* HZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HZRequestParams.h; path = DZJY/model/net/HZRequestParams.h; sourceTree = SOURCE_ROOT; };
+		1E530293206934DC0010D78A /* HZRequestMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HZRequestMananger.h; path = DZJY/model/net/HZRequestMananger.h; sourceTree = SOURCE_ROOT; };
+		1E530294206934DC0010D78A /* HZRequestMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HZRequestMananger.m; path = DZJY/model/net/HZRequestMananger.m; sourceTree = SOURCE_ROOT; };
+		1E530295206934DC0010D78A /* HZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HZRequestParams.m; path = DZJY/model/net/HZRequestParams.m; sourceTree = SOURCE_ROOT; };
 		1EAD73C22068CD1C00BD7EF7 /* DZJY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZJY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +47,33 @@
 		1EAD73D12068CD1C00BD7EF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EAD73D32068CD1C00BD7EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EAD73D42068CD1C00BD7EF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1EAD73E62068E3F100BD7EF7 /* CWLSynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWLSynthesizeSingleton.h; sourceTree = "<group>"; };
+		1EAD73E72068E3F100BD7EF7 /* UIColor+Instance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Instance.m"; sourceTree = "<group>"; };
+		1EAD73E82068E3F100BD7EF7 /* UIColor+Instance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Instance.h"; sourceTree = "<group>"; };
+		1EAD73EB2068E4E500BD7EF7 /* DZHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHeader.h; sourceTree = "<group>"; };
+		1EAD73EC2068E62B00BD7EF7 /* DZApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZApplication.m; sourceTree = "<group>"; };
+		1EAD73ED2068E62B00BD7EF7 /* DZApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZApplication.h; sourceTree = "<group>"; };
+		1EAD73EE2068E77300BD7EF7 /* HudUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HudUtils.h; sourceTree = "<group>"; };
+		1EAD73EF2068E77300BD7EF7 /* HudUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HudUtils.m; sourceTree = "<group>"; };
+		1EAD73F32068EB8700BD7EF7 /* DZAlertview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZAlertview.h; sourceTree = "<group>"; };
+		1EAD73F42068EB8800BD7EF7 /* DZAlertview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZAlertview.m; sourceTree = "<group>"; };
+		1EAD73F62068ECCB00BD7EF7 /* DZPathGetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPathGetter.h; sourceTree = "<group>"; };
+		1EAD73F72068ECCB00BD7EF7 /* DZPathGetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPathGetter.m; sourceTree = "<group>"; };
+		1EAD73FB2068EE4400BD7EF7 /* NSDate+AES.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+AES.h"; sourceTree = "<group>"; };
+		1EAD73FC2068EE4400BD7EF7 /* NSDate+AES.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AES.m"; sourceTree = "<group>"; };
+		1EAD73FD2068EE4400BD7EF7 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		1EAD73FE2068EE4400BD7EF7 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		1EAD73FF2068EE4400BD7EF7 /* NSString+PDRegex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PDRegex.h"; sourceTree = "<group>"; };
+		1EAD74002068EE4400BD7EF7 /* NSString+PDRegex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PDRegex.m"; sourceTree = "<group>"; };
+		1EAD74012068EE4400BD7EF7 /* UIToolbar+Builder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+Builder.h"; sourceTree = "<group>"; };
+		1EAD74022068EE4400BD7EF7 /* UIToolbar+Builder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+Builder.m"; sourceTree = "<group>"; };
+		1EAD740B2068EF5300BD7EF7 /* UITableView+Adapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Adapter.h"; sourceTree = "<group>"; };
+		1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Adapter.m"; sourceTree = "<group>"; };
+		1EAD740E2068EF9900BD7EF7 /* DZTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTableViewAdapter.h; sourceTree = "<group>"; };
+		1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTableViewAdapter.m; sourceTree = "<group>"; };
+		42658121941B52AEDD69FFE3 /* Pods-DZJY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZJY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DZJY/Pods-DZJY.debug.xcconfig"; sourceTree = "<group>"; };
+		F150777D512D1550EFA07AB0 /* Pods-DZJY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZJY.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZJY/Pods-DZJY.release.xcconfig"; sourceTree = "<group>"; };
+		FE38328D711D756068A077C2 /* libPods-DZJY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZJY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +81,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340AD05E867BF2A0E9D98DE5 /* libPods-DZJY.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E53027E20692F580010D78A /* net */ = {
+			isa = PBXGroup;
+			children = (
+				1E530293206934DC0010D78A /* HZRequestMananger.h */,
+				1E530294206934DC0010D78A /* HZRequestMananger.m */,
+				1E530292206934DC0010D78A /* HZRequestParams.h */,
+				1E530295206934DC0010D78A /* HZRequestParams.m */,
+				1E530290206934DC0010D78A /* HZResponseHandler.h */,
+				1E530291206934DC0010D78A /* HZResponseHandler.m */,
+			);
+			name = net;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		1EAD73B92068CD1C00BD7EF7 = {
 			isa = PBXGroup;
 			children = (
 				1EAD73C42068CD1C00BD7EF7 /* DZJY */,
 				1EAD73C32068CD1C00BD7EF7 /* Products */,
+				DDE359CC3F418F89C861B70E /* Pods */,
+				55A06B6B64BD46CC37D05BD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +123,10 @@
 		1EAD73C42068CD1C00BD7EF7 /* DZJY */ = {
 			isa = PBXGroup;
 			children = (
+				1EAD73E42068E36A00BD7EF7 /* controller */,
+				1EAD73E32068E36100BD7EF7 /* view */,
+				1EAD73E22068E35700BD7EF7 /* cell */,
+				1EAD73E12068E34900BD7EF7 /* model */,
 				1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */,
 				1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */,
 				1EAD73C82068CD1C00BD7EF7 /* ViewController.h */,
@@ -67,8 +136,102 @@
 				1EAD73D02068CD1C00BD7EF7 /* LaunchScreen.storyboard */,
 				1EAD73D32068CD1C00BD7EF7 /* Info.plist */,
 				1EAD73D42068CD1C00BD7EF7 /* main.m */,
+				1EAD73EB2068E4E500BD7EF7 /* DZHeader.h */,
 			);
 			path = DZJY;
+			sourceTree = "<group>";
+		};
+		1EAD73E12068E34900BD7EF7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1E53027E20692F580010D78A /* net */,
+				1EAD74072068EEC300BD7EF7 /* tableView */,
+				1EAD73FA2068EE4400BD7EF7 /* category */,
+				1EAD73E52068E37D00BD7EF7 /* commen */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1EAD73E22068E35700BD7EF7 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		1EAD73E32068E36100BD7EF7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1EAD73E42068E36A00BD7EF7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1EAD73E52068E37D00BD7EF7 /* commen */ = {
+			isa = PBXGroup;
+			children = (
+				1EAD73F62068ECCB00BD7EF7 /* DZPathGetter.h */,
+				1EAD73F72068ECCB00BD7EF7 /* DZPathGetter.m */,
+				1EAD73F32068EB8700BD7EF7 /* DZAlertview.h */,
+				1EAD73F42068EB8800BD7EF7 /* DZAlertview.m */,
+				1EAD73EE2068E77300BD7EF7 /* HudUtils.h */,
+				1EAD73EF2068E77300BD7EF7 /* HudUtils.m */,
+				1EAD73ED2068E62B00BD7EF7 /* DZApplication.h */,
+				1EAD73EC2068E62B00BD7EF7 /* DZApplication.m */,
+				1EAD73E62068E3F100BD7EF7 /* CWLSynthesizeSingleton.h */,
+				1EAD73E82068E3F100BD7EF7 /* UIColor+Instance.h */,
+				1EAD73E72068E3F100BD7EF7 /* UIColor+Instance.m */,
+			);
+			path = commen;
+			sourceTree = "<group>";
+		};
+		1EAD73FA2068EE4400BD7EF7 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				1EAD73FB2068EE4400BD7EF7 /* NSDate+AES.h */,
+				1EAD73FC2068EE4400BD7EF7 /* NSDate+AES.m */,
+				1EAD73FD2068EE4400BD7EF7 /* NSString+MD5.h */,
+				1EAD73FE2068EE4400BD7EF7 /* NSString+MD5.m */,
+				1EAD73FF2068EE4400BD7EF7 /* NSString+PDRegex.h */,
+				1EAD74002068EE4400BD7EF7 /* NSString+PDRegex.m */,
+				1EAD74012068EE4400BD7EF7 /* UIToolbar+Builder.h */,
+				1EAD74022068EE4400BD7EF7 /* UIToolbar+Builder.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		1EAD74072068EEC300BD7EF7 /* tableView */ = {
+			isa = PBXGroup;
+			children = (
+				1EAD740B2068EF5300BD7EF7 /* UITableView+Adapter.h */,
+				1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */,
+				1EAD740E2068EF9900BD7EF7 /* DZTableViewAdapter.h */,
+				1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */,
+			);
+			path = tableView;
+			sourceTree = "<group>";
+		};
+		55A06B6B64BD46CC37D05BD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE38328D711D756068A077C2 /* libPods-DZJY.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDE359CC3F418F89C861B70E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42658121941B52AEDD69FFE3 /* Pods-DZJY.debug.xcconfig */,
+				F150777D512D1550EFA07AB0 /* Pods-DZJY.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EAD73D82068CD1C00BD7EF7 /* Build configuration list for PBXNativeTarget "DZJY" */;
 			buildPhases = (
+				FCE56D67D9BE848D7E33A4EF /* [CP] Check Pods Manifest.lock */,
 				1EAD73BE2068CD1C00BD7EF7 /* Sources */,
 				1EAD73BF2068CD1C00BD7EF7 /* Frameworks */,
 				1EAD73C02068CD1C00BD7EF7 /* Resources */,
+				ABC14326E878A8ACE5C24382 /* [CP] Embed Pods Frameworks */,
+				EC0A627E6D46DF7D5D8CF471 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,13 +303,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ABC14326E878A8ACE5C24382 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DZJY/Pods-DZJY-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC0A627E6D46DF7D5D8CF471 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DZJY/Pods-DZJY-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCE56D67D9BE848D7E33A4EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DZJY-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1EAD73BE2068CD1C00BD7EF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
+				1E530296206934E20010D78A /* HZRequestMananger.m in Sources */,
 				1EAD73CA2068CD1C00BD7EF7 /* ViewController.m in Sources */,
+				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
+				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
+				1E530298206934E80010D78A /* HZResponseHandler.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
+				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
+				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
+				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
+				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
+				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
+				1E530297206934E50010D78A /* HZRequestParams.m in Sources */,
+				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
+				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
+				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -267,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -276,10 +507,12 @@
 		};
 		1EAD73D92068CD1C00BD7EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42658121941B52AEDD69FFE3 /* Pods-DZJY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J3D27HWQC;
+				GCC_PREFIX_HEADER = DZJY/DZHeader.h;
 				INFOPLIST_FILE = DZJY/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wangaiguo.2017.11.23.14.14.DZJY;
@@ -290,10 +523,12 @@
 		};
 		1EAD73DA2068CD1C00BD7EF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F150777D512D1550EFA07AB0 /* Pods-DZJY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J3D27HWQC;
+				GCC_PREFIX_HEADER = DZJY/DZHeader.h;
 				INFOPLIST_FILE = DZJY/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wangaiguo.2017.11.23.14.14.DZJY;

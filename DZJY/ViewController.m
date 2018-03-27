@@ -16,9 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    NSLog(@"%lf", SCREEN_WIDTH);
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    btn.backgroundColor = UIGrayColor;
+    btn.left = 20;
+    btn.top = 100;
+    btn.width = 100;
+    btn.height = 100;
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(btnTap) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
+- (void)btnTap{
+    [HudUtils showMessage:@"test---test"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
