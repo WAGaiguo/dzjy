@@ -20,6 +20,7 @@
 		1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B5206CAF250029C481 /* DZSearchView.m */; };
 		1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B9206CC3E10029C481 /* DZSearchViewController.m */; };
 		1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */; };
+		1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047BF206CE2F60029C481 /* NSDate+Format.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
 		1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */; };
 		1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73D42068CD1C00BD7EF7 /* main.m */; };
@@ -64,6 +65,8 @@
 		1EA047B9206CC3E10029C481 /* DZSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchViewController.m; sourceTree = "<group>"; };
 		1EA047BB206CC4650029C481 /* DZSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchResultViewController.h; sourceTree = "<group>"; };
 		1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchResultViewController.m; sourceTree = "<group>"; };
+		1EA047BE206CE2F60029C481 /* NSDate+Format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Format.h"; sourceTree = "<group>"; };
+		1EA047BF206CE2F60029C481 /* NSDate+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Format.m"; sourceTree = "<group>"; };
 		1EAD73C22068CD1C00BD7EF7 /* DZJY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZJY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				1EAD74002068EE4400BD7EF7 /* NSString+PDRegex.m */,
 				1EAD74012068EE4400BD7EF7 /* UIToolbar+Builder.h */,
 				1EAD74022068EE4400BD7EF7 /* UIToolbar+Builder.m */,
+				1EA047BE206CE2F60029C481 /* NSDate+Format.h */,
+				1EA047BF206CE2F60029C481 /* NSDate+Format.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */,
 				1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
+				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
