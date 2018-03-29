@@ -122,4 +122,7 @@
     }
     return NO;
 }
+- (BOOL)isBankCard{
+    return [self matchesPatternRegexPattern:BankCard_Check_Format];
+}
 @end

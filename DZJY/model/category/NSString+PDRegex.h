@@ -18,6 +18,7 @@
 #define Int_Number_Check_Format  @"^[1-9]\\d*$"
 #define Decimal_Number_Check_Format  @"^((0\\.[0-9]{1,2})|([1-9]+[0-9]*\\.[0-9]{1,2})|([1-9]+[0-9]*))$"
 #define ZipCode_Check_Format  @"^[1-9][0-9]{5}$"
+#define BankCard_Check_Format @"^[1-9]{1}\\d{14,18}$"
 
 @interface NSString (PDRegex)
 
@@ -35,4 +36,5 @@
 - (BOOL)isUrl;
 - (BOOL)isPassword;
 - (BOOL)isIdentity;
+- (BOOL)isBankCard;
 @end
