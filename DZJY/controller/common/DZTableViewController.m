@@ -84,12 +84,25 @@
     [_tableView addInfiniteScrollingWithActionHandler:^{
         [me Infinite];
     }];
+//    [self addNoMoreData];
 }
 - (void)Infinite{
     
 }
 - (void)stopInfinite{
     [_tableView.infiniteScrollingView stopAnimating];
+}
+
+- (void)addNoMoreData{
+    UILabel *label = [[UILabel alloc]init];
+    label.width = SCREEN_WIDTH;
+    label.height = 60;
+    label.backgroundColor = UIRedColor;
+    label.text = @"没有更多数据了";
+    label.textAlignment = NSTextAlignmentCenter;
+    [_tableView.infiniteScrollingView setCustomView:label forState:SVInfiniteScrollingStateStopped];
+    [self stopInfinite];
+    _tableView.infiniteScrollingView.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {

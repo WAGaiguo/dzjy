@@ -12,5 +12,6 @@ target 'DZJY' do
   pod 'SVPullToRefresh'
   pod 'BlocksKit', '~> 2.2.5'
   pod 'SDAutoLayout'
+  pod 'PYSearch'
   
 end

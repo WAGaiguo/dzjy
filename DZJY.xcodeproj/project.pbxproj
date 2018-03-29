@@ -17,6 +17,9 @@
 		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
 		1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AD206A10170029C481 /* DZTableViewController.m */; };
 		1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B0206A1D190029C481 /* DZTestAdapter.m */; };
+		1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B5206CAF250029C481 /* DZSearchView.m */; };
+		1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B9206CC3E10029C481 /* DZSearchViewController.m */; };
+		1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
 		1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD73CE2068CD1C00BD7EF7 /* Assets.xcassets */; };
 		1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73D42068CD1C00BD7EF7 /* main.m */; };
@@ -55,6 +58,12 @@
 		1EA047AD206A10170029C481 /* DZTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTableViewController.m; sourceTree = "<group>"; };
 		1EA047AF206A1D190029C481 /* DZTestAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTestAdapter.h; sourceTree = "<group>"; };
 		1EA047B0206A1D190029C481 /* DZTestAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTestAdapter.m; sourceTree = "<group>"; };
+		1EA047B4206CAF250029C481 /* DZSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchView.h; sourceTree = "<group>"; };
+		1EA047B5206CAF250029C481 /* DZSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchView.m; sourceTree = "<group>"; };
+		1EA047B8206CC3E10029C481 /* DZSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchViewController.h; sourceTree = "<group>"; };
+		1EA047B9206CC3E10029C481 /* DZSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchViewController.m; sourceTree = "<group>"; };
+		1EA047BB206CC4650029C481 /* DZSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchResultViewController.h; sourceTree = "<group>"; };
+		1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchResultViewController.m; sourceTree = "<group>"; };
 		1EAD73C22068CD1C00BD7EF7 /* DZJY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZJY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAD73C52068CD1C00BD7EF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +130,8 @@
 			children = (
 				1EA0479C2069E6D30029C481 /* DZTitleView.h */,
 				1EA0479D2069E6D30029C481 /* DZTitleView.m */,
+				1EA047B4206CAF250029C481 /* DZSearchView.h */,
+				1EA047B5206CAF250029C481 /* DZSearchView.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -140,6 +151,17 @@
 				1EA047AD206A10170029C481 /* DZTableViewController.m */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		1EA047B7206CC3A00029C481 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				1EA047B8206CC3E10029C481 /* DZSearchViewController.h */,
+				1EA047B9206CC3E10029C481 /* DZSearchViewController.m */,
+				1EA047BB206CC4650029C481 /* DZSearchResultViewController.h */,
+				1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 		1EAD73B92068CD1C00BD7EF7 = {
@@ -206,6 +228,7 @@
 		1EAD73E42068E36A00BD7EF7 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1EA047B7206CC3A00029C481 /* search */,
 				1EA0479F2069EA660029C481 /* common */,
 			);
 			path = controller;
@@ -363,9 +386,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DZJY/Pods-DZJY-resources.sh",
+				"${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PYSearch.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -397,10 +423,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */,
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
+				1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
@@ -416,6 +444,7 @@
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
+				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1EA047A82069EE360029C481 /* DZMineViewController.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,

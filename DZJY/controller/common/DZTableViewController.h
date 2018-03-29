@@ -14,6 +14,8 @@
 
 - (void)addPullToRefresh;
 - (void)stopRefresh;
+
 - (void)addInfinite;
 - (void)stopInfinite;
+- (void)addNoMoreData;
 @end

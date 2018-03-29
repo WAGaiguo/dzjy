@@ -31,6 +31,7 @@ PODS:
     - BlocksKit/DynamicDelegate
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.13)
+  - PYSearch (0.8.8)
   - SDAutoLayout (2.2.0)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - BlocksKit (~> 2.2.5)
   - MBProgressHUD (~> 0.9.1)
   - MJExtension
+  - PYSearch
   - SDAutoLayout
   - SDWebImage
   - SVPullToRefresh
@@ -51,10 +53,11 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  PYSearch: aa3704f283c67667808de6df514c24df03f5f116
   SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-PODFILE CHECKSUM: 1b48efcd14af99e74363322e9a051d1df96a8245
+PODFILE CHECKSUM: 1a1f96e4531cff756e02ac869b468e8a6928e486
 
 COCOAPODS: 1.4.0

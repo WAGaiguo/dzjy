@@ -40,7 +40,8 @@
 }
 - (void)clickBtn{
     [self stopRefresh];
-    [self stopInfinite];
+//    [self stopInfinite];
+    [self addNoMoreData];
 }
 
 - (void)pullToRefresh{
