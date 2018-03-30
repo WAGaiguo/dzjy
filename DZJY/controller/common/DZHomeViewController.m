@@ -38,8 +38,6 @@
     pySearch.searchBarBackgroundColor = UICyanColor;
     pySearch.searchSuggestionHidden = YES;
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:pySearch];
-    [pySearch.cancelButton setTitle:@"取消"];
-//    pySearch.searchBar.searchBarStyle =
     [self presentViewController:nav animated:YES completion:nil];
 }
 
@@ -47,15 +45,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
