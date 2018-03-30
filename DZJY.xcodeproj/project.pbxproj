@@ -167,6 +167,13 @@
 			path = search;
 			sourceTree = "<group>";
 		};
+		1EA047C1206E30990029C481 /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = 3rd;
+			sourceTree = "<group>";
+		};
 		1EAD73B92068CD1C00BD7EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +212,7 @@
 		1EAD73E12068E34900BD7EF7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1EA047C1206E30990029C481 /* 3rd */,
 				1E53027E20692F580010D78A /* net */,
 				1EAD74072068EEC300BD7EF7 /* tableView */,
 				1EAD73FA2068EE4400BD7EF7 /* category */,

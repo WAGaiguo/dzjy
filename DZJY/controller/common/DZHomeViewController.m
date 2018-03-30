@@ -32,7 +32,7 @@
 }
 
 - (void)tapToSearch{
-    PYSearchViewController *pySearch = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+    PYSearchViewController *pySearch = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"请输入关键字" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         [searchViewController presentViewController:[[DZSearchResultViewController alloc]init] animated:NO completion:nil];
     }];
     pySearch.searchBarBackgroundColor = UICyanColor;
