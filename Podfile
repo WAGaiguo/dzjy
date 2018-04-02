@@ -13,5 +13,5 @@ target 'DZJY' do
   pod 'BlocksKit', '~> 2.2.5'
   pod 'SDAutoLayout'
   pod 'PYSearch'
-  pod 'Realm', '~> 3.0.0'
+
 end
