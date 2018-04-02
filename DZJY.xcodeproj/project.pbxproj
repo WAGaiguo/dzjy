@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550352071D027000F5188 /* DZHomeViewController.m */; };
 		1E0550392071D040000F5188 /* DZMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550372071D027000F5188 /* DZMineViewController.m */; };
+		1E05503D2071F4BB000F5188 /* DZUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05503C2071F4BB000F5188 /* DZUserManager.m */; };
+		1E0550402071F512000F5188 /* DZLoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05503F2071F512000F5188 /* DZLoginUser.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -43,6 +45,10 @@
 		1E0550352071D027000F5188 /* DZHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeViewController.m; sourceTree = "<group>"; };
 		1E0550362071D027000F5188 /* DZMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineViewController.h; sourceTree = "<group>"; };
 		1E0550372071D027000F5188 /* DZMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineViewController.m; sourceTree = "<group>"; };
+		1E05503B2071F4BB000F5188 /* DZUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZUserManager.h; sourceTree = "<group>"; };
+		1E05503C2071F4BB000F5188 /* DZUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZUserManager.m; sourceTree = "<group>"; };
+		1E05503E2071F512000F5188 /* DZLoginUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZLoginUser.h; sourceTree = "<group>"; };
+		1E05503F2071F512000F5188 /* DZLoginUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZLoginUser.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -123,6 +129,17 @@
 				1E0550372071D027000F5188 /* DZMineViewController.m */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		1E05503A2071F490000F5188 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				1E05503B2071F4BB000F5188 /* DZUserManager.h */,
+				1E05503C2071F4BB000F5188 /* DZUserManager.m */,
+				1E05503E2071F512000F5188 /* DZLoginUser.h */,
+				1E05503F2071F512000F5188 /* DZLoginUser.m */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 		1E53027E20692F580010D78A /* net */ = {
@@ -219,6 +236,7 @@
 		1EAD73E12068E34900BD7EF7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1E05503A2071F490000F5188 /* manager */,
 				1EA047C1206E30990029C481 /* 3rd */,
 				1E53027E20692F580010D78A /* net */,
 				1EAD74072068EEC300BD7EF7 /* tableView */,
@@ -466,6 +484,8 @@
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
+				1E05503D2071F4BB000F5188 /* DZUserManager.m in Sources */,
+				1E0550402071F512000F5188 /* DZLoginUser.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
