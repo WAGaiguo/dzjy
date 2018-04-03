@@ -9,11 +9,13 @@
 #import "DZTabBarViewController.h"
 #import "DZHomeViewController.h"
 #import "DZMineViewController.h"
+#import "DZMessageViewController.h"
 
 @interface DZTabBarViewController ()
 
 @property (nonatomic,strong)DZHomeViewController *homeViewController;
 @property (nonatomic,strong)DZMineViewController *mineViewController;
+@property (nonatomic,strong)DZMessageViewController *messageViewController;
 
 @end
 
@@ -27,16 +29,22 @@
     
     _homeViewController = [[DZHomeViewController alloc]init];
     _mineViewController = [[DZMineViewController alloc]init];
+    _messageViewController = [[DZMessageViewController alloc]init];
+    
     
     _homeViewController.tabBarItem.title = @"首页";
     _homeViewController.tabBarItem.image = [UIImage imageNamed:@"icon-server"];
+    
     _mineViewController.tabBarItem.title = @"我的";
     _mineViewController.tabBarItem.image = [UIImage imageNamed:@"icon-mine"];
     
+    _messageViewController.tabBarItem.title = @"消息";
+    _messageViewController.tabBarItem.image = [UIImage imageNamed:@""];
+    
     self.tabBar.tintColor = [UIColor orangeColor];
+    self.viewControllers = @[_homeViewController, _messageViewController, _mineViewController];
     
-    self.viewControllers = @[_homeViewController, _mineViewController];
-    
+    NSLog(@"----%lf----", self.tabBar.height);
     WEAK_SELF
     me.delegate = self;
 }
