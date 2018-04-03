@@ -14,6 +14,7 @@
 		1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504220721D88000F5188 /* DZMessageViewController.m */; };
 		1E05504720722E82000F5188 /* DZMineCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504620722E82000F5188 /* DZMineCollectionViewCell.m */; };
 		1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504920731434000F5188 /* DZMineCollectionReusableView.m */; };
+		1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504E2073630E000F5188 /* DZHomeItemView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -58,6 +59,8 @@
 		1E05504620722E82000F5188 /* DZMineCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineCollectionViewCell.m; sourceTree = "<group>"; };
 		1E05504820731434000F5188 /* DZMineCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineCollectionReusableView.h; sourceTree = "<group>"; };
 		1E05504920731434000F5188 /* DZMineCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineCollectionReusableView.m; sourceTree = "<group>"; };
+		1E05504D2073630E000F5188 /* DZHomeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeItemView.h; sourceTree = "<group>"; };
+		1E05504E2073630E000F5188 /* DZHomeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeItemView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -164,6 +167,22 @@
 			path = home;
 			sourceTree = "<group>";
 		};
+		1E05504B20735AEB000F5188 /* collectionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = collectionView;
+			sourceTree = "<group>";
+		};
+		1E05504C207362BC000F5188 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1E05504D2073630E000F5188 /* DZHomeItemView.h */,
+				1E05504E2073630E000F5188 /* DZHomeItemView.m */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +277,7 @@
 		1EAD73E12068E34900BD7EF7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1E05504B20735AEB000F5188 /* collectionView */,
 				1E05503A2071F490000F5188 /* manager */,
 				1EA047C1206E30990029C481 /* 3rd */,
 				1E53027E20692F580010D78A /* net */,
@@ -279,6 +299,7 @@
 		1EAD73E32068E36100BD7EF7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1E05504C207362BC000F5188 /* home */,
 				1EA0479B2069E6A90029C481 /* common */,
 			);
 			path = view;
@@ -502,6 +523,7 @@
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */,
+				1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */,
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,

@@ -10,9 +10,11 @@
 #import <PYSearch.h>
 #import "DZSearchView.h"
 #import "DZSearchResultViewController.h"
+#import "DZHomeItemView.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
+    DZHomeItemView *_itemView;
 }
 
 @end
@@ -29,6 +31,11 @@
         [HudUtils showMessage:@"tapTest"];
         [me tapToSearch];
     }];
+    _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 210)];
+    [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
+        [HudUtils showMessage:[NSString stringWithFormat:@"%ld", indexPath.item]];
+    }];
+    [self.view addSubview:_itemView];
 }
 
 - (void)tapToSearch{
