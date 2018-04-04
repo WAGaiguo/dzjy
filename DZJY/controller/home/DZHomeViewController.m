@@ -34,7 +34,7 @@
     }];
     _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 210)];
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
-        [me presentViewController:[[DZLoginViewController alloc]init] animated:YES completion:nil];
+        [me.navigationController pushViewController:[DZLoginViewController new] animated:YES];
 //        [HudUtils showMessage:[NSString stringWithFormat:@"%ld", indexPath.item]];
     }];
     [self.view addSubview:_itemView];

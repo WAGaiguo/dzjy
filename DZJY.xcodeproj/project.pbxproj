@@ -17,6 +17,8 @@
 		1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504E2073630E000F5188 /* DZHomeItemView.m */; };
 		1E05505320747951000F5188 /* DZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05505220747951000F5188 /* DZLoginViewController.m */; };
 		1E0550562074A919000F5188 /* DZURLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550552074A919000F5188 /* DZURLFactory.m */; };
+		1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550582074C1BE000F5188 /* DZRegisterViewController.m */; };
+		1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05505C2074CB51000F5188 /* MLTransition.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -67,6 +69,10 @@
 		1E05505220747951000F5188 /* DZLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZLoginViewController.m; sourceTree = "<group>"; };
 		1E0550542074A919000F5188 /* DZURLFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZURLFactory.h; sourceTree = "<group>"; };
 		1E0550552074A919000F5188 /* DZURLFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZURLFactory.m; sourceTree = "<group>"; };
+		1E0550572074C1BE000F5188 /* DZRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZRegisterViewController.h; sourceTree = "<group>"; };
+		1E0550582074C1BE000F5188 /* DZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZRegisterViewController.m; sourceTree = "<group>"; };
+		1E05505B2074CB51000F5188 /* MLTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLTransition.h; sourceTree = "<group>"; };
+		1E05505C2074CB51000F5188 /* MLTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLTransition.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -194,8 +200,19 @@
 			children = (
 				1E05505120747951000F5188 /* DZLoginViewController.h */,
 				1E05505220747951000F5188 /* DZLoginViewController.m */,
+				1E0550572074C1BE000F5188 /* DZRegisterViewController.h */,
+				1E0550582074C1BE000F5188 /* DZRegisterViewController.m */,
 			);
 			path = login;
+			sourceTree = "<group>";
+		};
+		1E05505A2074CB51000F5188 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1E05505B2074CB51000F5188 /* MLTransition.h */,
+				1E05505C2074CB51000F5188 /* MLTransition.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		1E53027E20692F580010D78A /* net */ = {
@@ -252,6 +269,7 @@
 		1EA047C1206E30990029C481 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				1E05505A2074CB51000F5188 /* Classes */,
 			);
 			path = 3rd;
 			sourceTree = "<group>";
@@ -538,6 +556,7 @@
 				1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */,
 				1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */,
 				1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */,
+				1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
@@ -547,6 +566,7 @@
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
+				1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */,
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,

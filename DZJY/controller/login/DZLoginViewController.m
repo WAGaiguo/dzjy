@@ -42,10 +42,18 @@
     NSDictionary *info = @{@"username" :@"usernameTTtt", @"nickname":@"nicknameTT"};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", jsonString);
     if (jsonString.length != 0) {
         [jsonString writeToFile:UIDocumentFile(@"user.bat") atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
+    
+    NSString *string = nil;
+    NSLog(@"%@", string);
+    NSLog(@"%@", [string description]);
+    NSLog(@"%@", [NSString description]);
+    NSInteger aaa = 555555;
+    NSNumber *bbb = @(666666);
+    NSLog(@"%@",[bbb description]);
+    NSLog(@"%ld", (long)aaa );
 }
 
 - (void)touchBtn2{
@@ -53,6 +61,8 @@
     id userInfo = [NSJSONSerialization JSONObjectWithData:[encodeString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
     NSLog(@"---%@----",encodeString);
     NSLog(@"%@", userInfo);
+    NSLog(@"%@", [[userInfo objectForKey:@"username"]description]);
+    NSLog(@"%@", [userInfo description]);
 }
 
 - (void)didReceiveMemoryWarning {
