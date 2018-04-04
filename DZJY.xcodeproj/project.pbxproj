@@ -16,6 +16,7 @@
 		1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504920731434000F5188 /* DZMineCollectionReusableView.m */; };
 		1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504E2073630E000F5188 /* DZHomeItemView.m */; };
 		1E05505320747951000F5188 /* DZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05505220747951000F5188 /* DZLoginViewController.m */; };
+		1E0550562074A919000F5188 /* DZURLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550552074A919000F5188 /* DZURLFactory.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -64,6 +65,8 @@
 		1E05504E2073630E000F5188 /* DZHomeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeItemView.m; sourceTree = "<group>"; };
 		1E05505120747951000F5188 /* DZLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZLoginViewController.h; sourceTree = "<group>"; };
 		1E05505220747951000F5188 /* DZLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZLoginViewController.m; sourceTree = "<group>"; };
+		1E0550542074A919000F5188 /* DZURLFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZURLFactory.h; sourceTree = "<group>"; };
+		1E0550552074A919000F5188 /* DZURLFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZURLFactory.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -204,6 +207,8 @@
 				1E530295206934DC0010D78A /* DZRequestParams.m */,
 				1E530290206934DC0010D78A /* DZResponseHandler.h */,
 				1E530291206934DC0010D78A /* DZResponseHandler.m */,
+				1E0550542074A919000F5188 /* DZURLFactory.h */,
+				1E0550552074A919000F5188 /* DZURLFactory.m */,
 			);
 			name = net;
 			path = "New Group";
@@ -524,6 +529,7 @@
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
+				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
 				1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
