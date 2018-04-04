@@ -21,7 +21,8 @@
 - (id)initWithJsonObject:(NSDictionary *)info{
     self = [super init];
     if (self) {
-        
+        self.username = [[info objectForKey:@"username"] description];
+        self.nickname = [[info objectForKey:@"nickname"] description];
     }
     return self;
 }

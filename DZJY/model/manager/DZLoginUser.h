@@ -10,7 +10,8 @@
 
 @interface DZLoginUser : NSObject
 
-
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *nickname;
 
 - (id)initWithJsonString:(NSString *)jsonString;
 - (id)initWithJsonObject:(NSDictionary *)info;

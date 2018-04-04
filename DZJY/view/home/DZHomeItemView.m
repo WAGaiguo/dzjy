@@ -37,8 +37,6 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DZHomeItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"homeItem" forIndexPath:indexPath];
-    cell.titleLabel.text = @"title";
-    cell.backgroundColor = UIRedColor;
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

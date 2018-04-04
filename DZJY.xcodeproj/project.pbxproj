@@ -15,6 +15,7 @@
 		1E05504720722E82000F5188 /* DZMineCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504620722E82000F5188 /* DZMineCollectionViewCell.m */; };
 		1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504920731434000F5188 /* DZMineCollectionReusableView.m */; };
 		1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05504E2073630E000F5188 /* DZHomeItemView.m */; };
+		1E05505320747951000F5188 /* DZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05505220747951000F5188 /* DZLoginViewController.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -61,6 +62,8 @@
 		1E05504920731434000F5188 /* DZMineCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineCollectionReusableView.m; sourceTree = "<group>"; };
 		1E05504D2073630E000F5188 /* DZHomeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeItemView.h; sourceTree = "<group>"; };
 		1E05504E2073630E000F5188 /* DZHomeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeItemView.m; sourceTree = "<group>"; };
+		1E05505120747951000F5188 /* DZLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZLoginViewController.h; sourceTree = "<group>"; };
+		1E05505220747951000F5188 /* DZLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZLoginViewController.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -181,6 +184,15 @@
 				1E05504E2073630E000F5188 /* DZHomeItemView.m */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		1E05505020747930000F5188 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				1E05505120747951000F5188 /* DZLoginViewController.h */,
+				1E05505220747951000F5188 /* DZLoginViewController.m */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 		1E53027E20692F580010D78A /* net */ = {
@@ -308,6 +320,7 @@
 		1EAD73E42068E36A00BD7EF7 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1E05505020747930000F5188 /* login */,
 				1E0550332071D027000F5188 /* home */,
 				1EA047B7206CC3A00029C481 /* search */,
 				1EA0479F2069EA660029C481 /* common */,
@@ -524,6 +537,7 @@
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */,
 				1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */,
+				1E05505320747951000F5188 /* DZLoginViewController.m in Sources */,
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,

@@ -11,6 +11,7 @@
 #import "DZSearchView.h"
 #import "DZSearchResultViewController.h"
 #import "DZHomeItemView.h"
+#import "DZLoginViewController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -33,7 +34,8 @@
     }];
     _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 210)];
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
-        [HudUtils showMessage:[NSString stringWithFormat:@"%ld", indexPath.item]];
+        [me presentViewController:[[DZLoginViewController alloc]init] animated:YES completion:nil];
+//        [HudUtils showMessage:[NSString stringWithFormat:@"%ld", indexPath.item]];
     }];
     [self.view addSubview:_itemView];
 }

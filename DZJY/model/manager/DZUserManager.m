@@ -22,7 +22,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(DZUserManager, manager);
 - (instancetype)init{
     self = [super init];
     if (self) {
-        NSString *encodeString = [[NSString alloc]initWithContentsOfFile:UIDocumentFile(@"user.bat") encoding:NSUTF32StringEncoding error:nil];
+        NSString *encodeString = [[NSString alloc]initWithContentsOfFile:UIDocumentFile(@"user.bat") encoding:NSUTF8StringEncoding error:nil];
         if (encodeString != nil) {
             id userInfo = [NSJSONSerialization JSONObjectWithData:[encodeString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
             if (userInfo != nil) {
