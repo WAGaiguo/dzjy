@@ -39,12 +39,11 @@
     _mineViewController.tabBarItem.image = [UIImage imageNamed:@"icon-mine"];
     
     _messageViewController.tabBarItem.title = @"消息";
-    _messageViewController.tabBarItem.image = [UIImage imageNamed:@""];
+    _messageViewController.tabBarItem.image = [UIImage imageNamed:@"icon-message"];
     
     self.tabBar.tintColor = [UIColor orangeColor];
     self.viewControllers = @[_homeViewController, _messageViewController, _mineViewController];
     
-    NSLog(@"----%lf----", self.tabBar.height);
     WEAK_SELF
     me.delegate = self;
 }
