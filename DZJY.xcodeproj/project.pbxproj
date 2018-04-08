@@ -22,6 +22,7 @@
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
+		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
 		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
@@ -79,6 +80,8 @@
 		1E530293206934DC0010D78A /* DZRequestMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestMananger.h; path = DZJY/model/net/DZRequestMananger.h; sourceTree = SOURCE_ROOT; };
 		1E530294206934DC0010D78A /* DZRequestMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestMananger.m; path = DZJY/model/net/DZRequestMananger.m; sourceTree = SOURCE_ROOT; };
 		1E530295206934DC0010D78A /* DZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestParams.m; path = DZJY/model/net/DZRequestParams.m; sourceTree = SOURCE_ROOT; };
+		1E644A812079B8A00078DAF2 /* DZWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWebViewController.h; sourceTree = "<group>"; };
+		1E644A822079B8A00078DAF2 /* DZWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWebViewController.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
 		1EA0479D2069E6D30029C481 /* DZTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTitleView.m; sourceTree = "<group>"; };
 		1EA047A02069EA8B0029C481 /* DZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZBaseViewController.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */,
 				1EA047AC206A10170029C481 /* DZTableViewController.h */,
 				1EA047AD206A10170029C481 /* DZTableViewController.m */,
+				1E644A812079B8A00078DAF2 /* DZWebViewController.h */,
+				1E644A822079B8A00078DAF2 /* DZWebViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -451,6 +456,11 @@
 					1EAD73C12068CD1C00BD7EF7 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -559,6 +569,7 @@
 				1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
+				1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */,
 				1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */,
@@ -616,6 +627,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = default;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -671,6 +684,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

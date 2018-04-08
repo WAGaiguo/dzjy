@@ -12,6 +12,7 @@
 #import "DZSearchResultViewController.h"
 #import "DZHomeItemView.h"
 #import "DZLoginViewController.h"
+#import "DZWebViewController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -34,8 +35,12 @@
     }];
     _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 210)];
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
+        if (indexPath.item < 4) {
+            DZWebViewController *web = [[DZWebViewController alloc]init];
+            web.content = @"https://www.baidu.com/";
+            [me.navigationController pushViewController:web animated:YES];return ;
+        }
         [me.navigationController pushViewController:[DZLoginViewController new] animated:YES];
-//        [HudUtils showMessage:[NSString stringWithFormat:@"%ld", indexPath.item]];
     }];
     [self.view addSubview:_itemView];
 }
