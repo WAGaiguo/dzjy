@@ -4,3 +4,17 @@
 /Pods/Pods.xcodeproj/xcuserdata/
 /DZJY.xcworkspace/xcuserdata/
 
+## Various settings
+xcuserdata/
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Build generated
+build/
+DerivedData/
+
+
