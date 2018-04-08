@@ -22,6 +22,7 @@
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
+		1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */; };
 		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
@@ -80,6 +81,8 @@
 		1E530293206934DC0010D78A /* DZRequestMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestMananger.h; path = DZJY/model/net/DZRequestMananger.h; sourceTree = SOURCE_ROOT; };
 		1E530294206934DC0010D78A /* DZRequestMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestMananger.m; path = DZJY/model/net/DZRequestMananger.m; sourceTree = SOURCE_ROOT; };
 		1E530295206934DC0010D78A /* DZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestParams.m; path = DZJY/model/net/DZRequestParams.m; sourceTree = SOURCE_ROOT; };
+		1E628ED4207A0F3D00169A64 /* NSDate+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		1E644A812079B8A00078DAF2 /* DZWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWebViewController.h; sourceTree = "<group>"; };
 		1E644A822079B8A00078DAF2 /* DZWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWebViewController.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 		1EAD73FA2068EE4400BD7EF7 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				1E628ED4207A0F3D00169A64 /* NSDate+Utilities.h */,
+				1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */,
 				1EAD73FB2068EE4400BD7EF7 /* NSDate+AES.h */,
 				1EAD73FC2068EE4400BD7EF7 /* NSDate+AES.m */,
 				1EAD73FD2068EE4400BD7EF7 /* NSString+MD5.h */,
@@ -559,6 +564,7 @@
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
 				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
 				1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */,
+				1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
