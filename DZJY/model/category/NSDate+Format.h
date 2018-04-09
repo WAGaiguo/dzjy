@@ -12,4 +12,8 @@
 - (NSString *)stringDescription:(NSString *)format;
 - (NSString *)stringDescription;
 - (NSString *)stringDescriptionFull;
+// yyyy-MM-dd HH:mm:ss.SSS
++ (NSString *)compareCurrentTime:(NSString *)str;
+// 时间戳格式 123456789
++ (NSString *)updateTimeForNow:(NSString *)timeString;
 @end

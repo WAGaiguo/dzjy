@@ -7,6 +7,7 @@
 //
 
 #import "DZHomeListCell.h"
+#import "NSDate+Format.h"
 
 @implementation DZHomeListCell
 
@@ -63,8 +64,11 @@
     _priceLabel.font = [UIFont systemFontOfSize:12];
     [backView addSubview:_priceLabel];
     
+    NSString *dateStr = [NSDate updateTimeForNow:@"1394567890.99"];
+    NSLog(@"%@",dateStr);
+    _timeLabel.text =dateStr;
      _priceLabel.attributedText = [self priceStr:@"￥5.0" unitStr:@"元/公斤"];
-     _timeLabel.text = @"1小时前";
+//     _timeLabel.text = @"1小时前";
     _titleLabel.text = @"北京红辣椒";
     _areaLabel.text = @"产地；邯郸";
     _numsLabel.text = @"起订量：1000公斤";
