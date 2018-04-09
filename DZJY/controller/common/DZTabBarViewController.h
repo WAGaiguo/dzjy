@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DZTabBarViewController : UITabBarController<UITabBarControllerDelegate>
-
+- (void)setBadageValue: (NSString *)nums;
 @end

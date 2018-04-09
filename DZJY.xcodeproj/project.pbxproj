@@ -23,6 +23,8 @@
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
 		1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */; };
+		1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED9207A186300169A64 /* DZHomeAdapter.m */; };
+		1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628EDD207B413200169A64 /* DZHomeListCell.m */; };
 		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
@@ -83,6 +85,10 @@
 		1E530295206934DC0010D78A /* DZRequestParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZRequestParams.m; path = DZJY/model/net/DZRequestParams.m; sourceTree = SOURCE_ROOT; };
 		1E628ED4207A0F3D00169A64 /* NSDate+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		1E628ED8207A186300169A64 /* DZHomeAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeAdapter.h; sourceTree = "<group>"; };
+		1E628ED9207A186300169A64 /* DZHomeAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeAdapter.m; sourceTree = "<group>"; };
+		1E628EDC207B413200169A64 /* DZHomeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeListCell.h; sourceTree = "<group>"; };
+		1E628EDD207B413200169A64 /* DZHomeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeListCell.m; sourceTree = "<group>"; };
 		1E644A812079B8A00078DAF2 /* DZWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWebViewController.h; sourceTree = "<group>"; };
 		1E644A822079B8A00078DAF2 /* DZWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWebViewController.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 				1E05504620722E82000F5188 /* DZMineCollectionViewCell.m */,
 				1E05504820731434000F5188 /* DZMineCollectionReusableView.h */,
 				1E05504920731434000F5188 /* DZMineCollectionReusableView.m */,
+				1E628EDC207B413200169A64 /* DZHomeListCell.h */,
+				1E628EDD207B413200169A64 /* DZHomeListCell.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -235,6 +243,15 @@
 			);
 			name = net;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1E628ED7207A182800169A64 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1E628ED8207A186300169A64 /* DZHomeAdapter.h */,
+				1E628ED9207A186300169A64 /* DZHomeAdapter.m */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 		1EA0479B2069E6A90029C481 /* common */ = {
@@ -399,6 +416,7 @@
 		1EAD74072068EEC300BD7EF7 /* tableView */ = {
 			isa = PBXGroup;
 			children = (
+				1E628ED7207A182800169A64 /* home */,
 				1EAD740B2068EF5300BD7EF7 /* UITableView+Adapter.h */,
 				1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */,
 				1EAD740E2068EF9900BD7EF7 /* DZTableViewAdapter.h */,
@@ -558,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */,
+				1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */,
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
@@ -567,6 +586,7 @@
 				1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
+				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
 				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
 				1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */,

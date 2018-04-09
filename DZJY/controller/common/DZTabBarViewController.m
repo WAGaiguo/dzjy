@@ -40,8 +40,10 @@
     
     _messageViewController.tabBarItem.title = @"消息";
     _messageViewController.tabBarItem.image = [UIImage imageNamed:@"icon-message"];
+    _messageViewController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",0];
+//    _messageViewController.tabBarItem.badgeValue = nil;
     
-    self.tabBar.tintColor = [UIColor orangeColor];
+    self.tabBar.tintColor = UICommonColor;
     self.viewControllers = @[_homeViewController, _messageViewController, _mineViewController];
     
     WEAK_SELF

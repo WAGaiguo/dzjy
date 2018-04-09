@@ -21,6 +21,10 @@
 #define UIGrayColor         [UIColor grayColor]
 #define UIOrangeColor       [UIColor orangeColor]
 #define UISeperatorColor    [UIColor seperatorColor]
+#define UIBackgroundColor   [UIColor backgroundColor]
+#define UICommonColor             RGBCOLOR(234, 100, 43)
+#define UITitleColor        [UIColor blackColor]
+#define UISubTitleColor     [UIColor grayColor]
 
 
 

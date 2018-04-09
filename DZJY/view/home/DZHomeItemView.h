@@ -15,4 +15,5 @@
 @interface DZHomeItemCell: UICollectionViewCell
 @property (nonatomic, strong) UIImageView *imageV;
 @property (nonatomic, strong) UILabel *titleLabel;
+- (void)setIndexItemDetail:(NSDictionary *)dic;
 @end

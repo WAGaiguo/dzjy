@@ -21,7 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = UIOrangeColor;
+        self.backgroundColor = UICommonColor;
         _leftView = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftView setFrame:CGRectMake(0, 20, ITEMWIDTH, ITEMWIDTH)];
         [self addSubview:_leftView];

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "DZBaseViewController.h"
+#import "DZTableViewController.h"
 
-@interface DZHomeViewController : DZBaseViewController
+@interface DZHomeViewController : DZTableViewController
 
 @end
