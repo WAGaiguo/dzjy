@@ -60,7 +60,7 @@
 
 - (void)setBackEnabled:(BOOL)backEnabled{
     if(backEnabled){
-        [_leftView setImage:[UIImage imageNamed:@"icon-Back"] forState:UIControlStateNormal];
+        [_leftView setImage:[UIImage imageNamed:@"go_back"] forState:UIControlStateNormal];
     }else{
         [_leftView setImage:nil forState:UIControlStateNormal];
     }

@@ -49,17 +49,17 @@
 - (void)configHeaderView{
     _headerView = [[UIView alloc]init];
     _headerView.width = SCREEN_WIDTH;
-    _headerView.height = 325;
+    _headerView.height = 333;
     self.tableView.tableHeaderView = _headerView;
 }
 - (void)configBannerView{
-    _bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120) imageNamesGroup:@[@"", @""]];
+    _bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120) imageNamesGroup:@[@"banner1", @"banner2"]];
     _bannerView.autoScrollTimeInterval = 5;
     _bannerView.currentPageDotColor = UICommonColor;
     [_headerView addSubview:_bannerView];
 }
 - (void)configItemView{
-    _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(5, 125, SCREEN_WIDTH - 10, 210)];
+    _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(7, 127, SCREEN_WIDTH - 14, 206)];
     WEAK_SELF
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
         if (indexPath.item < 4) {

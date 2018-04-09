@@ -15,4 +15,5 @@
 @property (nonatomic, strong) UILabel *numsLabel;
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) NSString *id;
 @end

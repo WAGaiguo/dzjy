@@ -19,25 +19,26 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = UIWhiteColor;
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.itemSize = CGSizeMake((SCREEN_WIDTH - 10)/4.0 - 1, 99);
+        layout.itemSize = CGSizeMake((SCREEN_WIDTH - 10)/4.0 - 1, 88);
         layout.minimumLineSpacing = 1;
         layout.minimumInteritemSpacing = 0;
-        _collectV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 10, 200) collectionViewLayout:layout];
+        _collectV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 14, 186) collectionViewLayout:layout];
         _collectV.delegate = self;
         _collectV.dataSource = self;
         [self addSubview:_collectV];
         [_collectV registerClass:[DZHomeItemCell class] forCellWithReuseIdentifier:@"homeItem"];
         _collectV.backgroundColor = UIWhiteColor;
         
-        _dataSource = @[@{@"title":@"茄果菜类", @"image":@""},
-                        @{@"title":@"瓜果类", @"image":@""},
-                        @{@"title":@"叶菜类", @"image":@""},
-                        @{@"title":@"甘蓝类", @"image":@""},
-                        @{@"title":@"根茎菜类", @"image":@""},
-                        @{@"title":@"豆菜类", @"image":@""},
-                        @{@"title":@"葱姜蒜类", @"image":@""},
-                        @{@"title":@"全部菜类", @"image":@""}];
+        _dataSource = @[@{@"title":@"茄果菜类", @"image":@"茄果菜类"},
+                        @{@"title":@"瓜果类", @"image":@"瓜果类"},
+                        @{@"title":@"叶菜类", @"image":@"叶菜类"},
+                        @{@"title":@"甘蓝类", @"image":@"甘蓝类"},
+                        @{@"title":@"根茎菜类", @"image":@"根茎菜类"},
+                        @{@"title":@"豆菜类", @"image":@"豆菜类"},
+                        @{@"title":@"葱姜蒜类", @"image":@"葱姜蒜类"},
+                        @{@"title":@"全部菜类", @"image":@"全部菜类"}];
     }
     return self;
 }
@@ -63,12 +64,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         _imageV = [[UIImageView alloc]init];
-        _imageV.width = 50;
-        _imageV.height = 50;
+        _imageV.width = 48;
+        _imageV.height = 48;
         _imageV.centerX = (SCREEN_WIDTH-10)/8.0;
-        _imageV.centerY = 35 ;
+        _imageV.centerY = 44 ;
         [self addSubview:_imageV];
-        _imageV.backgroundColor = UIGrayColor;
         
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, _imageV.bottom + 5, self.width, 20)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -80,6 +80,7 @@
 }
 - (void)setIndexItemDetail:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"title"]description];
+    _imageV.image = [UIImage imageNamed:[dic[@"image"]description]];
 }
 
 @end
