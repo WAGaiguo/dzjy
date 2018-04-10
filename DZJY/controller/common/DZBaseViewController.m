@@ -24,10 +24,7 @@
 
 - (DZTitleView *)titleView{
     if (_titleView == nil) {
-        _titleView = [[DZTitleView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-        if (IS_IPHONE_X) {
-            _titleView.height = 88;
-        }
+        _titleView = [[DZTitleView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DZ_TOP)];
         [self.view addSubview:_titleView];
         [_titleView.rightView addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
     }

@@ -33,13 +33,13 @@
     
     
     _homeViewController.tabBarItem.title = @"首页";
-    _homeViewController.tabBarItem.image = [UIImage imageNamed:@"icon-server"];
+    _homeViewController.tabBarItem.image = [UIImage imageNamed:@"首页"];
     
     _mineViewController.tabBarItem.title = @"我的";
-    _mineViewController.tabBarItem.image = [UIImage imageNamed:@"icon-mine"];
+    _mineViewController.tabBarItem.image = [UIImage imageNamed:@"我的"];
     
     _messageViewController.tabBarItem.title = @"消息";
-    _messageViewController.tabBarItem.image = [UIImage imageNamed:@"icon-message"];
+    _messageViewController.tabBarItem.image = [UIImage imageNamed:@"消息"];
     _messageViewController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",0];
 //    _messageViewController.tabBarItem.badgeValue = nil;
     

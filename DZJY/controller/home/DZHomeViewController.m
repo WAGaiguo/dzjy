@@ -15,6 +15,7 @@
 #import "DZWebViewController.h"
 #import <SDCycleScrollView.h>
 #import "DZHomeAdapter.h"
+#import "DZCategoryAllController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -39,7 +40,7 @@
    
 }
 - (void)configSearchView{
-    _searchView = [[DZSearchView alloc]init];
+    _searchView = [[DZSearchView alloc]initWithFrame:CGRectMake(0, (DZ_TOP) - 40, SCREEN_WIDTH, 40)];
     [self.titleView addSubview:_searchView];
     WEAK_SELF
     [_searchView setTapBlock:^{
@@ -67,7 +68,10 @@
             web.content = @"https://www.baidu.com/";
             [me.navigationController pushViewController:web animated:YES];return ;
         }
-        [me.navigationController pushViewController:[DZLoginViewController new] animated:YES];
+        if (indexPath.item == 7) {
+            [me.navigationController pushViewController:[DZCategoryAllController new] animated:YES];
+        }
+//        [me.navigationController pushViewController:[DZLoginViewController new] animated:YES];
     }];
     [_headerView addSubview:_itemView];
 }

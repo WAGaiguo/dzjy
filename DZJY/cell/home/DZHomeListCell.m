@@ -65,7 +65,6 @@
     [backView addSubview:_priceLabel];
     
     NSString *dateStr = [NSDate updateTimeForNow:@"1394567890.99"];
-    NSLog(@"%@",dateStr);
     _timeLabel.text =dateStr;
      _priceLabel.attributedText = [self priceStr:@"￥5.0" unitStr:@"元/公斤"];
 //     _timeLabel.text = @"1小时前";

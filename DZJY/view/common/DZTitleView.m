@@ -21,7 +21,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = UICommonColor;
+        UIImageView *backImageV = [[UIImageView alloc]initWithFrame:frame];
+        backImageV.image = [UIImage imageNamed:@"导航条"];
+//        backImageV.contentMode = UIViewContentModeScaleAspectFill;
+        [self addSubview:backImageV];
+        
         _leftView = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftView setFrame:CGRectMake(0, 20, ITEMWIDTH, ITEMWIDTH)];
         [self addSubview:_leftView];
@@ -38,14 +42,14 @@
         [_textLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:_textLabel];
         
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ONE_PIXEL)];
-        [lineView setBottom:64];
-        [lineView setBackgroundColor:[UIColor seperatorColor]];
-        [self addSubview:lineView];
+//        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ONE_PIXEL)];
+//        [lineView setBottom:64];
+//        [lineView setBackgroundColor:[UIColor seperatorColor]];
+//        [self addSubview:lineView];
         
         if (IS_IPHONE_X) {
             _leftView.top = _rightView.top = _textLabel.top = 44;
-            [lineView setBottom:88];
+//            [lineView setBottom:88];
         }
         
         
