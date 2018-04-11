@@ -12,6 +12,7 @@
 #import "DZCategoryCollectionViewCell.h"
 #import "DZCategoryAllHeaderView.h"
 #import "DZSearchView.h"
+#import "DZCategoryDetailController.h"
 
 @interface DZCategoryAllController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -75,6 +76,7 @@
     [self.view addSubview:_collectionV];
     _collectionV.dataSource = self;
     _collectionV.delegate = self;
+    _collectionV.userInteractionEnabled = YES;
     [_collectionV registerClass:[DZCategoryCollectionViewCell class] forCellWithReuseIdentifier:@"mineCell"];
     [_collectionV registerClass:[DZCategoryCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"mineHeader"];
     
@@ -85,6 +87,10 @@
     [_collectionV setContentInset:UIEdgeInsetsMake(47, 0, 0, 0)];
     _headerV.left = 0;
     _headerV.top = -47;
+    WEAK_SELF
+    [_headerV setTapBlock:^{
+        [me.navigationController pushViewController:[DZCategoryDetailController new] animated:YES];
+    }];
     [_collectionV addSubview:_headerV];
 }
 
@@ -110,6 +116,11 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(0, 16, 0, 16);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:[DZCategoryDetailController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

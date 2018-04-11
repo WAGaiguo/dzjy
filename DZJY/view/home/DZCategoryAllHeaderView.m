@@ -24,6 +24,7 @@
         [btn setTitleColor:RGBCOLOR(51, 51, 51) forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:13];
         [self addSubview:btn];
+        btn.userInteractionEnabled = NO;
         
         [self bk_whenTapped:^{
             if (_tapBlock) {

@@ -8,6 +8,11 @@
 
 #import "DZSearchView.h"
 
+@interface DZSearchView(){
+    UILabel *titleLabel;
+}
+@end
+
 @implementation DZSearchView
 
 - (instancetype)init{
@@ -31,7 +36,7 @@
         searchV.left = 10;
         [backImageV addSubview:searchV];
         
-        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(searchV.right + 5, 0, 200, 32)];
+        titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(searchV.right + 5, 0, 200, 32)];
         titleLabel.textColor = UIWhiteColor;
         titleLabel.font = [UIFont systemFontOfSize:15];
         titleLabel.text = @"输入商品名称";
@@ -46,7 +51,9 @@
     }
     return self;
 }
-
+- (void)setPlaceholder:(NSString *)text{
+    titleLabel.text = [text description];
+}
 - (void)afterView{
     self.backgroundColor = UICyanColor;
     self.width = SCREEN_WIDTH - 64 * 2;

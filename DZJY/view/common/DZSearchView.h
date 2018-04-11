@@ -10,4 +10,5 @@
 
 @interface DZSearchView : UIView
 @property (nonatomic, copy)void (^tapBlock)(void);
+- (void)setPlaceholder:(NSString *)text;
 @end
