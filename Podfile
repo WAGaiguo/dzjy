@@ -14,5 +14,6 @@ target 'DZJY' do
   pod 'SDAutoLayout'
   pod 'PYSearch'
   pod 'SDCycleScrollView','~> 1.75'
+  pod 'TKRoundedView', '~> 0.5'
   
 end

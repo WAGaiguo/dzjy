@@ -39,6 +39,10 @@
 		1E628F04207DD6D500169A64 /* DZSpecificationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F03207DD6D500169A64 /* DZSpecificationCollectionViewCell.m */; };
 		1E628F07207DDA3200169A64 /* DZCommenCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F06207DDA3200169A64 /* DZCommenCollectionHeaderView.m */; };
 		1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F09207DEAE500169A64 /* DZSortView.m */; };
+		1E628F0D207DF79B00169A64 /* DZCitySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F0C207DF79B00169A64 /* DZCitySelectView.m */; };
+		1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F0F207DF8E100169A64 /* DZCityAdapter.m */; };
+		1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F12207DFA0900169A64 /* DZCityCell.m */; };
+		1E628F17207EFA0A00169A64 /* DZSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F16207EFA0A00169A64 /* DZSearchModel.m */; };
 		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
@@ -131,6 +135,14 @@
 		1E628F06207DDA3200169A64 /* DZCommenCollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCommenCollectionHeaderView.m; sourceTree = "<group>"; };
 		1E628F08207DEAE500169A64 /* DZSortView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSortView.h; sourceTree = "<group>"; };
 		1E628F09207DEAE500169A64 /* DZSortView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSortView.m; sourceTree = "<group>"; };
+		1E628F0B207DF79B00169A64 /* DZCitySelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCitySelectView.h; sourceTree = "<group>"; };
+		1E628F0C207DF79B00169A64 /* DZCitySelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCitySelectView.m; sourceTree = "<group>"; };
+		1E628F0E207DF8E100169A64 /* DZCityAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCityAdapter.h; sourceTree = "<group>"; };
+		1E628F0F207DF8E100169A64 /* DZCityAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCityAdapter.m; sourceTree = "<group>"; };
+		1E628F11207DFA0900169A64 /* DZCityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCityCell.h; sourceTree = "<group>"; };
+		1E628F12207DFA0900169A64 /* DZCityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCityCell.m; sourceTree = "<group>"; };
+		1E628F15207EFA0A00169A64 /* DZSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchModel.h; sourceTree = "<group>"; };
+		1E628F16207EFA0A00169A64 /* DZSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchModel.m; sourceTree = "<group>"; };
 		1E644A812079B8A00078DAF2 /* DZWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWebViewController.h; sourceTree = "<group>"; };
 		1E644A822079B8A00078DAF2 /* DZWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWebViewController.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
@@ -306,6 +318,8 @@
 				1E628ED9207A186300169A64 /* DZHomeAdapter.m */,
 				1E628EE2207C5A7900169A64 /* DZCategoryAllAdapter.h */,
 				1E628EE3207C5A7900169A64 /* DZCategoryAllAdapter.m */,
+				1E628F0E207DF8E100169A64 /* DZCityAdapter.h */,
+				1E628F0F207DF8E100169A64 /* DZCityAdapter.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -319,6 +333,8 @@
 				1E628F00207DD44E00169A64 /* DZSpecificationView.m */,
 				1E628F08207DEAE500169A64 /* DZSortView.h */,
 				1E628F09207DEAE500169A64 /* DZSortView.m */,
+				1E628F0B207DF79B00169A64 /* DZCitySelectView.h */,
+				1E628F0C207DF79B00169A64 /* DZCitySelectView.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -332,8 +348,19 @@
 				1E628F03207DD6D500169A64 /* DZSpecificationCollectionViewCell.m */,
 				1E628F05207DDA3200169A64 /* DZCommenCollectionHeaderView.h */,
 				1E628F06207DDA3200169A64 /* DZCommenCollectionHeaderView.m */,
+				1E628F11207DFA0900169A64 /* DZCityCell.h */,
+				1E628F12207DFA0900169A64 /* DZCityCell.m */,
 			);
 			path = category;
+			sourceTree = "<group>";
+		};
+		1E628F14207EF9E500169A64 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				1E628F15207EFA0A00169A64 /* DZSearchModel.h */,
+				1E628F16207EFA0A00169A64 /* DZSearchModel.m */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 		1EA0479B2069E6A90029C481 /* common */ = {
@@ -376,6 +403,7 @@
 		1EA047C1206E30990029C481 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				1E628F14207EF9E500169A64 /* search */,
 				1E05505A2074CB51000F5188 /* Classes */,
 			);
 			path = 3rd;
@@ -689,7 +717,9 @@
 				1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
+				1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */,
 				1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */,
+				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
 				1E628EFA207DA1EE00169A64 /* DZVarietyView.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
@@ -699,6 +729,7 @@
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
+				1E628F17207EFA0A00169A64 /* DZSearchModel.m in Sources */,
 				1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */,
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
@@ -708,6 +739,7 @@
 				1E628EED207C9D2300169A64 /* DZCategoryAllHeaderView.m in Sources */,
 				1E05504720722E82000F5188 /* DZMineCollectionViewCell.m in Sources */,
 				1E0550402071F512000F5188 /* DZLoginUser.m in Sources */,
+				1E628F0D207DF79B00169A64 /* DZCitySelectView.m in Sources */,
 				1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */,
 				1E628F01207DD44E00169A64 /* DZSpecificationView.m in Sources */,
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,

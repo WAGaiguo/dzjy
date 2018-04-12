@@ -19,7 +19,13 @@
     [self setTitle:@"搜索结果"];
     [self setBackEnabled:YES];
 }
-
+-(void)back{
+    if (self.navigationController != nil){
+        [self.navigationController popViewControllerAnimated:NO];
+    }else{
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

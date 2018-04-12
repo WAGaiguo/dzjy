@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self afterView];
-        self.backgroundColor = UICyanColor;
+        self.backgroundColor = UIWhiteColor;
     }
     return self;
 }

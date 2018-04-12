@@ -845,8 +845,9 @@
             break;
         case PYSearchHistoryStyleBorderTag:
             for (UILabel *tag in self.searchHistoryTags) {
-                tag.backgroundColor = [UIColor clearColor];
+                tag.backgroundColor = PYSEARCH_COLOR(246, 246, 246);
                 tag.layer.borderColor = PYSEARCH_COLOR(223, 223, 223).CGColor;
+                tag.textColor = PYSEARCH_COLOR(51, 51, 51);
                 tag.layer.borderWidth = 0.5;
             }
             break;

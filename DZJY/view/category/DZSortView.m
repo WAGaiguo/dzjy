@@ -23,7 +23,7 @@
     if (self) {
         UIImageView *backImageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)];
         backImageV.backgroundColor = UIBlackColor;
-        backImageV.alpha = 0.3;
+        backImageV.alpha = 0.5;
         [self addSubview:backImageV];
         [backImageV setUserInteractionEnabled:YES];
         [backImageV bk_whenTapped:^{
