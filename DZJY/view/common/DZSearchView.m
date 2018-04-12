@@ -27,10 +27,6 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-//        UIImageView *backImageV = [[UIImageView alloc]initWithFrame:CGRectMake(13, 0, frame.size.width - 26, 32)];
-//        backImageV.image = [UIImage imageNamed:@"搜索框"];
-//        backImageV.contentMode = UIViewContentModeScaleToFill;
-//        [self addSubview:backImageV];
         TKRoundedView *backView = [[TKRoundedView alloc]initWithFrame:CGRectMake(13, 0, frame.size.width - 26, 32)];
         backView.fillColor = UIWhiteColor;
         backView.roundedCorners = TKRoundedCornerBottomLeft|TKRoundedCornerTopLeft|TKRoundedCornerBottomRight|TKRoundedCornerTopRight;

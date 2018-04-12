@@ -30,6 +30,7 @@
         [self configProvince];
         [self configCity];
         self.hidden = YES;
+        self.alpha = 0;
     }
     return self;
 }

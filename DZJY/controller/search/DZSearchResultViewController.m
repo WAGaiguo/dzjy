@@ -7,17 +7,34 @@
 //
 
 #import "DZSearchResultViewController.h"
+#import "DZSearchNilView.h"
+#import "DZSearchView.h"
 
 @interface DZSearchResultViewController ()
-
+{
+    DZSearchNilView *nilView;
+}
 @end
 
 @implementation DZSearchResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"搜索结果"];
     [self setBackEnabled:YES];
+    [self makeRightBtn];
+    nilView = [[DZSearchNilView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP) fatherView:self.view];
+}
+- (void)makeRightBtn{
+    CGFloat s_width = self.titleView.leftView.right;
+    DZSearchView *searchV = [[DZSearchView alloc]initWithFrame:CGRectMake(s_width, DZ_TOP - 40, SCREEN_WIDTH - s_width - 40, 40)];
+    [searchV setTapBlock:^{
+        [self back];
+    }];
+    [self.titleView addSubview:searchV];
+    
+    [self setHasRightBtn:YES];
+    [self.titleView.rightView setTitle:@"取消" forState:UIControlStateNormal];
+
 }
 -(void)back{
     if (self.navigationController != nil){
@@ -25,6 +42,9 @@
     }else{
         [self dismissViewControllerAnimated:NO completion:nil];
     }
+}
+- (void)more{
+    [self back];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

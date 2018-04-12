@@ -15,6 +15,7 @@
 #import "DZHomeAdapter.h"
 #import "DZCategoryAllController.h"
 #import "DZSearchModel.h"
+#import "DZCategoryFirstController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -63,9 +64,16 @@
     WEAK_SELF
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
         if (indexPath.item < 4) {
-            DZWebViewController *web = [[DZWebViewController alloc]init];
-            web.content = @"https://www.baidu.com/";
-            [me.navigationController pushViewController:web animated:YES];return ;
+//            DZWebViewController *web = [[DZWebViewController alloc]init];
+//            web.content = @"https://www.baidu.com/";
+//            [me.navigationController pushViewController:web animated:YES];return ;
+            [me.navigationController pushViewController:[DZCategoryFirstController new] animated:YES];
+            return;
+            
+        }
+        if (indexPath.item >= 4 && indexPath.item < 7) {
+            [me.navigationController pushViewController:[DZCategoryFirstController new] animated:YES];
+            return;
         }
         if (indexPath.item == 7) {
             [me.navigationController pushViewController:[DZCategoryAllController new] animated:YES];
