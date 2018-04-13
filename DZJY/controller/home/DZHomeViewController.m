@@ -9,13 +9,15 @@
 #import "DZHomeViewController.h"
 #import "DZSearchView.h"
 #import "DZHomeItemView.h"
-#import "DZLoginViewController.h"
 #import "DZWebViewController.h"
 #import <SDCycleScrollView.h>
 #import "DZHomeAdapter.h"
 #import "DZCategoryAllController.h"
 #import "DZSearchModel.h"
 #import "DZCategoryFirstController.h"
+
+#import "DZLoginViewController.h"
+#import "DZRegisterViewController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -67,7 +69,7 @@
 //            DZWebViewController *web = [[DZWebViewController alloc]init];
 //            web.content = @"https://www.baidu.com/";
 //            [me.navigationController pushViewController:web animated:YES];return ;
-            [me.navigationController pushViewController:[DZCategoryFirstController new] animated:YES];
+            [me.navigationController pushViewController:[DZRegisterViewController new] animated:YES];
             return;
             
         }
@@ -78,7 +80,7 @@
         if (indexPath.item == 7) {
             [me.navigationController pushViewController:[DZCategoryAllController new] animated:YES];
         }
-//        [me.navigationController pushViewController:[DZLoginViewController new] animated:YES];
+
     }];
     [_headerView addSubview:_itemView];
 }
