@@ -29,7 +29,6 @@
 
 @implementation DZProvinceAdapter
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
     return [self.dataSource count];
 }
 
@@ -41,6 +40,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
+    [cell setContent:[self.dataSource objectAtIndex:indexPath.item]];
     return cell;
 }
 @end

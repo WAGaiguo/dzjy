@@ -15,5 +15,7 @@
 
 @interface DZProvinceCell : UITableViewCell
 @property (nonatomic, strong)UILabel *titleLabel;
+@property (nonatomic, strong)NSString *id;
 @property (nonatomic, assign)BOOL isSelected;
+- (void)setContent:(NSDictionary *)dic;
 @end

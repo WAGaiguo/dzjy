@@ -9,6 +9,8 @@
 #import "DZCitySelectView.h"
 #import "DZCityAdapter.h"
 #import "DZCityCell.h"
+#import "DZPathGetter.h"
+
 
 @interface DZCitySelectView()
 {
@@ -18,6 +20,7 @@
 }
 @property(nonatomic, assign)NSInteger selectRow;
 @property(nonatomic, strong)UITableView *provinceTableView;
+@property(nonatomic, strong)NSArray *proviceData;
 
 @end
 
@@ -27,6 +30,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _selectRow = 199;
+        [self makeDataSource];
         [self configProvince];
         [self configCity];
         self.hidden = YES;
@@ -34,10 +38,21 @@
     }
     return self;
 }
+- (void)makeDataSource{
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cities" ofType:@"json"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *jsonarr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSString *value = [NSString stringWithContentsOfFile:UIDocumentFile(@"cities.json") encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"%@",value);
+    NSArray *arr = [NSArray arrayWithContentsOfFile:filePath];
+    _proviceData = [[arr objectAtIndex:0]objectForKey:@"children"];
+}
 - (void)configProvince{
     _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT - DZ_TOP - 43)];
     [self addSubview:_provinceTableView];
-    _provinceAdapter = [[DZProvinceAdapter alloc]init];
+    _provinceAdapter = [[DZProvinceAdapter alloc]initWithDataSource:_proviceData];
     [_provinceTableView setAdapter:_provinceAdapter];
     WEAK_SELF
     [_provinceAdapter setDidCellSelected:^(DZProvinceCell * cell, NSIndexPath *indexPath) {

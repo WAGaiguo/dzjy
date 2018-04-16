@@ -24,6 +24,7 @@
         UIImageView *backImageV = [[UIImageView alloc]initWithFrame:frame];
         backImageV.image = [UIImage imageNamed:@"导航条"];
 //        backImageV.contentMode = UIViewContentModeScaleAspectFill;
+        backImageV.tag = 999;
         [self addSubview:backImageV];
         
         _leftView = [UIButton buttonWithType:UIButtonTypeCustom];

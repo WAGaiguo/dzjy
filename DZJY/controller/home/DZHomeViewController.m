@@ -19,6 +19,7 @@
 #import "DZLoginViewController.h"
 #import "DZRegisterViewController.h"
 #import <MJExtension.h>
+#import "DZOrderFinishController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -67,6 +68,10 @@
     _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(7, 127, SCREEN_WIDTH - 14, 206)];
     WEAK_SELF
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
+        if (indexPath.item == 0){
+            [me.navigationController pushViewController:[[DZOrderFinishController alloc]init] animated:YES];
+            return ;
+        }
         if (indexPath.item < 4) {
 //            DZWebViewController *web = [[DZWebViewController alloc]init];
 //            web.content = @"https://www.baidu.com/";

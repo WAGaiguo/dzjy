@@ -75,4 +75,8 @@
         self.backgroundColor = UIBackgroundColor;
     }
 }
+- (void)setContent:(NSDictionary *)dic{
+    _titleLabel.text = [dic[@"name"] description];
+    _id = [dic[@"id"] description];
+}
 @end
