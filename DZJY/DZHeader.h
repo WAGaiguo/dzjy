@@ -20,6 +20,10 @@
 #import "MBProgressHUD.h"
 #import "HudUtils.h"
 #import "UITableView+Adapter.h"
+#import "DZRequestMananger.h"
+#import "DZURLFactory.h"
+#import "DZRequestParams.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 #endif 

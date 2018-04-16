@@ -47,7 +47,6 @@
 		1E628F1E207F351500169A64 /* DZCategoryFirstItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F1D207F351500169A64 /* DZCategoryFirstItemView.m */; };
 		1E628F21207F43DD00169A64 /* DZSearchNilView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F20207F43DD00169A64 /* DZSearchNilView.m */; };
 		1E628F24207F4BC300169A64 /* DZNetErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628F23207F4BC300169A64 /* DZNetErrorView.m */; };
-		1E628F26207F5D8F00169A64 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E628F25207F5D8F00169A64 /* address.plist */; };
 		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
@@ -156,7 +155,7 @@
 		1E628F20207F43DD00169A64 /* DZSearchNilView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchNilView.m; sourceTree = "<group>"; };
 		1E628F22207F4BC300169A64 /* DZNetErrorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZNetErrorView.h; sourceTree = "<group>"; };
 		1E628F23207F4BC300169A64 /* DZNetErrorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZNetErrorView.m; sourceTree = "<group>"; };
-		1E628F25207F5D8F00169A64 /* address.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
+		1E628F2D2082444A00169A64 /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		1E644A812079B8A00078DAF2 /* DZWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWebViewController.h; sourceTree = "<group>"; };
 		1E644A822079B8A00078DAF2 /* DZWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWebViewController.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
@@ -388,6 +387,14 @@
 			path = room;
 			sourceTree = "<group>";
 		};
+		1E628F2720823EA800169A64 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				1E628F2D2082444A00169A64 /* cities.json */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		1EA0479B2069E6A90029C481 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +483,7 @@
 		1EAD73E12068E34900BD7EF7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1E628F2720823EA800169A64 /* data */,
 				1E05504B20735AEB000F5188 /* collectionView */,
 				1E05503A2071F490000F5188 /* manager */,
 				1EA047C1206E30990029C481 /* 3rd */,
@@ -483,7 +491,6 @@
 				1EAD74072068EEC300BD7EF7 /* tableView */,
 				1EAD73FA2068EE4400BD7EF7 /* category */,
 				1EAD73E52068E37D00BD7EF7 /* commen */,
-				1E628F25207F5D8F00169A64 /* address.plist */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -656,7 +663,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */,
-				1E628F26207F5D8F00169A64 /* address.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

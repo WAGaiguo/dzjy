@@ -70,7 +70,7 @@
     NSInteger errorCode = [[object objectForKey:@"error"] integerValue];
     if (errorCode == 0) {
         if (!_willParsedDataContainsDataKey) {
-            object = [object objectForKey:@"data"];
+            object = [object objectForKey:@"result"];
         }
         _didSuccess(request,object);
     }else{

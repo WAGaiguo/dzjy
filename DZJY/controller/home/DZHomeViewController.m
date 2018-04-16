@@ -18,6 +18,7 @@
 
 #import "DZLoginViewController.h"
 #import "DZRegisterViewController.h"
+#import <MJExtension.h>
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -39,6 +40,7 @@
     [self configBannerView];
     [self configItemView];
     [self configAdapter];
+    [self requestData];
    
 }
 - (void)configSearchView{
@@ -93,6 +95,30 @@
 }
 - (void)tapToSearch{
     [DZSearchModel makeSearchViewController:self];
+}
+
+- (void)requestData{
+    DZRequestParams *params = [DZRequestParams new];
+//    [params putString:@"1" forKey:@"pageNo"];
+    [params putInteger:1 forKey:@"pageNo"];
+    [params putInteger:20 forKey:@"pageSize"];
+    [params putString:@"releDateLong" forKey:@"orderBy"];
+    [params putString:@"DESC" forKey:@"sortOrder"];
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        NSLog(@"%@",[obj mj_JSONString]);
+        [_adapter reloadData:[obj objectForKey:@"list"]];
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        NSLog(@"-----failed------");
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+//    [manager setUrlString:[DZURLFactory hotSuppliseList]];
+    [manager setUrlString:@"http://192.168.20.5/synth/searchApp"];
+    [manager setHandler:handler];
+    [manager setParams:[params params]];
+    [manager post];
+    
 }
 
 - (void)didReceiveMemoryWarning {

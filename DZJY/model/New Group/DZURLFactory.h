@@ -10,6 +10,9 @@
 
 @interface DZURLFactory : NSObject
 FOUNDATION_EXPORT NSString *const DZBaseUrl;
+FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
++ (NSString *)homeList;
++ (NSString *)hotSuppliseList;
 
 @end

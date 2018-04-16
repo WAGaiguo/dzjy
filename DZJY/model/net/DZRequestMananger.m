@@ -23,10 +23,12 @@ AFHTTPSessionManager* defaultRequestManager;
         AFHTTPResponseSerializer* responseSerializer = [AFHTTPResponseSerializer
                                                         serializer];
         responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"image/png", nil];
-        [defaultRequestManager setResponseSerializer:responseSerializer];
-
         
-        AFHTTPRequestSerializer* requestSerializer = [AFHTTPRequestSerializer serializer];
+        [defaultRequestManager setResponseSerializer:responseSerializer];
+        
+//        AFHTTPRequestSerializer* requestSerializer = [AFHTTPRequestSerializer serializer];
+        AFJSONRequestSerializer * requestSerializer = [AFJSONRequestSerializer serializer];
+        
         [requestSerializer setTimeoutInterval:30];
         [defaultRequestManager setRequestSerializer:requestSerializer];
         

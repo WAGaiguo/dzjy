@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
     return [self.dataSource count];
 }
 
@@ -27,6 +26,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
+    [cell setContent:self.dataSource[indexPath.row][@"data"]];
     return cell;
 }
 @end
