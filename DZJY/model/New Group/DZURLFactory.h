@@ -13,6 +13,10 @@ FOUNDATION_EXPORT NSString *const DZBaseUrl;
 FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
 + (NSString *)homeList;
++ (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;
+
++ (NSString *)search;
++ (NSString *)getFileByName;
 
 @end

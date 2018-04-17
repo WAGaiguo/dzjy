@@ -15,5 +15,6 @@ target 'DZJY' do
   pod 'PYSearch'
   pod 'SDCycleScrollView','~> 1.75'
   pod 'TKRoundedView', '~> 0.5'
+  pod 'PPNumberButton'
   
 end

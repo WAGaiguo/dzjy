@@ -24,6 +24,7 @@
 #import "DZURLFactory.h"
 #import "DZRequestParams.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MJExtension/MJExtension.h>
 
 
 #endif 

@@ -10,17 +10,20 @@
 #import "DZCityAdapter.h"
 #import "DZCityCell.h"
 #import "DZPathGetter.h"
+#import <MJExtension/MJExtension.h>
 
 
 @interface DZCitySelectView()
 {
     UITableView *_cityTableView;
-    DZCityAdapter *_cityAdapter;
+    
     DZProvinceAdapter *_provinceAdapter;
 }
 @property(nonatomic, assign)NSInteger selectRow;
 @property(nonatomic, strong)UITableView *provinceTableView;
 @property(nonatomic, strong)NSArray *proviceData;
+@property(nonatomic, strong)NSArray *cityData;
+@property(nonatomic, strong)DZCityAdapter *cityAdapter;
 
 @end
 
@@ -29,7 +32,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        _selectRow = 199;
+        _selectRow = 0;
         [self makeDataSource];
         [self configProvince];
         [self configCity];
@@ -40,14 +43,12 @@
 }
 - (void)makeDataSource{
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cities" ofType:@"json"];
-    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wag" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *jsonarr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    NSString *value = [NSString stringWithContentsOfFile:UIDocumentFile(@"cities.json") encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"%@",value);
-    NSArray *arr = [NSArray arrayWithContentsOfFile:filePath];
-    _proviceData = [[arr objectAtIndex:0]objectForKey:@"children"];
+    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+//    NSLog(@"%@",[jsonarr mj_JSONString]);
+    _proviceData = [NSArray arrayWithArray:jsonArr];
+    _cityData = [NSArray arrayWithArray:_proviceData[1][@"children"]];
 }
 - (void)configProvince{
     _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT - DZ_TOP - 43)];
@@ -61,13 +62,21 @@
         
         [cell setIsSelected:YES];
         me.selectRow = indexPath.row;
+        [me.cityAdapter reloadData:me.proviceData[indexPath.row][@"children"]];
+    }];
+    [_provinceAdapter setAfterReuseCell:^(DZProvinceCell * cell, NSIndexPath *indexPath) {
+        if (me.selectRow == indexPath.row){
+            [cell setIsSelected:YES];
+        }else{
+            [cell setIsSelected:NO];
+        }
     }];
     _provinceTableView.backgroundColor = UIBackgroundColor;
 }
 - (void)configCity{
     _cityTableView = [[UITableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4, 0, SCREEN_WIDTH * 0.6, SCREEN_HEIGHT - DZ_TOP - 43)];
     [self addSubview:_cityTableView];
-    _cityAdapter = [[DZCityAdapter alloc]init];
+    _cityAdapter = [[DZCityAdapter alloc]initWithDataSource:_cityData];
     [_cityTableView setAdapter:_cityAdapter];
     WEAK_SELF
     [_cityAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
@@ -75,8 +84,24 @@
             me.tapCityBlock(@"city");
         }
     }];
-//    _cityTableView.backgroundColor = UIWhiteColor;
     _cityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [_cityTableView setTableHeaderView:[self headerView]];
+}
+- (UIView *)headerView{
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH *0.6, 44)];
+    UILabel *headerLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 0, SCREEN_WIDTH * 0.6 - 13, 44)];
+    headerLabel.text = @"全部";
+    headerLabel.font = [UIFont systemFontOfSize:15];
+    headerLabel.textColor = UITitleColor;
+    [backView addSubview:headerLabel];
+    WEAK_SELF
+    [backView bk_whenTapped:^{
+        if (me.tapCityBlock){
+            me.tapCityBlock(_proviceData[me.selectRow][@"name"]);
+        }
+    }];
+    return backView;
 }
 - (void)setAnimation{
     self.hidden = NO;

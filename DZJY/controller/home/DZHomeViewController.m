@@ -9,7 +9,7 @@
 #import "DZHomeViewController.h"
 #import "DZSearchView.h"
 #import "DZHomeItemView.h"
-#import "DZWebViewController.h"
+#import "DZWeb2ViewController.h"
 #import <SDCycleScrollView.h>
 #import "DZHomeAdapter.h"
 #import "DZCategoryAllController.h"
@@ -72,6 +72,12 @@
             [me.navigationController pushViewController:[[DZOrderFinishController alloc]init] animated:YES];
             return ;
         }
+        if (indexPath.item == 1){
+            DZWeb2ViewController *web = [DZWeb2ViewController new];
+            web.content = @"https://www.baidu.com/";
+            [me.navigationController pushViewController:web animated:YES];
+            return;
+        }
         if (indexPath.item < 4) {
 //            DZWebViewController *web = [[DZWebViewController alloc]init];
 //            web.content = @"https://www.baidu.com/";
@@ -106,12 +112,12 @@
     DZRequestParams *params = [DZRequestParams new];
 //    [params putString:@"1" forKey:@"pageNo"];
     [params putInteger:1 forKey:@"pageNo"];
-    [params putInteger:20 forKey:@"pageSize"];
+    [params putInteger:30 forKey:@"pageSize"];
     [params putString:@"releDateLong" forKey:@"orderBy"];
     [params putString:@"DESC" forKey:@"sortOrder"];
     DZResponseHandler *handler = [DZResponseHandler new];
+    handler.type = HZRequestManangerTypeDefault | HZRequestManangerTypeLoadingOnly | HZRequestManangerTypeTipsOnly;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@",[obj mj_JSONString]);
         [_adapter reloadData:[obj objectForKey:@"list"]];
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {

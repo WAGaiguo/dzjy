@@ -36,8 +36,17 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)homeList{
     return [self absulteString:@"/synth/searchApp"];
 }
++ (NSString *)searchWantToBuy{
+    return [self absulteString:@"/searchWantToBuy"];
+}
 + (NSString *)hotSuppliseList{
     return [self absulteString:@"/w/listingInformation/getHotSuppliseList"];
+}
++ (NSString *)search{
+    return [self absulteString:@"synth/w/listingInformation/search"];
+}
++ (NSString *)getFileByName{
+    return [self absulteString:@"synth/w/listingInformation/search"];
 }
 
 @end

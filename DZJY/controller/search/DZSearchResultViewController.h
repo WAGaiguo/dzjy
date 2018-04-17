@@ -9,5 +9,5 @@
 #import "DZTableViewController.h"
 
 @interface DZSearchResultViewController : DZTableViewController
-
+@property (nonatomic, strong)NSString *searchTitle;
 @end

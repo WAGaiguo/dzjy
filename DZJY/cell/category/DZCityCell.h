@@ -10,7 +10,9 @@
 
 @interface DZCityCell : UITableViewCell
 @property (nonatomic, strong)UILabel *titleLabel;
+@property (nonatomic, strong)NSString *cityId;
 @property (nonatomic, assign)BOOL isSelected;
+- (void)setContent:(NSDictionary *)dic;
 @end
 
 @interface DZProvinceCell : UITableViewCell

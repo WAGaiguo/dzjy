@@ -93,6 +93,7 @@
         [_cityView setSelfHide];
         [_sortView setAnimation];
     }
+    currentTag = index;
 }
 
 - (void)didReceiveMemoryWarning {

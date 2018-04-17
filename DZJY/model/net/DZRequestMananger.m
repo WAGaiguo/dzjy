@@ -25,9 +25,13 @@ AFHTTPSessionManager* defaultRequestManager;
         responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"image/png", nil];
         
         [defaultRequestManager setResponseSerializer:responseSerializer];
-        
+       
+        // 请求格式
 //        AFHTTPRequestSerializer* requestSerializer = [AFHTTPRequestSerializer serializer];
         AFJSONRequestSerializer * requestSerializer = [AFJSONRequestSerializer serializer];
+        
+        // 设置请求头
+//        [requestSerializer setValue:@"value1" forHTTPHeaderField:@"key1"];
         
         [requestSerializer setTimeoutInterval:30];
         [defaultRequestManager setRequestSerializer:requestSerializer];

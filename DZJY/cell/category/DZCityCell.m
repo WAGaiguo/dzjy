@@ -31,10 +31,13 @@
     _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 15, 100, 20)];
     _titleLabel.textColor = UITitleColor;
     _titleLabel.font = [UIFont systemFontOfSize:15];
-    _titleLabel.text = @"蔬菜";
+//    _titleLabel.text = @"蔬菜";
     [self addSubview:_titleLabel];
     
-    
+}
+- (void)setContent:(NSDictionary *)dic{
+    _titleLabel.text = [[dic objectForKey:@"name"] description];
+    _cityId = [[dic objectForKey:@"id"] description];
 }
 
 @end

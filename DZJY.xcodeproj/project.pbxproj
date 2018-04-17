@@ -50,6 +50,10 @@
 		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1082084951600E31C62 /* DZOrderFinishController.m */; };
 		1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10C2084955500E31C62 /* DZOrderFinishView.m */; };
+		1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */; };
+		1E92D1122084E99800E31C62 /* wag.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E92D1112084E99800E31C62 /* wag.json */; };
+		1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */; };
+		1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
 		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
@@ -159,11 +163,17 @@
 		1E628F23207F4BC300169A64 /* DZNetErrorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZNetErrorView.m; sourceTree = "<group>"; };
 		1E644A812079B8A00078DAF2 /* DZWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWebViewController.h; sourceTree = "<group>"; };
 		1E644A822079B8A00078DAF2 /* DZWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWebViewController.m; sourceTree = "<group>"; };
-		1E92D103208474FA00E31C62 /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		1E92D1072084951600E31C62 /* DZOrderFinishController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderFinishController.h; sourceTree = "<group>"; };
 		1E92D1082084951600E31C62 /* DZOrderFinishController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderFinishController.m; sourceTree = "<group>"; };
 		1E92D10B2084955500E31C62 /* DZOrderFinishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderFinishView.h; sourceTree = "<group>"; };
 		1E92D10C2084955500E31C62 /* DZOrderFinishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderFinishView.m; sourceTree = "<group>"; };
+		1E92D10E2084A27200E31C62 /* DZOrderBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderBuyView.h; sourceTree = "<group>"; };
+		1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderBuyView.m; sourceTree = "<group>"; };
+		1E92D1112084E99800E31C62 /* wag.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wag.json; sourceTree = "<group>"; };
+		1E92D1132085C30200E31C62 /* DZWeb2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWeb2ViewController.h; sourceTree = "<group>"; };
+		1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWeb2ViewController.m; sourceTree = "<group>"; };
+		1E92D1162085C70D00E31C62 /* DZOrderTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderTipsView.h; sourceTree = "<group>"; };
+		1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderTipsView.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
 		1EA0479D2069E6D30029C481 /* DZTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTitleView.m; sourceTree = "<group>"; };
 		1EA047A02069EA8B0029C481 /* DZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZBaseViewController.h; sourceTree = "<group>"; };
@@ -396,7 +406,7 @@
 		1E628F2720823EA800169A64 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				1E92D103208474FA00E31C62 /* cities.json */,
+				1E92D1112084E99800E31C62 /* wag.json */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -415,6 +425,10 @@
 			children = (
 				1E92D10B2084955500E31C62 /* DZOrderFinishView.h */,
 				1E92D10C2084955500E31C62 /* DZOrderFinishView.m */,
+				1E92D10E2084A27200E31C62 /* DZOrderBuyView.h */,
+				1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */,
+				1E92D1162085C70D00E31C62 /* DZOrderTipsView.h */,
+				1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -445,6 +459,8 @@
 				1EA047AD206A10170029C481 /* DZTableViewController.m */,
 				1E644A812079B8A00078DAF2 /* DZWebViewController.h */,
 				1E644A822079B8A00078DAF2 /* DZWebViewController.m */,
+				1E92D1132085C30200E31C62 /* DZWeb2ViewController.h */,
+				1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -689,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */,
+				1E92D1122084E99800E31C62 /* wag.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,8 +788,10 @@
 				1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */,
 				1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */,
 				1E530298206934E80010D78A /* DZResponseHandler.m in Sources */,
+				1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */,
 				1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */,
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
+				1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */,
 				1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
 				1E628F07207DDA3200169A64 /* DZCommenCollectionHeaderView.m in Sources */,
@@ -780,6 +799,7 @@
 				1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */,
 				1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */,
 				1E628F21207F43DD00169A64 /* DZSearchNilView.m in Sources */,
+				1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */,
 				1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */,
 				1E628F1E207F351500169A64 /* DZCategoryFirstItemView.m in Sources */,
 				1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */,
