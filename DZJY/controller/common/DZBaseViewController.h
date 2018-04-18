@@ -19,4 +19,7 @@
 
 @property (nonatomic,assign)BOOL hasRightBtn;
 
+- (void)setBackImageGray;
+- (void)setBackGroudHidden;
+
 @end

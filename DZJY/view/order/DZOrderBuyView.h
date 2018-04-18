@@ -11,9 +11,16 @@
 @interface DZOrderBuyView : UIView
 @property (nonatomic, strong) UIImageView *imageV;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *moneyLabel;
+@property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *numsTopLabel;
 @property (nonatomic, strong) UILabel *numsBottomLabel;
+@property (nonatomic, strong) UILabel *unitLabel;
 
 @property (nonatomic, copy)void(^tapBuyBlock)(NSInteger nums);
+- (void)animation;
+@end
+
+@interface DZOrderBuyBtnView: UIView
+@property (nonatomic, strong)UIImageView *imageV;
+@property (nonatomic, copy)void (^tapBlcok)(void);
 @end

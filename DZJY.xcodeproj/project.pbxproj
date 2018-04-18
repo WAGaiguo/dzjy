@@ -54,6 +54,12 @@
 		1E92D1122084E99800E31C62 /* wag.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E92D1112084E99800E31C62 /* wag.json */; };
 		1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */; };
 		1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */; };
+		1E92D11B2085F80300E31C62 /* DZOrderAttentionBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */; };
+		1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D11D2086D75700E31C62 /* DZOrderConfirmViewController.m */; };
+		1E92D1222086DE4300E31C62 /* DZOrderConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1212086DE4300E31C62 /* DZOrderConfirmCell.m */; };
+		1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1252086E11500E31C62 /* DZOrderConfirmAdapter.m */; };
+		1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D12820872F7400E31C62 /* DZOrderConfirmFooterView.m */; };
+		1E92D12C20873E1200E31C62 /* DZOrderConfrimBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D12B20873E1200E31C62 /* DZOrderConfrimBtnView.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
 		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
@@ -174,6 +180,18 @@
 		1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWeb2ViewController.m; sourceTree = "<group>"; };
 		1E92D1162085C70D00E31C62 /* DZOrderTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderTipsView.h; sourceTree = "<group>"; };
 		1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderTipsView.m; sourceTree = "<group>"; };
+		1E92D1192085F80300E31C62 /* DZOrderAttentionBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderAttentionBuyView.h; sourceTree = "<group>"; };
+		1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderAttentionBuyView.m; sourceTree = "<group>"; };
+		1E92D11C2086D75700E31C62 /* DZOrderConfirmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfirmViewController.h; sourceTree = "<group>"; };
+		1E92D11D2086D75700E31C62 /* DZOrderConfirmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfirmViewController.m; sourceTree = "<group>"; };
+		1E92D1202086DE4300E31C62 /* DZOrderConfirmCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfirmCell.h; sourceTree = "<group>"; };
+		1E92D1212086DE4300E31C62 /* DZOrderConfirmCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfirmCell.m; sourceTree = "<group>"; };
+		1E92D1242086E11500E31C62 /* DZOrderConfirmAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfirmAdapter.h; sourceTree = "<group>"; };
+		1E92D1252086E11500E31C62 /* DZOrderConfirmAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfirmAdapter.m; sourceTree = "<group>"; };
+		1E92D12720872F7400E31C62 /* DZOrderConfirmFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfirmFooterView.h; sourceTree = "<group>"; };
+		1E92D12820872F7400E31C62 /* DZOrderConfirmFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfirmFooterView.m; sourceTree = "<group>"; };
+		1E92D12A20873E1200E31C62 /* DZOrderConfrimBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfrimBtnView.h; sourceTree = "<group>"; };
+		1E92D12B20873E1200E31C62 /* DZOrderConfrimBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfrimBtnView.m; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
 		1EA0479D2069E6D30029C481 /* DZTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTitleView.m; sourceTree = "<group>"; };
 		1EA047A02069EA8B0029C481 /* DZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZBaseViewController.h; sourceTree = "<group>"; };
@@ -416,6 +434,8 @@
 			children = (
 				1E92D1072084951600E31C62 /* DZOrderFinishController.h */,
 				1E92D1082084951600E31C62 /* DZOrderFinishController.m */,
+				1E92D11C2086D75700E31C62 /* DZOrderConfirmViewController.h */,
+				1E92D11D2086D75700E31C62 /* DZOrderConfirmViewController.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -429,6 +449,30 @@
 				1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */,
 				1E92D1162085C70D00E31C62 /* DZOrderTipsView.h */,
 				1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */,
+				1E92D1192085F80300E31C62 /* DZOrderAttentionBuyView.h */,
+				1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */,
+				1E92D12720872F7400E31C62 /* DZOrderConfirmFooterView.h */,
+				1E92D12820872F7400E31C62 /* DZOrderConfirmFooterView.m */,
+				1E92D12A20873E1200E31C62 /* DZOrderConfrimBtnView.h */,
+				1E92D12B20873E1200E31C62 /* DZOrderConfrimBtnView.m */,
+			);
+			path = order;
+			sourceTree = "<group>";
+		};
+		1E92D11F2086DDDB00E31C62 /* order */ = {
+			isa = PBXGroup;
+			children = (
+				1E92D1202086DE4300E31C62 /* DZOrderConfirmCell.h */,
+				1E92D1212086DE4300E31C62 /* DZOrderConfirmCell.m */,
+			);
+			path = order;
+			sourceTree = "<group>";
+		};
+		1E92D1232086E0E700E31C62 /* order */ = {
+			isa = PBXGroup;
+			children = (
+				1E92D1242086E11500E31C62 /* DZOrderConfirmAdapter.h */,
+				1E92D1252086E11500E31C62 /* DZOrderConfirmAdapter.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -538,6 +582,7 @@
 		1EAD73E22068E35700BD7EF7 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				1E92D11F2086DDDB00E31C62 /* order */,
 				1E628EFB207DB4C400169A64 /* category */,
 				1E05504420722E54000F5188 /* home */,
 			);
@@ -610,6 +655,7 @@
 		1EAD74072068EEC300BD7EF7 /* tableView */ = {
 			isa = PBXGroup;
 			children = (
+				1E92D1232086E0E700E31C62 /* order */,
 				1E628ED7207A182800169A64 /* home */,
 				1EAD740B2068EF5300BD7EF7 /* UITableView+Adapter.h */,
 				1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */,
@@ -772,8 +818,10 @@
 			files = (
 				1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */,
 				1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */,
+				1E92D1222086DE4300E31C62 /* DZOrderConfirmCell.m in Sources */,
 				1E628EFE207DB50700169A64 /* DZVarietyCollectionViewCell.m in Sources */,
 				1E628EEA207C89BC00169A64 /* DZCategoryCollectionViewCell.m in Sources */,
+				1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */,
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
 				1E628EF0207CA33400169A64 /* UIImage+resize.m in Sources */,
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
@@ -807,13 +855,16 @@
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
 				1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */,
 				1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */,
+				1E92D12C20873E1200E31C62 /* DZOrderConfrimBtnView.m in Sources */,
 				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
 				1E628EFA207DA1EE00169A64 /* DZVarietyView.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
+				1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */,
 				1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */,
 				1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */,
 				1E05505320747951000F5188 /* DZLoginViewController.m in Sources */,
+				1E92D11B2085F80300E31C62 /* DZOrderAttentionBuyView.m in Sources */,
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1E628F1B207F34CB00169A64 /* DZCategoryFirstController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
@@ -835,6 +886,7 @@
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
+				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,

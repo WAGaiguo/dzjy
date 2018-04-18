@@ -61,6 +61,14 @@
     }
 }
 
+- (void)setBackImageGray{
+    [_titleView.leftView setImage:[UIImage imageNamed:@"back_gray"] forState:UIControlStateNormal];
+}
+
+- (void)setBackGroudHidden{
+    [_titleView setHasBackGroud:NO];
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleDefault;
 }

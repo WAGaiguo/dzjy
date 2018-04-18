@@ -12,6 +12,7 @@
 
 @interface DZTitleView(){
     UILabel *_textLabel;
+    UIImageView *_backImageV;
 }
 @end
 
@@ -21,11 +22,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *backImageV = [[UIImageView alloc]initWithFrame:frame];
-        backImageV.image = [UIImage imageNamed:@"导航条"];
-//        backImageV.contentMode = UIViewContentModeScaleAspectFill;
-        backImageV.tag = 999;
-        [self addSubview:backImageV];
+        _backImageV = [[UIImageView alloc]initWithFrame:frame];
+        _backImageV.image = [UIImage imageNamed:@"导航条"];        
+        _backImageV.tag = 999;
+        [self addSubview:_backImageV];
         
         _leftView = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftView setFrame:CGRectMake(0, 20, ITEMWIDTH, ITEMWIDTH)];
@@ -68,6 +68,14 @@
         [_leftView setImage:[UIImage imageNamed:@"go_back"] forState:UIControlStateNormal];
     }else{
         [_leftView setImage:nil forState:UIControlStateNormal];
+    }
+}
+
+- (void)setHasBackGroud:(BOOL)hasBackGroud{
+    if(hasBackGroud){
+        _backImageV.image = [UIImage imageNamed:@"导航条"];
+    }else{
+        _backImageV.image = nil;
     }
 }
 

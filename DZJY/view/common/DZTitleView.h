@@ -17,5 +17,6 @@
 @property (nonatomic, strong)NSString *title;
 
 @property (nonatomic,assign)BOOL backEnabled;
+@property (nonatomic,assign)BOOL hasBackGroud;
 
 @end

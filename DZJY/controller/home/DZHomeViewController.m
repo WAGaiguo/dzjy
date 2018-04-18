@@ -20,6 +20,7 @@
 #import "DZRegisterViewController.h"
 #import <MJExtension.h>
 #import "DZOrderFinishController.h"
+#import "DZOrderConfirmViewController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -78,10 +79,10 @@
             [me.navigationController pushViewController:web animated:YES];
             return;
         }
+        if (indexPath.item == 2){
+            [me.navigationController pushViewController:[DZOrderConfirmViewController new] animated:YES];return;
+        }
         if (indexPath.item < 4) {
-//            DZWebViewController *web = [[DZWebViewController alloc]init];
-//            web.content = @"https://www.baidu.com/";
-//            [me.navigationController pushViewController:web animated:YES];return ;
             [me.navigationController pushViewController:[DZRegisterViewController new] animated:YES];
             return;
             

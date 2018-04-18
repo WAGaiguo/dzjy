@@ -9,10 +9,16 @@
 #import "DZWeb2ViewController.h"
 #import <WebKit/WebKit.h>
 #import "DZOrderTipsView.h"
+#import "DZOrderBuyView.h"
+#import "DZOrderAttentionBuyView.h"
+
 
 @interface DZWeb2ViewController ()
 {
     WKWebView *webV;
+    DZOrderAttentionBuyView *btnV;
+    DZOrderBuyView *buyView;
+    
 }
 @end
 
@@ -35,10 +41,25 @@
     [webV loadRequest:request];
     
     [self makeTipsView];
+    [self makeBtnView];
 }
 - (void)makeTipsView{
     DZOrderTipsView *tipView = [[DZOrderTipsView alloc]initWithFrame:SCREEN_BOUNDS];
     [self.view addSubview:tipView];
+}
+- (void)makeBtnView{
+    btnV = [[DZOrderAttentionBuyView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 57, SCREEN_WIDTH, 57)];
+    [btnV setBottom:SCREEN_HEIGHT+8];
+    [self.view addSubview:btnV];
+    WEAK_SELF
+    [btnV setBuyBlock:^{
+        [me makeBuyView];
+    }];
+}
+- (void)makeBuyView{
+    buyView = [[DZOrderBuyView alloc]init];
+    [buyView animation];
+    [self.view addSubview:buyView];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

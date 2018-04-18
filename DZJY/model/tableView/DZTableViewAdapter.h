@@ -18,7 +18,7 @@
 @property (nonatomic, readonly)NSMutableArray *dataSource;
 @property (nonatomic, copy)void (^didCellSelected)(id cell, NSIndexPath *indexPath);
 @property (nonatomic, copy)void (^afterReuseCell)(id cell, NSIndexPath *indexPath);
-@property (nonatomic, copy)void (^didScroll)(UITableView *);
+@property (nonatomic, copy)void (^didScroll)(UITableView *tableView);
 
 @property (nonatomic,assign)BOOL deselectedAnimated;
 - (void)goTop:(BOOL)animated;
