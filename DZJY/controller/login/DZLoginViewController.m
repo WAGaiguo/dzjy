@@ -10,7 +10,6 @@
 #import "DZPathGetter.h"
 #import "NSString+Base64.h"
 #import "NSString+MD5.h"
-#import "DZUserManager.h"
 
 @interface DZLoginViewController ()
 {
@@ -77,6 +76,17 @@
         _passwordField.secureTextEntry = isHidden ? NO : YES;
     }];
     
+    UILabel *label = [[UILabel alloc]init];
+    [_scrollView addSubview:label];
+    label.sd_layout.widthIs(100).heightIs(20).topSpaceToView(passwordView, 10).leftSpaceToView(hiddenImageV, 0);
+    label.font = [UIFont systemFontOfSize:13];
+    label.textColor = UICommonColor;
+    label.text = @"忘记密码?";
+    label.userInteractionEnabled = YES;
+    [label bk_whenTapped:^{
+        [HudUtils showMessage:@"忘记密码"];
+    }];
+    
 //    UIView *codeView = [self commonFieldView:@"新密码"];
 //    codeView.top = passwordView.bottom;
 //    [_scrollView addSubview:codeView];
@@ -92,7 +102,7 @@
     [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
     [_scrollView addSubview:btn];
     [btn bk_addEventHandler:^(id sender) {
-        [self loginRequestData];
+        [self checkUsernameAndPassword];
     } forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, btn.bottom + 65, SCREEN_WIDTH, 15)];
@@ -102,14 +112,28 @@
     messageLabel.text = @"还不是会员？请到电脑Web端注册成为会员";
     [_scrollView addSubview:messageLabel];
 }
-
+- (void)checkUsernameAndPassword{
+    NSString *username = _usernameField.text;
+    NSString *passWord = _passwordField.text;
+    if(username == nil || username.length < 1){
+        [HudUtils showMessage:@"请输入您用户名"]; return;
+    }
+    if(passWord == nil || passWord.length < 1){
+        [HudUtils showMessage:@"请输入您的密码"]; return;
+    }
+    [self loginRequestData];
+}
 - (void)loginRequestData{
     [HudUtils show:MAIN_WINDOW];
+    NSString *username = _usernameField.text;
+    NSString *passWord = _passwordField.text;
+    username = @"lixue01";
+    passWord = @"a123456";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    NSString *md5PassWord = [@"a123456" MD5Hash];
-    NSString *userAndPassword = [NSString stringWithFormat:@"%@:%@",@"lixue01",md5PassWord];
+    NSString *md5PassWord = [passWord MD5Hash];
+    NSString *userAndPassword = [NSString stringWithFormat:@"%@:%@",username,md5PassWord];
     NSString *headerStr = [NSString stringWithFormat:@"Basic %@",[userAndPassword base64EncodedString]];
     [manager.requestSerializer setValue:headerStr forHTTPHeaderField:@"Authorization"];
    
@@ -119,6 +143,7 @@
         DZUserManager *manager = [DZUserManager manager];
         [manager login:dic[@"result"]];
         [HudUtils showMessage:@"登录成功"];
+        [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [HudUtils hide:MAIN_WINDOW];
 //        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];

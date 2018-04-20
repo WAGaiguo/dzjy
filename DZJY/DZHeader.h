@@ -26,6 +26,7 @@
 #import "DZRequestParams.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
+#import "DZUserManager.h"
 
 
 #endif 
