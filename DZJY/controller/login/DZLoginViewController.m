@@ -10,6 +10,7 @@
 #import "DZPathGetter.h"
 #import "NSString+Base64.h"
 #import "NSString+MD5.h"
+#import "DZUserManager.h"
 
 @interface DZLoginViewController ()
 {
@@ -18,6 +19,7 @@
     UITextField *_codeField;
     UIScrollView *_scrollView;
     UIButton *_codeBtn;
+    
 }
 @end
 
@@ -29,6 +31,10 @@
     [self configHeaderAndX];
     [self configTextField];
     [self configLoginButton];
+    
+    DZUserManager *manager = [DZUserManager manager];
+    DZLoginUser *user = [manager user];
+    NSLog(@"%@--%@", user.userType, user.tokenType);
 }
 - (void)makeScrollView{
     _scrollView = [[UIScrollView alloc]initWithFrame:SCREEN_BOUNDS];
@@ -103,17 +109,16 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSString *md5PassWord = [@"a123456" MD5Hash];
-    NSLog(@"md5:::%@", md5PassWord);
-    NSString *userAndPassword = [NSString stringWithFormat:@"%@:%@",@"lixue0",md5PassWord];
+    NSString *userAndPassword = [NSString stringWithFormat:@"%@:%@",@"lixue01",md5PassWord];
     NSString *headerStr = [NSString stringWithFormat:@"Basic %@",[userAndPassword base64EncodedString]];
-    NSLog(@"拼接完成Base64：：：%@", headerStr);
     [manager.requestSerializer setValue:headerStr forHTTPHeaderField:@"Authorization"];
    
     [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [HudUtils hide:MAIN_WINDOW];
         NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
-        [HudUtils showMessage:dic[@"code"]];
-        NSLog(@"%@", responseObject);
+        DZUserManager *manager = [DZUserManager manager];
+        [manager login:dic[@"result"]];
+        [HudUtils showMessage:@"登录成功"];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [HudUtils hide:MAIN_WINDOW];
 //        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];

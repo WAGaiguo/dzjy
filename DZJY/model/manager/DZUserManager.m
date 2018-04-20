@@ -52,6 +52,10 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(DZUserManager, manager);
         [jsonString writeToFile:UIDocumentFile(@"user.bat") atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
 }
+- (void)login:(NSDictionary *)info{
+    _user = [[DZLoginUser alloc]initWithJsonObject:info];
+    [self save:info];
+}
 - (void)logout{
     [[NSFileManager defaultManager] removeItemAtPath:UIDocumentFile(@"user.bat") error:nil];
     _user = nil;

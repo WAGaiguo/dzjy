@@ -12,6 +12,7 @@
 @interface DZUserManager : NSObject
 + (DZUserManager *)manager;
 
+- (void)login:(NSDictionary *)info;
 - (BOOL)isLogined;
 - (DZLoginUser *)user;
 

@@ -21,8 +21,26 @@
 - (id)initWithJsonObject:(NSDictionary *)info{
     self = [super init];
     if (self) {
-        self.username = [[info objectForKey:@"username"] description];
-        self.nickname = [[info objectForKey:@"nickname"] description];
+        self.tokenType = [[info objectForKey:@"tokenType"] description];
+        self.accessToken = [[info objectForKey:@"accessToken"] description];
+        self.refreshToken = [[info objectForKey:@"refreshToken"] description];
+        
+        NSDictionary *user = [info objectForKey:@"user"];
+        self.id         = [user[@"id"] description];
+        self.createDate = [user[@"createDate"] description];
+        self.updateDate = [user[@"updateDate"] description];
+        self.remarks    = [user[@"remarks"] description];
+        self.openId     = [user[@"openId"] description];
+        self.clientId   = [user[@"clientId"] description];
+        self.parentId   = [user[@"parentId"] description];
+        self.loginName  = [user[@"loginname"] description];
+        self.email      = [user[@"email"] description];
+        self.mobile     = [user[@"mobile"] description];
+        self.userType   = [user[@"userType"] description];
+        self.activeFlag = [user[@"activeFalg"] description];
+        self.authFalg   = [user[@"authFalg"] description];
+        self.loginFlag  = [user[@"loginFlag"] description];
+        self.availableDate = [user[@"availableDate"] description];
     }
     return self;
 }
