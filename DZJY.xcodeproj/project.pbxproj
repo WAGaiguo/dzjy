@@ -60,6 +60,7 @@
 		1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1252086E11500E31C62 /* DZOrderConfirmAdapter.m */; };
 		1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D12820872F7400E31C62 /* DZOrderConfirmFooterView.m */; };
 		1E92D12C20873E1200E31C62 /* DZOrderConfrimBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D12B20873E1200E31C62 /* DZOrderConfrimBtnView.m */; };
+		1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D15120888B0400E31C62 /* NSString+Base64.m */; };
 		1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0479D2069E6D30029C481 /* DZTitleView.m */; };
 		1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047A12069EA8B0029C481 /* DZBaseViewController.m */; };
 		1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AA2069F09F0029C481 /* DZTabBarViewController.m */; };
@@ -192,6 +193,8 @@
 		1E92D12820872F7400E31C62 /* DZOrderConfirmFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfirmFooterView.m; sourceTree = "<group>"; };
 		1E92D12A20873E1200E31C62 /* DZOrderConfrimBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfrimBtnView.h; sourceTree = "<group>"; };
 		1E92D12B20873E1200E31C62 /* DZOrderConfrimBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderConfrimBtnView.m; sourceTree = "<group>"; };
+		1E92D15020888B0400E31C62 /* NSString+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		1E92D15120888B0400E31C62 /* NSString+Base64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		1EA0479C2069E6D30029C481 /* DZTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTitleView.h; sourceTree = "<group>"; };
 		1EA0479D2069E6D30029C481 /* DZTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTitleView.m; sourceTree = "<group>"; };
 		1EA047A02069EA8B0029C481 /* DZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZBaseViewController.h; sourceTree = "<group>"; };
@@ -648,6 +651,8 @@
 				1EA047BF206CE2F60029C481 /* NSDate+Format.m */,
 				1E628EEE207CA33400169A64 /* UIImage+resize.h */,
 				1E628EEF207CA33400169A64 /* UIImage+resize.m */,
+				1E92D15020888B0400E31C62 /* NSString+Base64.h */,
+				1E92D15120888B0400E31C62 /* NSString+Base64.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -825,6 +830,7 @@
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
 				1E628EF0207CA33400169A64 /* UIImage+resize.m in Sources */,
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
+				1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */,
 				1E628EE1207C57D300169A64 /* DZCategoryAllController.m in Sources */,
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,

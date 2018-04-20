@@ -56,9 +56,9 @@
 }
 
 - (void)requestStarted:(DZRequestMananger *)request{
-    if ([self willShowLoading]) {
+//    if ([self willShowLoading]) {
         [self showLoading];
-    }
+//    }
 }
 - (void)callOnSuccess:(NSData *)responseData request:(DZRequestMananger *)request{
     NSError *jsonError;

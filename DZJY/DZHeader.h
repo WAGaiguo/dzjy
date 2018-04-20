@@ -14,6 +14,7 @@
 #import <sdwebimage/UIImageView+WebCache.h>
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
 #import "UIView+BlocksKit.h"
+#import <UIControl+BlocksKit.h>
 #import "UITextField+BlocksKit.h"
 #import "UIColor+Instance.h"
 #import "DZApplication.h"

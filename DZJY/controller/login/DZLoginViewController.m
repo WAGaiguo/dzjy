@@ -8,19 +8,165 @@
 
 #import "DZLoginViewController.h"
 #import "DZPathGetter.h"
+#import "NSString+Base64.h"
+#import "NSString+MD5.h"
 
 @interface DZLoginViewController ()
-
+{
+    UITextField *_usernameField;
+    UITextField *_passwordField;
+    UITextField *_codeField;
+    UIScrollView *_scrollView;
+    UIButton *_codeBtn;
+}
 @end
 
 @implementation DZLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"登录"];
-    [self setBackEnabled:YES];
-    [self configButton];
+    [self makeScrollView];
+    [self configHeaderAndX];
+    [self configTextField];
+    [self configLoginButton];
 }
+- (void)makeScrollView{
+    _scrollView = [[UIScrollView alloc]initWithFrame:SCREEN_BOUNDS];
+    [self.view addSubview:_scrollView];
+    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT + 1);
+    _scrollView.showsVerticalScrollIndicator = NO;
+    _scrollView.backgroundColor = UIWhiteColor;
+}
+- (void)configHeaderAndX{
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeBtn setImage:[UIImage imageNamed:@"close_btn"] forState:UIControlStateNormal];
+    closeBtn.frame = CGRectMake(SCREEN_WIDTH - 55, 25, 30, 30);
+    [_scrollView addSubview:closeBtn];
+    [closeBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo"]];
+    imageV.centerX = SCREEN_WIDTH/2.0;
+    imageV.top = 100;
+    [_scrollView addSubview:imageV];
+}
+- (void)configTextField{
+    UIView *usernameView = [self commonFieldView:@"用户名"];
+    usernameView.top = 200;
+    [_scrollView addSubview:usernameView];
+    _usernameField = [self textField:@"用户名"];
+    [usernameView addSubview:_usernameField];
+    
+    UIView *passwordView = [self commonFieldView:@"旧密码"];
+    passwordView.top = usernameView.bottom;
+    [_scrollView addSubview:passwordView];
+    _passwordField = [self textField:@"登录密码"];
+    [passwordView addSubview:_passwordField];
+    UIImageView *hiddenImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"隐藏"]];
+    hiddenImageV.centerY = 25;
+    hiddenImageV.right = 250;
+    hiddenImageV.userInteractionEnabled = YES;
+    [passwordView addSubview:hiddenImageV];
+    [hiddenImageV bk_whenTapped:^{
+        bool isHidden = _passwordField.secureTextEntry;
+        _passwordField.secureTextEntry = isHidden ? NO : YES;
+    }];
+    
+//    UIView *codeView = [self commonFieldView:@"新密码"];
+//    codeView.top = passwordView.bottom;
+//    [_scrollView addSubview:codeView];
+//    _codeField = [self textField:@"验证码"];
+//    [codeView addSubview:_codeField];
+}
+
+- (void)configLoginButton{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(SCREEN_WIDTH/2 - 125, 400, 250, 42);
+    [btn setBackgroundImage:[UIImage imageNamed:@"登录按钮"] forState:UIControlStateNormal];
+    [btn setTitle:@"登录" forState:UIControlStateNormal];
+    [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
+    [_scrollView addSubview:btn];
+    [btn bk_addEventHandler:^(id sender) {
+        [self loginRequestData];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, btn.bottom + 65, SCREEN_WIDTH, 15)];
+    messageLabel.font = [UIFont systemFontOfSize:12];
+    messageLabel.textAlignment = NSTextAlignmentCenter;
+    messageLabel.textColor = RGBCOLOR(153, 153, 153);
+    messageLabel.text = @"还不是会员？请到电脑Web端注册成为会员";
+    [_scrollView addSubview:messageLabel];
+}
+
+- (void)loginRequestData{
+    [HudUtils show:MAIN_WINDOW];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSString *md5PassWord = [@"a123456" MD5Hash];
+    NSLog(@"md5:::%@", md5PassWord);
+    NSString *userAndPassword = [NSString stringWithFormat:@"%@:%@",@"lixue0",md5PassWord];
+    NSString *headerStr = [NSString stringWithFormat:@"Basic %@",[userAndPassword base64EncodedString]];
+    NSLog(@"拼接完成Base64：：：%@", headerStr);
+    [manager.requestSerializer setValue:headerStr forHTTPHeaderField:@"Authorization"];
+   
+    [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [HudUtils hide:MAIN_WINDOW];
+        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+        [HudUtils showMessage:dic[@"code"]];
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [HudUtils hide:MAIN_WINDOW];
+//        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+//        NSData *errorData = [ErrorResponse dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *errorDic = [NSJSONSerialization JSONObjectWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONReadingMutableContainers error:nil];
+        [HudUtils showMessage:errorDic[@"message"]];
+    }];
+    
+}
+
+- (UITextField *)textField:(NSString *)placeHodler {
+    UITextField *textField = [[UITextField alloc]init];
+    textField.placeholder = placeHodler;
+    textField.height = 50;
+    textField.width = 200;
+    textField.top = 0;
+    textField.left = 25;
+    textField.font = [UIFont systemFontOfSize:15];
+    textField.returnKeyType = UIReturnKeyDone;
+    [textField setBk_shouldReturnBlock:^BOOL(UITextField *textField) {
+       return [MAIN_WINDOW endEditing:YES];
+    }];
+    return textField;
+}
+
+- (UIView *)commonFieldView:(NSString *)imgStr{
+    UIView *view = [[UIView alloc]init];
+    view.width = 250;
+    view.height = 51;
+    view.centerX = SCREEN_WIDTH/2.0;
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 50, 250, 1)];
+    lineView.backgroundColor = UISeperatorColor;
+    [view addSubview:lineView];
+    UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:imgStr]];
+    imageV.centerY = 25;
+    imageV.left = 0;
+    [view addSubview:imageV];
+    return view;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)configButton{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -9,7 +9,7 @@
 #import "DZOrderConfirmCell.h"
 #import <YYAnimatedImageView.h>
 #import <NSString+YYAdd.h>
-#import <YYKit.h>
+#import <NSAttributedString+YYText.h>
 
 @implementation DZOrderConfirmCell
 

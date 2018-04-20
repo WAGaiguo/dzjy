@@ -83,6 +83,7 @@
             [me.navigationController pushViewController:[DZOrderConfirmViewController new] animated:YES];return;
         }
         if (indexPath.item < 4) {
+            [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
             [me.navigationController pushViewController:[DZRegisterViewController new] animated:YES];
             return;
             
@@ -117,7 +118,7 @@
     [params putString:@"releDateLong" forKey:@"orderBy"];
     [params putString:@"DESC" forKey:@"sortOrder"];
     DZResponseHandler *handler = [DZResponseHandler new];
-    handler.type = HZRequestManangerTypeDefault | HZRequestManangerTypeLoadingOnly | HZRequestManangerTypeTipsOnly;
+//    handler.type = HZRequestManangerTypeLoadingOnly ;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [_adapter reloadData:[obj objectForKey:@"list"]];
     }];

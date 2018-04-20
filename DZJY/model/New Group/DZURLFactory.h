@@ -12,6 +12,8 @@
 FOUNDATION_EXPORT NSString *const DZBaseUrl;
 FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
++ (NSString *)login;
+
 + (NSString *)homeList;
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;
