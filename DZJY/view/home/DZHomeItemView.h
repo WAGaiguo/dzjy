@@ -10,6 +10,7 @@
 
 @interface DZHomeItemView : UIView
 @property (nonatomic, copy)void (^selectIndex)(NSIndexPath *);
+@property (nonatomic, strong)NSArray *dataSource;
 @end
 
 @interface DZHomeItemCell: UICollectionViewCell

@@ -10,7 +10,7 @@
 
 @interface DZHomeItemView()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>{
     UICollectionView *_collectV;
-    NSArray *_dataSource;
+    NSMutableArray *_dataSource;
 }
 @end
 
@@ -31,19 +31,29 @@
         [_collectV registerClass:[DZHomeItemCell class] forCellWithReuseIdentifier:@"homeItem"];
         _collectV.backgroundColor = UIWhiteColor;
         
-        _dataSource = @[@{@"title":@"茄果菜类", @"image":@"茄果菜类"},
+        _dataSource =[NSMutableArray arrayWithArray:
+                        @[@{@"title":@"茄果菜类", @"image":@"茄果菜类"},
                         @{@"title":@"瓜果类", @"image":@"瓜果类"},
                         @{@"title":@"叶菜类", @"image":@"叶菜类"},
                         @{@"title":@"甘蓝类", @"image":@"甘蓝类"},
                         @{@"title":@"根茎菜类", @"image":@"根茎菜类"},
                         @{@"title":@"豆菜类", @"image":@"豆菜类"},
                         @{@"title":@"葱姜蒜类", @"image":@"葱姜蒜类"},
-                        @{@"title":@"全部菜类", @"image":@"全部菜类"}];
+                        @{@"title":@"全部菜类", @"image":@"全部菜类"}]];
     }
     return self;
 }
+/**
+ 外部数据源更新
+ **/
+- (void)setDataSource:(NSArray *)dataSource{
+    _dataSource = [NSMutableArray arrayWithArray:dataSource];
+    _collectV.height = (dataSource.count / 4) * 100;
+    [_collectV reloadData];
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return _dataSource.count;
     return 8;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

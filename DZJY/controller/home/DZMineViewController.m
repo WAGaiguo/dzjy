@@ -10,9 +10,15 @@
 #import "DZTestAdapter.h"
 #import "DZMineCollectionViewCell.h"
 #import "DZMineCollectionReusableView.h"
+#import "DZMineHeaderView.h"
+#import "DZMineFooterView.h"
+#import "DZLoginViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
+    DZMineHeaderView *_headerView;
+    DZMineFooterView *_footerView;
+    
     DZTestAdapter *_adapter;
     UICollectionView *_collectionV;
     NSMutableArray *_sectionState;
@@ -24,11 +30,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setBackGroudHidden];
+    self.titleView.backgroundColor = UIClearColor;
     [self setRightImage:@"设置"];
-    [self configCollection];
-  
+    [self configHeader];
+    [self configFooter];
 }
+
+- (void)configHeader{
+    WEAK_SELF
+    _headerView = [[DZMineHeaderView alloc]init];
+    [_headerView setLogined:NO];
+//    [_headerView setTitle:@"关怀久" subTitle:@"公司全称：：：：" img:nil];
+    [_headerView setLoginBlock:^{
+        [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];
+    }];
+    [_headerView setSelectBlock:^(NSInteger integer) {
+        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",integer]];
+    }];
+    self.tableView.tableHeaderView = _headerView;
+    self.tableView.frame = SCREEN_BOUNDS;
+    self.tableView.backgroundColor = UIBackgroundColor;
+    self.tableView.sectionHeaderHeight = 0.01;
+    self.tableView.sectionFooterHeight = 0.01;
+}
+- (void)configFooter{
+    _footerView = [[DZMineFooterView alloc]init];
+    self.tableView.tableFooterView = _footerView;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)configCollection{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];

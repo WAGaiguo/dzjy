@@ -50,6 +50,9 @@
     me.delegate = self;
 }
 
+-(void)setBadageValue:(NSString *)nums{
+    
+}
 
 // 处理点击其它 item 返回自定义事件
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{

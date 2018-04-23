@@ -19,6 +19,9 @@
 		1E0550562074A919000F5188 /* DZURLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550552074A919000F5188 /* DZURLFactory.m */; };
 		1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550582074C1BE000F5188 /* DZRegisterViewController.m */; };
 		1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05505C2074CB51000F5188 /* MLTransition.m */; };
+		1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34360F208D71FB00190689 /* DZMineHeaderView.m */; };
+		1E343613208D978500190689 /* DZMineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343612208D978500190689 /* DZMineFooterView.m */; };
+		1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34361A208DA07700190689 /* SVSegmentedView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -112,6 +115,12 @@
 		1E0550582074C1BE000F5188 /* DZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZRegisterViewController.m; sourceTree = "<group>"; };
 		1E05505B2074CB51000F5188 /* MLTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLTransition.h; sourceTree = "<group>"; };
 		1E05505C2074CB51000F5188 /* MLTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLTransition.m; sourceTree = "<group>"; };
+		1E34360E208D71FB00190689 /* DZMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineHeaderView.h; sourceTree = "<group>"; };
+		1E34360F208D71FB00190689 /* DZMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineHeaderView.m; sourceTree = "<group>"; };
+		1E343611208D978500190689 /* DZMineFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineFooterView.h; sourceTree = "<group>"; };
+		1E343612208D978500190689 /* DZMineFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineFooterView.m; sourceTree = "<group>"; };
+		1E343619208DA07700190689 /* SVSegmentedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVSegmentedView.h; sourceTree = "<group>"; };
+		1E34361A208DA07700190689 /* SVSegmentedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -345,6 +354,26 @@
 			path = MLTransition;
 			sourceTree = "<group>";
 		};
+		1E34360D208D71D500190689 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				1E34360E208D71FB00190689 /* DZMineHeaderView.h */,
+				1E34360F208D71FB00190689 /* DZMineHeaderView.m */,
+				1E343611208D978500190689 /* DZMineFooterView.h */,
+				1E343612208D978500190689 /* DZMineFooterView.m */,
+			);
+			path = mine;
+			sourceTree = "<group>";
+		};
+		1E343618208DA07700190689 /* SVSSegmentedView */ = {
+			isa = PBXGroup;
+			children = (
+				1E343619208DA07700190689 /* SVSegmentedView.h */,
+				1E34361A208DA07700190689 /* SVSegmentedView.m */,
+			);
+			path = SVSSegmentedView;
+			sourceTree = "<group>";
+		};
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +555,7 @@
 		1EA047C1206E30990029C481 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				1E343618208DA07700190689 /* SVSSegmentedView */,
 				1E628F14207EF9E500169A64 /* search */,
 				1E05505A2074CB51000F5188 /* MLTransition */,
 			);
@@ -595,6 +625,7 @@
 		1EAD73E32068E36100BD7EF7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1E34360D208D71D500190689 /* mine */,
 				1E92D10A2084952800E31C62 /* order */,
 				1E628EF7207DA1A300169A64 /* category */,
 				1E05504C207362BC000F5188 /* home */,
@@ -845,6 +876,7 @@
 				1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */,
 				1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */,
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
+				1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */,
 				1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */,
 				1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
@@ -867,6 +899,7 @@
 				1E628EFA207DA1EE00169A64 /* DZVarietyView.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */,
+				1E343613208D978500190689 /* DZMineFooterView.m in Sources */,
 				1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */,
 				1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */,
 				1E05505320747951000F5188 /* DZLoginViewController.m in Sources */,
@@ -877,6 +910,7 @@
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
 				1E628F17207EFA0A00169A64 /* DZSearchModel.m in Sources */,
 				1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */,
+				1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */,
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1E628EF6207CB81E00169A64 /* DZCategoryItemView.m in Sources */,
