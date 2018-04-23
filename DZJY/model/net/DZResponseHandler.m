@@ -47,9 +47,9 @@
 }
 
 - (void)dismissLoading{
-    if ([self willShowLoading]) {
+//    if ([self willShowLoading]) {
         [HudUtils hide:self.hudView];
-    }
+//    }
 }
 - (void)showLoading{
     [HudUtils show:self.hudView];

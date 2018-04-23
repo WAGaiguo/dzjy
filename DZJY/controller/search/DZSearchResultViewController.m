@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     currentTag = 88;
+    [self setHeaderBackGroud:YES];
     [self setBackEnabled:YES];
     [self makeRightBtn];
     [self hasNilView:YES];
@@ -45,7 +46,7 @@
 }
 - (void)hasNilView:(BOOL)has{
     if (has){
-           if (nilView == nil){
+        if (nilView == nil){
             nilView = [[DZSearchNilView alloc]initWithFrame:CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43) fatherView:self.view];}
     }else{
         [nilView removeFromSuperview];

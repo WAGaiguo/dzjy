@@ -24,7 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"我的"];
+//    [self setBackGroudHidden];
+    [self setRightImage:@"设置"];
     [self configCollection];
   
 }

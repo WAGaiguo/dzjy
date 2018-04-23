@@ -32,7 +32,7 @@
     [self setTitle:@"确认订单"];
     [self setBackEnabled:YES];
     [self setBackImageGray];
-    [self setBackGroudHidden];
+//    [self setBackGroudHidden];
 }
 - (void)configAdapter{
     _adapter = [[DZOrderConfirmAdapter alloc]init];

@@ -65,10 +65,16 @@
     [_titleView.leftView setImage:[UIImage imageNamed:@"back_gray"] forState:UIControlStateNormal];
 }
 
-- (void)setBackGroudHidden{
-    [_titleView setHasBackGroud:NO];
+- (void)setHeaderBackGroud:(BOOL)has{
+    [self titleView];
+    [_titleView setHasBackGroud:has];
 }
 
+- (void)setRightImage:(NSString *)image{
+    [self titleView];
+    [self setHasRightBtn:YES];
+    [_titleView.rightView setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+}
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleDefault;
 }

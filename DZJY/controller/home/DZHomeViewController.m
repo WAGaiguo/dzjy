@@ -15,8 +15,8 @@
 #import "DZCategoryAllController.h"
 #import "DZSearchModel.h"
 #import "DZCategoryFirstController.h"
-
 #import "DZLoginViewController.h"
+
 #import "DZRegisterViewController.h"
 #import <MJExtension.h>
 #import "DZOrderFinishController.h"
@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@""];
+    [self setHeaderBackGroud:YES];
     [self configSearchView];
     [self configHeaderView];
     [self configBannerView];
@@ -102,7 +102,13 @@
 - (void)configAdapter{
     _adapter = [[DZHomeAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
+    DZUserManager *manager = [DZUserManager manager];
+    DZLoginViewController *loginC = [DZLoginViewController new];
+    WEAK_SELF
     [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
+        if (![manager isLogined]){
+            [me presentViewController:loginC animated:YES completion:nil];
+        }
         
     }];
 }
@@ -126,7 +132,6 @@
         NSLog(@"-----failed------");
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
-//    [manager setUrlString:[DZURLFactory hotSuppliseList]];
     [manager setUrlString:@"http://192.168.20.5/synth/searchApp"];
     [manager setHandler:handler];
     [manager setParams:[params params]];

@@ -23,7 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _backImageV = [[UIImageView alloc]initWithFrame:frame];
-        _backImageV.image = [UIImage imageNamed:@"导航条"];        
+//        _backImageV.image = [UIImage imageNamed:@"导航条"];        
         _backImageV.tag = 999;
         [self addSubview:_backImageV];
         

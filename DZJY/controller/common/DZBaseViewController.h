@@ -20,6 +20,8 @@
 @property (nonatomic,assign)BOOL hasRightBtn;
 
 - (void)setBackImageGray;
-- (void)setBackGroudHidden;
+- (void)setHeaderBackGroud:(BOOL)has;
+
+- (void)setRightImage:(NSString *)image;
 
 @end
