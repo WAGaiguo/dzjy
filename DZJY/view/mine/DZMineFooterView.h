@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZmineFooterRightItem;
 @interface DZMineFooterView : UIView
 @property (nonatomic, copy)void (^tapLeftBlock)(NSInteger num);
 @property (nonatomic, copy)void (^tapRightBlock)(NSInteger num);
+
+@property (nonatomic, strong)DZmineFooterRightItem *firstItem;
+@property (nonatomic, strong)DZmineFooterRightItem *secondItem;
+@property (nonatomic, strong)DZmineFooterRightItem *thirdItem;
+@property (nonatomic, strong)DZmineFooterRightItem *fourthItem;
+@property (nonatomic, strong)DZmineFooterRightItem *fifthItem;
+@property (nonatomic, strong)DZmineFooterRightItem *sixthItem;
+@property (nonatomic, strong)DZmineFooterRightItem *seventhItem;
+@property (nonatomic, strong)DZmineFooterRightItem *eighthItem;
+@property (nonatomic, strong)DZmineFooterRightItem *ninthItem;
 @end
 
 @interface DZMineFooterLeftItem: UIView
@@ -20,4 +31,9 @@
 @end
 
 @interface DZmineFooterRightItem: UIView
+@property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *numTips;
+- (void)setNums:(NSInteger)num;
+- (void)setTitle:(NSString *)title image:(NSString *)image;
 @end

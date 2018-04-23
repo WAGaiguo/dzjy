@@ -49,6 +49,7 @@
     }];
     self.tableView.tableHeaderView = _headerView;
     self.tableView.frame = SCREEN_BOUNDS;
+    self.tableView.height = SCREEN_HEIGHT - 44;
     self.tableView.backgroundColor = UIBackgroundColor;
     self.tableView.sectionHeaderHeight = 0.01;
     self.tableView.sectionFooterHeight = 0.01;
@@ -56,6 +57,12 @@
 - (void)configFooter{
     _footerView = [[DZMineFooterView alloc]init];
     self.tableView.tableFooterView = _footerView;
+    [_footerView setTapLeftBlock:^(NSInteger num) {
+        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];
+    }];
+    [_footerView setTapRightBlock:^(NSInteger num) {
+        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];
+    }];
 }
 
 
