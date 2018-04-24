@@ -27,6 +27,10 @@
 		1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343624208EF48700190689 /* DZMineCommenScrollView.m */; };
 		1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */; };
 		1E34362D208F028500190689 /* DZMyBoughtCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34362C208F028500190689 /* DZMyBoughtCell.m */; };
+		1E343630208F1DE100190689 /* DZMyPointsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34362F208F1DE100190689 /* DZMyPointsViewController.m */; };
+		1E343633208F1F7500190689 /* DZMyPointsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343632208F1F7500190689 /* DZMyPointsHeaderView.m */; };
+		1E343636208F2D6400190689 /* DZMyPointsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343635208F2D6400190689 /* DZMyPointsAdapter.m */; };
+		1E343639208F325200190689 /* DZMyPointsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343638208F325200190689 /* DZMyPointsCell.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -136,6 +140,14 @@
 		1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtAdapter.m; sourceTree = "<group>"; };
 		1E34362B208F028500190689 /* DZMyBoughtCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtCell.h; sourceTree = "<group>"; };
 		1E34362C208F028500190689 /* DZMyBoughtCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtCell.m; sourceTree = "<group>"; };
+		1E34362E208F1DE100190689 /* DZMyPointsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyPointsViewController.h; sourceTree = "<group>"; };
+		1E34362F208F1DE100190689 /* DZMyPointsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyPointsViewController.m; sourceTree = "<group>"; };
+		1E343631208F1F7500190689 /* DZMyPointsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyPointsHeaderView.h; sourceTree = "<group>"; };
+		1E343632208F1F7500190689 /* DZMyPointsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyPointsHeaderView.m; sourceTree = "<group>"; };
+		1E343634208F2D6400190689 /* DZMyPointsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyPointsAdapter.h; sourceTree = "<group>"; };
+		1E343635208F2D6400190689 /* DZMyPointsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyPointsAdapter.m; sourceTree = "<group>"; };
+		1E343637208F325200190689 /* DZMyPointsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyPointsCell.h; sourceTree = "<group>"; };
+		1E343638208F325200190689 /* DZMyPointsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyPointsCell.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -380,6 +392,8 @@
 				1E343621208ECD6700190689 /* DZMyBoughtTipsView.m */,
 				1E343623208EF48700190689 /* DZMineCommenScrollView.h */,
 				1E343624208EF48700190689 /* DZMineCommenScrollView.m */,
+				1E343631208F1F7500190689 /* DZMyPointsHeaderView.h */,
+				1E343632208F1F7500190689 /* DZMyPointsHeaderView.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -398,6 +412,8 @@
 			children = (
 				1E34361D208EC81400190689 /* DZMyBoughtViewController.h */,
 				1E34361E208EC81400190689 /* DZMyBoughtViewController.m */,
+				1E34362E208F1DE100190689 /* DZMyPointsViewController.h */,
+				1E34362F208F1DE100190689 /* DZMyPointsViewController.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -407,6 +423,8 @@
 			children = (
 				1E343627208EFCE900190689 /* DZMyBoughtAdapter.h */,
 				1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */,
+				1E343634208F2D6400190689 /* DZMyPointsAdapter.h */,
+				1E343635208F2D6400190689 /* DZMyPointsAdapter.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -416,6 +434,8 @@
 			children = (
 				1E34362B208F028500190689 /* DZMyBoughtCell.h */,
 				1E34362C208F028500190689 /* DZMyBoughtCell.m */,
+				1E343637208F325200190689 /* DZMyPointsCell.h */,
+				1E343638208F325200190689 /* DZMyPointsCell.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -926,6 +946,7 @@
 				1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */,
 				1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */,
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
+				1E343633208F1F7500190689 /* DZMyPointsHeaderView.m in Sources */,
 				1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */,
 				1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */,
 				1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */,
@@ -952,6 +973,8 @@
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */,
 				1E343613208D978500190689 /* DZMineFooterView.m in Sources */,
+				1E343639208F325200190689 /* DZMyPointsCell.m in Sources */,
+				1E343636208F2D6400190689 /* DZMyPointsAdapter.m in Sources */,
 				1E05504320721D88000F5188 /* DZMessageViewController.m in Sources */,
 				1E05504F2073630E000F5188 /* DZHomeItemView.m in Sources */,
 				1E05505320747951000F5188 /* DZLoginViewController.m in Sources */,
@@ -982,6 +1005,7 @@
 				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
 				1E34362D208F028500190689 /* DZMyBoughtCell.m in Sources */,
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
+				1E343630208F1DE100190689 /* DZMyPointsViewController.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,
 			);

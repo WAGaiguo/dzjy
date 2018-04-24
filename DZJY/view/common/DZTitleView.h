@@ -18,5 +18,6 @@
 
 @property (nonatomic,assign)BOOL backEnabled;
 @property (nonatomic,assign)BOOL hasBackGroud;
+@property (nonatomic,assign)BOOL isTitleWhite;
 
 @end

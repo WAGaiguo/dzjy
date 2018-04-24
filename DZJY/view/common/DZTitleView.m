@@ -80,4 +80,10 @@
     }
 }
 
+-(void)setIsTitleWhite:(BOOL)isTitleWhite{
+    if (isTitleWhite) {
+        _textLabel.textColor = UIWhiteColor;
+    }
+}
+
 @end

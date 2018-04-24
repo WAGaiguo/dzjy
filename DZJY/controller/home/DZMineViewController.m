@@ -14,6 +14,7 @@
 #import "DZMineFooterView.h"
 #import "DZLoginViewController.h"
 #import "DZMyBoughtViewController.h"
+#import "DZMyPointsViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -47,6 +48,9 @@
     }];
     [_headerView setSelectBlock:^(NSInteger integer) {
         [HudUtils showMessage:[NSString stringWithFormat:@"%ld",integer]];
+        if (integer == 3) {
+            [me.navigationController pushViewController:[DZMyPointsViewController new] animated:YES];
+        }
     }];
     self.tableView.tableHeaderView = _headerView;
     self.tableView.frame = SCREEN_BOUNDS;
