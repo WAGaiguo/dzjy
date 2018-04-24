@@ -22,6 +22,11 @@
 		1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34360F208D71FB00190689 /* DZMineHeaderView.m */; };
 		1E343613208D978500190689 /* DZMineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343612208D978500190689 /* DZMineFooterView.m */; };
 		1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34361A208DA07700190689 /* SVSegmentedView.m */; };
+		1E34361F208EC81400190689 /* DZMyBoughtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34361E208EC81400190689 /* DZMyBoughtViewController.m */; };
+		1E343622208ECD6700190689 /* DZMyBoughtTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343621208ECD6700190689 /* DZMyBoughtTipsView.m */; };
+		1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343624208EF48700190689 /* DZMineCommenScrollView.m */; };
+		1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */; };
+		1E34362D208F028500190689 /* DZMyBoughtCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34362C208F028500190689 /* DZMyBoughtCell.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -121,6 +126,16 @@
 		1E343612208D978500190689 /* DZMineFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineFooterView.m; sourceTree = "<group>"; };
 		1E343619208DA07700190689 /* SVSegmentedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVSegmentedView.h; sourceTree = "<group>"; };
 		1E34361A208DA07700190689 /* SVSegmentedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedView.m; sourceTree = "<group>"; };
+		1E34361D208EC81400190689 /* DZMyBoughtViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtViewController.h; sourceTree = "<group>"; };
+		1E34361E208EC81400190689 /* DZMyBoughtViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtViewController.m; sourceTree = "<group>"; };
+		1E343620208ECD6700190689 /* DZMyBoughtTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtTipsView.h; sourceTree = "<group>"; };
+		1E343621208ECD6700190689 /* DZMyBoughtTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtTipsView.m; sourceTree = "<group>"; };
+		1E343623208EF48700190689 /* DZMineCommenScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineCommenScrollView.h; sourceTree = "<group>"; };
+		1E343624208EF48700190689 /* DZMineCommenScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineCommenScrollView.m; sourceTree = "<group>"; };
+		1E343627208EFCE900190689 /* DZMyBoughtAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtAdapter.h; sourceTree = "<group>"; };
+		1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtAdapter.m; sourceTree = "<group>"; };
+		1E34362B208F028500190689 /* DZMyBoughtCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtCell.h; sourceTree = "<group>"; };
+		1E34362C208F028500190689 /* DZMyBoughtCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtCell.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -361,6 +376,10 @@
 				1E34360F208D71FB00190689 /* DZMineHeaderView.m */,
 				1E343611208D978500190689 /* DZMineFooterView.h */,
 				1E343612208D978500190689 /* DZMineFooterView.m */,
+				1E343620208ECD6700190689 /* DZMyBoughtTipsView.h */,
+				1E343621208ECD6700190689 /* DZMyBoughtTipsView.m */,
+				1E343623208EF48700190689 /* DZMineCommenScrollView.h */,
+				1E343624208EF48700190689 /* DZMineCommenScrollView.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -372,6 +391,33 @@
 				1E34361A208DA07700190689 /* SVSegmentedView.m */,
 			);
 			path = SVSSegmentedView;
+			sourceTree = "<group>";
+		};
+		1E34361C208EC70C00190689 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				1E34361D208EC81400190689 /* DZMyBoughtViewController.h */,
+				1E34361E208EC81400190689 /* DZMyBoughtViewController.m */,
+			);
+			path = mine;
+			sourceTree = "<group>";
+		};
+		1E343626208EFCB100190689 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				1E343627208EFCE900190689 /* DZMyBoughtAdapter.h */,
+				1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */,
+			);
+			path = mine;
+			sourceTree = "<group>";
+		};
+		1E34362A208F024C00190689 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				1E34362B208F028500190689 /* DZMyBoughtCell.h */,
+				1E34362C208F028500190689 /* DZMyBoughtCell.m */,
+			);
+			path = mine;
 			sourceTree = "<group>";
 		};
 		1E53027E20692F580010D78A /* net */ = {
@@ -615,6 +661,7 @@
 		1EAD73E22068E35700BD7EF7 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				1E34362A208F024C00190689 /* mine */,
 				1E92D11F2086DDDB00E31C62 /* order */,
 				1E628EFB207DB4C400169A64 /* category */,
 				1E05504420722E54000F5188 /* home */,
@@ -637,6 +684,7 @@
 		1EAD73E42068E36A00BD7EF7 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1E34361C208EC70C00190689 /* mine */,
 				1E92D1062084949200E31C62 /* order */,
 				1E628F18207F347A00169A64 /* room */,
 				1E05505020747930000F5188 /* login */,
@@ -691,6 +739,7 @@
 		1EAD74072068EEC300BD7EF7 /* tableView */ = {
 			isa = PBXGroup;
 			children = (
+				1E343626208EFCB100190689 /* mine */,
 				1E92D1232086E0E700E31C62 /* order */,
 				1E628ED7207A182800169A64 /* home */,
 				1EAD740B2068EF5300BD7EF7 /* UITableView+Adapter.h */,
@@ -866,6 +915,7 @@
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
+				1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */,
 				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
 				1E628F04207DD6D500169A64 /* DZSpecificationCollectionViewCell.m in Sources */,
 				1E628EE4207C5A7900169A64 /* DZCategoryAllAdapter.m in Sources */,
@@ -894,6 +944,8 @@
 				1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */,
 				1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */,
 				1E92D12C20873E1200E31C62 /* DZOrderConfrimBtnView.m in Sources */,
+				1E34361F208EC81400190689 /* DZMyBoughtViewController.m in Sources */,
+				1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */,
 				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
 				1E628EFA207DA1EE00169A64 /* DZVarietyView.m in Sources */,
@@ -922,11 +974,13 @@
 				1E628F0D207DF79B00169A64 /* DZCitySelectView.m in Sources */,
 				1E628F24207F4BC300169A64 /* DZNetErrorView.m in Sources */,
 				1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */,
+				1E343622208ECD6700190689 /* DZMyBoughtTipsView.m in Sources */,
 				1E628F01207DD44E00169A64 /* DZSpecificationView.m in Sources */,
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
+				1E34362D208F028500190689 /* DZMyBoughtCell.m in Sources */,
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,

@@ -73,6 +73,7 @@
 
 - (void)setHasBackGroud:(BOOL)hasBackGroud{
     if(hasBackGroud){
+        _textLabel.textColor = UIWhiteColor;
         _backImageV.image = [UIImage imageNamed:@"导航条"];
     }else{
         _backImageV.image = nil;

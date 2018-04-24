@@ -13,6 +13,7 @@
 #import "DZMineHeaderView.h"
 #import "DZMineFooterView.h"
 #import "DZLoginViewController.h"
+#import "DZMyBoughtViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -57,7 +58,11 @@
 - (void)configFooter{
     _footerView = [[DZMineFooterView alloc]init];
     self.tableView.tableFooterView = _footerView;
+    WEAK_SELF
     [_footerView setTapLeftBlock:^(NSInteger num) {
+        if (num == 0) {
+            [me.navigationController pushViewController:[DZMyBoughtViewController new] animated:YES];
+        }
         [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];
     }];
     [_footerView setTapRightBlock:^(NSInteger num) {
