@@ -34,6 +34,9 @@
 		1E34363C20901C1D00190689 /* DZMyAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34363B20901C1D00190689 /* DZMyAttentionViewController.m */; };
 		1E34363F20901C4600190689 /* DZMyAttentionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34363E20901C4600190689 /* DZMyAttentionCell.m */; };
 		1E34364220901C6E00190689 /* DZMyAttentionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34364120901C6E00190689 /* DZMyAttentionAdapter.m */; };
+		1E3436452090301F00190689 /* DZMyClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436442090301F00190689 /* DZMyClientViewController.m */; };
+		1E3436482090303A00190689 /* DZMyClientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436472090303A00190689 /* DZMyClientCell.m */; };
+		1E34364B2090306400190689 /* DZMyClientAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34364A2090306400190689 /* DZMyClientAdapter.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -157,6 +160,12 @@
 		1E34363E20901C4600190689 /* DZMyAttentionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAttentionCell.m; sourceTree = "<group>"; };
 		1E34364020901C6E00190689 /* DZMyAttentionAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAttentionAdapter.h; sourceTree = "<group>"; };
 		1E34364120901C6E00190689 /* DZMyAttentionAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAttentionAdapter.m; sourceTree = "<group>"; };
+		1E3436432090301F00190689 /* DZMyClientViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyClientViewController.h; sourceTree = "<group>"; };
+		1E3436442090301F00190689 /* DZMyClientViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyClientViewController.m; sourceTree = "<group>"; };
+		1E3436462090303A00190689 /* DZMyClientCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyClientCell.h; sourceTree = "<group>"; };
+		1E3436472090303A00190689 /* DZMyClientCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyClientCell.m; sourceTree = "<group>"; };
+		1E3436492090306400190689 /* DZMyClientAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyClientAdapter.h; sourceTree = "<group>"; };
+		1E34364A2090306400190689 /* DZMyClientAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyClientAdapter.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -425,6 +434,8 @@
 				1E34362F208F1DE100190689 /* DZMyPointsViewController.m */,
 				1E34363A20901C1D00190689 /* DZMyAttentionViewController.h */,
 				1E34363B20901C1D00190689 /* DZMyAttentionViewController.m */,
+				1E3436432090301F00190689 /* DZMyClientViewController.h */,
+				1E3436442090301F00190689 /* DZMyClientViewController.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -438,6 +449,8 @@
 				1E343635208F2D6400190689 /* DZMyPointsAdapter.m */,
 				1E34364020901C6E00190689 /* DZMyAttentionAdapter.h */,
 				1E34364120901C6E00190689 /* DZMyAttentionAdapter.m */,
+				1E3436492090306400190689 /* DZMyClientAdapter.h */,
+				1E34364A2090306400190689 /* DZMyClientAdapter.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -451,6 +464,8 @@
 				1E343638208F325200190689 /* DZMyPointsCell.m */,
 				1E34363D20901C4600190689 /* DZMyAttentionCell.h */,
 				1E34363E20901C4600190689 /* DZMyAttentionCell.m */,
+				1E3436462090303A00190689 /* DZMyClientCell.h */,
+				1E3436472090303A00190689 /* DZMyClientCell.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -948,6 +963,7 @@
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
 				1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */,
 				1E628EE1207C57D300169A64 /* DZCategoryAllController.m in Sources */,
+				1E3436452090301F00190689 /* DZMyClientViewController.m in Sources */,
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
@@ -987,6 +1003,7 @@
 				1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */,
 				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
+				1E34364B2090306400190689 /* DZMyClientAdapter.m in Sources */,
 				1E628EFA207DA1EE00169A64 /* DZVarietyView.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */,
@@ -1025,6 +1042,7 @@
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
 				1E343630208F1DE100190689 /* DZMyPointsViewController.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
+				1E3436482090303A00190689 /* DZMyClientCell.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

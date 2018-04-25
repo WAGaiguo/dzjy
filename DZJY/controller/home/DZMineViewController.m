@@ -16,6 +16,7 @@
 #import "DZMyBoughtViewController.h"
 #import "DZMyPointsViewController.h"
 #import "DZMyAttentionViewController.h"
+#import "DZMyClientViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -48,9 +49,11 @@
         [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];
     }];
     [_headerView setSelectBlock:^(NSInteger integer) {
-        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",integer]];
+        if (integer == 1) {
+            [me.navigationController pushViewController:[DZMyClientViewController new] animated:YES];return;
+        }
         if (integer == 2) {
-            [me.navigationController pushViewController:[DZMyAttentionViewController new] animated:YES];
+            [me.navigationController pushViewController:[DZMyAttentionViewController new] animated:YES];return;
         }
         if (integer == 3) {
             [me.navigationController pushViewController:[DZMyPointsViewController new] animated:YES];return;
