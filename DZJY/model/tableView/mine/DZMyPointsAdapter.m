@@ -7,6 +7,7 @@
 //
 
 #import "DZMyPointsAdapter.h"
+#import "DZMyPointsCell.h"
 
 @implementation DZMyPointsAdapter
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -19,10 +20,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    DZMyPointsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"pointsCell"];
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[DZMyPointsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pointsCell"];
     }
+    [cell setContent:nil];
     return cell;
 }
 @end

@@ -47,6 +47,8 @@
     [tableHeader addSubview:_headerView];
     self.tableView.frame = SCREEN_BOUNDS;
     self.tableView.tableHeaderView = tableHeader;
+    self.tableView.sectionHeaderHeight = 0.01;
+    self.tableView.sectionFooterHeight = 0.01;
     [_headerView setTapBlock:^{
         [HudUtils showMessage:@"右侧日历选择按钮"];
     }];
@@ -61,8 +63,10 @@
 }
 - (void)configScrollView{
     WEAK_SELF
-    _scrollView = [[DZMineCommenScrollView alloc]initWithFrame:CGRectMake(0, DZ_TOP + 44, SCREEN_WIDTH, SCREEN_HEIGHT - 216)];
+    _scrollView = [[DZMineCommenScrollView alloc]initWithFrame:CGRectMake(0, 216, SCREEN_WIDTH, SCREEN_HEIGHT - 216)];
+    _scrollView.backgroundColor = UIGreenColor;
     [self.view addSubview:_scrollView];
+    [_scrollView setMe_height:SCREEN_HEIGHT - 216];
     _scrollView.dataSource = @[@"",@"",@""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;

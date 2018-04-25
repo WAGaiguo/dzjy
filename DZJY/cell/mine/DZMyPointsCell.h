@@ -13,4 +13,5 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *pointsLabel;
 @property (nonatomic, strong) UIImageView *imageV;
+- (void)setContent:(NSDictionary *)dic;
 @end
