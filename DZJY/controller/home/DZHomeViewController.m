@@ -28,6 +28,7 @@
     DZHomeItemView *_itemView;
     UIView *_headerView;
     DZHomeAdapter *_adapter;
+    NSInteger currentPage;
 }
 
 @end
@@ -42,7 +43,9 @@
     [self configBannerView];
     [self configItemView];
     [self configAdapter];
-    [self requestData];
+    currentPage = 1;
+    [self requestData:currentPage pageSize:10];
+    [self addInfinite];
    
 }
 - (void)configSearchView{
@@ -84,7 +87,6 @@
         }
         if (indexPath.item < 4) {
             [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
-            [me.navigationController pushViewController:[DZRegisterViewController new] animated:YES];
             return;
             
         }
@@ -116,17 +118,24 @@
     [DZSearchModel makeSearchViewController:self];
 }
 
-- (void)requestData{
+- (void)requestData:(NSInteger)pageNo pageSize:(NSInteger)pageSize{
     DZRequestParams *params = [DZRequestParams new];
 //    [params putString:@"1" forKey:@"pageNo"];
     [params putInteger:1 forKey:@"pageNo"];
-    [params putInteger:30 forKey:@"pageSize"];
+    [params putInteger:10 forKey:@"pageSize"];
     [params putString:@"releDateLong" forKey:@"orderBy"];
     [params putString:@"DESC" forKey:@"sortOrder"];
     DZResponseHandler *handler = [DZResponseHandler new];
 //    handler.type = HZRequestManangerTypeLoadingOnly ;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [_adapter reloadData:[obj objectForKey:@"list"]];
+        if (currentPage == 1) {
+            [_adapter reloadData:[obj objectForKey:@"list"]];
+        }
+        if (currentPage > 1) {
+            [_adapter appendData:[obj objectForKey:@"list"]];
+            [self stopInfinite];
+        }
+        
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
         NSLog(@"-----failed------");
@@ -138,7 +147,10 @@
     [manager post];
     
 }
-
+- (void)Infinite{
+    currentPage = currentPage + 1;
+    [self requestData:currentPage pageSize:10];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
