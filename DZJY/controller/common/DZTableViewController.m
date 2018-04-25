@@ -34,13 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, SCREEN_HEIGHT - (DZ_TOP)) style:_style];
-//    _tableView.sectionFooterHeight = 0;
-//    _tableView.sectionHeaderHeight = 0;
     _tableView.estimatedRowHeight = 0;
     _tableView.estimatedSectionFooterHeight = 0;
     _tableView.estimatedSectionHeaderHeight = 0;
     _tableView.showsVerticalScrollIndicator = NO;
-    [_tableView setSeparatorColor:UIClearColor];
+    [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tableView setBackgroundColor:UIBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     if (@available(iOS 11.0, *)) {

@@ -31,6 +31,9 @@
 		1E343633208F1F7500190689 /* DZMyPointsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343632208F1F7500190689 /* DZMyPointsHeaderView.m */; };
 		1E343636208F2D6400190689 /* DZMyPointsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343635208F2D6400190689 /* DZMyPointsAdapter.m */; };
 		1E343639208F325200190689 /* DZMyPointsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343638208F325200190689 /* DZMyPointsCell.m */; };
+		1E34363C20901C1D00190689 /* DZMyAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34363B20901C1D00190689 /* DZMyAttentionViewController.m */; };
+		1E34363F20901C4600190689 /* DZMyAttentionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34363E20901C4600190689 /* DZMyAttentionCell.m */; };
+		1E34364220901C6E00190689 /* DZMyAttentionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34364120901C6E00190689 /* DZMyAttentionAdapter.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -148,6 +151,12 @@
 		1E343635208F2D6400190689 /* DZMyPointsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyPointsAdapter.m; sourceTree = "<group>"; };
 		1E343637208F325200190689 /* DZMyPointsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyPointsCell.h; sourceTree = "<group>"; };
 		1E343638208F325200190689 /* DZMyPointsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyPointsCell.m; sourceTree = "<group>"; };
+		1E34363A20901C1D00190689 /* DZMyAttentionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAttentionViewController.h; sourceTree = "<group>"; };
+		1E34363B20901C1D00190689 /* DZMyAttentionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAttentionViewController.m; sourceTree = "<group>"; };
+		1E34363D20901C4600190689 /* DZMyAttentionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAttentionCell.h; sourceTree = "<group>"; };
+		1E34363E20901C4600190689 /* DZMyAttentionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAttentionCell.m; sourceTree = "<group>"; };
+		1E34364020901C6E00190689 /* DZMyAttentionAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAttentionAdapter.h; sourceTree = "<group>"; };
+		1E34364120901C6E00190689 /* DZMyAttentionAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAttentionAdapter.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -414,6 +423,8 @@
 				1E34361E208EC81400190689 /* DZMyBoughtViewController.m */,
 				1E34362E208F1DE100190689 /* DZMyPointsViewController.h */,
 				1E34362F208F1DE100190689 /* DZMyPointsViewController.m */,
+				1E34363A20901C1D00190689 /* DZMyAttentionViewController.h */,
+				1E34363B20901C1D00190689 /* DZMyAttentionViewController.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -425,6 +436,8 @@
 				1E343628208EFCE900190689 /* DZMyBoughtAdapter.m */,
 				1E343634208F2D6400190689 /* DZMyPointsAdapter.h */,
 				1E343635208F2D6400190689 /* DZMyPointsAdapter.m */,
+				1E34364020901C6E00190689 /* DZMyAttentionAdapter.h */,
+				1E34364120901C6E00190689 /* DZMyAttentionAdapter.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -436,6 +449,8 @@
 				1E34362C208F028500190689 /* DZMyBoughtCell.m */,
 				1E343637208F325200190689 /* DZMyPointsCell.h */,
 				1E343638208F325200190689 /* DZMyPointsCell.m */,
+				1E34363D20901C4600190689 /* DZMyAttentionCell.h */,
+				1E34363E20901C4600190689 /* DZMyAttentionCell.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -922,6 +937,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */,
+				1E34363C20901C1D00190689 /* DZMyAttentionViewController.m in Sources */,
 				1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */,
 				1E92D1222086DE4300E31C62 /* DZOrderConfirmCell.m in Sources */,
 				1E628EFE207DB50700169A64 /* DZVarietyCollectionViewCell.m in Sources */,
@@ -935,6 +951,7 @@
 				1EA0479E2069E6D30029C481 /* DZTitleView.m in Sources */,
 				1E530296206934E20010D78A /* DZRequestMananger.m in Sources */,
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
+				1E34363F20901C4600190689 /* DZMyAttentionCell.m in Sources */,
 				1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */,
 				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
 				1E628F04207DD6D500169A64 /* DZSpecificationCollectionViewCell.m in Sources */,
@@ -951,6 +968,7 @@
 				1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */,
 				1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,
+				1E34364220901C6E00190689 /* DZMyAttentionAdapter.m in Sources */,
 				1E628F07207DDA3200169A64 /* DZCommenCollectionHeaderView.m in Sources */,
 				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
 				1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */,
