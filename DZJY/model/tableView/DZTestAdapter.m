@@ -23,7 +23,7 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"第 %ld 行",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"第 %ld 行",(long)indexPath.row];
     return cell;
 }
 

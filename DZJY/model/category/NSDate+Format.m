@@ -65,26 +65,26 @@
     // 秒转分钟
     NSInteger minute = time/60;
     if (minute < 60) {
-        return [NSString stringWithFormat:@"%ld分钟前",minute];
+        return [NSString stringWithFormat:@"%ld分钟前",(long)minute];
     }
     // 秒转小时
     NSInteger hours = time/3600;
     if (hours<24) {
-        return [NSString stringWithFormat:@"%ld小时前",hours];
+        return [NSString stringWithFormat:@"%ld小时前",(long)hours];
     }
     //秒转天数
     NSInteger days = time/3600/24;
     if (days < 30) {
-        return [NSString stringWithFormat:@"%ld天前",days];
+        return [NSString stringWithFormat:@"%ld天前",(long)days];
     }
     //秒转月
     NSInteger months = time/3600/24/30;
     if (months < 12) {
-        return [NSString stringWithFormat:@"%ld月前",months];
+        return [NSString stringWithFormat:@"%ld月前",(long)months];
     }
     //秒转年
     NSInteger years = time/3600/24/30/12;
-    return [NSString stringWithFormat:@"%ld年前",years];
+    return [NSString stringWithFormat:@"%ld年前",(long)years];
 }
 
 @end

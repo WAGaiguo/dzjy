@@ -178,7 +178,7 @@
 - (void)setNums:(NSInteger)num{
     if (num > 0) {
         _numTips.hidden = NO;
-        _numTips.text = [NSString stringWithFormat:@"%ld", num];
+        _numTips.text = [NSString stringWithFormat:@"%ld", (long)num];
         [_numTips sizeToFit];
         _numTips.layer.cornerRadius = _numTips.width/2.0;
     }else{

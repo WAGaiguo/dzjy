@@ -11,6 +11,7 @@
 #import "DZMyBoughtTipsView.h"
 #import "DZMineCommenScrollView.h"
 #import "DZMyBoughtAdapter.h"
+#import "DZMyBoughtDetailController.h"
 
 @interface DZMyBoughtViewController ()<SVSegmentedViewDelegate>{
     DZMineCommenScrollView *_scrollView;
@@ -68,18 +69,24 @@
     [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setAdapter:adapterArr[idx]];
     }];
+    WEAK_SELF
     [_allAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [HudUtils showMessage:@"测试成功"];
+        [me toDetail:cell indexPath:indexPath];
     }];
     [_normalAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        
+        [me toDetail:cell indexPath:indexPath];
     }];
     [_revocationAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        
+        [me toDetail:cell indexPath:indexPath];
     }];
     [_passAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        
+        [me toDetail:cell indexPath:indexPath];
     }];
+}
+
+- (void)toDetail:(id)cell indexPath:(NSIndexPath *)indexPath{
+    [HudUtils showMessage:@"测试成功"];
+    [self.navigationController pushViewController:[DZMyBoughtDetailController new] animated:YES];
 }
 
 #pragma _segement delegate
