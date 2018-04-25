@@ -120,9 +120,8 @@
 
 - (void)requestData:(NSInteger)pageNo pageSize:(NSInteger)pageSize{
     DZRequestParams *params = [DZRequestParams new];
-//    [params putString:@"1" forKey:@"pageNo"];
-    [params putInteger:1 forKey:@"pageNo"];
-    [params putInteger:10 forKey:@"pageSize"];
+    [params putInteger:pageNo forKey:@"pageNo"];
+    [params putInteger:pageSize forKey:@"pageSize"];
     [params putString:@"releDateLong" forKey:@"orderBy"];
     [params putString:@"DESC" forKey:@"sortOrder"];
     DZResponseHandler *handler = [DZResponseHandler new];
@@ -134,11 +133,14 @@
         if (currentPage > 1) {
             [_adapter appendData:[obj objectForKey:@"list"]];
             [self stopInfinite];
+            if ([[obj objectForKey:@"list"] count] < pageSize) {
+                [self addNoMoreData];
+            }
         }
         
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
-        NSLog(@"-----failed------");
+        [self stopInfinite];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:@"http://192.168.20.5/synth/searchApp"];

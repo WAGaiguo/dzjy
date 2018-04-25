@@ -95,7 +95,7 @@
     UILabel *label = [[UILabel alloc]init];
     label.width = SCREEN_WIDTH;
     label.height = 60;
-    label.backgroundColor = UIRedColor;
+    label.backgroundColor = UIBackgroundColor;
     label.text = @"没有更多数据了";
     label.textAlignment = NSTextAlignmentCenter;
     [_tableView.infiniteScrollingView setCustomView:label forState:SVInfiniteScrollingStateStopped];

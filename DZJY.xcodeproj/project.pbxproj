@@ -39,6 +39,8 @@
 		1E34364B2090306400190689 /* DZMyClientAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34364A2090306400190689 /* DZMyClientAdapter.m */; };
 		1E34364E2090596000190689 /* DZMyBoughtDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34364D2090596000190689 /* DZMyBoughtDetailController.m */; };
 		1E3436512090598D00190689 /* DZMyBoughtDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436502090598D00190689 /* DZMyBoughtDetailHeaderView.m */; };
+		1E343654209086E800190689 /* DZMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343653209086E800190689 /* DZMyOrderViewController.m */; };
+		1E3436572090B9BA00190689 /* DZMyOrderTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436562090B9BA00190689 /* DZMyOrderTipsView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -172,6 +174,10 @@
 		1E34364D2090596000190689 /* DZMyBoughtDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtDetailController.m; sourceTree = "<group>"; };
 		1E34364F2090598D00190689 /* DZMyBoughtDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtDetailHeaderView.h; sourceTree = "<group>"; };
 		1E3436502090598D00190689 /* DZMyBoughtDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtDetailHeaderView.m; sourceTree = "<group>"; };
+		1E343652209086E800190689 /* DZMyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyOrderViewController.h; sourceTree = "<group>"; };
+		1E343653209086E800190689 /* DZMyOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyOrderViewController.m; sourceTree = "<group>"; };
+		1E3436552090B9BA00190689 /* DZMyOrderTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyOrderTipsView.h; sourceTree = "<group>"; };
+		1E3436562090B9BA00190689 /* DZMyOrderTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyOrderTipsView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -420,6 +426,8 @@
 				1E343632208F1F7500190689 /* DZMyPointsHeaderView.m */,
 				1E34364F2090598D00190689 /* DZMyBoughtDetailHeaderView.h */,
 				1E3436502090598D00190689 /* DZMyBoughtDetailHeaderView.m */,
+				1E3436552090B9BA00190689 /* DZMyOrderTipsView.h */,
+				1E3436562090B9BA00190689 /* DZMyOrderTipsView.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -446,6 +454,8 @@
 				1E34363B20901C1D00190689 /* DZMyAttentionViewController.m */,
 				1E3436432090301F00190689 /* DZMyClientViewController.h */,
 				1E3436442090301F00190689 /* DZMyClientViewController.m */,
+				1E343652209086E800190689 /* DZMyOrderViewController.h */,
+				1E343653209086E800190689 /* DZMyOrderViewController.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -1027,6 +1037,7 @@
 				1E05505320747951000F5188 /* DZLoginViewController.m in Sources */,
 				1E92D11B2085F80300E31C62 /* DZOrderAttentionBuyView.m in Sources */,
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
+				1E3436572090B9BA00190689 /* DZMyOrderTipsView.m in Sources */,
 				1E628F1B207F34CB00169A64 /* DZCategoryFirstController.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,
@@ -1044,6 +1055,7 @@
 				1E628F0D207DF79B00169A64 /* DZCitySelectView.m in Sources */,
 				1E628F24207F4BC300169A64 /* DZNetErrorView.m in Sources */,
 				1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */,
+				1E343654209086E800190689 /* DZMyOrderViewController.m in Sources */,
 				1E343622208ECD6700190689 /* DZMyBoughtTipsView.m in Sources */,
 				1E628F01207DD44E00169A64 /* DZSpecificationView.m in Sources */,
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,

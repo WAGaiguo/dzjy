@@ -17,6 +17,7 @@
 #import "DZMyPointsViewController.h"
 #import "DZMyAttentionViewController.h"
 #import "DZMyClientViewController.h"
+#import "DZMyOrderViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -73,8 +74,14 @@
     [_footerView setTapLeftBlock:^(NSInteger num) {
         if (num == 0) {
             [me.navigationController pushViewController:[DZMyBoughtViewController new] animated:YES];
+        } else if (num == 1){
+            [me.navigationController pushViewController:[DZMyOrderViewController new] animated:YES];
+        }else if (num == 2){
+            
+        }else if (num == 3){
+            
         }
-        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];
+
     }];
     [_footerView setTapRightBlock:^(NSInteger num) {
         [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];

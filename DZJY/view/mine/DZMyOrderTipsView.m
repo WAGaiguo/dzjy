@@ -1,14 +1,14 @@
 //
-//  DZMyBoughtTipsView.m
+//  DZMyOrderTipsView.m
 //  DZJY
 //
-//  Created by wangaiguo on 2018/4/24.
+//  Created by wangaiguo on 2018/4/25.
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "DZMyBoughtTipsView.h"
+#import "DZMyOrderTipsView.h"
 
-@implementation DZMyBoughtTipsView
+@implementation DZMyOrderTipsView
 
 -(instancetype)init{
     self = [super init];
@@ -21,7 +21,6 @@
     }
     return self;
 }
-
 - (void)configBackView{
     UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self addSubview:backView];
@@ -31,33 +30,20 @@
         [self removeFromFatherView];
     }];
 }
-
 - (void)configTips{
-    _tipBackView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"文字少的弹出哐"]];
+    _tipBackView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"文字多的弹出框"]];
     _tipBackView.center = CGPointMake(SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0);
     [self addSubview:_tipBackView];
     
-    _label1 = [self label:@"1. 当前手机端支持您的采购信息查看。" frame:CGRectMake(25, 160, 240, 13)];
+    _label1 = [[UILabel alloc]initWithFrame:CGRectMake(25, 135, 240, 0)];
+    _label1.font = [UIFont systemFontOfSize:12];
+    _label1.textColor = RGBCOLOR(102, 102, 102);
+    _label1.numberOfLines = 0;
     [_tipBackView addSubview:_label1];
-    UILabel *label2 = [self label:@"2. 您还可以登录到Web端进行：" frame:CGRectMake(_label1.left, _label1.bottom + 4, _label1.width, _label1.height)];
-    [_tipBackView addSubview:label2];
-    UILabel *label3 = [self label:@"· 发布采购需求" frame:CGRectMake(50, label2.bottom + 4, 200, 13)];
-    [_tipBackView addSubview:label3];
-    UILabel *label4 = [self label:@"· 对已发布的采购需求进行撤销" frame:CGRectMake(label3.left, label3.bottom + 4, 200, 13)];
-    [_tipBackView addSubview:label4];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"知道了" forState:UIControlStateNormal];
-    [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
-    [btn setBackgroundImage:[UIImage imageNamed:@"登录按钮"] forState:UIControlStateNormal];
-    btn.width = 90;
-    btn.height = 28;
-    btn.centerX = _tipBackView.width/2.0;
-    btn.bottom = _tipBackView.height - 18;
-//    [_tipBackView addSubview:btn];
-    [btn bk_addEventHandler:^(id sender) {
-        [self removeFromFatherView];
-    } forControlEvents:UIControlEventTouchUpInside];
+    _label1.text = @"1.当前手机端支持您的订单信息查看。\n订单状态：\n*待双方支付保证金：订单已生成，\n买卖双方均没有支付保证金及交易手续费；\n*待买方支付保证金；订单已生成，\n仅卖方支付了保证金及交易手续费；\n*待卖方支付保证金：订单已生成，\n仅卖方支付了保证金及交易手续费；\n*已生成合同：双方均已支付保证金及交易手续费；\n*取消：在生成合同前有一方取消订单，或者在付款截止日之前一方/双方没有完成支付保证金；\n*撤销：后台强制取消订单。\n\n2.您可以登录到web端进行";
+    [_label1 sizeToFit];
+    _label1.centerX = _tipBackView.width/2.0;
     
     UIView *knowLabel = [[UIView alloc]init];
     knowLabel.width = 90;
@@ -84,14 +70,6 @@
     textLabel.text = @"知道了";
     [knowLabel addSubview:textLabel];
 }
-
-- (UILabel *)label:(NSString *)text frame:(CGRect)frame{
-    UILabel *label = [[UILabel alloc]initWithFrame:frame];
-    label.font = [UIFont systemFontOfSize:12];
-    label.textColor = RGBCOLOR(102, 102, 102);
-    label.text = text;
-    return label;
-}
 - (void)removeFromFatherView{
     [UIView animateWithDuration:0.33 animations:^{
         self.alpha = 0;
@@ -105,5 +83,4 @@
         self.alpha = 1;
     } completion:nil];
 }
-
 @end

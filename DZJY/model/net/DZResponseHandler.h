@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger,HZRequestManangerType) {
 
 
 @class DZRequestMananger;
-@protocol HZResponseHandlerProtocol <NSObject>
+@protocol DZResponseHandlerProtocol <NSObject>
 @required
 - (void)requestStarted:(DZRequestMananger *)request;
 - (void)request:(DZRequestMananger *)request success:(id)responseData;
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger,HZRequestManangerType) {
 
 
 
-@interface DZResponseHandler : NSObject<HZResponseHandlerProtocol>
+@interface DZResponseHandler : NSObject<DZResponseHandlerProtocol>
 @property (nonatomic,weak)UIView  *hudView;
 
 @property (nonatomic,assign)BOOL logEnabled;
