@@ -10,4 +10,6 @@
 
 @interface DZVarietyCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIButton *titleBtn;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, assign) BOOL isSelected;
 @end

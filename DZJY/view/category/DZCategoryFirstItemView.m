@@ -63,7 +63,7 @@
     }
     if (interger == 0) {
         [_itemView setIsSelected:YES];
-        sortImageV.image = [UIImage imageNamed:@"排序"];
+        sortImageV.image = [UIImage imageNamed:@"排序-1"];
     } else{
         [_itemView setIsSelected:NO];
         sortImageV.image = [UIImage imageNamed:@"排序"];

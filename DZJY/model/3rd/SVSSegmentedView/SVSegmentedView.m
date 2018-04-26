@@ -82,7 +82,7 @@ static char btRuntimeIndexKey;
     _selectedIndex = selectedIndex;
     UIButton *selectedBt = [_titleViews objectAtIndex:_selectedIndex];
     [UIView animateWithDuration:0.25 animations:^{
-        _label.frame = CGRectMake(selectedBt.frame.origin.x + 30, 42, selectedBt.frame.size.width - 62, 2);
+        _label.frame = CGRectMake(selectedBt.frame.origin.x + 30 - _minTitleMargin * 1.4, 42, selectedBt.frame.size.width - 60 + _minTitleMargin + _minTitleMargin * 2, 2);
     }];
 }
 
@@ -175,7 +175,7 @@ static char btRuntimeIndexKey;
     }
     [self layoutTitleViews:perferMargin];
     UIButton *selectedBt = [_titleViews objectAtIndex:0];
-    _label.frame = CGRectMake(selectedBt.frame.origin.x + 30, 42, selectedBt.frame.size.width - 62, 2);
+    _label.frame = CGRectMake(selectedBt.frame.origin.x + 30 - _minTitleMargin * 1.5, 42, selectedBt.frame.size.width - 60 + _minTitleMargin * 3, 2);
     _label.backgroundColor = RGBCOLOR(254, 82, 0);
 }
 

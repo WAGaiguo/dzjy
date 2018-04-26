@@ -25,4 +25,14 @@
     }
     return self;
 }
+-(void)setTitle:(NSString *)title{
+    [_titleBtn setTitle:title forState:UIControlStateNormal];
+}
+-(void)setIsSelected:(BOOL)isSelected{
+    if (isSelected) {
+        [_titleBtn setTitleColor:[UIColor colorWithHex:@"fe5200"] forState:UIControlStateNormal];
+    }else {
+        [_titleBtn setTitleColor:RGBCOLOR(51, 51, 51) forState:UIControlStateNormal];
+    }
+}
 @end
