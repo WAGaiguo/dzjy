@@ -18,6 +18,7 @@
 #import "DZMyAttentionViewController.h"
 #import "DZMyClientViewController.h"
 #import "DZMyOrderViewController.h"
+#import "DZSettingViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -88,7 +89,9 @@
     }];
 }
 
-
+- (void)more {
+    [self.navigationController pushViewController:[DZSettingViewController new] animated:YES];
+}
 
 
 

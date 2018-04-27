@@ -44,6 +44,9 @@
 		1E34365A2091600300190689 /* DZMyOrderAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436592091600300190689 /* DZMyOrderAdapter.m */; };
 		1E34365D2091642000190689 /* DZMyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34365C2091642000190689 /* DZMyOrderCell.m */; };
 		1E34366020920E7F00190689 /* DZMySelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34365F20920E7F00190689 /* DZMySelectedView.m */; };
+		1E3436632092B33D00190689 /* DZSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436622092B33D00190689 /* DZSettingViewController.m */; };
+		1E3436672092B70600190689 /* DZSettingAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436662092B70600190689 /* DZSettingAdapter.m */; };
+		1E34366B2092B77F00190689 /* DZSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34366A2092B77F00190689 /* DZSettingCell.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -187,6 +190,12 @@
 		1E34365C2091642000190689 /* DZMyOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyOrderCell.m; sourceTree = "<group>"; };
 		1E34365E20920E7F00190689 /* DZMySelectedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMySelectedView.h; sourceTree = "<group>"; };
 		1E34365F20920E7F00190689 /* DZMySelectedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMySelectedView.m; sourceTree = "<group>"; };
+		1E3436612092B33D00190689 /* DZSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSettingViewController.h; sourceTree = "<group>"; };
+		1E3436622092B33D00190689 /* DZSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSettingViewController.m; sourceTree = "<group>"; };
+		1E3436652092B70600190689 /* DZSettingAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSettingAdapter.h; sourceTree = "<group>"; };
+		1E3436662092B70600190689 /* DZSettingAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSettingAdapter.m; sourceTree = "<group>"; };
+		1E3436692092B77F00190689 /* DZSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSettingCell.h; sourceTree = "<group>"; };
+		1E34366A2092B77F00190689 /* DZSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSettingCell.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -503,6 +512,24 @@
 			path = mine;
 			sourceTree = "<group>";
 		};
+		1E3436642092B6D400190689 /* room */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436652092B70600190689 /* DZSettingAdapter.h */,
+				1E3436662092B70600190689 /* DZSettingAdapter.m */,
+			);
+			path = room;
+			sourceTree = "<group>";
+		};
+		1E3436682092B75900190689 /* room */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436692092B77F00190689 /* DZSettingCell.h */,
+				1E34366A2092B77F00190689 /* DZSettingCell.m */,
+			);
+			path = room;
+			sourceTree = "<group>";
+		};
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +605,8 @@
 			children = (
 				1E628F19207F34CB00169A64 /* DZCategoryFirstController.h */,
 				1E628F1A207F34CB00169A64 /* DZCategoryFirstController.m */,
+				1E3436612092B33D00190689 /* DZSettingViewController.h */,
+				1E3436622092B33D00190689 /* DZSettingViewController.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -746,6 +775,7 @@
 		1EAD73E22068E35700BD7EF7 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				1E3436682092B75900190689 /* room */,
 				1E34362A208F024C00190689 /* mine */,
 				1E92D11F2086DDDB00E31C62 /* order */,
 				1E628EFB207DB4C400169A64 /* category */,
@@ -824,6 +854,7 @@
 		1EAD74072068EEC300BD7EF7 /* tableView */ = {
 			isa = PBXGroup;
 			children = (
+				1E3436642092B6D400190689 /* room */,
 				1E343626208EFCB100190689 /* mine */,
 				1E92D1232086E0E700E31C62 /* order */,
 				1E628ED7207A182800169A64 /* home */,
@@ -1064,6 +1095,7 @@
 				1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */,
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
+				1E3436672092B70600190689 /* DZSettingAdapter.m in Sources */,
 				1E628EF6207CB81E00169A64 /* DZCategoryItemView.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
 				1E05503D2071F4BB000F5188 /* DZUserManager.m in Sources */,
@@ -1075,7 +1107,9 @@
 				1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */,
 				1E343654209086E800190689 /* DZMyOrderViewController.m in Sources */,
 				1E343622208ECD6700190689 /* DZMyBoughtTipsView.m in Sources */,
+				1E34366B2092B77F00190689 /* DZSettingCell.m in Sources */,
 				1E628F01207DD44E00169A64 /* DZSpecificationView.m in Sources */,
+				1E3436632092B33D00190689 /* DZSettingViewController.m in Sources */,
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
