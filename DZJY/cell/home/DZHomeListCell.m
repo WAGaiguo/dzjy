@@ -38,7 +38,12 @@
     _areaLabel.font = [UIFont systemFontOfSize:13];
     [backView addSubview:_areaLabel];
     
-    _numsLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, _areaLabel.bottom + 2, SCREEN_WIDTH - 170, 16)];
+    _mininumLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, _areaLabel.bottom + 2, SCREEN_WIDTH - 170, 16)];
+    _mininumLabel.textColor = UISubTitleColor;
+    _mininumLabel.font = [UIFont systemFontOfSize:13];
+    [backView addSubview:_mininumLabel];
+    
+    _numsLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, _mininumLabel.bottom + 2, SCREEN_WIDTH - 170, 16)];
     _numsLabel.textColor = UISubTitleColor;
     _numsLabel.font = [UIFont systemFontOfSize:13];
     [backView addSubview:_numsLabel];
@@ -67,13 +72,13 @@
     
 }
 - (void)test{
-        NSString *dateStr = [NSDate updateTimeForNow:@"1394567890.99"];
-        _timeLabel.text =dateStr;
-         _priceLabel.attributedText = [self priceStr:@"￥5.0" unitStr:@"元/公斤"];
-         _timeLabel.text = @"1小时前";
-        _titleLabel.text = @"北京红辣椒";
-        _areaLabel.text = @"产地；邯郸";
-        _numsLabel.text = @"起订量：1000公斤";
+    NSString *dateStr = [NSDate updateTimeForNow:@"1394567890.99"];
+    _timeLabel.text =dateStr;
+    _priceLabel.attributedText = [self priceStr:@"￥5.0" unitStr:@"元/公斤"];
+    _timeLabel.text = @"1小时前";
+    _titleLabel.text = @"北京红辣椒";
+    _areaLabel.text = @"产地；邯郸";
+    _numsLabel.text = @"起订量：1000公斤";
 }
 - (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr{
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@元/%@",priceStr,unitStr]];
@@ -82,8 +87,10 @@
 }
 
 - (void)setContent:(NSDictionary *)dic{
+    NSLog(@"%@", dic);
     _titleLabel.text = [[dic objectForKey:@"commName"]description];
     _areaLabel.text = [[dic objectForKey:@"provCityDist"]description];
+    _mininumLabel.text = @"llllll222222ddddddd";
     _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@",[[dic objectForKey:@"allowBuyCount"]description],[[dic objectForKey:@"measUnit"]description]];
     _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
     [NSString stringWithFormat:@"%@元/kg",[dic[@"basePrice"]description]];

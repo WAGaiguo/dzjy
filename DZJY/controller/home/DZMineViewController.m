@@ -19,6 +19,7 @@
 #import "DZMyClientViewController.h"
 #import "DZMyOrderViewController.h"
 #import "DZSettingViewController.h"
+#import "DZMyFundViewController.h"
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -38,6 +39,7 @@
     [super viewDidLoad];
     self.titleView.backgroundColor = UIClearColor;
     [self setRightImage:@"设置"];
+    [self.titleView setIsTitleWhite:YES];
     [self configHeader];
     [self configFooter];
 }
@@ -51,6 +53,9 @@
         [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];
     }];
     [_headerView setSelectBlock:^(NSInteger integer) {
+        if (integer == 0) {
+            [me.navigationController pushViewController:[DZMyFundViewController new] animated:YES];
+        }
         if (integer == 1) {
             [me.navigationController pushViewController:[DZMyClientViewController new] animated:YES];return;
         }

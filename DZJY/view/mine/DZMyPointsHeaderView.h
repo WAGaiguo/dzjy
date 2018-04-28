@@ -12,4 +12,6 @@
 @property (nonatomic, strong)UILabel *timeLabel;
 @property (nonatomic, strong)UILabel *pointsLabel;
 @property (nonatomic, copy)void (^tapBlock)(void);
+- (void)setTopContent:(NSString *)str;
+- (void)setBottomContent:(NSString *)str;
 @end

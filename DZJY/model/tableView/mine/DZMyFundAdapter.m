@@ -1,17 +1,17 @@
 //
-//  DZMyOrderAdapter.m
+//  DZMyFundAdapter.m
 //  DZJY
 //
-//  Created by wangaiguo on 2018/4/26.
+//  Created by wangaiguo on 2018/4/28.
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "DZMyOrderAdapter.h"
-#import "DZMyOrderCell.h"
+#import "DZMyFundAdapter.h"
+#import "DZMyFundCell.h"
 
-@implementation DZMyOrderAdapter
+@implementation DZMyFundAdapter
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 242;
+    return 97;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -20,9 +20,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DZMyOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    DZMyFundCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fundCell"];
     if (cell == nil){
-        cell = [[DZMyOrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[DZMyFundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fundCell"];
     }
     return cell;
 }

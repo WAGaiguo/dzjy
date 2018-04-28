@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UIImageView *imageV;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *areaLabel;
+@property (nonatomic, strong) UILabel *mininumLabel;
 @property (nonatomic, strong) UILabel *numsLabel;
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *timeLabel;

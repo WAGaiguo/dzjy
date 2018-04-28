@@ -47,6 +47,9 @@
 		1E3436632092B33D00190689 /* DZSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436622092B33D00190689 /* DZSettingViewController.m */; };
 		1E3436672092B70600190689 /* DZSettingAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436662092B70600190689 /* DZSettingAdapter.m */; };
 		1E34366B2092B77F00190689 /* DZSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34366A2092B77F00190689 /* DZSettingCell.m */; };
+		1E3436702094047F00190689 /* DZMyFundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34366F2094047F00190689 /* DZMyFundViewController.m */; };
+		1E343673209404A600190689 /* DZMyFundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343672209404A600190689 /* DZMyFundCell.m */; };
+		1E343676209404C700190689 /* DZMyFundAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343675209404C700190689 /* DZMyFundAdapter.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -196,6 +199,12 @@
 		1E3436662092B70600190689 /* DZSettingAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSettingAdapter.m; sourceTree = "<group>"; };
 		1E3436692092B77F00190689 /* DZSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSettingCell.h; sourceTree = "<group>"; };
 		1E34366A2092B77F00190689 /* DZSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSettingCell.m; sourceTree = "<group>"; };
+		1E34366E2094047F00190689 /* DZMyFundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyFundViewController.h; sourceTree = "<group>"; };
+		1E34366F2094047F00190689 /* DZMyFundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyFundViewController.m; sourceTree = "<group>"; };
+		1E343671209404A600190689 /* DZMyFundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyFundCell.h; sourceTree = "<group>"; };
+		1E343672209404A600190689 /* DZMyFundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyFundCell.m; sourceTree = "<group>"; };
+		1E343674209404C700190689 /* DZMyFundAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyFundAdapter.h; sourceTree = "<group>"; };
+		1E343675209404C700190689 /* DZMyFundAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyFundAdapter.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -474,6 +483,8 @@
 				1E3436442090301F00190689 /* DZMyClientViewController.m */,
 				1E343652209086E800190689 /* DZMyOrderViewController.h */,
 				1E343653209086E800190689 /* DZMyOrderViewController.m */,
+				1E34366E2094047F00190689 /* DZMyFundViewController.h */,
+				1E34366F2094047F00190689 /* DZMyFundViewController.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -491,6 +502,8 @@
 				1E34364A2090306400190689 /* DZMyClientAdapter.m */,
 				1E3436582091600300190689 /* DZMyOrderAdapter.h */,
 				1E3436592091600300190689 /* DZMyOrderAdapter.m */,
+				1E343674209404C700190689 /* DZMyFundAdapter.h */,
+				1E343675209404C700190689 /* DZMyFundAdapter.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -508,6 +521,8 @@
 				1E3436472090303A00190689 /* DZMyClientCell.m */,
 				1E34365B2091642000190689 /* DZMyOrderCell.h */,
 				1E34365C2091642000190689 /* DZMyOrderCell.m */,
+				1E343671209404A600190689 /* DZMyFundCell.h */,
+				1E343672209404A600190689 /* DZMyFundCell.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -1017,6 +1032,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E343673209404A600190689 /* DZMyFundCell.m in Sources */,
 				1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */,
 				1E34363C20901C1D00190689 /* DZMyAttentionViewController.m in Sources */,
 				1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */,
@@ -1036,6 +1052,7 @@
 				1E34363F20901C4600190689 /* DZMyAttentionCell.m in Sources */,
 				1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */,
 				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
+				1E3436702094047F00190689 /* DZMyFundViewController.m in Sources */,
 				1E628F04207DD6D500169A64 /* DZSpecificationCollectionViewCell.m in Sources */,
 				1E628EE4207C5A7900169A64 /* DZCategoryAllAdapter.m in Sources */,
 				1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */,
@@ -1065,6 +1082,7 @@
 				1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */,
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
+				1E343676209404C700190689 /* DZMyFundAdapter.m in Sources */,
 				1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */,
 				1E34366020920E7F00190689 /* DZMySelectedView.m in Sources */,
 				1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */,

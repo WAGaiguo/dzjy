@@ -59,4 +59,14 @@
     [_timeLabel setText:@"本月"];
     [_pointsLabel setText:@"总积分：566"];
 }
+- (void)setTopContent:(NSString *)str{
+    _timeLabel.text = str;
+}
+- (void)setBottomContent:(NSString *)str{
+    [_pointsLabel setText:str];
+    [_pointsLabel sizeToFit];
+    _pointsLabel.height = 25;
+    _pointsLabel.width = _pointsLabel.width + 20;
+    _pointsLabel.centerX = SCREEN_WIDTH/2.0;
+}
 @end
