@@ -20,6 +20,8 @@
 #import "DZMyOrderViewController.h"
 #import "DZSettingViewController.h"
 #import "DZMyFundViewController.h"
+#import "DZMyContractViewController.h"
+
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -83,7 +85,7 @@
         } else if (num == 1){
             [me.navigationController pushViewController:[DZMyOrderViewController new] animated:YES];
         }else if (num == 2){
-            
+            [me.navigationController pushViewController:[DZMyContractViewController new] animated:YES];
         }else if (num == 3){
             
         }

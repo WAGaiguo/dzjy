@@ -29,7 +29,7 @@
         _titleLabel.textColor = [UIColor colorWithHex:@"555555"];
         [backView addSubview:_titleLabel];
         
-        UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"back_gray"]];
+        UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"右箭头"]];
         imageV.centerY = 25;
         imageV.right = _titleLabel.right - 7;
         [backView addSubview:imageV];

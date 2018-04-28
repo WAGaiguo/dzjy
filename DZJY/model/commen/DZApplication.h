@@ -17,7 +17,7 @@
 #define ONE_PIXEL 1.0/[UIScreen mainScreen].scale
 #define IS_IPHONE_X    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 #define DZ_TOP         (IS_IPHONE_X ? 88:64)
-#define DZ_BOTTOM      IS_IPHONE_X ? 
+#define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
 @class AppDelegate;
 @interface DZApplication : NSObject

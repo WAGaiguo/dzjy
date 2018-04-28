@@ -87,10 +87,9 @@
 }
 
 - (void)setContent:(NSDictionary *)dic{
-    NSLog(@"%@", dic);
     _titleLabel.text = [[dic objectForKey:@"commName"]description];
     _areaLabel.text = [[dic objectForKey:@"provCityDist"]description];
-    _mininumLabel.text = @"llllll222222ddddddd";
+    _mininumLabel.text = [NSString stringWithFormat:@"起订量：%@ %@", [[dic objectForKey: @"startBuyCount"]description], [[dic objectForKey:@"measUnit"]description]];
     _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@",[[dic objectForKey:@"allowBuyCount"]description],[[dic objectForKey:@"measUnit"]description]];
     _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
     [NSString stringWithFormat:@"%@元/kg",[dic[@"basePrice"]description]];
