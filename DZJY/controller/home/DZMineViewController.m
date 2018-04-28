@@ -21,6 +21,7 @@
 #import "DZSettingViewController.h"
 #import "DZMyFundViewController.h"
 #import "DZMyContractViewController.h"
+#import "DZMyDeliveryViewController.h"
 
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -87,7 +88,7 @@
         }else if (num == 2){
             [me.navigationController pushViewController:[DZMyContractViewController new] animated:YES];
         }else if (num == 3){
-            
+            [me.navigationController pushViewController:[DZMyDeliveryViewController new] animated:YES];
         }
 
     }];
