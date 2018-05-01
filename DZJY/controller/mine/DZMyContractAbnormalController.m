@@ -1,27 +1,27 @@
 //
-//  DZMyContractViewController.m
+//  DZMyContractAbnormalController.m
 //  DZJY
 //
 //  Created by wangaiguo on 2018/4/28.
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "DZMyContractViewController.h"
-#import "DZMyContractAdapter.h"
+#import "DZMyContractAbnormalController.h"
+#import "DZMyContractAbnormalAdapter.h"
 #import "SVSegmentedView.h"
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
 
-@interface DZMyContractViewController ()<SVSegmentedViewDelegate>{
-    DZMyContractAdapter *_adapter1;
-    DZMyContractAdapter *_adapter2;
-    DZMyContractAdapter *_adapter3;
-    DZMyContractAdapter *_adapter4;
-    DZMyContractAdapter *_adapter5;
-    DZMyContractAdapter *_adapter6;
-    DZMyContractAdapter *_adapter7;
-    DZMyContractAdapter *_adapter8;
-    DZMyContractAdapter *_adapter9;
+@interface DZMyContractAbnormalController ()<SVSegmentedViewDelegate>{
+    DZMyContractAbnormalAdapter *_adapter1;
+    DZMyContractAbnormalAdapter *_adapter2;
+    DZMyContractAbnormalAdapter *_adapter3;
+    DZMyContractAbnormalAdapter *_adapter4;
+    DZMyContractAbnormalAdapter *_adapter5;
+    DZMyContractAbnormalAdapter *_adapter6;
+    DZMyContractAbnormalAdapter *_adapter7;
+    DZMyContractAbnormalAdapter *_adapter8;
+    DZMyContractAbnormalAdapter *_adapter9;
     UIImageView *_imageV;
     DZMySelectedView *_varietyView;
     BOOL _isSelected;
@@ -30,7 +30,7 @@
 @property (nonatomic, strong) SVSegmentedView *segmentView;
 @end
 
-@implementation DZMyContractViewController
+@implementation DZMyContractAbnormalController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +42,7 @@
     [self configVerity];
 }
 - (void)configHeader{
-    [self setTitle:@"我的合同"];
+    [self setTitle:@"合同结束请求处理"];
     _isSelected = YES;
     [self setBackEnabled:YES];
     [self setHeaderBackGroud:YES];
@@ -78,7 +78,7 @@
     }];
 }
 - (void)configAdapter{
-    _adapter1 = _adapter2 = _adapter3 = _adapter4 = _adapter5 = _adapter6 = _adapter7 = _adapter8 = _adapter9 =   [[DZMyContractAdapter alloc]init];
+    _adapter1 = _adapter2 = _adapter3 = _adapter4 = _adapter5 = _adapter6 = _adapter7 = _adapter8 = _adapter9 =   [[DZMyContractAbnormalAdapter alloc]init];
     NSArray *adpterArr = @[_adapter1, _adapter2, _adapter3, _adapter4, _adapter5, _adapter6, _adapter7, _adapter8, _adapter9];
     [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setAdapter:adpterArr[idx]];

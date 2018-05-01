@@ -9,5 +9,5 @@
 #import "DZBaseViewController.h"
 
 @interface DZMyBoughtViewController : DZBaseViewController
-
+@property (nonatomic, assign)NSInteger integer;
 @end

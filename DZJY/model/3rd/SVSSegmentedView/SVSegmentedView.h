@@ -62,7 +62,7 @@
 @property(nonatomic, assign) NSInteger selectedIndex;
 
 // the red bottom Line 
-@property(nonatomic,strong) UILabel *label;
+@property(nonatomic,strong) UIView *label;
 @end
 
 

@@ -21,7 +21,9 @@
 #import "DZSettingViewController.h"
 #import "DZMyFundViewController.h"
 #import "DZMyContractViewController.h"
+#import "DZMyContractAbnormalController.h"
 #import "DZMyDeliveryViewController.h"
+#import "DZMyDeliveryAbnormalController.h"
 
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -50,8 +52,8 @@
 - (void)configHeader{
     WEAK_SELF
     _headerView = [[DZMineHeaderView alloc]init];
-    [_headerView setLogined:NO];
-//    [_headerView setTitle:@"关怀久" subTitle:@"公司全称：：：：" img:nil];
+    [_headerView setLogined:YES];
+    [_headerView setTitle:@"关怀久" subTitle:@"公司全称：：：：" img:nil];
     [_headerView setLoginBlock:^{
         [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];
     }];
@@ -93,10 +95,33 @@
 
     }];
     [_footerView setTapRightBlock:^(NSInteger num) {
-        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];
+//        [HudUtils showMessage:[NSString stringWithFormat:@"%ld",num]];
+        [me tapFooterRightItem:num];
     }];
 }
-
+- (void)tapFooterRightItem:(NSInteger )num{
+    if (num == 1) {
+        DZMyBoughtViewController *myBought = [[DZMyBoughtViewController alloc]init];
+        myBought.integer = 1;
+        [self.navigationController pushViewController:myBought animated:YES];
+    } else if (num == 2){
+        
+    }else if (num == 3){
+        
+    }else if (num == 4){
+        
+    }else if (num == 5){
+        [self.navigationController pushViewController:[DZMyContractAbnormalController new] animated:YES];
+    }else if (num == 6){
+        
+    }else if (num == 7){
+        
+    }else if (num == 8){
+        [self.navigationController pushViewController:[DZMyDeliveryAbnormalController new] animated:YES];
+    }else if (num == 9){
+        
+    }
+}
 - (void)more {
     [self.navigationController pushViewController:[DZSettingViewController new] animated:YES];
 }

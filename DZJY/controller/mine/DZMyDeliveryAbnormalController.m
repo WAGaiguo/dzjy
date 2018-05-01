@@ -1,52 +1,49 @@
 //
-//  DZMyContractViewController.m
+//  DZMyDeliveryAbnormalController.m
 //  DZJY
 //
 //  Created by wangaiguo on 2018/4/28.
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "DZMyContractViewController.h"
-#import "DZMyContractAdapter.h"
+#import "DZMyDeliveryAbnormalController.h"
 #import "SVSegmentedView.h"
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
+#import "DZMyDeliveryAdapter.h"
 
-@interface DZMyContractViewController ()<SVSegmentedViewDelegate>{
-    DZMyContractAdapter *_adapter1;
-    DZMyContractAdapter *_adapter2;
-    DZMyContractAdapter *_adapter3;
-    DZMyContractAdapter *_adapter4;
-    DZMyContractAdapter *_adapter5;
-    DZMyContractAdapter *_adapter6;
-    DZMyContractAdapter *_adapter7;
-    DZMyContractAdapter *_adapter8;
-    DZMyContractAdapter *_adapter9;
+@interface DZMyDeliveryAbnormalController ()<SVSegmentedViewDelegate>{
     UIImageView *_imageV;
     DZMySelectedView *_varietyView;
     BOOL _isSelected;
+    DZMyDeliveryAdapter *_adapter1;
+    DZMyDeliveryAdapter *_adapter2;
+    DZMyDeliveryAdapter *_adapter3;
+    DZMyDeliveryAdapter *_adapter4;
+    DZMyDeliveryAdapter *_adapter5;
+    DZMyDeliveryAdapter *_adapter6;
+    DZMyDeliveryAdapter *_adapter7;
+    DZMyDeliveryAdapter *_adapter8;
+    DZMyDeliveryAdapter *_adapter9;
 }
 @property (nonatomic, strong) DZMineCommenScrollView *scrollView;
 @property (nonatomic, strong) SVSegmentedView *segmentView;
 @end
 
-@implementation DZMyContractViewController
+@implementation DZMyDeliveryAbnormalController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configHeader];
+    [self setTitle:@"交收异常处理"];
+    _isSelected = YES;
+    [self setBackEnabled:YES];
+    [self setHeaderBackGroud:YES];
+    [self setRightImage:@"question_mark"];
     [self configSeveralItem];
     [self configSelectItem];
     [self configScrollView];
     [self configAdapter];
     [self configVerity];
-}
-- (void)configHeader{
-    [self setTitle:@"我的合同"];
-    _isSelected = YES;
-    [self setBackEnabled:YES];
-    [self setHeaderBackGroud:YES];
-    [self setRightImage:@"question_mark"];
 }
 -(void)configSeveralItem{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH - 44, 44)];
@@ -78,7 +75,7 @@
     }];
 }
 - (void)configAdapter{
-    _adapter1 = _adapter2 = _adapter3 = _adapter4 = _adapter5 = _adapter6 = _adapter7 = _adapter8 = _adapter9 =   [[DZMyContractAdapter alloc]init];
+    _adapter1 = _adapter2 = _adapter3 = _adapter4 = _adapter5 = _adapter6 = _adapter7 = _adapter8 = _adapter9 =   [[DZMyDeliveryAdapter alloc]init];
     NSArray *adpterArr = @[_adapter1, _adapter2, _adapter3, _adapter4, _adapter5, _adapter6, _adapter7, _adapter8, _adapter9];
     [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setAdapter:adpterArr[idx]];

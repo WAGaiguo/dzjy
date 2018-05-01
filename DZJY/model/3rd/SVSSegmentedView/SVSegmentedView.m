@@ -44,7 +44,7 @@ static char btRuntimeIndexKey;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.alwaysBounceHorizontal = YES;
-    _label = [[UILabel alloc]init];
+    _label = [[UIView alloc]init];
     [_scrollView addSubview:_label];
     [self addSubview:_scrollView];
     //init with default
@@ -174,7 +174,7 @@ static char btRuntimeIndexKey;
         perferMargin = (self.frame.size.width - frame.totalWidthNoMargin) / ([_titles count] * 2);
     }
     [self layoutTitleViews:perferMargin];
-    UIButton *selectedBt = [_titleViews objectAtIndex:0];
+    UIButton *selectedBt = [_titleViews objectAtIndex:_selectedIndex];
     _label.frame = CGRectMake(selectedBt.frame.origin.x + 30 - _minTitleMargin * 1.5, 42, selectedBt.frame.size.width - 60 + _minTitleMargin * 3, 2);
     _label.backgroundColor = RGBCOLOR(254, 82, 0);
 }

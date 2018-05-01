@@ -162,8 +162,6 @@
     _dealLabel.text = [NSString stringWithFormat:@"成交量：%@",@"500公斤"];
     _totalLabel.attributedText = [self str:[NSString stringWithFormat:@"总成交量：%@",@"7000公斤"]];
     _companyLabel.text = @"联信智源公司";
-    
-    
 }
 - (NSMutableAttributedString *)str:(NSString *)str{
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:str];

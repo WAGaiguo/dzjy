@@ -19,7 +19,6 @@
     DZMyBoughtAdapter *_normalAdapter;
     DZMyBoughtAdapter *_revocationAdapter;
     DZMyBoughtAdapter *_passAdapter;
-    
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
 
@@ -29,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
     [self configHeader];
     [self configSeveralItem];
     [self configScrollView];
@@ -49,6 +47,7 @@
     _segmentView.defaultFontColor = RGBCOLOR(51, 51, 51);
     _segmentView.minTitleMargin = 0;
     _segmentView.delegate = self;
+    _segmentView.selectedIndex = _integer;
     [self.view addSubview:_segmentView];
 }
 - (void)configScrollView{
@@ -59,6 +58,7 @@
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
     }];
+    [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * _integer, 0)];
 }
 - (void)configAdapter{
     _allAdapter = [[DZMyBoughtAdapter alloc]init];
