@@ -84,4 +84,13 @@ UIColor* RGBCOLOR(int r,int g,int b){
 + (UIColor *)titleColor{
     return [UIColor colorWithHex:@"3C3C3C"];
 }
++ (UIColor *)sixColor{
+    return [UIColor colorWithHex:@"666666"];
+}
++ (UIColor *)threeColor{
+    return [UIColor colorWithHex:@"333333"];
+}
++ (UIColor *)nineColor{
+    return [UIColor colorWithHex:@"999999"];
+}
 @end

@@ -24,6 +24,7 @@
 #import "DZMyContractAbnormalController.h"
 #import "DZMyDeliveryViewController.h"
 #import "DZMyDeliveryAbnormalController.h"
+#import "DZMyLadingViewController.h"
 
 
 @interface DZMineViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -119,7 +120,7 @@
     }else if (num == 8){
         [self.navigationController pushViewController:[DZMyDeliveryAbnormalController new] animated:YES];
     }else if (num == 9){
-        
+        [self.navigationController pushViewController:[DZMyLadingViewController new] animated:YES];
     }
 }
 - (void)more {

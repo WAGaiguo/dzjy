@@ -26,6 +26,9 @@
 #define UITitleColor              RGBCOLOR(51, 51, 51)
 #define UISubTitleColor           RGBCOLOR(153, 153, 153)
 #define UITimeColor               RGBCOLOR(204, 204, 204)
+#define UI666666Color       [UIColor sixColor]
+#define UI999999Color       [UIColor nineColor]
+#define UI333333Color       [UIColor threeColor]
 
 
 
@@ -41,6 +44,9 @@
 + (UIColor *)backgroundColor;
 
 + (UIColor *)seperatorColor;
++ (UIColor *)sixColor;
++ (UIColor *)threeColor;
++ (UIColor *)nineColor;
 
 
 
