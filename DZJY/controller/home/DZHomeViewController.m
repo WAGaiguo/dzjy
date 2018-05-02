@@ -65,7 +65,8 @@
 - (void)configBannerView{
     _bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120) imageNamesGroup:@[@"banner1", @"banner2"]];
     _bannerView.autoScrollTimeInterval = 5;
-    _bannerView.currentPageDotColor = UICommonColor;
+    _bannerView.pageDotImage = [UIImage imageNamed:@"轮播未选中"];
+    _bannerView.currentPageDotImage = [UIImage imageNamed:@"轮播选中"];
     [_headerView addSubview:_bannerView];
 }
 - (void)configItemView{

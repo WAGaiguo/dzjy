@@ -43,8 +43,9 @@
     _stateLabel.textColor = [UIColor colorWithHex:@"fe0000"];
     _stateLabel.width = 65;
     _stateLabel.height = 30;
-    _stateLabel.right = backView.width ;
+    _stateLabel.right = backView.width - 10 ;
     _stateLabel.centerY = 17.5;
+    _stateLabel.textAlignment = NSTextAlignmentRight;
     [backView addSubview:_stateLabel];
 }
 - (void)second{
