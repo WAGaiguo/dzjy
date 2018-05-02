@@ -9,6 +9,7 @@
 #import "DZSettingViewController.h"
 #import "DZSettingAdapter.h"
 #import "DZUserManager.h"
+#import "DZMyMembersViewController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -27,10 +28,15 @@
 }
 
 - (void)configAdapter{
-    _adapter = [[DZSettingAdapter alloc]initWithDataSource:@[@"我的会员信息", @"修改注册手机号", @"修改登录密码", @"我的发票信息", @"我的常用地址", @"清除缓存", @"关于我们", @"当前版本V1.0.0"]];
+    _adapter = [[DZSettingAdapter alloc]initWithDataSource:@[@"我的会员信息", @"修改注册手机号", @"修改登录密码", @"我的发票信息", @"我的常用地址", @"清除缓存", @"关于我们", @"当前版本 V1.0.0"]];
     [self.tableView setAdapter:_adapter];
+    WEAK_SELF
     [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [HudUtils showMessage:@"lasdjlfja"];
+        if (indexPath.row == 0) {
+            [me.navigationController pushViewController:[DZMyMembersViewController new] animated:YES];
+        }else if (indexPath.row == 1){
+            
+        }
     }];
     [self configFooterView];
 }
