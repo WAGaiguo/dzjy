@@ -10,6 +10,7 @@
 #import "DZSettingAdapter.h"
 #import "DZUserManager.h"
 #import "DZMyMembersViewController.h"
+#import "DZPasswordChangeController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -36,6 +37,8 @@
             [me.navigationController pushViewController:[DZMyMembersViewController new] animated:YES];
         }else if (indexPath.row == 1){
             
+        }else if (indexPath.row == 2){
+            [me.navigationController pushViewController:[DZPasswordChangeController new] animated:YES];
         }
     }];
     [self configFooterView];

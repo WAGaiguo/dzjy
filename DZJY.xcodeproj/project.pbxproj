@@ -72,6 +72,7 @@
 		1E3436B2209981B000190689 /* DZMyMembersCompanyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436B1209981B000190689 /* DZMyMembersCompanyAdapter.m */; };
 		1E3436B5209981DB00190689 /* DZMyMembersConnectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436B4209981DB00190689 /* DZMyMembersConnectAdapter.m */; };
 		1E3436B8209987CA00190689 /* DZMyMembersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436B7209987CA00190689 /* DZMyMembersCell.m */; };
+		1E3436BB2099964F00190689 /* DZPasswordChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436BA2099964F00190689 /* DZPasswordChangeController.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -271,6 +272,8 @@
 		1E3436B4209981DB00190689 /* DZMyMembersConnectAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyMembersConnectAdapter.m; sourceTree = "<group>"; };
 		1E3436B6209987CA00190689 /* DZMyMembersCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyMembersCell.h; sourceTree = "<group>"; };
 		1E3436B7209987CA00190689 /* DZMyMembersCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyMembersCell.m; sourceTree = "<group>"; };
+		1E3436B92099964F00190689 /* DZPasswordChangeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPasswordChangeController.h; sourceTree = "<group>"; };
+		1E3436BA2099964F00190689 /* DZPasswordChangeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPasswordChangeController.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -732,6 +735,8 @@
 				1E3436622092B33D00190689 /* DZSettingViewController.m */,
 				1E3436AA2099803700190689 /* DZMyMembersViewController.h */,
 				1E3436AB2099803700190689 /* DZMyMembersViewController.m */,
+				1E3436B92099964F00190689 /* DZPasswordChangeController.h */,
+				1E3436BA2099964F00190689 /* DZPasswordChangeController.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -1245,6 +1250,7 @@
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
 				1E05503D2071F4BB000F5188 /* DZUserManager.m in Sources */,
 				1E628EED207C9D2300169A64 /* DZCategoryAllHeaderView.m in Sources */,
+				1E3436BB2099964F00190689 /* DZPasswordChangeController.m in Sources */,
 				1E05504720722E82000F5188 /* DZMineCollectionViewCell.m in Sources */,
 				1E0550402071F512000F5188 /* DZLoginUser.m in Sources */,
 				1E343688209438C200190689 /* DZMyDeliveryCell.m in Sources */,
