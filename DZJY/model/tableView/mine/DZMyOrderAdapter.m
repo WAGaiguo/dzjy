@@ -24,6 +24,9 @@
     if (cell == nil){
         cell = [[DZMyOrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    [cell setCallBlock:^{
+        [self makePhoneCall:@"15501281444"];
+    }];
     return cell;
 }
 @end

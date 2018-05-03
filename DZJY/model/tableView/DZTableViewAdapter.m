@@ -96,4 +96,8 @@
     }
     return nil;
 }
+- (void)makePhoneCall:(NSString *)phoneNum{
+    NSMutableString *mutStr = [[NSMutableString alloc]initWithFormat:@"telprompt://%@", phoneNum];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:mutStr]];
+}
 @end

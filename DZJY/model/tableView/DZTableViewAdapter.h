@@ -24,5 +24,6 @@
 - (void)goTop:(BOOL)animated;
 
 - (UIViewController *)firstViewController;
+- (void)makePhoneCall:(NSString *)phoneNum;
 
 @end

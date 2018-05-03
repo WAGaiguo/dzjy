@@ -153,7 +153,6 @@
     btn.titleLabel.font = [UIFont systemFontOfSize:13];
     [backView addSubview:btn];
     [btn bk_addEventHandler:^(id sender) {
-        [HudUtils showMessage:@"打电话测试"];
         if (_callBlock) {
             _callBlock();
         }
