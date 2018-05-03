@@ -11,6 +11,7 @@
 #import "DZUserManager.h"
 #import "DZMyMembersViewController.h"
 #import "DZPasswordChangeController.h"
+#import "DZPhoneNumChangeController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -36,7 +37,7 @@
         if (indexPath.row == 0) {
             [me.navigationController pushViewController:[DZMyMembersViewController new] animated:YES];
         }else if (indexPath.row == 1){
-            
+            [me.navigationController pushViewController:[DZPhoneNumChangeController new] animated:YES];
         }else if (indexPath.row == 2){
             [me.navigationController pushViewController:[DZPasswordChangeController new] animated:YES];
         }

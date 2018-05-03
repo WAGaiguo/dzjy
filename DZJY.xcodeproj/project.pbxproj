@@ -73,6 +73,9 @@
 		1E3436B5209981DB00190689 /* DZMyMembersConnectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436B4209981DB00190689 /* DZMyMembersConnectAdapter.m */; };
 		1E3436B8209987CA00190689 /* DZMyMembersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436B7209987CA00190689 /* DZMyMembersCell.m */; };
 		1E3436BB2099964F00190689 /* DZPasswordChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436BA2099964F00190689 /* DZPasswordChangeController.m */; };
+		1E3436BE2099A96300190689 /* DZPhoneNumChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436BD2099A96300190689 /* DZPhoneNumChangeController.m */; };
+		1E3436C22099B54E00190689 /* DZPhoneChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436C12099B54E00190689 /* DZPhoneChangeView.m */; };
+		1E3436C52099BD2500190689 /* DZPhoneChangeTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436C42099BD2500190689 /* DZPhoneChangeTipsView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -274,6 +277,12 @@
 		1E3436B7209987CA00190689 /* DZMyMembersCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyMembersCell.m; sourceTree = "<group>"; };
 		1E3436B92099964F00190689 /* DZPasswordChangeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPasswordChangeController.h; sourceTree = "<group>"; };
 		1E3436BA2099964F00190689 /* DZPasswordChangeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPasswordChangeController.m; sourceTree = "<group>"; };
+		1E3436BC2099A96300190689 /* DZPhoneNumChangeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPhoneNumChangeController.h; sourceTree = "<group>"; };
+		1E3436BD2099A96300190689 /* DZPhoneNumChangeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPhoneNumChangeController.m; sourceTree = "<group>"; };
+		1E3436C02099B54E00190689 /* DZPhoneChangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPhoneChangeView.h; sourceTree = "<group>"; };
+		1E3436C12099B54E00190689 /* DZPhoneChangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPhoneChangeView.m; sourceTree = "<group>"; };
+		1E3436C32099BD2500190689 /* DZPhoneChangeTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPhoneChangeTipsView.h; sourceTree = "<group>"; };
+		1E3436C42099BD2500190689 /* DZPhoneChangeTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPhoneChangeTipsView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -654,6 +663,17 @@
 			path = room;
 			sourceTree = "<group>";
 		};
+		1E3436BF2099B52F00190689 /* room */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436C02099B54E00190689 /* DZPhoneChangeView.h */,
+				1E3436C12099B54E00190689 /* DZPhoneChangeView.m */,
+				1E3436C32099BD2500190689 /* DZPhoneChangeTipsView.h */,
+				1E3436C42099BD2500190689 /* DZPhoneChangeTipsView.m */,
+			);
+			path = room;
+			sourceTree = "<group>";
+		};
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +757,8 @@
 				1E3436AB2099803700190689 /* DZMyMembersViewController.m */,
 				1E3436B92099964F00190689 /* DZPasswordChangeController.h */,
 				1E3436BA2099964F00190689 /* DZPasswordChangeController.m */,
+				1E3436BC2099A96300190689 /* DZPhoneNumChangeController.h */,
+				1E3436BD2099A96300190689 /* DZPhoneNumChangeController.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -917,6 +939,7 @@
 		1EAD73E32068E36100BD7EF7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1E3436BF2099B52F00190689 /* room */,
 				1E34360D208D71D500190689 /* mine */,
 				1E92D10A2084952800E31C62 /* order */,
 				1E628EF7207DA1A300169A64 /* category */,
@@ -1159,6 +1182,7 @@
 				1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */,
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
 				1E628EF0207CA33400169A64 /* UIImage+resize.m in Sources */,
+				1E3436C22099B54E00190689 /* DZPhoneChangeView.m in Sources */,
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
 				1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */,
 				1E628EE1207C57D300169A64 /* DZCategoryAllController.m in Sources */,
@@ -1185,6 +1209,7 @@
 				1E34368E2094681900190689 /* DZMyContractAbnormalController.m in Sources */,
 				1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */,
 				1E3436512090598D00190689 /* DZMyBoughtDetailHeaderView.m in Sources */,
+				1E3436C52099BD2500190689 /* DZPhoneChangeTipsView.m in Sources */,
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
 				1E343633208F1F7500190689 /* DZMyPointsHeaderView.m in Sources */,
 				1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */,
@@ -1208,6 +1233,7 @@
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
 				1E343676209404C700190689 /* DZMyFundAdapter.m in Sources */,
 				1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */,
+				1E3436BE2099A96300190689 /* DZPhoneNumChangeController.m in Sources */,
 				1E34366020920E7F00190689 /* DZMySelectedView.m in Sources */,
 				1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */,
 				1E92D12C20873E1200E31C62 /* DZOrderConfrimBtnView.m in Sources */,
@@ -1313,8 +1339,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_ACTIVITY_MODE = "";
-				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = default;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1370,7 +1394,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
