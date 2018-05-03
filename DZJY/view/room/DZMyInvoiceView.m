@@ -57,9 +57,9 @@ static const int dz_hight = 48;
 - (UILabel *)label:(NSString *)text top:(CGFloat)top{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, top, 135, dz_hight)];
     label.font = [UIFont systemFontOfSize:13];
-    label.textColor = UI666666Color;
+    label.textColor = UI555555Color;
     label.text = text;
-    label.left = 11;
+    label.left = 14;
     [_backV addSubview:label];
     return label;
 }
@@ -67,8 +67,12 @@ static const int dz_hight = 48;
     UITextField *field = [[UITextField alloc]initWithFrame:CGRectMake(135, top, SCREEN_WIDTH - 135 - 24, 48)];
     field.textAlignment = NSTextAlignmentRight;
     field.font = [UIFont systemFontOfSize:14];
-    field.textColor = UITitleColor;
+    field.textColor = UI333333Color;
     field.placeholder = @"请输入";
+    field.returnKeyType = UIReturnKeyDone;
+    [field setBk_shouldReturnBlock:^BOOL(UITextField *field) {
+        return [field resignFirstResponder];
+    }];
     return field;
 }
 - (void)lineView:(CGFloat)top{

@@ -38,8 +38,8 @@
 - (UIButton *)button:(NSString *)text image:(NSString *)image integer:(NSInteger)integer{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:text forState:UIControlStateNormal];
-    [btn setTitleColor:UI666666Color forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [btn setTitleColor:UI555555Color forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:11];
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
     [btn bk_addEventHandler:^(id sender) {

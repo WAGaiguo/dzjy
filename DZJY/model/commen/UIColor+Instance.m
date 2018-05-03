@@ -93,4 +93,7 @@ UIColor* RGBCOLOR(int r,int g,int b){
 + (UIColor *)nineColor{
     return [UIColor colorWithHex:@"999999"];
 }
++ (UIColor *)fiveColor{
+    return [UIColor colorWithHex:@"555555"];
+}
 @end

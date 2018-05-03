@@ -29,6 +29,7 @@
 #define UI666666Color       [UIColor sixColor]
 #define UI999999Color       [UIColor nineColor]
 #define UI333333Color       [UIColor threeColor]
+#define UI555555Color       [UIColor fiveColor]
 
 
 
@@ -47,6 +48,7 @@
 + (UIColor *)sixColor;
 + (UIColor *)threeColor;
 + (UIColor *)nineColor;
++ (UIColor *)fiveColor;
 
 
 
