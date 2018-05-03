@@ -45,6 +45,10 @@
             [me.navigationController pushViewController:[DZMyInvoiceViewController new] animated:YES];
         }else if (indexPath.row == 4){
             
+        }else if (indexPath.row == 5){// 清除缓存
+            [me clearCache];
+        }else if (indexPath.row == 6){
+            
         }
     }];
     [self configFooterView];
@@ -73,7 +77,14 @@
     [backView addSubview:btn];
     self.tableView.tableFooterView = backView;
 }
-
+#pragma 清除 - SDImageCache - 缓存
+- (void)clearCache{
+    [HudUtils show:self.view];
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        [HudUtils hide:self.view];
+        [HudUtils showMessage:@"清除缓存成功"];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
