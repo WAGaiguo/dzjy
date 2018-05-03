@@ -76,6 +76,14 @@
 		1E3436BE2099A96300190689 /* DZPhoneNumChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436BD2099A96300190689 /* DZPhoneNumChangeController.m */; };
 		1E3436C22099B54E00190689 /* DZPhoneChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436C12099B54E00190689 /* DZPhoneChangeView.m */; };
 		1E3436C52099BD2500190689 /* DZPhoneChangeTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436C42099BD2500190689 /* DZPhoneChangeTipsView.m */; };
+		1E3436C8209AAFD800190689 /* DZMyInvoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436C7209AAFD800190689 /* DZMyInvoiceViewController.m */; };
+		1E3436CB209AB11000190689 /* DZMyInvoiceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436CA209AB11000190689 /* DZMyInvoiceAdapter.m */; };
+		1E3436CE209AB1E500190689 /* DZMyInvoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436CD209AB1E500190689 /* DZMyInvoiceCell.m */; };
+		1E3436D1209AB30200190689 /* DZMyInvoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436D0209AB30200190689 /* DZMyInvoiceView.m */; };
+		1E3436D4209ADD8800190689 /* DZMyInvoiceEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436D3209ADD8800190689 /* DZMyInvoiceEditView.m */; };
+		1E3436D7209AE9EA00190689 /* DZMyInvoiceAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436D6209AE9EA00190689 /* DZMyInvoiceAddController.m */; };
+		1E3436DA209AEA0200190689 /* DZMyInvoiceEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436D9209AEA0200190689 /* DZMyInvoiceEditViewController.m */; };
+		1E3436DD209AED7100190689 /* DZMyInvoiceSetDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436DC209AED7100190689 /* DZMyInvoiceSetDefaultView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -283,6 +291,22 @@
 		1E3436C12099B54E00190689 /* DZPhoneChangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPhoneChangeView.m; sourceTree = "<group>"; };
 		1E3436C32099BD2500190689 /* DZPhoneChangeTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZPhoneChangeTipsView.h; sourceTree = "<group>"; };
 		1E3436C42099BD2500190689 /* DZPhoneChangeTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZPhoneChangeTipsView.m; sourceTree = "<group>"; };
+		1E3436C6209AAFD800190689 /* DZMyInvoiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceViewController.h; sourceTree = "<group>"; };
+		1E3436C7209AAFD800190689 /* DZMyInvoiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceViewController.m; sourceTree = "<group>"; };
+		1E3436C9209AB11000190689 /* DZMyInvoiceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceAdapter.h; sourceTree = "<group>"; };
+		1E3436CA209AB11000190689 /* DZMyInvoiceAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceAdapter.m; sourceTree = "<group>"; };
+		1E3436CC209AB1E500190689 /* DZMyInvoiceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceCell.h; sourceTree = "<group>"; };
+		1E3436CD209AB1E500190689 /* DZMyInvoiceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceCell.m; sourceTree = "<group>"; };
+		1E3436CF209AB30200190689 /* DZMyInvoiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceView.h; sourceTree = "<group>"; };
+		1E3436D0209AB30200190689 /* DZMyInvoiceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceView.m; sourceTree = "<group>"; };
+		1E3436D2209ADD8800190689 /* DZMyInvoiceEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceEditView.h; sourceTree = "<group>"; };
+		1E3436D3209ADD8800190689 /* DZMyInvoiceEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceEditView.m; sourceTree = "<group>"; };
+		1E3436D5209AE9EA00190689 /* DZMyInvoiceAddController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceAddController.h; sourceTree = "<group>"; };
+		1E3436D6209AE9EA00190689 /* DZMyInvoiceAddController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceAddController.m; sourceTree = "<group>"; };
+		1E3436D8209AEA0200190689 /* DZMyInvoiceEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceEditViewController.h; sourceTree = "<group>"; };
+		1E3436D9209AEA0200190689 /* DZMyInvoiceEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceEditViewController.m; sourceTree = "<group>"; };
+		1E3436DB209AED7100190689 /* DZMyInvoiceSetDefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceSetDefaultView.h; sourceTree = "<group>"; };
+		1E3436DC209AED7100190689 /* DZMyInvoiceSetDefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceSetDefaultView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -648,6 +672,8 @@
 				1E3436B1209981B000190689 /* DZMyMembersCompanyAdapter.m */,
 				1E3436B3209981DB00190689 /* DZMyMembersConnectAdapter.h */,
 				1E3436B4209981DB00190689 /* DZMyMembersConnectAdapter.m */,
+				1E3436C9209AB11000190689 /* DZMyInvoiceAdapter.h */,
+				1E3436CA209AB11000190689 /* DZMyInvoiceAdapter.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -659,6 +685,8 @@
 				1E34366A2092B77F00190689 /* DZSettingCell.m */,
 				1E3436B6209987CA00190689 /* DZMyMembersCell.h */,
 				1E3436B7209987CA00190689 /* DZMyMembersCell.m */,
+				1E3436CC209AB1E500190689 /* DZMyInvoiceCell.h */,
+				1E3436CD209AB1E500190689 /* DZMyInvoiceCell.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -666,10 +694,16 @@
 		1E3436BF2099B52F00190689 /* room */ = {
 			isa = PBXGroup;
 			children = (
+				1E3436D2209ADD8800190689 /* DZMyInvoiceEditView.h */,
+				1E3436D3209ADD8800190689 /* DZMyInvoiceEditView.m */,
 				1E3436C02099B54E00190689 /* DZPhoneChangeView.h */,
 				1E3436C12099B54E00190689 /* DZPhoneChangeView.m */,
 				1E3436C32099BD2500190689 /* DZPhoneChangeTipsView.h */,
 				1E3436C42099BD2500190689 /* DZPhoneChangeTipsView.m */,
+				1E3436CF209AB30200190689 /* DZMyInvoiceView.h */,
+				1E3436D0209AB30200190689 /* DZMyInvoiceView.m */,
+				1E3436DB209AED7100190689 /* DZMyInvoiceSetDefaultView.h */,
+				1E3436DC209AED7100190689 /* DZMyInvoiceSetDefaultView.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -759,6 +793,12 @@
 				1E3436BA2099964F00190689 /* DZPasswordChangeController.m */,
 				1E3436BC2099A96300190689 /* DZPhoneNumChangeController.h */,
 				1E3436BD2099A96300190689 /* DZPhoneNumChangeController.m */,
+				1E3436C6209AAFD800190689 /* DZMyInvoiceViewController.h */,
+				1E3436C7209AAFD800190689 /* DZMyInvoiceViewController.m */,
+				1E3436D5209AE9EA00190689 /* DZMyInvoiceAddController.h */,
+				1E3436D6209AE9EA00190689 /* DZMyInvoiceAddController.m */,
+				1E3436D8209AEA0200190689 /* DZMyInvoiceEditViewController.h */,
+				1E3436D9209AEA0200190689 /* DZMyInvoiceEditViewController.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -1181,10 +1221,12 @@
 				1E3436822094384100190689 /* DZMyDeliveryViewController.m in Sources */,
 				1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */,
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
+				1E3436DD209AED7100190689 /* DZMyInvoiceSetDefaultView.m in Sources */,
 				1E628EF0207CA33400169A64 /* UIImage+resize.m in Sources */,
 				1E3436C22099B54E00190689 /* DZPhoneChangeView.m in Sources */,
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
 				1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */,
+				1E3436CB209AB11000190689 /* DZMyInvoiceAdapter.m in Sources */,
 				1E628EE1207C57D300169A64 /* DZCategoryAllController.m in Sources */,
 				1E34369420946F1500190689 /* DZMyContractAbnormalAdapter.m in Sources */,
 				1E3436452090301F00190689 /* DZMyClientViewController.m in Sources */,
@@ -1195,6 +1237,7 @@
 				1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */,
 				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
 				1E3436702094047F00190689 /* DZMyFundViewController.m in Sources */,
+				1E3436C8209AAFD800190689 /* DZMyInvoiceViewController.m in Sources */,
 				1E628F04207DD6D500169A64 /* DZSpecificationCollectionViewCell.m in Sources */,
 				1E343679209414B500190689 /* DZMyContractViewController.m in Sources */,
 				1E3436B5209981DB00190689 /* DZMyMembersConnectAdapter.m in Sources */,
@@ -1231,6 +1274,7 @@
 				1EAD74052068EE5E00BD7EF7 /* NSString+MD5.m in Sources */,
 				1E3436A62099529800190689 /* DZMyLadingAdapter.m in Sources */,
 				1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */,
+				1E3436D4209ADD8800190689 /* DZMyInvoiceEditView.m in Sources */,
 				1E343676209404C700190689 /* DZMyFundAdapter.m in Sources */,
 				1E628F10207DF8E100169A64 /* DZCityAdapter.m in Sources */,
 				1E3436BE2099A96300190689 /* DZPhoneNumChangeController.m in Sources */,
@@ -1241,9 +1285,11 @@
 				1E34369120946EF100190689 /* DZMyContractAbormalCell.m in Sources */,
 				1E34364E2090596000190689 /* DZMyBoughtDetailController.m in Sources */,
 				1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */,
+				1E3436CE209AB1E500190689 /* DZMyInvoiceCell.m in Sources */,
 				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
 				1E34364B2090306400190689 /* DZMyClientAdapter.m in Sources */,
+				1E3436DA209AEA0200190689 /* DZMyInvoiceEditViewController.m in Sources */,
 				1E628EFA207DA1EE00169A64 /* DZVarietyView.m in Sources */,
 				1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */,
 				1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */,
@@ -1291,10 +1337,12 @@
 				1E3436632092B33D00190689 /* DZSettingViewController.m in Sources */,
 				1E3436B2209981B000190689 /* DZMyMembersCompanyAdapter.m in Sources */,
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,
+				1E3436D7209AE9EA00190689 /* DZMyInvoiceAddController.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
 				1E3436AC2099803700190689 /* DZMyMembersViewController.m in Sources */,
+				1E3436D1209AB30200190689 /* DZMyInvoiceView.m in Sources */,
 				1E34362D208F028500190689 /* DZMyBoughtCell.m in Sources */,
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
 				1E343630208F1DE100190689 /* DZMyPointsViewController.m in Sources */,

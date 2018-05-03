@@ -177,6 +177,7 @@
     btn.layer.cornerRadius = 3;
     return btn;
 }
+// 第一个页面倒计时
 - (void)wait:(NSNumber *)time{
     NSInteger seconds = [time integerValue];
     NSInteger timeIntervalLeft = 60 - seconds;
@@ -192,6 +193,7 @@
         _isWaiting = YES;
     }
 }
+// 第二个页面倒计时
 - (void)waitNew:(NSNumber *)time{
     NSInteger seconds = [time integerValue];
     NSInteger timeIntervalLeft = 60 - seconds;
