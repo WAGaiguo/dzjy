@@ -11,6 +11,7 @@
 #import "DZMyInvoiceSetDefaultView.h"
 #import "DZCommonSaveView.h"
 #import "NSString+PDRegex.h"
+#import "CKDatePickerView.h"
 
 @interface DZMyAddressEditController (){
     DZMyAddressView *_addressView;
@@ -36,12 +37,20 @@
     self.tableView.tableHeaderView = _addressView;
     _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 240, SCREEN_WIDTH - 14, 48)];
     [_addressView.backV addSubview:_defaultView];
+    WEAK_SELF
     [_addressView setTapDistrictBlock:^{
-        [HudUtils showMessage:@"地址啊地址"];
+        [me selectDistrict];
     }];
     [_defaultView setOnBlock:^(BOOL isOn) {
         isDefault = isOn;
     }];
+}
+- (void)selectDistrict{
+    CKDatePickerView *picker = [CKDatePickerView new];
+    [picker setSelectBlock:^(NSString *text) {
+        _addressView.districtField.text = text;
+    }];
+    [picker show];
 }
 - (void)configSaveFooter{
     DZCommonSaveView *saveBtn = [[DZCommonSaveView alloc]init];

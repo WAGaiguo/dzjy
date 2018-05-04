@@ -91,6 +91,7 @@
 		1E3436EC209C02AE00190689 /* DZMyAddressEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436EB209C02AE00190689 /* DZMyAddressEditController.m */; };
 		1E3436EF209C060100190689 /* DZMyAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436EE209C060100190689 /* DZMyAddressView.m */; };
 		1E3436F2209C0D9B00190689 /* DZCommonSaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */; };
+		1E3436F6209C3AF800190689 /* CKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436F5209C3A9400190689 /* CKDatePickerView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -328,6 +329,8 @@
 		1E3436EE209C060100190689 /* DZMyAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressView.m; sourceTree = "<group>"; };
 		1E3436F0209C0D9B00190689 /* DZCommonSaveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCommonSaveView.h; sourceTree = "<group>"; };
 		1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCommonSaveView.m; sourceTree = "<group>"; };
+		1E3436F4209C3A9400190689 /* CKDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKDatePickerView.h; sourceTree = "<group>"; };
+		1E3436F5209C3A9400190689 /* CKDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKDatePickerView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -737,6 +740,15 @@
 			path = room;
 			sourceTree = "<group>";
 		};
+		1E3436F3209C3A7100190689 /* picker */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436F4209C3A9400190689 /* CKDatePickerView.h */,
+				1E3436F5209C3A9400190689 /* CKDatePickerView.m */,
+			);
+			path = picker;
+			sourceTree = "<group>";
+		};
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,6 +954,7 @@
 		1EA047C1206E30990029C481 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				1E3436F3209C3A7100190689 /* picker */,
 				1E343618208DA07700190689 /* SVSSegmentedView */,
 				1E628F14207EF9E500169A64 /* search */,
 				1E05505A2074CB51000F5188 /* MLTransition */,
@@ -1359,6 +1372,7 @@
 				1E3436852094387800190689 /* DZMyDeliveryAdapter.m in Sources */,
 				1E628EF6207CB81E00169A64 /* DZCategoryItemView.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
+				1E3436F6209C3AF800190689 /* CKDatePickerView.m in Sources */,
 				1E05503D2071F4BB000F5188 /* DZUserManager.m in Sources */,
 				1E628EED207C9D2300169A64 /* DZCategoryAllHeaderView.m in Sources */,
 				1E3436BB2099964F00190689 /* DZPasswordChangeController.m in Sources */,
