@@ -31,7 +31,7 @@
         switchV.right = SCREEN_WIDTH - 14 - 15;
         switchV.centerY = 24;
         switchV.on = _isOn;
-        switchV.tintColor = UICommonColor;
+//        switchV.tintColor = UIGrayColor;
         switchV.onTintColor = UICommonColor;
         [self addSubview:switchV];
         [switchV bk_addEventHandler:^(id sender) {

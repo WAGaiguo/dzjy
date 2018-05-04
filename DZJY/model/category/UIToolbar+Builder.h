@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIToolbar (Builder)
-+ (UIView *)inputAccessoryView:(id)target sel:(SEL)sel;
++ (UIView *)inputAccessoryView;
 
 @end

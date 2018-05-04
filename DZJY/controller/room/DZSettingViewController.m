@@ -13,6 +13,7 @@
 #import "DZPasswordChangeController.h"
 #import "DZPhoneNumChangeController.h"
 #import "DZMyInvoiceViewController.h"
+#import "DZMyAddressViewController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -44,11 +45,13 @@
         }else if (indexPath.row == 3){
             [me.navigationController pushViewController:[DZMyInvoiceViewController new] animated:YES];
         }else if (indexPath.row == 4){
-            
+            [me.navigationController pushViewController:[DZMyAddressViewController new] animated:YES];
         }else if (indexPath.row == 5){// 清除缓存
             [me clearCache];
         }else if (indexPath.row == 6){
             
+        }else if (indexPath.row == 7){
+            [HudUtils showMessage:@"当前已是最新版本"];
         }
     }];
     [self configFooterView];

@@ -8,17 +8,19 @@
 
 #import "UIToolbar+Builder.h"
 @implementation UIToolbar (Builder)
-+ (UIView *)inputAccessoryView:(id)target sel:(SEL)sel
++ (UIView *)inputAccessoryView
 {
 
     UIView  *toolBar = [[UIView alloc ]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     [toolBar setBackgroundColor:UIWhiteColor];
     UIButton  *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setFrame:CGRectMake(SCREEN_WIDTH - 50, 0, 50, 40)];
-    [rightButton addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    [rightButton bk_addEventHandler:^(id sender) {
+        [MAIN_WINDOW endEditing:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
     [rightButton setTitle:@"完成" forState:UIControlStateNormal];
     [[rightButton titleLabel] setFont:[UIFont systemFontOfSize:15.0f]];
-    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightButton setTitleColor:UICommonColor forState:UIControlStateNormal];
 //    [rightButton setTitleColor:[UIColor lightGray] forState:UIControlStateHighlighted];
     [toolBar addSubview:rightButton];
     [toolBar setBackgroundColor:UIWhiteColor];

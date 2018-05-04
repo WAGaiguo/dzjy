@@ -19,6 +19,7 @@
 #define DZ_TOP         (IS_IPHONE_X ? 88:64)
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 #define TRIM_STRING( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
+#define TRIM_STRING_length( object )  [[object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ] length]
 
 @class AppDelegate;
 @interface DZApplication : NSObject

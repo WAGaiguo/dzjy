@@ -84,6 +84,13 @@
 		1E3436D7209AE9EA00190689 /* DZMyInvoiceAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436D6209AE9EA00190689 /* DZMyInvoiceAddController.m */; };
 		1E3436DA209AEA0200190689 /* DZMyInvoiceEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436D9209AEA0200190689 /* DZMyInvoiceEditViewController.m */; };
 		1E3436DD209AED7100190689 /* DZMyInvoiceSetDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436DC209AED7100190689 /* DZMyInvoiceSetDefaultView.m */; };
+		1E3436E0209BF1EB00190689 /* DZMyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436DF209BF1EB00190689 /* DZMyAddressViewController.m */; };
+		1E3436E3209BF24D00190689 /* DZMyAddressAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436E2209BF24D00190689 /* DZMyAddressAdapter.m */; };
+		1E3436E6209BF27200190689 /* DZMyAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436E5209BF27200190689 /* DZMyAddressCell.m */; };
+		1E3436E9209C029600190689 /* DZMyAddressAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436E8209C029600190689 /* DZMyAddressAddController.m */; };
+		1E3436EC209C02AE00190689 /* DZMyAddressEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436EB209C02AE00190689 /* DZMyAddressEditController.m */; };
+		1E3436EF209C060100190689 /* DZMyAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436EE209C060100190689 /* DZMyAddressView.m */; };
+		1E3436F2209C0D9B00190689 /* DZCommonSaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -307,6 +314,20 @@
 		1E3436D9209AEA0200190689 /* DZMyInvoiceEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceEditViewController.m; sourceTree = "<group>"; };
 		1E3436DB209AED7100190689 /* DZMyInvoiceSetDefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceSetDefaultView.h; sourceTree = "<group>"; };
 		1E3436DC209AED7100190689 /* DZMyInvoiceSetDefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceSetDefaultView.m; sourceTree = "<group>"; };
+		1E3436DE209BF1EB00190689 /* DZMyAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAddressViewController.h; sourceTree = "<group>"; };
+		1E3436DF209BF1EB00190689 /* DZMyAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressViewController.m; sourceTree = "<group>"; };
+		1E3436E1209BF24D00190689 /* DZMyAddressAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAddressAdapter.h; sourceTree = "<group>"; };
+		1E3436E2209BF24D00190689 /* DZMyAddressAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressAdapter.m; sourceTree = "<group>"; };
+		1E3436E4209BF27200190689 /* DZMyAddressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAddressCell.h; sourceTree = "<group>"; };
+		1E3436E5209BF27200190689 /* DZMyAddressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressCell.m; sourceTree = "<group>"; };
+		1E3436E7209C029500190689 /* DZMyAddressAddController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAddressAddController.h; sourceTree = "<group>"; };
+		1E3436E8209C029600190689 /* DZMyAddressAddController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressAddController.m; sourceTree = "<group>"; };
+		1E3436EA209C02AE00190689 /* DZMyAddressEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAddressEditController.h; sourceTree = "<group>"; };
+		1E3436EB209C02AE00190689 /* DZMyAddressEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressEditController.m; sourceTree = "<group>"; };
+		1E3436ED209C060100190689 /* DZMyAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyAddressView.h; sourceTree = "<group>"; };
+		1E3436EE209C060100190689 /* DZMyAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyAddressView.m; sourceTree = "<group>"; };
+		1E3436F0209C0D9B00190689 /* DZCommonSaveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCommonSaveView.h; sourceTree = "<group>"; };
+		1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCommonSaveView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -674,6 +695,8 @@
 				1E3436B4209981DB00190689 /* DZMyMembersConnectAdapter.m */,
 				1E3436C9209AB11000190689 /* DZMyInvoiceAdapter.h */,
 				1E3436CA209AB11000190689 /* DZMyInvoiceAdapter.m */,
+				1E3436E1209BF24D00190689 /* DZMyAddressAdapter.h */,
+				1E3436E2209BF24D00190689 /* DZMyAddressAdapter.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -687,6 +710,8 @@
 				1E3436B7209987CA00190689 /* DZMyMembersCell.m */,
 				1E3436CC209AB1E500190689 /* DZMyInvoiceCell.h */,
 				1E3436CD209AB1E500190689 /* DZMyInvoiceCell.m */,
+				1E3436E4209BF27200190689 /* DZMyAddressCell.h */,
+				1E3436E5209BF27200190689 /* DZMyAddressCell.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -704,6 +729,10 @@
 				1E3436D0209AB30200190689 /* DZMyInvoiceView.m */,
 				1E3436DB209AED7100190689 /* DZMyInvoiceSetDefaultView.h */,
 				1E3436DC209AED7100190689 /* DZMyInvoiceSetDefaultView.m */,
+				1E3436ED209C060100190689 /* DZMyAddressView.h */,
+				1E3436EE209C060100190689 /* DZMyAddressView.m */,
+				1E3436F0209C0D9B00190689 /* DZCommonSaveView.h */,
+				1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -799,6 +828,12 @@
 				1E3436D6209AE9EA00190689 /* DZMyInvoiceAddController.m */,
 				1E3436D8209AEA0200190689 /* DZMyInvoiceEditViewController.h */,
 				1E3436D9209AEA0200190689 /* DZMyInvoiceEditViewController.m */,
+				1E3436DE209BF1EB00190689 /* DZMyAddressViewController.h */,
+				1E3436DF209BF1EB00190689 /* DZMyAddressViewController.m */,
+				1E3436E7209C029500190689 /* DZMyAddressAddController.h */,
+				1E3436E8209C029600190689 /* DZMyAddressAddController.m */,
+				1E3436EA209C02AE00190689 /* DZMyAddressEditController.h */,
+				1E3436EB209C02AE00190689 /* DZMyAddressEditController.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -1222,6 +1257,7 @@
 				1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */,
 				1EAD74032068EE5700BD7EF7 /* UIToolbar+Builder.m in Sources */,
 				1E3436DD209AED7100190689 /* DZMyInvoiceSetDefaultView.m in Sources */,
+				1E3436E6209BF27200190689 /* DZMyAddressCell.m in Sources */,
 				1E628EF0207CA33400169A64 /* UIImage+resize.m in Sources */,
 				1E3436C22099B54E00190689 /* DZPhoneChangeView.m in Sources */,
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
@@ -1252,6 +1288,7 @@
 				1E34368E2094681900190689 /* DZMyContractAbnormalController.m in Sources */,
 				1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */,
 				1E3436512090598D00190689 /* DZMyBoughtDetailHeaderView.m in Sources */,
+				1E3436EC209C02AE00190689 /* DZMyAddressEditController.m in Sources */,
 				1E3436C52099BD2500190689 /* DZPhoneChangeTipsView.m in Sources */,
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
 				1E343633208F1F7500190689 /* DZMyPointsHeaderView.m in Sources */,
@@ -1295,6 +1332,7 @@
 				1E92D1262086E11500E31C62 /* DZOrderConfirmAdapter.m in Sources */,
 				1E343613208D978500190689 /* DZMineFooterView.m in Sources */,
 				1E34369A2098543100190689 /* DZMessageAdapter.m in Sources */,
+				1E3436F2209C0D9B00190689 /* DZCommonSaveView.m in Sources */,
 				1E343639208F325200190689 /* DZMyPointsCell.m in Sources */,
 				1E34368B209462D200190689 /* DZMyDeliveryAbnormalController.m in Sources */,
 				1E34367C2094151A00190689 /* DZMyContractCell.m in Sources */,
@@ -1317,6 +1355,7 @@
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1E3436672092B70600190689 /* DZSettingAdapter.m in Sources */,
+				1E3436E9209C029600190689 /* DZMyAddressAddController.m in Sources */,
 				1E3436852094387800190689 /* DZMyDeliveryAdapter.m in Sources */,
 				1E628EF6207CB81E00169A64 /* DZCategoryItemView.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
@@ -1342,13 +1381,16 @@
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
 				1E3436AC2099803700190689 /* DZMyMembersViewController.m in Sources */,
+				1E3436EF209C060100190689 /* DZMyAddressView.m in Sources */,
 				1E3436D1209AB30200190689 /* DZMyInvoiceView.m in Sources */,
 				1E34362D208F028500190689 /* DZMyBoughtCell.m in Sources */,
 				1E0550392071D040000F5188 /* DZMineViewController.m in Sources */,
 				1E343630208F1DE100190689 /* DZMyPointsViewController.m in Sources */,
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1E3436482090303A00190689 /* DZMyClientCell.m in Sources */,
+				1E3436E0209BF1EB00190689 /* DZMyAddressViewController.m in Sources */,
 				1E34369720984DB300190689 /* DZMessageNilView.m in Sources */,
+				1E3436E3209BF24D00190689 /* DZMyAddressAdapter.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
