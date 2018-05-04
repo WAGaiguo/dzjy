@@ -11,6 +11,7 @@
 #import "SVSegmentedView.h"
 #import "DZMyPointsAdapter.h"
 #import "DZMineCommenScrollView.h"
+#import "DZCalendarViewController.h"
 
 @interface DZMyPointsViewController ()<SVSegmentedViewDelegate>{
     DZMyPointsHeaderView *_headerView;
@@ -49,8 +50,21 @@
     self.tableView.tableHeaderView = tableHeader;
     self.tableView.sectionHeaderHeight = 0.01;
     self.tableView.sectionFooterHeight = 0.01;
+    
+    // 日历选择按钮触发事件
+    DZCalendarViewController *calendarV = [DZCalendarViewController new];
+    [calendarV setDateBlock:^(NSString *fromDate, NSString *toDate) {
+        if (fromDate == nil) {
+            _headerView.timeLabel.text = @"本月";
+        } else if([fromDate isEqualToString:toDate]){
+            _headerView.timeLabel.text = fromDate;
+        }else{
+            _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
+        }
+    }];
+    WEAK_SELF
     [_headerView setTapBlock:^{
-        [HudUtils showMessage:@"右侧日历选择按钮"];
+         [me presentViewController:calendarV animated:YES completion:nil];
     }];
     
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, 172, SCREEN_WIDTH, 44)];

@@ -92,6 +92,15 @@
 		1E3436EF209C060100190689 /* DZMyAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436EE209C060100190689 /* DZMyAddressView.m */; };
 		1E3436F2209C0D9B00190689 /* DZCommonSaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */; };
 		1E3436F6209C3AF800190689 /* CKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436F5209C3A9400190689 /* CKDatePickerView.m */; };
+		1E3436F9209C548000190689 /* DZCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436F8209C548000190689 /* DZCalendarViewController.m */; };
+		1E34370E209C551E00190689 /* GTLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34370A209C54F000190689 /* GTLCalendarView.m */; };
+		1E34370F209C554A00190689 /* NSCalendar+GTLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436FD209C54F000190689 /* NSCalendar+GTLCategory.m */; };
+		1E343710209C554D00190689 /* GTLCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343700209C54F000190689 /* GTLCalendarCell.m */; };
+		1E343711209C555100190689 /* GTLCalendarCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343704209C54F000190689 /* GTLCalendarCollectionViewFlowLayout.m */; };
+		1E343712209C555500190689 /* GTLCalendarHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343707209C54F000190689 /* GTLCalendarHeaderReusableView.m */; };
+		1E343713209C556F00190689 /* GTLGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34370D209C54F000190689 /* GTLGradientView.m */; };
+		1E343714209C5C8500190689 /* GTLCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E343701209C54F000190689 /* GTLCalendarCell.xib */; };
+		1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E343708209C54F000190689 /* GTLCalendarHeaderReusableView.xib */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -331,6 +340,22 @@
 		1E3436F1209C0D9B00190689 /* DZCommonSaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCommonSaveView.m; sourceTree = "<group>"; };
 		1E3436F4209C3A9400190689 /* CKDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKDatePickerView.h; sourceTree = "<group>"; };
 		1E3436F5209C3A9400190689 /* CKDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKDatePickerView.m; sourceTree = "<group>"; };
+		1E3436F7209C548000190689 /* DZCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCalendarViewController.h; sourceTree = "<group>"; };
+		1E3436F8209C548000190689 /* DZCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCalendarViewController.m; sourceTree = "<group>"; };
+		1E3436FC209C54F000190689 /* NSCalendar+GTLCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+GTLCategory.h"; sourceTree = "<group>"; };
+		1E3436FD209C54F000190689 /* NSCalendar+GTLCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+GTLCategory.m"; sourceTree = "<group>"; };
+		1E3436FF209C54F000190689 /* GTLCalendarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLCalendarCell.h; sourceTree = "<group>"; };
+		1E343700209C54F000190689 /* GTLCalendarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLCalendarCell.m; sourceTree = "<group>"; };
+		1E343701209C54F000190689 /* GTLCalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTLCalendarCell.xib; sourceTree = "<group>"; };
+		1E343703209C54F000190689 /* GTLCalendarCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLCalendarCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		1E343704209C54F000190689 /* GTLCalendarCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLCalendarCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		1E343706209C54F000190689 /* GTLCalendarHeaderReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLCalendarHeaderReusableView.h; sourceTree = "<group>"; };
+		1E343707209C54F000190689 /* GTLCalendarHeaderReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLCalendarHeaderReusableView.m; sourceTree = "<group>"; };
+		1E343708209C54F000190689 /* GTLCalendarHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTLCalendarHeaderReusableView.xib; sourceTree = "<group>"; };
+		1E343709209C54F000190689 /* GTLCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLCalendarView.h; sourceTree = "<group>"; };
+		1E34370A209C54F000190689 /* GTLCalendarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLCalendarView.m; sourceTree = "<group>"; };
+		1E34370C209C54F000190689 /* GTLGradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLGradientView.h; sourceTree = "<group>"; };
+		1E34370D209C54F000190689 /* GTLGradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLGradientView.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -749,6 +774,67 @@
 			path = pickerView;
 			sourceTree = "<group>";
 		};
+		1E3436FA209C54F000190689 /* GTLCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436FB209C54F000190689 /* GTLCalendarCategory */,
+				1E3436FE209C54F000190689 /* GTLCalendarCell */,
+				1E343702209C54F000190689 /* GTLCalendarCollectionViewFlowLayout */,
+				1E343705209C54F000190689 /* GTLCalendarHeaderReusableView */,
+				1E343709209C54F000190689 /* GTLCalendarView.h */,
+				1E34370A209C54F000190689 /* GTLCalendarView.m */,
+				1E34370B209C54F000190689 /* GTLGradientView */,
+			);
+			path = GTLCalendar;
+			sourceTree = "<group>";
+		};
+		1E3436FB209C54F000190689 /* GTLCalendarCategory */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436FC209C54F000190689 /* NSCalendar+GTLCategory.h */,
+				1E3436FD209C54F000190689 /* NSCalendar+GTLCategory.m */,
+			);
+			path = GTLCalendarCategory;
+			sourceTree = "<group>";
+		};
+		1E3436FE209C54F000190689 /* GTLCalendarCell */ = {
+			isa = PBXGroup;
+			children = (
+				1E3436FF209C54F000190689 /* GTLCalendarCell.h */,
+				1E343700209C54F000190689 /* GTLCalendarCell.m */,
+				1E343701209C54F000190689 /* GTLCalendarCell.xib */,
+			);
+			path = GTLCalendarCell;
+			sourceTree = "<group>";
+		};
+		1E343702209C54F000190689 /* GTLCalendarCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				1E343703209C54F000190689 /* GTLCalendarCollectionViewFlowLayout.h */,
+				1E343704209C54F000190689 /* GTLCalendarCollectionViewFlowLayout.m */,
+			);
+			path = GTLCalendarCollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		1E343705209C54F000190689 /* GTLCalendarHeaderReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				1E343706209C54F000190689 /* GTLCalendarHeaderReusableView.h */,
+				1E343707209C54F000190689 /* GTLCalendarHeaderReusableView.m */,
+				1E343708209C54F000190689 /* GTLCalendarHeaderReusableView.xib */,
+			);
+			path = GTLCalendarHeaderReusableView;
+			sourceTree = "<group>";
+		};
+		1E34370B209C54F000190689 /* GTLGradientView */ = {
+			isa = PBXGroup;
+			children = (
+				1E34370C209C54F000190689 /* GTLGradientView.h */,
+				1E34370D209C54F000190689 /* GTLGradientView.m */,
+			);
+			path = GTLGradientView;
+			sourceTree = "<group>";
+		};
 		1E53027E20692F580010D78A /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -846,6 +932,8 @@
 				1E3436E8209C029600190689 /* DZMyAddressAddController.m */,
 				1E3436EA209C02AE00190689 /* DZMyAddressEditController.h */,
 				1E3436EB209C02AE00190689 /* DZMyAddressEditController.m */,
+				1E3436F7209C548000190689 /* DZCalendarViewController.h */,
+				1E3436F8209C548000190689 /* DZCalendarViewController.m */,
 			);
 			path = room;
 			sourceTree = "<group>";
@@ -954,6 +1042,7 @@
 		1EA047C1206E30990029C481 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				1E3436FA209C54F000190689 /* GTLCalendar */,
 				1E3436F3209C3A7100190689 /* pickerView */,
 				1E343618208DA07700190689 /* SVSSegmentedView */,
 				1E628F14207EF9E500169A64 /* search */,
@@ -1192,7 +1281,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E343714209C5C8500190689 /* GTLCalendarCell.xib in Resources */,
 				1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */,
+				1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */,
 				1E92D1122084E99800E31C62 /* wag.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1272,6 +1363,7 @@
 				1E3436DD209AED7100190689 /* DZMyInvoiceSetDefaultView.m in Sources */,
 				1E3436E6209BF27200190689 /* DZMyAddressCell.m in Sources */,
 				1E628EF0207CA33400169A64 /* UIImage+resize.m in Sources */,
+				1E34370E209C551E00190689 /* GTLCalendarView.m in Sources */,
 				1E3436C22099B54E00190689 /* DZPhoneChangeView.m in Sources */,
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
 				1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */,
@@ -1301,6 +1393,7 @@
 				1E34368E2094681900190689 /* DZMyContractAbnormalController.m in Sources */,
 				1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */,
 				1E3436512090598D00190689 /* DZMyBoughtDetailHeaderView.m in Sources */,
+				1E343711209C555100190689 /* GTLCalendarCollectionViewFlowLayout.m in Sources */,
 				1E3436EC209C02AE00190689 /* DZMyAddressEditController.m in Sources */,
 				1E3436C52099BD2500190689 /* DZPhoneChangeTipsView.m in Sources */,
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
@@ -1333,6 +1426,8 @@
 				1E92D12C20873E1200E31C62 /* DZOrderConfrimBtnView.m in Sources */,
 				1E34361F208EC81400190689 /* DZMyBoughtViewController.m in Sources */,
 				1E34369120946EF100190689 /* DZMyContractAbormalCell.m in Sources */,
+				1E34370F209C554A00190689 /* NSCalendar+GTLCategory.m in Sources */,
+				1E343712209C555500190689 /* GTLCalendarHeaderReusableView.m in Sources */,
 				1E34364E2090596000190689 /* DZMyBoughtDetailController.m in Sources */,
 				1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */,
 				1E3436CE209AB1E500190689 /* DZMyInvoiceCell.m in Sources */,
@@ -1388,12 +1483,15 @@
 				1E34366B2092B77F00190689 /* DZSettingCell.m in Sources */,
 				1E628F01207DD44E00169A64 /* DZSpecificationView.m in Sources */,
 				1E3436632092B33D00190689 /* DZSettingViewController.m in Sources */,
+				1E3436F9209C548000190689 /* DZCalendarViewController.m in Sources */,
+				1E343710209C554D00190689 /* GTLCalendarCell.m in Sources */,
 				1E3436B2209981B000190689 /* DZMyMembersCompanyAdapter.m in Sources */,
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,
 				1E3436D7209AE9EA00190689 /* DZMyInvoiceAddController.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
 				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
+				1E343713209C556F00190689 /* GTLGradientView.m in Sources */,
 				1E3436AC2099803700190689 /* DZMyMembersViewController.m in Sources */,
 				1E3436EF209C060100190689 /* DZMyAddressView.m in Sources */,
 				1E3436D1209AB30200190689 /* DZMyInvoiceView.m in Sources */,
