@@ -56,6 +56,7 @@
     _segmentView.defaultFontColor = UITitleColor;
     _segmentView.minTitleMargin = 12;
     _segmentView.delegate = self;
+    _segmentView.selectedIndex = _integer;
     [self.view addSubview:_segmentView];
 }
 - (void)configSelectItem{
@@ -117,6 +118,7 @@
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
     }];
+    [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * _integer, 0)];
 }
 - (void)configAdapter{
     _allAdapter = _bothAdapter = _buyAdapter = _sellAdapter = _contractAdapter = _cancelAdapter = _repealAdapter =  [[DZMyOrderAdapter alloc]init];

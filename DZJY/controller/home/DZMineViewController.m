@@ -106,11 +106,17 @@
         myBought.integer = 1;
         [self.navigationController pushViewController:myBought animated:YES];
     } else if (num == 2){
-        
+        DZMyOrderViewController *myOrder = [DZMyOrderViewController new];
+        myOrder.integer = 1;
+        [self.navigationController pushViewController:myOrder animated:YES];
     }else if (num == 3){
-        
+        DZMyContractViewController *contract = [DZMyContractViewController new];
+        contract.integer = 1;
+        [self.navigationController pushViewController:contract animated:YES];
     }else if (num == 4){
-        
+        DZMyContractViewController *contract = [DZMyContractViewController new];
+        contract.integer = 3;
+        [self.navigationController pushViewController:contract animated:YES];
     }else if (num == 5){
         [self.navigationController pushViewController:[DZMyContractAbnormalController new] animated:YES];
     }else if (num == 6){

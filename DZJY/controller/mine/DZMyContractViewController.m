@@ -54,6 +54,7 @@
     _segmentView.selectedFontColor = RGBCOLOR(254, 82, 0);
     _segmentView.defaultFontColor = UITitleColor;
     _segmentView.minTitleMargin = 12;
+    _segmentView.selectedIndex = _integer;
     _segmentView.delegate = self;
     [self.view addSubview:_segmentView];
 }
@@ -76,6 +77,7 @@
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
     }];
+    [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH *_integer, 0)];
 }
 - (void)configAdapter{
     _adapter1 = _adapter2 = _adapter3 = _adapter4 = _adapter5 = _adapter6 = _adapter7 = _adapter8 = _adapter9 =   [[DZMyContractAdapter alloc]init];
@@ -88,7 +90,7 @@
     _varietyView = [[DZMySelectedView alloc]initWithFrame:COMMON_FRAME];
     _varietyView.dataSource = @[@"全部", @"待交收", @"交手中", @"待评价", @"解除", @"终止", @"强制解除", @"强制终止", @"已完成"];
     [self.view addSubview:_varietyView];
-    [_varietyView bringSubviewToFront:_scrollView];
+    [_varietyView setCurrent:_integer];
     WEAK_SELF
     [_varietyView setSelectIndex:^(NSIndexPath *indexPath) {
         me.segmentView.selectedIndex = indexPath.item;

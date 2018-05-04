@@ -740,13 +740,13 @@
 			path = room;
 			sourceTree = "<group>";
 		};
-		1E3436F3209C3A7100190689 /* picker */ = {
+		1E3436F3209C3A7100190689 /* pickerView */ = {
 			isa = PBXGroup;
 			children = (
 				1E3436F4209C3A9400190689 /* CKDatePickerView.h */,
 				1E3436F5209C3A9400190689 /* CKDatePickerView.m */,
 			);
-			path = picker;
+			path = pickerView;
 			sourceTree = "<group>";
 		};
 		1E53027E20692F580010D78A /* net */ = {
@@ -954,7 +954,7 @@
 		1EA047C1206E30990029C481 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
-				1E3436F3209C3A7100190689 /* picker */,
+				1E3436F3209C3A7100190689 /* pickerView */,
 				1E343618208DA07700190689 /* SVSSegmentedView */,
 				1E628F14207EF9E500169A64 /* search */,
 				1E05505A2074CB51000F5188 /* MLTransition */,
