@@ -48,6 +48,9 @@
     }];
     _adapter = [[DZMessageAdapter alloc]initWithDataSource:mutableArr];
     [self.tableView setAdapter:_adapter];
+    [_adapter setDidScroll:^(UITableView *tableView) {
+        [MAIN_WINDOW endEditing:YES];
+    }];
 }
 /**
      空---nilView处理

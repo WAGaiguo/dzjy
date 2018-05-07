@@ -9,5 +9,5 @@
 #import "DZTableViewController.h"
 
 @interface DZMyAddressEditController : DZTableViewController
-
+@property (nonatomic, strong)NSDictionary *dic;
 @end

@@ -33,6 +33,7 @@
     [self setTitle:@""];
     _selectRow = 0;
     [self setBackEnabled:YES];
+    [self setHeaderBackGroud:YES];
     [self configSearchView];
     [self configLeftTable];
     [self configCollection];

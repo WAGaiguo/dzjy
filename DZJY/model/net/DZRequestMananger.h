@@ -17,6 +17,7 @@
 @property (nonatomic,strong)NSString       *urlString;
 @property (nonatomic,strong)NSDictionary   *params;
 @property (nonatomic,strong)DZResponseHandler   *handler;
+@property (nonatomic,strong)NSString       *header;
 
 - (void)get;
 - (void)post;

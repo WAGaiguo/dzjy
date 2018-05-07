@@ -31,9 +31,6 @@
     [self configTextField];
     [self configLoginButton];
     
-    DZUserManager *manager = [DZUserManager manager];
-    DZLoginUser *user = [manager user];
-    NSLog(@"%@--%@", user.userType, user.tokenType);
 }
 - (void)makeScrollView{
     _scrollView = [[UIScrollView alloc]initWithFrame:SCREEN_BOUNDS];

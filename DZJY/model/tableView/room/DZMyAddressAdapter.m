@@ -17,7 +17,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
     return [self.dataSource count];
 }
 
@@ -26,15 +25,18 @@
     if (cell == nil){
         cell = [[DZMyAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addressCell"];
     }
-    __weak DZMyAddressCell *weak_cell = cell;
-    [cell setTapBlock:^(NSInteger integer) {
-        [self tapBtn:integer cell:weak_cell];
-    }];
+    if (self.afterReuseCell) {
+        self.afterReuseCell(cell, indexPath);
+    }
+    [cell setContent:self.dataSource[indexPath.row]];
+//    __weak DZMyAddressCell *weak_cell = cell;
+    
     return cell;
 }
-- (void)tapBtn:(NSInteger )integer cell:(DZMyAddressCell *)cell{
+- (void)tapBtn:(NSInteger )integer cell:(DZMyAddressCell *)cell dic:(NSDictionary *)dic{
     DZAlertview *alertView = [DZAlertview new];
     DZMyAddressEditController *editController = [DZMyAddressEditController new];
+    editController.dic = dic;
     switch (integer) {
         case 1:
             [cell.editView setDefalut:NO];

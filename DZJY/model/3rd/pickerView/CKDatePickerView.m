@@ -273,7 +273,7 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
 
 - (void)p_pickerConfirmAction {
     if (_selectBlock) {
-        _selectBlock([NSString stringWithFormat:@"%@%@%@",provinceName,cityName,districtName]);
+        _selectBlock([NSString stringWithFormat:@"%@%@%@",provinceName,cityName,districtName], provinceName, cityName, districtName);
     }
 }
 

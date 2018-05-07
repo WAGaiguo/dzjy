@@ -83,4 +83,16 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, string.length)];
     return attributedString;
 }
+
+- (void)setContent:(NSDictionary *)dic{
+    _nameLabel.text = [[dic objectForKey:@"contactName"] description];
+    _phoneLabel.text = [[dic objectForKey:@"mobile"] description];
+    _addressLabel.text = [[dic objectForKey:@"address"] description];
+    if ([[dic objectForKey:@"defaultFlag"] isEqualToString:@"1"]) {
+        [_editView setDefalut:YES];
+    }else{
+        [_editView setDefalut:NO];
+    }
+}
+
 @end

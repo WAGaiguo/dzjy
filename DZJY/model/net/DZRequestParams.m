@@ -7,6 +7,7 @@
 //
 
 #import "DZRequestParams.h"
+#import "NSString+common.h"
 
 @implementation DZRequestParams
 - (instancetype)init
@@ -36,10 +37,13 @@
     [self putString:[value description] forKey:key];
 }
 - (NSDictionary *)params{
-//    if ([[HZUserManager manager] isLogined]) {
-//            [_dictionary setObject:[[HZUserManager manager] user].token forKey:@"token"];
-//            [_dictionary setObject:[[HZUserManager manager] user].username forKey:@"username"];
-//    }
+    if ([[DZUserManager manager] isLogined]) {
+        if ([[[DZUserManager manager] user].parentId isBlankString]) {
+            [_dictionary setObject:[[DZUserManager manager] user].id  forKey:@"membId"];
+        }else{
+            [_dictionary setObject:[[DZUserManager manager] user].parentId forKey:@"membId"];
+        }
+    }
     return [_dictionary copy];
 }
 + (NSDictionary *)defaultParams{

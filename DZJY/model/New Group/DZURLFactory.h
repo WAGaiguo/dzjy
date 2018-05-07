@@ -15,6 +15,16 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)login;
 + (NSString *)homeList;
 
+
+// 地址相关
++ (NSString *)addressList;
++ (NSString *)addressInsert;
++ (NSString *)addressDelete;
++ (NSString *)addressGet;
++ (NSString *)addressUpdate;
++ (NSString *)addressDefault;
+
+
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;
 

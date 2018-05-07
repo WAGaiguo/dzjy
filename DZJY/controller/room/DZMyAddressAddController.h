@@ -9,5 +9,5 @@
 #import "DZTableViewController.h"
 
 @interface DZMyAddressAddController : DZTableViewController
-
+@property (nonatomic, copy)void (^backBlock)(void);
 @end

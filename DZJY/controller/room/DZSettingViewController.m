@@ -14,6 +14,7 @@
 #import "DZPhoneNumChangeController.h"
 #import "DZMyInvoiceViewController.h"
 #import "DZMyAddressViewController.h"
+#import "DZLoginViewController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -35,7 +36,15 @@
     _adapter = [[DZSettingAdapter alloc]initWithDataSource:@[@"我的会员信息", @"修改注册手机号", @"修改登录密码", @"我的发票信息", @"我的常用地址", @"清除缓存", @"关于我们", @"当前版本 V1.0.0"]];
     [self.tableView setAdapter:_adapter];
     WEAK_SELF
+    DZUserManager *manager = [DZUserManager manager];
     [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
+        if (indexPath.row < 5) {
+            if (![manager isLogined]) {
+                [HudUtils showMessage:@"请先登录"];
+                [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];
+                return ;
+            }
+        }
         if (indexPath.row == 0) {
             [me.navigationController pushViewController:[DZMyMembersViewController new] animated:YES];
         }else if (indexPath.row == 1){

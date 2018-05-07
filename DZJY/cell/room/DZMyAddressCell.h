@@ -15,4 +15,5 @@
 @property (nonatomic, strong)UILabel *addressLabel;
 @property (nonatomic, strong)DZMyInvoiceEditView *editView;
 @property (nonatomic, copy)void(^tapBlock)(NSInteger integer);
+- (void)setContent:(NSDictionary *)dic;
 @end

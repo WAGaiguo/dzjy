@@ -39,6 +39,27 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 + (NSString *)homeList{
     return [self absulteString:@"/synth/searchApp"];
 }
+
+
++ (NSString *)addressList{
+    return [self absulteString:@"/memb/w/address/list"];
+}
++ (NSString *)addressInsert{
+    return [self absulteString:@"/memb/w/address/insert"];
+}
++ (NSString *)addressDelete{
+    return [self absulteString:@"/memb/w/address/delete"];
+}
++ (NSString *)addressGet{
+    return [self absulteString:@"/memb/w/address/get"];
+}
++ (NSString *)addressUpdate{
+    return [self absulteString:@"/memb/w/address/update"];
+}
++ (NSString *)addressDefault{
+    return [self absulteString:@"/memb/w/address/setDefault"];
+}
+
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];
 }

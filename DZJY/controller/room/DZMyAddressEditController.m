@@ -31,6 +31,7 @@
     [self setBackEnabled:YES];
     [self configContentHeader];
     [self configSaveFooter];
+    [self setDics:_dic];
 }
 - (void)configContentHeader{
     _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
@@ -46,8 +47,9 @@
     }];
 }
 - (void)selectDistrict{
+    [MAIN_WINDOW endEditing:YES];
     CKDatePickerView *picker = [CKDatePickerView new];
-    [picker setSelectBlock:^(NSString *text) {
+    [picker setSelectBlock:^(NSString *text, NSString *compAreaProv, NSString *compAreaCity, NSString *compAreaDist) {
         _addressView.districtField.text = text;
     }];
     [picker show];
@@ -59,6 +61,16 @@
     [saveBtn setSaveBlock:^{
         [self save];
     }];
+}
+#pragma 数据初始化
+-(void)setDics:(NSDictionary *)dic{
+    NSLog(@"%@",[dic mj_JSONString]);
+    
+    _addressView.personField.text = [[dic objectForKey:@"contactName"] description];
+    _addressView.districtField.text = [self prov:dic[@"compAreaProv"] city:dic[@"compAreaCity"] dist:dic[@"compAreaDist"]];
+    _addressView.addressField.text = [[dic objectForKey:@"address"] description];
+    _addressView.phoneField.text = [[dic objectForKey:@"mobile"] description];
+//    _addressView.codeField.text =
 }
 - (void)save{
     NSString *person = _addressView.personField.text;
@@ -87,6 +99,36 @@
     if (![code isIdentity]) {
         [HudUtils showMessage:@"请输入正确的身份证号"];return;
     }
+}
+
+// 根据返回的code进行拼接城市地址
+- (NSString *)prov:(NSString*)prov city:(NSString *)city dist:(NSString *)dist{
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"wag" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSArray * provinceArray = [NSArray arrayWithArray:jsonArr];
+    static NSString *provs = @"";
+    static NSString *citys = @"";
+    static NSString *dists = @"";
+    [provinceArray enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([[obj objectForKey:@"code"] isEqualToString:prov]) {
+            provs = [obj objectForKey:@"name"];
+            [[obj objectForKey:@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj[@"code"] isEqualToString:city]) {
+                    citys = obj[@"name"];
+                    [obj[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if ([obj[@"code"] isEqualToString:dist]) {
+                            dists = obj[@"name"];
+                            *stop = YES;
+                        }
+                    }];
+                    *stop = YES;
+                }
+            }];
+            *stop = YES;
+        }
+    }];
+    return [NSString stringWithFormat:@"%@%@%@",provs, citys, dists];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

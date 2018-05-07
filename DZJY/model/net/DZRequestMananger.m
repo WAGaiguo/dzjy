@@ -31,7 +31,10 @@ AFHTTPSessionManager* defaultRequestManager;
         AFJSONRequestSerializer * requestSerializer = [AFJSONRequestSerializer serializer];
         
         // 设置请求头
-//        [requestSerializer setValue:@"value1" forHTTPHeaderField:@"key1"];
+        if ([[DZUserManager manager] isLogined]) {
+             [requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
+        }
+   
         
         [requestSerializer setTimeoutInterval:30];
         [defaultRequestManager setRequestSerializer:requestSerializer];
