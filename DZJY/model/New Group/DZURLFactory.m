@@ -36,6 +36,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 + (NSString *)login{
     return [self absulteString:@"/security/login"];
 }
++ (NSString *)logout{
+    return [self absulteString:@"/security/w/logout"];
+}
 + (NSString *)homeList{
     return [self absulteString:@"/synth/searchApp"];
 }
@@ -58,6 +61,25 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 }
 + (NSString *)addressDefault{
     return [self absulteString:@"/memb/w/address/setDefault"];
+}
+
++ (NSString *)invoiceList{
+    return [self absulteString:@"/memb/w/invo/list"];
+}
++ (NSString *)invoiceUpdate{
+    return [self absulteString:@"/memb/w/app/invo/update"];
+}
++ (NSString *)invoiceInsert{
+    return [self absulteString:@"/memb/w/app/invo/insert"];
+}
++ (NSString *)invoiceDelete{
+    return [self absulteString:@"/memb/w/invo/delete"];
+}
++ (NSString *)invoiceUpdateInit{
+    return [self absulteString:@"/memb/w/app/invo/updateInit"];
+}
++ (NSString *)invoiceDefault{
+    return [self absulteString:@"/memb/w/invo/default"];
 }
 
 + (NSString *)searchWantToBuy{

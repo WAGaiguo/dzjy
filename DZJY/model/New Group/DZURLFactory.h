@@ -13,6 +13,7 @@ FOUNDATION_EXPORT NSString *const DZBaseUrl;
 FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
 + (NSString *)login;
++ (NSString *)logout;
 + (NSString *)homeList;
 
 
@@ -23,6 +24,18 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)addressGet;
 + (NSString *)addressUpdate;
 + (NSString *)addressDefault;
+
+// 发票相关
++ (NSString *)invoiceList;
++ (NSString *)invoiceUpdate;
++ (NSString *)invoiceInsert;
++ (NSString *)invoiceDelete;
++ (NSString *)invoiceDefault;
++ (NSString *)invoiceUpdateInit;
+
+// 站内信
++ (NSString *)messageList;  //站内信列表
++ (NSString *)messageUpdate;//查看站内信
 
 
 + (NSString *)searchWantToBuy;

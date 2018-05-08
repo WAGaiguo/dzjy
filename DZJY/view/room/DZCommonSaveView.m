@@ -18,6 +18,7 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(7, 0, SCREEN_WIDTH - 14, 43);
         [btn setBackgroundImage:[UIImage imageNamed:@"导航条"] forState:UIControlStateNormal];
+        btn.tag = 520;
         [btn setTitle:@"保存" forState:UIControlStateNormal];
         [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
         btn.layer.masksToBounds = YES;
@@ -30,6 +31,10 @@
         [self addSubview:btn];
     }
     return self;
+}
+- (void)setTitleText:(NSString *)text{
+    UIButton *btn = [self viewWithTag:520];
+    [btn setTitle:text forState:UIControlStateNormal];
 }
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

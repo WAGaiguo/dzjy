@@ -15,6 +15,7 @@
 #import "DZMyInvoiceViewController.h"
 #import "DZMyAddressViewController.h"
 #import "DZLoginViewController.h"
+#import "DZCommonSaveView.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -67,28 +68,14 @@
 }
 
 - (void)configFooterView{
-    UIView *backView = [[UIView alloc]init];
-    backView.width = SCREEN_WIDTH;
-    backView.height = 43;
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(7, 0, SCREEN_WIDTH - 14, 43);
-    [btn setBackgroundImage:[UIImage imageNamed:@"导航条"] forState:UIControlStateNormal];
-    [btn setTitle:@"退出登录" forState:UIControlStateNormal];
-    [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
-    btn.layer.masksToBounds = YES;
-    btn.layer.cornerRadius = 5;
-    [btn bk_addEventHandler:^(id sender) {
-        [[DZUserManager manager] logout];
-        if ([DZUserManager manager].user == nil) {
-            [HudUtils showMessage:@"退出登录成功"];
-            [self.navigationController popViewControllerAnimated:YES];
-        } else{
-            [HudUtils showMessage:@"退出登录异常，请稍后再试"];
-        }
-    } forControlEvents:UIControlEventTouchUpInside];
-    [backView addSubview:btn];
-    self.tableView.tableFooterView = backView;
+    DZCommonSaveView *footerV = [DZCommonSaveView new];
+    [footerV setTitleText:@"退出登录"];
+    [footerV setSaveBlock:^{
+        [self logout];
+    }];
+    self.tableView.tableFooterView = footerV;
 }
+
 #pragma 清除 - SDImageCache - 缓存
 - (void)clearCache{
     [HudUtils show:self.view];
@@ -96,6 +83,28 @@
         [HudUtils hide:self.view];
         [HudUtils showMessage:@"清除缓存成功"];
     }];
+}
+#pragma 注销功能
+- (void)logout{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [[DZUserManager manager] logout];
+        if ([DZUserManager manager].user == nil) {
+            [HudUtils showMessage:@"退出登录成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [HudUtils showMessage:@"退出登录异常，请稍后再试"];
+        }
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [HudUtils showMessage:@"退出登录异常，请稍后再试"];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory logout]];
+    [manager setHandler:handler];
+    [manager post];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -10,4 +10,5 @@
 
 @interface DZCommonSaveView : UIView
 @property (nonatomic, copy)void (^saveBlock)(void);
+- (void)setTitleText:(NSString *)text;
 @end
