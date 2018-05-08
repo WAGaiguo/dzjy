@@ -7,6 +7,7 @@
 //
 
 #import "DZMyPointsCell.h"
+#import "NSDate+Format.h"
 
 @implementation DZMyPointsCell
 
@@ -59,6 +60,7 @@
     _imageV.top = 18;
     _imageV.left = 14;
     _imageV.width = _imageV.height = 25;
+    _imageV.image = [UIImage imageNamed:@"订单"];
     [backView addSubview:_imageV];
     
     _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(_imageV.right + 12, 10, SCREEN_WIDTH - 100, 21)];
@@ -71,7 +73,7 @@
     _pointsLabel.textColor = RGBCOLOR(254, 82, 0);
     [backView addSubview:_pointsLabel];
     
-    [self test];
+//    [self test];
 }
 - (void)test{
     [_timeLabel setText:@"2018-04-20 10:10:10"];
@@ -80,6 +82,8 @@
     _imageV.backgroundColor = UICyanColor;
 }
 - (void)setContent:(NSDictionary *)dic{
-    
+    _timeLabel.text = [NSDate timestampToTime:[dic[@"date"] description]];
+    _titleLabel.text = [dic[@"abst"] description];
+    _pointsLabel.text = [NSString stringWithFormat:@"交易额积分：+%d", [dic[@"integVal"] intValue]];
 }
 @end

@@ -10,6 +10,7 @@
 #import "DZMessageNilView.h"
 #import "DZMessageSearchView.h"
 #import "DZMessageAdapter.h"
+#import "DZTabBarViewController.h"
 
 @interface DZMessageViewController(){
     DZMessageNilView *nilView;
@@ -28,6 +29,9 @@
     [self configSearchView];
     [self configAdapter];
     [self reqeustData];
+    
+    DZTabBarViewController *tabbarV =(DZTabBarViewController *) self.parentViewController;
+    [tabbarV setBadageValue:@"20"];
 }
 
 - (void)configSearchView{
@@ -62,6 +66,13 @@
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [self modelData:[obj objectForKey:@"list"]];
+        if ([[obj objectForKey:@"list"] count] == 0) {
+            [self configNilView];
+        }else{
+            if (nilView != nil) {
+                [self removeNilView];
+            }
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];

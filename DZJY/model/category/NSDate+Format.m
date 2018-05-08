@@ -28,7 +28,14 @@
     NSString *strDate = [dateFormatter stringFromDate:date];
     return strDate;
 }
-
++ (NSString *)timeToTimestamp:(NSString *)string{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [formatter dateFromString:string];
+    NSTimeInterval a = [date timeIntervalSince1970];
+    NSString *timeString = [NSString stringWithFormat:@"%lf",a];
+    return timeString;
+}
 + (NSString *)compareCurrentTime:(NSString *)str{
     //把字符串转为NSdate
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

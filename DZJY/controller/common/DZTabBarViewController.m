@@ -51,7 +51,7 @@
 }
 
 -(void)setBadageValue:(NSString *)nums{
-    
+    _messageViewController.tabBarItem.badgeValue = nums;
 }
 
 // 处理点击其它 item 返回自定义事件

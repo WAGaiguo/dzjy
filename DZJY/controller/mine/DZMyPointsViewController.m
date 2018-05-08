@@ -12,6 +12,7 @@
 #import "DZMyPointsAdapter.h"
 #import "DZMineCommenScrollView.h"
 #import "DZCalendarViewController.h"
+#import "NSDate+Format.h"
 
 @interface DZMyPointsViewController ()<SVSegmentedViewDelegate>{
     DZMyPointsHeaderView *_headerView;
@@ -32,6 +33,8 @@
     [self configTableHeader];
     [self configScrollView];
     [self configAdapter];
+    [self reqeustDataSumCount];
+    [self reqeustData];
 }
 
 - (void)configHeader{
@@ -58,8 +61,11 @@
             _headerView.timeLabel.text = @"本月";
         } else if([fromDate isEqualToString:toDate]){
             _headerView.timeLabel.text = fromDate;
+            [self reqeustData:[NSDate timeToTimestamp:fromDate] endDate:[NSDate timeToTimestamp:toDate]];
         }else{
             _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
+//            [self reqeustData:[NSDate timeToTimestamp:fromDate] endDate:[NSDate timeToTimestamp:toDate]];
+            [self reqeustData:fromDate endDate:toDate];
         }
     }];
     WEAK_SELF
@@ -102,6 +108,64 @@
 #pragma _segement delegate
 - (void)segmentedDidChange:(NSInteger) index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+}
+
+- (void)reqeustDataSumCount{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_headerView setBottomContent:obj];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory pointsSumCount]];
+    [manager setHandler:handler];
+    [manager post];
+}
+
+- (void)reqeustData:(NSString *)startDate endDate:(NSString *)endDate{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+         [HudUtils hide:MAIN_WINDOW];
+         [_allAdapter reloadData:[obj objectForKey:@"list"]];
+        if ([[obj objectForKey:@"list"] count] == 0) {
+            NSLog(@"没有数据");
+        }
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [HudUtils hide:MAIN_WINDOW];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:startDate forKey:@"starDate"];
+    [params putString:endDate forKey:@"endDate"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory pointsList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+
+- (void)reqeustData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        if (obj != nil) {
+            [_allAdapter reloadData:[obj objectForKey:@"list"]];
+        } else{
+            [HudUtils showMessage:@"没有数据"];
+        }
+        [HudUtils hide:MAIN_WINDOW];
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [HudUtils hide:MAIN_WINDOW];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    //    [params putInteger:startDate.integerValue forKey:@"starDate"];
+    //    [params putInteger:endDate.integerValue forKey:@"endDate"];
+//    [params putString:[NSString stringWithFormat:@"%ld", startDate.integerValue]  forKey:@"starDate"];
+//    [params putString:[NSString stringWithFormat:@"%ld", endDate.integerValue] forKey:@"endDate"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory pointsList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

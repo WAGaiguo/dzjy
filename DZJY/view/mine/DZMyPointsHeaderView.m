@@ -63,7 +63,7 @@
     _timeLabel.text = str;
 }
 - (void)setBottomContent:(NSString *)str{
-    [_pointsLabel setText:str];
+    [_pointsLabel setText:[NSString stringWithFormat:@"总积分：%@",str]];
     [_pointsLabel sizeToFit];
     _pointsLabel.height = 25;
     _pointsLabel.width = _pointsLabel.width + 20;

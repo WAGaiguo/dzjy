@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
     return [self.dataSource count];
 }
 
@@ -24,7 +23,7 @@
     if (cell == nil){
         cell = [[DZMyPointsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pointsCell"];
     }
-    [cell setContent:nil];
+    [cell setContent:self.dataSource[indexPath.row]];
     return cell;
 }
 @end

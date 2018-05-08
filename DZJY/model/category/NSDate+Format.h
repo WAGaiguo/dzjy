@@ -13,6 +13,7 @@
 - (NSString *)stringDescription;
 - (NSString *)stringDescriptionFull;
 + (NSString *)timestampToTime:(NSString *)string;
++ (NSString *)timeToTimestamp:(NSString *)string;
 
 // yyyy-MM-dd HH:mm:ss.SSS
 + (NSString *)compareCurrentTime:(NSString *)str;

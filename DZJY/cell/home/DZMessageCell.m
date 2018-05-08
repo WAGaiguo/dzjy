@@ -64,7 +64,7 @@
     
     _imageFolder = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"message_展开"]];
     _imageFolder.top = _timeLabel.top;
-    _imageFolder.right = backV.width - 6;
+    _imageFolder.right = backV.width - 10;
     _imageFolder.width = _imageFolder.height = 13;
     _imageFolder.contentMode = UIViewContentModeScaleAspectFit;
     [backV addSubview:_imageFolder];

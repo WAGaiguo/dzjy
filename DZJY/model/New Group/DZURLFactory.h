@@ -37,6 +37,10 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)messageList;  //站内信列表
 + (NSString *)messageUpdate;//查看站内信 更新站内信已读、未读标志
 
+// 我的积分
++ (NSString *)pointsList;
++ (NSString *)pointsSumCount;
+
 
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;
