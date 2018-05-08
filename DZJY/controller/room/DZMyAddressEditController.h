@@ -10,4 +10,5 @@
 
 @interface DZMyAddressEditController : DZTableViewController
 @property (nonatomic, strong)NSDictionary *dic;
+@property (nonatomic, copy)void (^backBlock)(void);
 @end

@@ -21,6 +21,6 @@
 
 
 - (NSDictionary *)params;
-
+- (NSDictionary *)dicParams;
 + (NSDictionary *)defaultParams;
 @end

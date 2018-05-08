@@ -40,6 +40,6 @@ typedef NS_ENUM(NSInteger,HZRequestManangerType) {
 + (DZResponseHandler *)handlerWithView:(UIView *)view;
 @property (nonatomic,copy)void(^didStarted)(DZRequestMananger *);
 @property (nonatomic,copy)void(^didSuccess)(DZRequestMananger *manager,id obj);
-@property (nonatomic,copy)void(^didFailed)(DZRequestMananger *);
+@property (nonatomic,copy)void(^didFailed)(DZRequestMananger *manager);
 
 @end

@@ -39,8 +39,8 @@
     [self.tableView setTableFooterView:[self configFooterBtn:@"添加地址"]];
     WEAK_SELF
     [_adapter setAfterReuseCell:^(DZMyAddressCell *cell, NSIndexPath *indexPath) {
+       __weak DZMyAddressCell *weak_cell = cell;
         [cell setTapBlock:^(NSInteger integer) {
-            __weak DZMyAddressCell *weak_cell = cell;
             [me tapBtn:integer cell:weak_cell dic:me.adapter.dataSource[indexPath.row]];
         }];
     }];
@@ -75,16 +75,7 @@
 }
 #pragma 地址列表数据请求操作
 - (void)requestData{
-    DZUserManager *userManager = [DZUserManager manager];
-    DZLoginUser *user = [userManager user];
-    NSString *membId = @"";
-    if ([user.parentId isBlankString]) {
-        membId = user.id;
-    }else {
-        membId = user.parentId;
-    }
     DZRequestParams *params = [DZRequestParams new];
-    [params putString:membId forKey:@"membId"];
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [_adapter reloadData:obj];
@@ -100,23 +91,49 @@
  */
 - (void)tapBtn:(NSInteger )integer cell:(DZMyAddressCell *)cell dic:(NSDictionary *)dic{
     DZAlertview *alertView = [DZAlertview new];
-    DZMyAddressEditController *editController = [DZMyAddressEditController new];
-    editController.dic = dic;
-    switch (integer) {
-        case 1:
-            [cell.editView setDefalut:NO];
-            break;
-        case 2:
-            [self.navigationController pushViewController:editController animated:YES];
-            break;
-        case 3:
-            [alertView showAlert:@"是否删除" controller:self confirm:^{
-                // 数据请求删除操作
-            }];
-            break;
-        default:
-            break;
+  
+    if (integer == 1) {
+        [cell.editView setDefalut:NO];
+    }else if (integer == 2){
+        DZMyAddressEditController *editController = [DZMyAddressEditController new];
+        editController.dic = dic;
+        [self.navigationController pushViewController:editController animated:YES];
+        [editController setBackBlock:^{
+            [self requestData];
+        }];
+    }else if (integer == 3){
+        [alertView showAlert:@"是否删除" controller:self confirm:^{
+            // 数据请求删除操作
+            [self deleteAddress:[dic objectForKey:@"id"]];
+        }];
     }
+}
+- (void)deleteAddress:(NSString *)addressId{
+//    DZRequestParams *params = [DZRequestParams new];
+//    DZResponseHandler *handler = [DZResponseHandler new];
+//    [params putString:addressId forKey:@"id"];
+//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+////        [HudUtils showMessage:@"删除成功"];
+////        [self requestData];
+//        NSLog(@"%@",[obj mj_JSONString]);
+//    }];
+//    DZRequestMananger *manager = [DZRequestMananger new];
+//    [manager setUrlString:[DZURLFactory addressDelete]];
+//    [manager setHandler:handler];
+//    [manager setParams:[params params]];
+//    [manager post];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager POST:[DZURLFactory addressDelete] parameters:addressId progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", [responseObject mj_JSONString]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -46,6 +46,10 @@
     }
     return [_dictionary copy];
 }
+- (NSDictionary *)dicParams{
+    return [_dictionary copy];
+}
+
 + (NSDictionary *)defaultParams{
     DZRequestParams *p = [DZRequestParams new];
     return [p params];

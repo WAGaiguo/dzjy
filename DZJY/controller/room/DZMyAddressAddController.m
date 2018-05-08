@@ -34,6 +34,7 @@
     [self setHeaderBackGroud:YES];
     [self configHeader];
     [self configSaveFooter];
+    [self requestData];
 }
 - (void)configHeader{
     _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
@@ -126,5 +127,38 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+- (void)requestData{
+    //    DZRequestParams *params = [DZRequestParams new];
+    ////    NSLog(@"id::::::  %@",_dic[@"id"]);
+    ////    [params putString:@"3304123598642999226" forKey:@"id"];
+    //    DZResponseHandler *handler = [DZResponseHandler new];
+    //    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+    //        NSLog(@"%@", [obj mj_JSONString]);
+    //    }];
+    //    [handler setDidFailed:^(DZRequestMananger *manager) {
+    //        NSLog(@"---失败---");
+    //    }];
+    //    DZRequestMananger *manager = [DZRequestMananger new];
+    ////    NSString *strUrl = @"http://192.168.20.243/memb/w/address/get?id=3304123598642999226";
+    //    [manager setUrlString:[DZURLFactory addressGet]];
+    //    [manager setHandler:handler];
+    //    [manager setParams:[params params]];
+    //    [manager post];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"image/png", nil];
+    
+    //    @{@"3304123598642999226"};
+    [manager POST:@"http://192.168.20.5/memb/w/address/get" parameters:@[@"3304123598642999226"] progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", [responseObject mj_JSONString]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+}
 @end
