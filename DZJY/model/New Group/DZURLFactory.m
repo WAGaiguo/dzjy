@@ -82,6 +82,13 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
     return [self absulteString:@"/memb/w/invo/default"];
 }
 
++ (NSString *)messageList{
+    return [self absulteString:@"/memb/w/mess/list"];
+}
++ (NSString *)messageUpdate{
+    return [self absulteString:@"/memb/w/mess/update"];
+}
+
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];
 }

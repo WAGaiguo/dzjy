@@ -21,6 +21,14 @@
 - (NSString *)stringDescriptionFull{
     return [self stringDescription:@"yy-MM-dd HH:mm:ss"];
 }
++ (NSString *)timestampToTime:(NSString *)string{
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[string doubleValue]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *strDate = [dateFormatter stringFromDate:date];
+    return strDate;
+}
+
 + (NSString *)compareCurrentTime:(NSString *)str{
     //把字符串转为NSdate
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

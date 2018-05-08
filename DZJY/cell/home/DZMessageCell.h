@@ -16,6 +16,7 @@
 @property (nonatomic, strong)UIImageView *imageFolder;
 @property (nonatomic, strong)UILabel *contentLabel;
 @property (nonatomic, assign)BOOL isFolder;
+@property (nonatomic, assign)BOOL isRed;
 @property (nonatomic, strong)DZMessageModel*model;
 - (void)setContent:(DZMessageModel *)content;
 @end

@@ -12,6 +12,8 @@
 - (NSString *)stringDescription:(NSString *)format;
 - (NSString *)stringDescription;
 - (NSString *)stringDescriptionFull;
++ (NSString *)timestampToTime:(NSString *)string;
+
 // yyyy-MM-dd HH:mm:ss.SSS
 + (NSString *)compareCurrentTime:(NSString *)str;
 // 时间戳格式 123456789

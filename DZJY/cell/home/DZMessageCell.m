@@ -7,9 +7,12 @@
 //
 
 #import "DZMessageCell.h"
+#import "NSDate+Format.h"
+
 
 @interface DZMessageCell(){
     UIView *backV;
+    UIView *redV;
 }
 @end
 
@@ -43,6 +46,12 @@
     _imageV.centerY = 38.5;
     [backV addSubview:_imageV];
     
+    redV = [[UIView alloc]initWithFrame:CGRectMake(_imageV.width - 10, 0, 10, 10)];
+    redV.backgroundColor = UIRedColor;
+    redV.layer.masksToBounds = YES;
+    redV.layer.cornerRadius = 5;
+    [_imageV addSubview:redV];
+    
     _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(_imageV.right + 11, 18, backV.width - 93, 18)];
     _titleLabel.font = [UIFont systemFontOfSize:16];
     _titleLabel.textColor = UITitleColor;
@@ -66,14 +75,13 @@
     _contentLabel.numberOfLines = 0;
     [backV addSubview:_contentLabel];
     
-    
-    [self test];
 }
 
-- (void)test{
-    _titleLabel.text = @"标题标题";
-    _timeLabel.text = @"2018-03-45";
-}
+//- (void)test{
+//    _titleLabel.text = @"标题标题";
+//    _timeLabel.text = @"2018-03-45";
+//}
+
 - (void)setIsFolder:(BOOL)isFolder{
     _isFolder = isFolder;
     if (isFolder) {
@@ -86,10 +94,26 @@
         backV.height = 77;
     }
 }
+
+- (void)setIsRed:(BOOL)isRed{
+    _isRed = isRed;
+    if (isRed) {
+        redV.hidden = YES;
+    }else{
+        redV.hidden = NO;
+    }
+}
+
 - (void)setContent:(DZMessageModel *)content{
     _model = content;
-    NSLog(@"%@",content.content);
     _contentLabel.text = content.content;
+    _titleLabel.text = content.title;
+    _timeLabel.text = [NSDate timestampToTime:content.time];
     _isFolder = content.isFolder;
+    if ([content.readFlag isEqualToString:@"1"]) {
+        [self setIsRed:YES];
+    }else{
+        [self setIsRed:NO];
+    }
 }
 @end

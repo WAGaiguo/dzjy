@@ -27,6 +27,7 @@
 //    [self configNilView];
     [self configSearchView];
     [self configAdapter];
+    [self reqeustData];
 }
 
 - (void)configSearchView{
@@ -37,16 +38,7 @@
     }];
 }
 - (void)configAdapter{
-    NSArray * arr = @[@"阿斯加德佛爱家佛偈我也就覅偶爱耳温计我金额覅骄傲IE金佛IE积分奥IE见佛诶接哦我及覅",@"爱杰佛我昂IE爱护公我及饿哦我更接近覅偶二姐夫 爱家佛IE奇偶我为奇偶我见覅文件佛昂规矩",@"爱江山佛IE今晚if就我IE几个我个hi危机而我if就我诶见佛已你偶尔金佛IE金佛及欧文我杰佛我骄傲覅哦啊降温哦if奇偶IE金佛IE积分阿拉斯加的福利卡十多年覅欧冠hi偶尔加工诶文件奥我文件佛IE金佛我文件覅偶见"];
-    NSMutableArray *mutableArr = [NSMutableArray array];
-    [arr enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        DZMessageModel *model = [DZMessageModel new];
-        model.content = obj;
-        model.isFolder = NO;
-        [model hightForContent:model.content];
-        [mutableArr addObject:model];
-    }];
-    _adapter = [[DZMessageAdapter alloc]initWithDataSource:mutableArr];
+    _adapter = [[DZMessageAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
     [_adapter setDidScroll:^(UITableView *tableView) {
         [MAIN_WINDOW endEditing:YES];
@@ -66,4 +58,30 @@
     nilView = nil;
 }
 
+- (void)reqeustData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [self modelData:[obj objectForKey:@"list"]];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory messageList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+- (void)modelData:(NSArray *)data{
+    NSMutableArray *dataArr = [NSMutableArray array];
+    [data enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DZMessageModel *model = [DZMessageModel new];
+        model.title =   [obj[@"titile"] description];
+        model.time =    [obj[@"sendTime"] description];
+        model.content = [obj[@"content"] description];
+        model.id =      [obj[@"id"] description];
+        model.readFlag = [obj[@"readFlag"] description];
+        [model hightForContent:model.content]; // 设置height高度
+        [dataArr addObject:model];
+    }];
+    [_adapter reloadData:dataArr];
+}
 @end

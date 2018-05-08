@@ -14,9 +14,12 @@
 
 // message content模型封装
 @interface DZMessageModel : NSObject
+@property (nonatomic, copy)NSString *id;
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, copy)NSString *time;
-@property (nonatomic, strong)NSString *content;
+@property (nonatomic, copy)NSString *content;
+@property (nonatomic, copy)NSString *readFlag;
+
 @property (nonatomic, assign)BOOL isFolder;
 @property (nonatomic, assign)CGFloat height;
 - (void)hightForContent:(NSString *)content;
