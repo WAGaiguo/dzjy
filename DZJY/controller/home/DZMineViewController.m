@@ -82,7 +82,11 @@
     _footerView = [[DZMineFooterView alloc]init];
     self.tableView.tableFooterView = _footerView;
     WEAK_SELF
+    __weak DZUserManager *weak_manager = manager;
     [_footerView setTapLeftBlock:^(NSInteger num) {
+        if (![weak_manager isLogined]) {
+            [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
+        }
         if (num == 0) {
             [me.navigationController pushViewController:[DZMyBoughtViewController new] animated:YES];
         } else if (num == 1){
@@ -99,6 +103,9 @@
     }];
 }
 - (void)tapFooterRightItem:(NSInteger )num{
+    if (![manager isLogined]) {
+        [self presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
+    }
     if (num == 1) {
         DZMyBoughtViewController *myBought = [[DZMyBoughtViewController alloc]init];
         myBought.integer = 1;
