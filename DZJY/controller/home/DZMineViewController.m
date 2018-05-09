@@ -56,7 +56,11 @@
     [_headerView setLoginBlock:^{
         [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];
     }];
+    __weak DZUserManager *weak_manager = manager;
     [_headerView setSelectBlock:^(NSInteger integer) {
+        if (![weak_manager isLogined]) {
+            [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return ;
+        }
         if (integer == 0) {
             [me.navigationController pushViewController:[DZMyFundViewController new] animated:YES];return ;
         }
