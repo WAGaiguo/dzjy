@@ -28,6 +28,20 @@
     [_adapter setDidCellSelected:^(DZMyAttentionCell * cell, NSIndexPath *indexPath) {
         [HudUtils showMessage:@"tip_Tips"];
     }];
+    [self requestData];
+}
+
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        NSLog(@"%@",[obj mj_JSONString]);
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory attentionList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
 }
 
 - (void)didReceiveMemoryWarning {

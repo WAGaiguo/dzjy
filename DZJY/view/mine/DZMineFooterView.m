@@ -31,12 +31,17 @@
 
 -(void)configTopItem{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
-    _segmentView.titles = @[@"挂牌交易", @"长期协议", @"集合采购"];
+    _segmentView.titles =  @[@"挂牌交易"]; //@[@"挂牌交易", @"长期协议", @"集合采购"];
     _segmentView.selectedFontColor = RGBCOLOR(254, 82, 0);
     _segmentView.defaultFontColor = RGBCOLOR(153, 153, 153);
     _segmentView.minTitleMargin = 0;
     _segmentView.delegate = self;
+    _segmentView.label.hidden = YES; // 隐藏底部 line
     [self addSubview:_segmentView];
+    
+    UIView *lineV = [[UIView alloc]initWithFrame:CGRectMake(0, 44 - ONE_PIXEL, SCREEN_WIDTH, ONE_PIXEL)];
+    lineV.backgroundColor = UISeperatorColor;
+    [self addSubview:lineV];
 }
 - (void)segmentedDidChange:(NSInteger) index{
     [_scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
@@ -44,7 +49,7 @@
 -(void)configBottomItem{
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, 400)];
     _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 3, 400);
+    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 400);//SCREEN_WIDTH * 3
     _scrollView.bounces = NO;
     _scrollView.pagingEnabled = YES;
     _scrollView.delegate = self;

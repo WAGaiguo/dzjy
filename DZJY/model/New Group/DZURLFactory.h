@@ -45,6 +45,10 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)fundInfo;
 + (NSString *)fundList;
 
+// 关注
++ (NSString *)attentionList;
++ (NSString *)attentionAdd;
++ (NSString *)attentionCancel;
 
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;

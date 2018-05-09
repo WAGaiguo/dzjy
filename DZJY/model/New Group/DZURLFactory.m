@@ -81,28 +81,37 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 + (NSString *)invoiceDefault{
     return [self absulteString:@"/memb/w/invo/default"];
 }
-
+// 站内信
 + (NSString *)messageList{
     return [self absulteString:@"/memb/w/mess/list"];
 }
 + (NSString *)messageUpdate{
     return [self absulteString:@"/memb/w/mess/update"];
 }
-
+// 积分
 + (NSString *)pointsList{
     return [self absulteString:@"/memb/w/integ/list"];
 }
 + (NSString *)pointsSumCount{
     return [self absulteString:@"/memb/w/integ/sumCount"];
 }
-
+// 资金
 + (NSString *)fundInfo{
     return [self absulteString:@"/pay/w/yeepay/acc/getAccInfo"];
 }
 + (NSString *)fundList{
     return [self absulteString:@"/pay/w/reveDisbDetails/listByMemb"];
 }
-
+// 关注
++ (NSString *)attentionList{
+    return [self absulteString:@"/synth/w/supplyAttention/list"];
+}
++ (NSString *)attentionAdd{
+    return [self absulteString:@"/synth/w/supplyAttention/add"];
+}
++ (NSString *)attentionCancel{
+    return [self absulteString:@"/synth/w/supplyAttention/cancel"];
+}
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];
 }

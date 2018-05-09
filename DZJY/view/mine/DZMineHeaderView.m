@@ -56,6 +56,7 @@
     if(logined){
         if (_unLoginView != nil) {
             [_unLoginView removeFromSuperview];
+            _unLoginView = nil;
         }
         if (_loginView == nil) {
             _loginView = [[DZMineLoginedView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 165)];
@@ -64,6 +65,7 @@
     }else{
         if (_loginView != nil) {
             [_loginView removeFromSuperview];
+            _loginView = nil;
         }
         if (_unLoginView == nil) {
             _unLoginView = [[DZMineUnLoginedView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 165)];
@@ -88,6 +90,7 @@
 /**
  登录
  **/
+#import "DZMemberLabel.h"
 @implementation DZMineLoginedView
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -114,6 +117,17 @@
         _titleImageV.bottom = imageV.bottom + 10;
         _titleImageV.centerX = SCREEN_WIDTH/2.0;
         [self addSubview:_titleImageV];
+        
+        _memberLabel = [[DZMemberLabel alloc]init];
+        _memberLabel.centerX = SCREEN_WIDTH/2.0;
+        _memberLabel.centerY = _titleImageV.bottom - 8;
+        [self addSubview:_memberLabel];
+        
+        // 数据填充
+        if ([[DZUserManager manager] isLogined]) {
+            [_memberLabel setType:[[[DZUserManager manager] user].userType integerValue]];
+        }
+ 
     }
     return self;
 }

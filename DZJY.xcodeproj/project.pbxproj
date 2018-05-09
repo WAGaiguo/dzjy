@@ -103,6 +103,7 @@
 		1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E343708209C54F000190689 /* GTLCalendarHeaderReusableView.xib */; };
 		1E343718209EDE5400190689 /* DZAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343717209EDE5400190689 /* DZAboutUsViewController.m */; };
 		1E34371B20A0005600190689 /* NSString+common.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34371A20A0005600190689 /* NSString+common.m */; };
+		1E34371E20A2F8AD00190689 /* DZMemberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34371D20A2F8AC00190689 /* DZMemberLabel.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
 		1E530298206934E80010D78A /* DZResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530291206934DC0010D78A /* DZResponseHandler.m */; };
@@ -362,6 +363,8 @@
 		1E343717209EDE5400190689 /* DZAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZAboutUsViewController.m; sourceTree = "<group>"; };
 		1E34371920A0005600190689 /* NSString+common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+common.h"; sourceTree = "<group>"; };
 		1E34371A20A0005600190689 /* NSString+common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+common.m"; sourceTree = "<group>"; };
+		1E34371C20A2F8AC00190689 /* DZMemberLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMemberLabel.h; sourceTree = "<group>"; };
+		1E34371D20A2F8AC00190689 /* DZMemberLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMemberLabel.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
 		1E530291206934DC0010D78A /* DZResponseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZResponseHandler.m; path = DZJY/model/net/DZResponseHandler.m; sourceTree = SOURCE_ROOT; };
 		1E530292206934DC0010D78A /* DZRequestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZRequestParams.h; path = DZJY/model/net/DZRequestParams.h; sourceTree = SOURCE_ROOT; };
@@ -1015,6 +1018,8 @@
 				1E628F23207F4BC300169A64 /* DZNetErrorView.m */,
 				1E34365E20920E7F00190689 /* DZMySelectedView.h */,
 				1E34365F20920E7F00190689 /* DZMySelectedView.m */,
+				1E34371C20A2F8AC00190689 /* DZMemberLabel.h */,
+				1E34371D20A2F8AC00190689 /* DZMemberLabel.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1463,6 +1468,7 @@
 				1EA047AB2069F09F0029C481 /* DZTabBarViewController.m in Sources */,
 				1E3436572090B9BA00190689 /* DZMyOrderTipsView.m in Sources */,
 				1E628F1B207F34CB00169A64 /* DZCategoryFirstController.m in Sources */,
+				1E34371E20A2F8AD00190689 /* DZMemberLabel.m in Sources */,
 				1EAD73F52068EB8800BD7EF7 /* DZAlertview.m in Sources */,
 				1E3436AF2099819300190689 /* DZMyMembersAccountAdapter.m in Sources */,
 				1EAD74042068EE5A00BD7EF7 /* NSString+PDRegex.m in Sources */,

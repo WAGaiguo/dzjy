@@ -15,10 +15,12 @@
 @property (nonatomic, copy)void (^selectBlock)(NSInteger integer);
 @end
 
+@class DZMemberLabel;
 @interface DZMineLoginedView : UIView
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subTitleLabel;
 @property (nonatomic, strong) UIImageView *titleImageV;
+@property (nonatomic, strong) DZMemberLabel *memberLabel;
 @end
 
 @interface DZMineUnLoginedView : UIView
