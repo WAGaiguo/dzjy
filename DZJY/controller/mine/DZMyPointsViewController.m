@@ -12,7 +12,6 @@
 #import "DZMyPointsAdapter.h"
 #import "DZMineCommenScrollView.h"
 #import "DZCalendarViewController.h"
-#import "NSDate+Format.h"
 
 @interface DZMyPointsViewController ()<SVSegmentedViewDelegate>{
     DZMyPointsHeaderView *_headerView;
@@ -20,6 +19,8 @@
     DZMyPointsAdapter *_tradeAdapter;
     DZMyPointsAdapter *_evaluateAdapter;
     DZMineCommenScrollView *_scrollView;
+    NSString *_startDate;
+    NSString *_endDate;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
 
@@ -34,7 +35,7 @@
     [self configScrollView];
     [self configAdapter];
     [self reqeustDataSumCount];
-    [self reqeustData];
+    [self getMonthFirstAndLastDayWith];
 }
 
 - (void)configHeader{
@@ -58,13 +59,16 @@
     DZCalendarViewController *calendarV = [DZCalendarViewController new];
     [calendarV setDateBlock:^(NSString *fromDate, NSString *toDate) {
         if (fromDate == nil) {
-            _headerView.timeLabel.text = @"本月";
+//            _headerView.timeLabel.text = @"本月";
         } else if([fromDate isEqualToString:toDate]){
             _headerView.timeLabel.text = fromDate;
-            [self reqeustData:[NSDate timeToTimestamp:fromDate] endDate:[NSDate timeToTimestamp:toDate]];
+            _startDate = fromDate;
+            _endDate = toDate;
+            [self reqeustData:fromDate endDate:toDate];
         }else{
             _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
-//            [self reqeustData:[NSDate timeToTimestamp:fromDate] endDate:[NSDate timeToTimestamp:toDate]];
+            _startDate = fromDate;
+            _endDate = toDate;
             [self reqeustData:fromDate endDate:toDate];
         }
     }];
@@ -134,8 +138,8 @@
         [HudUtils hide:MAIN_WINDOW];
     }];
     DZRequestParams *params = [DZRequestParams new];
-    [params putString:startDate forKey:@"starDate"];
-    [params putString:endDate forKey:@"endDate"];
+    [params putString:_startDate forKey:@"starDate"];
+    [params putString:_endDate forKey:@"endDate"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsList]];
     [manager setParams:[params params]];
@@ -143,30 +147,31 @@
     [manager post];
 }
 
-- (void)reqeustData{
-    DZResponseHandler *handler = [DZResponseHandler new];
-    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        if (obj != nil) {
-            [_allAdapter reloadData:[obj objectForKey:@"list"]];
-        } else{
-            [HudUtils showMessage:@"没有数据"];
-        }
-        [HudUtils hide:MAIN_WINDOW];
-    }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-        [HudUtils hide:MAIN_WINDOW];
-    }];
-    DZRequestParams *params = [DZRequestParams new];
-    //    [params putInteger:startDate.integerValue forKey:@"starDate"];
-    //    [params putInteger:endDate.integerValue forKey:@"endDate"];
-//    [params putString:[NSString stringWithFormat:@"%ld", startDate.integerValue]  forKey:@"starDate"];
-//    [params putString:[NSString stringWithFormat:@"%ld", endDate.integerValue] forKey:@"endDate"];
-    DZRequestMananger *manager = [DZRequestMananger new];
-    [manager setUrlString:[DZURLFactory pointsList]];
-    [manager setParams:[params params]];
-    [manager setHandler:handler];
-    [manager post];
+- (void)getMonthFirstAndLastDayWith{
+    NSDate *newDate = [NSDate date];
+    double interval = 0;
+    NSDate *firstDate = nil;
+    NSDate *lastDate = nil;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    BOOL OK = [calendar rangeOfUnit:NSCalendarUnitMonth startDate:& firstDate interval:&interval forDate:newDate];
+    
+    if (OK) {
+        lastDate = [firstDate dateByAddingTimeInterval:interval - 1];
+    }else {
+//        return @[@"",@""];
+    }
+    
+    NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
+    [myDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *firstString = [myDateFormatter stringFromDate: firstDate];
+    NSString *lastString = [myDateFormatter stringFromDate: lastDate];
+    
+    _startDate = firstString;
+    _endDate = lastString;
+    [self reqeustData:firstString endDate:lastString];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
