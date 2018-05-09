@@ -64,12 +64,12 @@
             _headerView.timeLabel.text = fromDate;
             _startDate = fromDate;
             _endDate = toDate;
-            [self reqeustData:fromDate endDate:toDate];
+            [self requestDataType];
         }else{
             _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
             _startDate = fromDate;
             _endDate = toDate;
-            [self reqeustData:fromDate endDate:toDate];
+            [self requestDataType];
         }
     }];
     WEAK_SELF
@@ -84,6 +84,15 @@
     _segmentView.minTitleMargin = 0;
     _segmentView.delegate = self;
     [tableHeader addSubview:_segmentView];
+}
+- (void)requestDataType{
+    if (_segmentView.selectedIndex == 0) {
+        [self reqeustData:@""];
+    }else if(_segmentView.selectedIndex == 1){
+        [self reqeustData:@"1"];
+    }else if(_segmentView.selectedIndex == 2){
+        [self reqeustData:@"0"];
+    }
 }
 - (void)configScrollView{
     WEAK_SELF
@@ -112,6 +121,7 @@
 #pragma _segement delegate
 - (void)segmentedDidChange:(NSInteger) index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+    [self requestDataType];
 }
 
 - (void)reqeustDataSumCount{
@@ -125,13 +135,17 @@
     [manager post];
 }
 
-- (void)reqeustData:(NSString *)startDate endDate:(NSString *)endDate{
+- (void)reqeustData:(NSString *)type{
     DZResponseHandler *handler = [DZResponseHandler new];
+    NSLog(@"type:::::%@",type);
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
          [HudUtils hide:MAIN_WINDOW];
-         [_allAdapter reloadData:[obj objectForKey:@"list"]];
-        if ([[obj objectForKey:@"list"] count] == 0) {
-            NSLog(@"没有数据");
+        if ([type isEqualToString:@""]) {
+            [_allAdapter reloadData:[obj objectForKey:@"list"]];
+        } else if ([type isEqualToString:@"1"]){
+            [_tradeAdapter reloadData:[obj objectForKey:@"list"]];
+        } else if ([type isEqualToString:@"0"]){
+            [_evaluateAdapter reloadData:[obj objectForKey:@"list"]];
         }
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
@@ -140,6 +154,7 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_startDate forKey:@"starDate"];
     [params putString:_endDate forKey:@"endDate"];
+    [params putString:type forKey:@"integType"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsList]];
     [manager setParams:[params params]];
@@ -147,6 +162,8 @@
     [manager post];
 }
 
+
+#pragma 获取本月的第一天和最后一天
 - (void)getMonthFirstAndLastDayWith{
     NSDate *newDate = [NSDate date];
     double interval = 0;
@@ -169,7 +186,7 @@
     
     _startDate = firstString;
     _endDate = lastString;
-    [self reqeustData:firstString endDate:lastString];
+    [self reqeustData:@""];
 }
 
 - (void)didReceiveMemoryWarning {
