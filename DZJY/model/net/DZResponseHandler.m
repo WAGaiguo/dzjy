@@ -47,18 +47,18 @@
 }
 
 - (void)dismissLoading{
-    if ([self willShowLoading]) {
+//    if ([self willShowLoading]) {
         [HudUtils hide:self.hudView];
-    }
+//    }
 }
 - (void)showLoading{
     [HudUtils show:self.hudView];
 }
 
 - (void)requestStarted:(DZRequestMananger *)request{
-    if ([self willShowLoading]) {
+//    if ([self willShowLoading]) {
         [self showLoading];
-    }
+//    }
 }
 - (void)callOnSuccess:(NSData *)responseData request:(DZRequestMananger *)request{
     NSError *jsonError;

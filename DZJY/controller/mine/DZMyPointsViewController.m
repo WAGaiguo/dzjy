@@ -137,7 +137,6 @@
 
 - (void)reqeustData:(NSString *)type{
     DZResponseHandler *handler = [DZResponseHandler new];
-    NSLog(@"type:::::%@",type);
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
          [HudUtils hide:MAIN_WINDOW];
         if ([type isEqualToString:@""]) {

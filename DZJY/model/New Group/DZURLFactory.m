@@ -96,6 +96,13 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
     return [self absulteString:@"/memb/w/integ/sumCount"];
 }
 
++ (NSString *)fundInfo{
+    return [self absulteString:@"/pay/w/yeepay/acc/getAccInfo"];
+}
++ (NSString *)fundList{
+    return [self absulteString:@"/pay/w/reveDisbDetails/listByMemb"];
+}
+
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];
 }

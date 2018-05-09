@@ -41,6 +41,10 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)pointsList;
 + (NSString *)pointsSumCount;
 
+// 我的资金
++ (NSString *)fundInfo;
++ (NSString *)fundList;
+
 
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;

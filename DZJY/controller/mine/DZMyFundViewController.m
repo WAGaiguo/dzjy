@@ -12,6 +12,7 @@
 #import "DZMineCommenScrollView.h"
 #import "DZMyFundAdapter.h"
 #import "DZCalendarViewController.h"
+#import "NSString+common.h"
 
 @interface DZMyFundViewController ()<SVSegmentedViewDelegate>{
     DZMyPointsHeaderView *_headerView;
@@ -19,6 +20,8 @@
     DZMyFundAdapter *_allAdapter;
     DZMyFundAdapter *_expendAdapter;
     DZMyFundAdapter *_incomeAdapter;
+    NSString *_startDate;
+    NSString *_endDate;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
 
@@ -33,7 +36,8 @@
     [self configTableHeader];
     [self configScrollView];
     [self configAdapter];
-
+    [self requestTotalData];
+    [self getMonthFirstAndLastDayWith];
 }
 - (void)configTableHeader{
     UIView *tableHeader = [[UIView alloc]init];
@@ -49,11 +53,17 @@
     DZCalendarViewController *calendarV = [DZCalendarViewController new];
     [calendarV setDateBlock:^(NSString *fromDate, NSString *toDate) {
         if (fromDate == nil) {
-            _headerView.timeLabel.text = @"本月";
+
         } else if([fromDate isEqualToString:toDate]){
             _headerView.timeLabel.text = fromDate;
+            _startDate = fromDate;
+            _endDate = toDate;
+            [self reqeustData];
         }else{
             _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
+            _startDate = fromDate;
+            _endDate = toDate;
+            [self reqeustData];
         }
      }];
     WEAK_SELF
@@ -98,6 +108,83 @@
 #pragma segmente delegate
 - (void)segmentedDidChange:(NSInteger)index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+    [self reqeustData];
+}
+
+- (void)requestTotalData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        NSLog(@"%@", [obj mj_JSONString]);
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory fundInfo]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+- (void)reqeustData{
+    if (_segmentView.selectedIndex == 0) {
+        [self requestDataType:@""];
+    }else if (_segmentView.selectedIndex == 1){
+        [self requestDataType:@"1"];
+    }else if (_segmentView.selectedIndex == 2){
+        [self requestDataType:@"0"];
+    }
+}
+- (void)requestDataType:(NSString *)type{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [HudUtils hide:MAIN_WINDOW];
+        if ([type isEqualToString:@""]) {
+            [_allAdapter reloadData:[obj objectForKey:@"list"]];
+        }else if ([type isEqualToString:@"1"]){
+            [_expendAdapter reloadData:[obj objectForKey:@"list"]];
+        }else if ([type isEqualToString:@"0"]){
+            [_expendAdapter reloadData:[obj objectForKey:@"list"]];
+        }
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:type forKey:@"capitalType"];
+    [params putString:_startDate forKey:@"dateTimeStart"];
+    [params putString:_endDate forKey:@"dateTimeEnd"];
+    if ([[DZUserManager manager] isLogined]){
+        if ([[[DZUserManager manager] user].parentId isBlankString]) {
+            [params putString:[[DZUserManager manager] user].id forKey:@"accId"];
+        }else{
+            [params putString:[[DZUserManager manager] user].parentId forKey:@"accId"];
+        }
+    }
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory fundList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+#pragma 获取本月的第一天和最后一天
+- (void)getMonthFirstAndLastDayWith{
+    NSDate *newDate = [NSDate date];
+    double interval = 0;
+    NSDate *firstDate = nil;
+    NSDate *lastDate = nil;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    BOOL OK = [calendar rangeOfUnit:NSCalendarUnitMonth startDate:& firstDate interval:&interval forDate:newDate];
+    
+    if (OK) {
+        lastDate = [firstDate dateByAddingTimeInterval:interval - 1];
+    }else {
+        //        return @[@"",@""];
+    }
+    
+    NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
+    [myDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *firstString = [myDateFormatter stringFromDate: firstDate];
+    NSString *lastString = [myDateFormatter stringFromDate: lastDate];
+    
+    _startDate = firstString;
+    _endDate = lastString;
+    [self requestDataType:@""];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
