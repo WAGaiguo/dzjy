@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 9;
     return [self.dataSource count];
 }
 
@@ -24,6 +23,7 @@
     if (cell == nil){
         cell = [[DZMyDeliveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"deliveryCell"];
     }
+    [cell setContent:self.dataSource[indexPath.row]];
     return cell;
 }
 @end

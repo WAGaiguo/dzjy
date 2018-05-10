@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"%ld",self.dataSource.count);
     return [self.dataSource count];
 }
 

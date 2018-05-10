@@ -8,7 +8,7 @@
 
 #import "DZMyDeliveryCell.h"
 #import <NSAttributedString+YYText.h>
-
+#import "NSDate+Format.h"
 @implementation DZMyDeliveryCell
 
 - (void)awakeFromNib {
@@ -45,6 +45,7 @@
     _stateLabel.height = 30;
     _stateLabel.right = backView.width - 11;
     _stateLabel.centerY = 17.5;
+    _stateLabel.textAlignment = NSTextAlignmentRight;
     [backView addSubview:_stateLabel];
     
 }
@@ -73,9 +74,9 @@
     _priceLabel.textColor = UICommonColor;
     [backView addSubview:_priceLabel];
     
-    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
-    _priceLabel.text = @"￥555.555";
-    _imageV.backgroundColor = UICyanColor;
+//    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
+//    _priceLabel.text = @"￥555.555";
+//    _imageV.backgroundColor = UICyanColor;
 }
 - (NSMutableAttributedString *)attributeString:(NSString *)content state:(DZPayState)state{
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:content];
@@ -152,7 +153,7 @@
         }
     } forControlEvents:UIControlEventTouchUpInside];
     
-    [self test];
+//    [self test];
     
 }
 - (void)test{
@@ -161,12 +162,48 @@
     _dealLabel.text = [NSString stringWithFormat:@"成交量：%@",@"500公斤"];
     _totalLabel.attributedText = [self str:[NSString stringWithFormat:@"总成交量：%@",@"7000公斤"]];
     _companyLabel.text = @"联信智源公司";
-    
-    
 }
 - (NSMutableAttributedString *)str:(NSString *)str{
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:str];
     [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:85.0f/255.0f green:85.0f/255.0f blue:85.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 5)];
     return attribute;
+}
+- (void)setContent:(NSDictionary *)dic{
+    [self typeStr:dic[@"delivBillStateType"]];
+    _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"bulidDate"]];
+    _dealLabel.text = [NSString stringWithFormat:@"成交量：%@%@",dic[@"buyCount"],dic[@"measUnitName"]];
+    _companyLabel.text = dic[@"sellerName"];
+    _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+    NSString *picStr = [NSString stringWithFormat:@"%@%@",DZCommonUrl,[[dic objectForKey:@"fileUrl"]description]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:picStr]];
+    NSString *titleStr = [NSString stringWithFormat:@"  %@", [dic[@"commName"] description]];
+    if ([[dic[@"listModeType"] description] isEqualToString:@"0"]) {
+        _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState1];
+    } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"]){
+        _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState2];
+    } else{
+        _titleLabel.attributedText = [self attributeString:titleStr state:DZPayStateAll];
+    }
+}
+- (void)typeStr:(NSString *)type{
+    if ([type isEqualToString:@"0"]) {
+        _stateLabel.text = @"强制解除";
+    }else if ([type isEqualToString:@"1"]){
+        _stateLabel.text = @"解除";
+    }else if ([type isEqualToString:@"2"]){
+        _stateLabel.text = @"待发货";
+    }else if ([type isEqualToString:@"3"]){
+        _stateLabel.text = @"待验票";
+    }else if ([type isEqualToString:@"4"]){
+        _stateLabel.text = @"待验货";
+    }else if ([type isEqualToString:@"5"]){
+        _stateLabel.text = @"验货异议中";
+    }else if ([type isEqualToString:@"6"]){
+        _stateLabel.text = @"验票异议";
+    }else if ([type isEqualToString:@"7"]){
+        _stateLabel.text = @"已完成";
+    }else if ([type isEqualToString:@"8"]){
+        _stateLabel.text = @"待支付";
+    }
 }
 @end

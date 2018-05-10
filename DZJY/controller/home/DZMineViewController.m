@@ -100,7 +100,9 @@
             [contractV reqeustDataType:0];
             [me.navigationController pushViewController:contractV animated:YES];
         }else if (num == 3){
-            [me.navigationController pushViewController:[DZMyDeliveryViewController new] animated:YES];
+            DZMyDeliveryViewController *deliveryV = [DZMyDeliveryViewController new];
+            [deliveryV requestDataType:0];
+            [me.navigationController pushViewController:deliveryV animated:YES];
         }
 
     }];
@@ -133,9 +135,15 @@
     }else if (num == 5){
         [self.navigationController pushViewController:[DZMyContractAbnormalController new] animated:YES];
     }else if (num == 6){
-        
+        DZMyDeliveryViewController *deliveryV = [DZMyDeliveryViewController new];
+        deliveryV.integer = 2;
+        [deliveryV requestDataType:2];
+        [self.navigationController pushViewController:deliveryV animated:YES];
     }else if (num == 7){
-        
+        DZMyDeliveryViewController *deliveryV = [DZMyDeliveryViewController new];
+        deliveryV.integer = 3;
+        [deliveryV requestDataType:3];
+        [self.navigationController pushViewController:deliveryV animated:YES];
     }else if (num == 8){
         [self.navigationController pushViewController:[DZMyDeliveryAbnormalController new] animated:YES];
     }else if (num == 9){

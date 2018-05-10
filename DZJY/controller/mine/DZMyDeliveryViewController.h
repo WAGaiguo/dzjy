@@ -9,5 +9,6 @@
 #import "DZBaseViewController.h"
 
 @interface DZMyDeliveryViewController : DZBaseViewController
-
+@property (nonatomic, assign)NSInteger integer;
+- (void)requestDataType:(NSInteger )integer;
 @end

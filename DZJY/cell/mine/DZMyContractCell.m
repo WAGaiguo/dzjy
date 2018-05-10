@@ -47,6 +47,7 @@
     _stateLabel.height = 30;
     _stateLabel.right = backView.width - 11;
     _stateLabel.centerY = 17.5;
+    _stateLabel.textAlignment = NSTextAlignmentRight;
     [backView addSubview:_stateLabel];
     
 }
@@ -177,6 +178,7 @@
     
     
     NSString *titleStr = [NSString stringWithFormat:@"  %@", [dic[@"commName"] description]];
+    
     if ([[dic[@"listModeType"] description] isEqualToString:@"0"]) {
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState1];
     } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"]){

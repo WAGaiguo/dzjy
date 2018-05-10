@@ -22,4 +22,5 @@ typedef NS_ENUM(NSUInteger, DZPayState) {
 @property (nonatomic, strong)UILabel *totalLabel;
 @property (nonatomic, strong)UILabel *companyLabel;
 @property (nonatomic, copy)void(^callBlock)(void);
+- (void)setContent:(NSDictionary *)dic;
 @end
