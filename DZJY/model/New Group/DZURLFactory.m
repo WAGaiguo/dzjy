@@ -123,7 +123,10 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 + (NSString *)deliveryList{
     return [self absulteString:@"/prumt/w/cont/deliv/list"];
 }
-
+// 提单
++ (NSString *)ladingList{
+    return [self absulteString:@"/prumt/w/take/comm/list"];
+}
 
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];

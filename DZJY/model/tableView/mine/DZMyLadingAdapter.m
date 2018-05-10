@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
     return [self.dataSource count];
 }
 
@@ -24,6 +23,10 @@
     if (cell == nil){
         cell = [[DZMyLadingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ladingCell"];
     }
+    [cell setContent:self.dataSource[indexPath.row]];
+    [cell setCallBlock:^{
+        [self makePhoneCall:self.dataSource[indexPath.row][@"salerMobile"]];
+    }];
     return cell;
 }
 

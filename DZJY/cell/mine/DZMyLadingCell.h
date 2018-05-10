@@ -22,4 +22,6 @@
 @property (nonatomic, strong)UILabel *carLabel;
 
 @property (nonatomic, copy)void(^callBlock)(void);
+
+- (void)setContent:(NSDictionary *)dic;
 @end

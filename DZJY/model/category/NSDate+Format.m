@@ -28,6 +28,13 @@
     NSString *strDate = [dateFormatter stringFromDate:date];
     return strDate;
 }
++ (NSString *)timestampToCommonTime:(NSString *)string{
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[string doubleValue]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *strDate = [dateFormatter stringFromDate:date];
+    return strDate;
+}
 + (NSString *)timeToTimestamp:(NSString *)string{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd"];

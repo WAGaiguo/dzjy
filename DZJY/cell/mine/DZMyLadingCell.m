@@ -7,6 +7,7 @@
 //
 
 #import "DZMyLadingCell.h"
+#import "NSDate+Format.h"
 
 @implementation DZMyLadingCell
 @synthesize backView;
@@ -150,5 +151,28 @@
     _personLabel.text = @"momomo";
     _carLabel.text = @"冀A-666666";
     _companyLabel.text = @"联信智源";
+}
+- (void)setContent:(NSDictionary *)dic{
+    _timeLabel.text = [NSDate timestampToCommonTime:dic[@"bulidDate"]];
+    [self setType:[dic objectForKey:@"takeBillStateType"]];
+    _titleLabel1.text = dic[@"commName"];
+    _titleLabel2.text = [NSString stringWithFormat:@"%@*%@", dic[@"price"], dic[@"buyCount"]];
+    _methodsLabel.text = @"不知道";
+    
+    _addressLabel.text = dic[@"takeAddress"];
+    _personLabel.text = dic[@"takeCommName"];
+    _carLabel.text = dic[@"takeCommBillNum"];
+    _companyLabel.text = @"不知道";
+}
+- (void)setType:(NSString *)type{
+    if ([type isEqualToString:@"0"]) {
+        _stateLabel.text = @"已打印";
+    }else if ([type isEqualToString:@"1"]){
+        _stateLabel.text = @"待打印";
+    }else if ([type isEqualToString:@"2"]){
+        _stateLabel.text = @"已完成";
+    }else if ([type isEqualToString:@"3"]){
+        _stateLabel.text = @"已取消";
+    }
 }
 @end

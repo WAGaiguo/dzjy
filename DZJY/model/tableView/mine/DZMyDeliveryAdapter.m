@@ -24,6 +24,9 @@
         cell = [[DZMyDeliveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"deliveryCell"];
     }
     [cell setContent:self.dataSource[indexPath.row]];
+    [cell setCallBlock:^{
+        [self makePhoneCall:self.dataSource[indexPath.row][@"sellerPhone"]];
+    }];
     return cell;
 }
 @end
