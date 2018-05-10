@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong)DZmineFooterRightItem *firstItem;
 @property (nonatomic, strong)DZmineFooterRightItem *secondItem;
+@property (nonatomic, strong)DZmineFooterRightItem *second2Item;
 @property (nonatomic, strong)DZmineFooterRightItem *thirdItem;
 @property (nonatomic, strong)DZmineFooterRightItem *fourthItem;
 @property (nonatomic, strong)DZmineFooterRightItem *fifthItem;

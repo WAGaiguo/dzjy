@@ -86,9 +86,10 @@
 - (void)makeRight{
     NSInteger item_width = SCREEN_WIDTH * 3/(4*4);
     
-    _firstItem = [self rightItemFactory:@"供货意向" image:@"供货意向" frame:CGRectMake(SCREEN_WIDTH/4.0, 0, item_width, 80) num:1];
+    _firstItem = [self rightItemFactory:@"供货意向" image:@"供货意向" frame:CGRectMake(SCREEN_WIDTH/4.0, 0, item_width, 80) num:0];
     
-    _secondItem = [self rightItemFactory:@"待支付" image:@"待支付" frame:CGRectMake(SCREEN_WIDTH/4.0, 80, item_width, 80) num:2];
+    _secondItem = [self rightItemFactory:@"买方支付" image:@"待支付" frame:CGRectMake(SCREEN_WIDTH/4.0, 80, item_width, 80) num:1];
+    _second2Item = [self rightItemFactory:@"卖方支付" image:@"待支付" frame:CGRectMake(_secondItem.right, 80, item_width, 80) num:2];
     
     _thirdItem = [self rightItemFactory:@"待交收" image:@"待交收" frame:CGRectMake(SCREEN_WIDTH/4.0, 160, item_width, 80) num:3];
     _fourthItem = [self rightItemFactory:@"待评价" image:@"待评价" frame:CGRectMake(_thirdItem.right, 160, item_width, 80) num:4];

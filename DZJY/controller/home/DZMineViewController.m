@@ -114,13 +114,17 @@
     if (![manager isLogined]) {
         [self presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
     }
-    if (num == 1) {
+    if (num == 0) {
         DZMyBoughtViewController *myBought = [[DZMyBoughtViewController alloc]init];
         myBought.integer = 1;
         [self.navigationController pushViewController:myBought animated:YES];
-    } else if (num == 2){
+    } else if (num == 1){
         DZMyOrderViewController *myOrder = [DZMyOrderViewController new];
-        myOrder.integer = 1;
+        myOrder.integer = 2;
+        [self.navigationController pushViewController:myOrder animated:YES];
+    }else if (num == 2){
+        DZMyOrderViewController *myOrder = [DZMyOrderViewController new];
+        myOrder.integer = 3;
         [self.navigationController pushViewController:myOrder animated:YES];
     }else if (num == 3){
         DZMyContractViewController *contract = [DZMyContractViewController new];
@@ -170,6 +174,7 @@
 - (void)tipsZero{
     [_footerView.firstItem setNums:0];
     [_footerView.secondItem setNums:0];
+    [_footerView.second2Item setNums:0]; // 待卖方支付
     [_footerView.thirdItem setNums:0];
     [_footerView.fourthItem setNums:0];
     [_footerView.fifthItem setNums:0];
