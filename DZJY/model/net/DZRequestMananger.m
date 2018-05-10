@@ -36,7 +36,7 @@ AFHTTPSessionManager* defaultRequestManager;
         }
    
         
-        [requestSerializer setTimeoutInterval:30];
+        [requestSerializer setTimeoutInterval:20];
         [defaultRequestManager setRequestSerializer:requestSerializer];
         
         

@@ -127,7 +127,11 @@
 - (void)reqeustDataSumCount{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [HudUtils hide:MAIN_WINDOW];
         [_headerView setBottomContent:obj];
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [HudUtils hide:MAIN_WINDOW];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsSumCount]];

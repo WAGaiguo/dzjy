@@ -15,7 +15,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 9;
+    NSLog(@"%ld",self.dataSource.count);
     return [self.dataSource count];
 }
 
@@ -24,6 +24,10 @@
     if (cell == nil){
         cell = [[DZMyContractCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    [cell setContentDic:self.dataSource[indexPath.row]];
+    [cell setCallBlock:^{
+        [self makePhoneCall:self.dataSource[indexPath.row][@"sellerPhone"]];
+    }];
     return cell;
 }
 @end

@@ -54,9 +54,12 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (_scrollView == scrollView) {
-        if (_scrollBlock) {
-            _scrollBlock((scrollView.contentOffset.x +SCREEN_WIDTH/2)/SCREEN_WIDTH);
+        if ((int)scrollView.contentOffset.x % (int)SCREEN_WIDTH == 0) {
+            if (_scrollBlock) {
+                _scrollBlock((scrollView.contentOffset.x +SCREEN_WIDTH/2)/SCREEN_WIDTH);
+            }
         }
+        
     }
 }
 @end

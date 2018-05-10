@@ -26,7 +26,7 @@
     [self setTitle:@"站内信"];
     [self setHeaderBackGroud:YES];
 //    [self configNilView];
-    [self configSearchView];
+//    [self configSearchView];
     [self configAdapter];
     [self reqeustData];
     
