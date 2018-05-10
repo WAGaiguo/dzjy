@@ -40,7 +40,7 @@
     [self configScrollView];
     [self configAdapter];
     [self configVerity];
-    [self requestData:@""];
+//    [self requestData:@""];
 }
 - (void)configHeader{
     [self setTitle:@"我的合同"];
