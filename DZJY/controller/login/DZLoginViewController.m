@@ -73,16 +73,16 @@
         _passwordField.secureTextEntry = isHidden ? NO : YES;
     }];
     
-    UILabel *label = [[UILabel alloc]init];
-    [_scrollView addSubview:label];
-    label.sd_layout.widthIs(100).heightIs(20).topSpaceToView(passwordView, 10).leftSpaceToView(hiddenImageV, 0);
-    label.font = [UIFont systemFontOfSize:13];
-    label.textColor = UICommonColor;
-    label.text = @"忘记密码?";
-    label.userInteractionEnabled = YES;
-    [label bk_whenTapped:^{
-        [HudUtils showMessage:@"忘记密码"];
-    }];
+//    UILabel *label = [[UILabel alloc]init];
+//    [_scrollView addSubview:label];
+//    label.sd_layout.widthIs(100).heightIs(20).topSpaceToView(passwordView, 10).leftSpaceToView(hiddenImageV, 0);
+//    label.font = [UIFont systemFontOfSize:13];
+//    label.textColor = UICommonColor;
+//    label.text = @"忘记密码?";
+//    label.userInteractionEnabled = YES;
+//    [label bk_whenTapped:^{
+//        [HudUtils showMessage:@"忘记密码"];
+//    }];
     
 //    UIView *codeView = [self commonFieldView:@"新密码"];
 //    codeView.top = passwordView.bottom;

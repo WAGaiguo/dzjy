@@ -25,10 +25,11 @@
         _navigationTitle = @"内容详情";
     }
     self.title = _navigationTitle;
+    [self setHeaderBackGroud:YES];
     
     webV = [[WKWebView alloc]init];
-    webV.backgroundColor = UIWhiteColor;
-    webV.scrollView.backgroundColor = UIWhiteColor;
+    webV.backgroundColor = UIBackgroundColor;
+    webV.scrollView.backgroundColor = UIBackgroundColor;
     webV.opaque = NO;
     webV.frame = CGRectMake(0, DZ_TOP, SCREEN_WIDTH, SCREEN_HEIGHT - (DZ_TOP));
     [self.view addSubview:webV];

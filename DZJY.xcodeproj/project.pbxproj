@@ -170,6 +170,7 @@
 		1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */; };
 		1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */; };
 		1EF8B6AE20A55E5C008EB028 /* DZCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */; };
+		1EF8B6B020A56D3E008EB028 /* agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF8B6AF20A56B56008EB028 /* agreement.html */; };
 		340AD05E867BF2A0E9D98DE5 /* libPods-DZJY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE38328D711D756068A077C2 /* libPods-DZJY.a */; };
 /* End PBXBuildFile section */
 
@@ -499,6 +500,7 @@
 		1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTableViewAdapter.m; sourceTree = "<group>"; };
 		1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCityModel.h; sourceTree = "<group>"; };
 		1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCityModel.m; sourceTree = "<group>"; };
+		1EF8B6AF20A56B56008EB028 /* agreement.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = agreement.html; sourceTree = "<group>"; };
 		42658121941B52AEDD69FFE3 /* Pods-DZJY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZJY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DZJY/Pods-DZJY.debug.xcconfig"; sourceTree = "<group>"; };
 		F150777D512D1550EFA07AB0 /* Pods-DZJY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZJY.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZJY/Pods-DZJY.release.xcconfig"; sourceTree = "<group>"; };
 		FE38328D711D756068A077C2 /* libPods-DZJY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZJY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -955,6 +957,7 @@
 		1E628F2720823EA800169A64 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				1EF8B6AF20A56B56008EB028 /* agreement.html */,
 				1E92D1112084E99800E31C62 /* wag.json */,
 				1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */,
 				1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */,
@@ -1305,6 +1308,7 @@
 				1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */,
 				1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */,
 				1E92D1122084E99800E31C62 /* wag.json in Resources */,
+				1EF8B6B020A56D3E008EB028 /* agreement.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

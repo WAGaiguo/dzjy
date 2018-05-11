@@ -31,6 +31,7 @@
     [self configSeveralItem];
     [self configScrollView];
     [self configAdapter];
+    [self requestData];
 }
 -(void)configSeveralItem{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 44)];
@@ -89,6 +90,9 @@
 #pragma _segement delegate
 - (void)segmentedDidChange:(NSInteger) index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+}
+- (void)requestData{
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

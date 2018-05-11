@@ -190,6 +190,9 @@
                               @"24":@"有限责任公司",
                               @"25":@"农民专业合作经济组织"
                               };
+    if (strIntger.integerValue > 25) {
+        _titleRightLabel.text = @""; return;
+    }
     _titleRightLabel.text = dataDic[strIntger];
 }
 // 经营模式
