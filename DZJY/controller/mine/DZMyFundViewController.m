@@ -37,7 +37,6 @@
     [self configScrollView];
     [self configAdapter];
     [self requestTotalData];
-    [self getMonthFirstAndLastDayWith];
 }
 - (void)configTableHeader{
     UIView *tableHeader = [[UIView alloc]init];
@@ -115,6 +114,7 @@
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         NSLog(@"%@", [obj mj_JSONString]);
+        [self getMonthFirstAndLastDayWith];
     }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];

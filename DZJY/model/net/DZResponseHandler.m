@@ -103,11 +103,14 @@
     if(error.code == -1001){
         message = @"网络连接超时";
     }
+    if (error.code == 401) {
+        message = @"没有权限";
+    }
     if (error.code == 3) {
 //        [request cancelAll];
 //        [KickoutUtils kickout];
     }else if(error.code == 2){
-        [HudUtils showMessage:@"请先完成实名认证!"];
+//        [HudUtils showMessage:@"请先完成实名认证!"];
 //        HZIdentityVerifyViewController *idc = [HZIdentityVerifyViewController new];
 //        [APPDELEGATE.navigationController pushViewController:idc animated:YES];
     }else if([self willShowTips]){

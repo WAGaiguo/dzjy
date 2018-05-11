@@ -80,9 +80,10 @@
     }
 }
 - (void)setTitle:(NSString *)title subTitle:(NSString *)subTitle img:(NSString *)imageUrl{
-    _loginView.titleLabel.text = title;
+//    _loginView.titleLabel.text = title;
     _loginView.subTitleLabel.text = subTitle;
     [_loginView.titleImageV sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+    [_loginView.titleLabel setText:[[DZUserManager manager] user].loginName];
 }
 
 @end
@@ -125,7 +126,8 @@
         
         // 数据填充
         if ([[DZUserManager manager] isLogined]) {
-            [_memberLabel setType:[[[DZUserManager manager] user].userType integerValue]];
+//            [_memberLabel setType:[[[DZUserManager manager] user].userType integerValue]];
+            [_titleLabel setText:[[DZUserManager manager] user].loginName];
         }
  
     }

@@ -35,7 +35,7 @@
     [self configScrollView];
     [self configAdapter];
     [self reqeustDataSumCount];
-    [self getMonthFirstAndLastDayWith];
+//    [self getMonthFirstAndLastDayWith];
 }
 
 - (void)configHeader{
@@ -127,11 +127,10 @@
 - (void)reqeustDataSumCount{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [HudUtils hide:MAIN_WINDOW];
         [_headerView setBottomContent:obj];
+        [self getMonthFirstAndLastDayWith];
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
-        [HudUtils hide:MAIN_WINDOW];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsSumCount]];
@@ -142,7 +141,6 @@
 - (void)reqeustData:(NSString *)type{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-         [HudUtils hide:MAIN_WINDOW];
         if ([type isEqualToString:@""]) {
             [_allAdapter reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"1"]){
@@ -152,7 +150,6 @@
         }
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
-        [HudUtils hide:MAIN_WINDOW];
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_startDate forKey:@"starDate"];

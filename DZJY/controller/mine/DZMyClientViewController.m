@@ -37,7 +37,7 @@
  **/
 - (void)configSvsegmentView{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 44)];
-    _segmentView.titles = @[@"定向供应商会员（10）", @"已交易过的（10）"];
+    _segmentView.titles = @[@"定向供应商会员", @"已交易过的"];
     _segmentView.selectedFontColor = RGBCOLOR(254, 82, 0);
     _segmentView.defaultFontColor = RGBCOLOR(51, 51, 51);
     _segmentView.minTitleMargin = 0;

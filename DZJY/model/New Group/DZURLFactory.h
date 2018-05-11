@@ -50,7 +50,7 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)attentionAdd;
 + (NSString *)attentionCancel;
 
-// 我的合同合同
+// 我的合同
 + (NSString *)contractList;
 + (NSString *)contractDetail;
 
