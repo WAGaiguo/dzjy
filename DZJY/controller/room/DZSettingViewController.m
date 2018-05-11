@@ -16,7 +16,7 @@
 #import "DZMyAddressViewController.h"
 #import "DZLoginViewController.h"
 #import "DZCommonSaveView.h"
-#import "DZWebViewController.h"
+#import "DZAboutUsViewController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -60,10 +60,7 @@
         }else if (indexPath.row == 5){// 清除缓存
             [me clearCache];
         }else if (indexPath.row == 6){
-            DZWebViewController *webV = [DZWebViewController new];
-            webV.nativeContent = @"agreement.html";
-            webV.navigationTitle = @"用户协议";
-            [me.navigationController pushViewController:webV animated:YES];
+            [me.navigationController pushViewController:[DZAboutUsViewController new] animated:YES];
         }else if (indexPath.row == 7){
             [HudUtils showMessage:@"当前已是最新版本"];
         }
