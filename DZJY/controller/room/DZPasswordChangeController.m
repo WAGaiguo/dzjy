@@ -7,6 +7,8 @@
 //
 
 #import "DZPasswordChangeController.h"
+#import "NSString+MD5.h"
+#import "DZRegisterViewController.h"
 
 @interface DZPasswordChangeController (){
     UITextField *_usernameField;
@@ -144,12 +146,14 @@
 - (void)requestData:(NSString *)oldStr newStr:(NSString *)newStr{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@", obj);
+        [HudUtils showMessage:@"修改成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     DZRequestParams *params = [DZRequestParams new];
-    [params putString:oldStr forKey:@"oldPwd"];
-    [params putString:newStr forKey:@"newPwd"];
-    [params putString:newStr forKey:@"conNewPwd"];
+    [params putString:[oldStr MD5Hash] forKey:@"password"];
+    [params putString:[newStr MD5Hash] forKey:@"newPassword"];
+    NSString *uid = [[DZUserManager manager] user].id;//当前用户id
+    [params putString:uid forKey:@"id"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pwdChange]];
     [manager setHandler:handler];

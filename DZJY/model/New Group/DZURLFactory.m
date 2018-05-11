@@ -132,7 +132,7 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
     return [self absulteString:@"/memb/w/info/get"];
 }
 + (NSString *)pwdChange{
-    return [self absulteString:@"/memb/w/user/updPwd"];
+    return [self absulteString:@"/security/w/user/pwd/update"];
 }
 
 + (NSString *)searchWantToBuy{
