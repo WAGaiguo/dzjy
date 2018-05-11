@@ -169,6 +169,7 @@
 		1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73FC2068EE4400BD7EF7 /* NSDate+AES.m */; };
 		1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */; };
 		1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */; };
+		1EF8B6AE20A55E5C008EB028 /* DZCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */; };
 		340AD05E867BF2A0E9D98DE5 /* libPods-DZJY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE38328D711D756068A077C2 /* libPods-DZJY.a */; };
 /* End PBXBuildFile section */
 
@@ -496,6 +497,8 @@
 		1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Adapter.m"; sourceTree = "<group>"; };
 		1EAD740E2068EF9900BD7EF7 /* DZTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTableViewAdapter.h; sourceTree = "<group>"; };
 		1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTableViewAdapter.m; sourceTree = "<group>"; };
+		1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCityModel.h; sourceTree = "<group>"; };
+		1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCityModel.m; sourceTree = "<group>"; };
 		42658121941B52AEDD69FFE3 /* Pods-DZJY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZJY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DZJY/Pods-DZJY.debug.xcconfig"; sourceTree = "<group>"; };
 		F150777D512D1550EFA07AB0 /* Pods-DZJY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZJY.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZJY/Pods-DZJY.release.xcconfig"; sourceTree = "<group>"; };
 		FE38328D711D756068A077C2 /* libPods-DZJY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZJY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -953,6 +956,8 @@
 			isa = PBXGroup;
 			children = (
 				1E92D1112084E99800E31C62 /* wag.json */,
+				1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */,
+				1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1519,6 +1524,7 @@
 				1EAD73F12068EA1900BD7EF7 /* DZApplication.m in Sources */,
 				1E3436482090303A00190689 /* DZMyClientCell.m in Sources */,
 				1E3436E0209BF1EB00190689 /* DZMyAddressViewController.m in Sources */,
+				1EF8B6AE20A55E5C008EB028 /* DZCityModel.m in Sources */,
 				1E34369720984DB300190689 /* DZMessageNilView.m in Sources */,
 				1E3436E3209BF24D00190689 /* DZMyAddressAdapter.m in Sources */,
 				1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */,

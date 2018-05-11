@@ -7,6 +7,7 @@
 //
 
 #import "DZMyMembersCell.h"
+#import "DZCityModel.h"
 
 @implementation DZMyMembersCell
 
@@ -94,7 +95,7 @@
             break;
         case 5:
             _titleLeftLabel.text = @"经营模式";
-            _titleRightLabel.text = [_dic[@""] description];
+            [self manageType:[_dic[@"operMode"] description]];
             break;
         case 6:
             _titleLeftLabel.text = @"主营产品";
@@ -109,24 +110,20 @@
             _titleRightLabel.text = [_dic[@""] description];
             break;
         case 9:
-            _titleLeftLabel.text = @"法人代表";
-            _titleRightLabel.text = [_dic[@"legalPerson"] description];
+            _titleLeftLabel.text = @"公司地址";
+            _titleRightLabel.text = [DZCityModel prov:_dic[@"compAreaLists"][0] city:_dic[@"compAreaLists"][1] dist:_dic[@"compAreaLists"][2]];
             break;
         case 10:
-            _titleLeftLabel.text = @"公司地址";
-            _titleRightLabel.text = [_dic[@""] description];
-            break;
-        case 11:
             _titleLeftLabel.text = @"详细地址";
             _titleRightLabel.text = [_dic[@"address"] description];
             break;
-        case 12:
+        case 11:
             _titleLeftLabel.text = @"社会统一信息代码";
             _titleRightLabel.text = [_dic[@""] description];
             break;
-        case 13:
+        case 12:
             _titleLeftLabel.text = @"公司简介";
-            _titleRightLabel.text = [self isNull:_dic[@"website"]]?@"":[_dic[@"website"] description];
+            _titleRightLabel.text = [self isNull:_dic[@"compProfile"]]?@"":[_dic[@"compProfile"] description];
             break;
         default:
             break;
@@ -144,19 +141,19 @@
             break;
         case 2:
             _titleLeftLabel.text = @"固定电话";
-            _titleRightLabel.text = [_dic[@"contactTel"] description];
+            _titleRightLabel.text = [self isNull:_dic[@"contactTel"]]?@"" : [_dic[@"contactTel"] description];
             break;
         case 3:
             _titleLeftLabel.text = @"电子邮箱";
-            _titleRightLabel.text = [_dic[@"contactEmail"] description];
+            _titleRightLabel.text = [self isNull:_dic[@"contactEmail"]]?@"":[_dic[@"contactEmail"] description];
             break;
         case 4:
             _titleLeftLabel.text = @"传真";
-            _titleRightLabel.text = [_dic[@"contactFac"] description];
+            _titleRightLabel.text = [self isNull:_dic[@"contactFac"]]?@"":[_dic[@"contactFac"] description];
             break;
         case 5:
-            _titleLeftLabel.text = @"地址";
-            _titleRightLabel.text = [_dic[@"address"] description];
+            _titleLeftLabel.text = @"网址";
+            _titleRightLabel.text = [self isNull:_dic[@"website"]]?@"":[_dic[@"website"] description];
             break;
         default:
             break;
@@ -194,6 +191,16 @@
                               @"25":@"农民专业合作经济组织"
                               };
     _titleRightLabel.text = dataDic[strIntger];
+}
+// 经营模式
+- (void)manageType:(NSString *)str{
+    if ([str isEqualToString:@"0"]) {
+        _titleRightLabel.text = @"生产型";
+    }else if ([str isEqualToString:@"1"]){
+        _titleRightLabel.text = @"生产+销售";
+    }else if ([str isEqualToString:@"2"]){
+        _titleRightLabel.text = @"销售型";
+    }
 }
 - (BOOL)isNull:(NSString *)str{
     if ([str isEqual:[NSNull null]]) {
