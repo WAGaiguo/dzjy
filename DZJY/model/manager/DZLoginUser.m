@@ -33,7 +33,7 @@
         self.openId     = [user[@"openId"] description];
         self.clientId   = [user[@"clientId"] description];
         self.parentId   = [user[@"parentId"] description];
-        self.loginName  = [user[@"loginname"] description];
+        self.loginName  = [user[@"loginName"] description];
         self.email      = [user[@"email"] description];
         self.mobile     = [user[@"mobile"] description];
         self.userType   = [user[@"userType"] description];

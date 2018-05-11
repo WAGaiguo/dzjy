@@ -39,7 +39,7 @@
     UIView *firstView = [self commonFieldView:@"用户名" rightImage:nil text:@"用户名："];
     firstView.top = 0;
     [backgroundView addSubview:firstView];
-    _usernameField = [self textField:@""];
+    _usernameField = [self textField:[[DZUserManager manager] user].loginName];
     [_usernameField setEnabled:NO];
     [firstView addSubview:_usernameField];
     
@@ -136,13 +136,25 @@
     if (![newStr isEqualToString:confirmStr]) {
         [HudUtils showMessage:@"两次密码输入不一致"];return;
     }
-    [self requestData:confirmStr];
+    [self requestData:oldStr newStr:newStr];
 }
 /**
   * 数据请求
  **/
-- (void)requestData:(NSString *)str{
-    
+- (void)requestData:(NSString *)oldStr newStr:(NSString *)newStr{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        NSLog(@"%@", obj);
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:oldStr forKey:@"oldPwd"];
+    [params putString:newStr forKey:@"newPwd"];
+    [params putString:newStr forKey:@"conNewPwd"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory pwdChange]];
+    [manager setHandler:handler];
+    [manager setParams:[params dicParams]];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -67,7 +67,7 @@
         [self requestFailed:request error:jsonError];
         return;
     }
-    NSInteger errorCode = [[object objectForKey:@"error"] integerValue];
+    NSInteger errorCode = [[object objectForKey:@"code"] integerValue];
     if (errorCode == 0) {
         if (!_willParsedDataContainsDataKey) {
             object = [object objectForKey:@"result"];
@@ -113,7 +113,8 @@
 //        [HudUtils showMessage:@"请先完成实名认证!"];
 //        HZIdentityVerifyViewController *idc = [HZIdentityVerifyViewController new];
 //        [APPDELEGATE.navigationController pushViewController:idc animated:YES];
-    }else if([self willShowTips]){
+    }
+    if([self willShowTips]){
         [HudUtils showMessage:message view:self.hudView duration:1.4f];
     }
     if (_didFailed) {
