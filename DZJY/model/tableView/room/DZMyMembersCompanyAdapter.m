@@ -28,12 +28,14 @@
         if (cell == nil) {
             cell = [[DZMyMembersLogoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"logoCell"];
         }
+        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl, [self.dataSource lastObject][@"compLogo"]]]];
         return cell;
     }
     DZMyMembersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"membersCell"];
     if (cell == nil){
         cell = [[DZMyMembersCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"membersCell"];
     }
+    [cell setDic:[self.dataSource lastObject]];
     [cell setCompanyContent:indexPath];
     return cell;
 }

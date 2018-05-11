@@ -32,6 +32,7 @@
     [self configSeveralItem];
     [self configScrollView];
     [self configAdapter];
+    [self requestData];
 }
 -(void)configSeveralItem{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 44)];
@@ -61,6 +62,18 @@
 }
 - (void)segmentedDidChange:(NSInteger)index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+}
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_accountAdapter reloadData:@[obj]];
+        [_companyAdapter reloadData:@[obj]];
+        [_connectAdapter reloadData:@[obj]];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory memberInfo]];
+    [manager setHandler:handler];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -60,6 +60,9 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 // 提单
 + (NSString *)ladingList;
 
+// 会员信息
++ (NSString *)memberInfo;
+
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;
 

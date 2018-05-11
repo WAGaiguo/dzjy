@@ -24,6 +24,7 @@
     if (cell == nil){
         cell = [[DZMyMembersCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"membersCell"];
     }
+    [cell setDic:[self.dataSource firstObject]];
     [cell setConnectContent:indexPath];
     return cell;
 }

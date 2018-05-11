@@ -14,6 +14,7 @@
 - (void)setAccountContent:(NSIndexPath *)indexPath;
 - (void)setCompanyContent:(NSIndexPath *)indexPath;
 - (void)setConnectContent:(NSIndexPath *)indexPath;
+@property (nonatomic, strong)NSDictionary *dic;
 @end
 
 @interface DZMyMembersLogoCell: UITableViewCell
