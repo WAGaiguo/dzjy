@@ -146,7 +146,7 @@
 - (void)requestData:(NSString *)oldStr newStr:(NSString *)newStr{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [HudUtils showMessage:@"修改成功"];
+        [HudUtils showMessage:@"密码修改成功"];
         [self.navigationController popViewControllerAnimated:YES];
     }];
     DZRequestParams *params = [DZRequestParams new];

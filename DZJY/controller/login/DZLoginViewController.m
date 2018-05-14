@@ -125,7 +125,7 @@
     NSString *username = _usernameField.text;
     NSString *passWord = _passwordField.text;
     username = @"lixue01";
-    passWord = @"a123456";
+    passWord = @"A123456";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -140,11 +140,10 @@
         DZUserManager *manager = [DZUserManager manager];
         [manager login:dic[@"result"]];
         [HudUtils showMessage:@"登录成功"];
+         [[DZRequestMananger new] setHeader:nil];
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [HudUtils hide:MAIN_WINDOW];
-//        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-//        NSData *errorData = [ErrorResponse dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *errorDic = [NSJSONSerialization JSONObjectWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONReadingMutableContainers error:nil];
         [HudUtils showMessage:errorDic[@"message"]];
     }];

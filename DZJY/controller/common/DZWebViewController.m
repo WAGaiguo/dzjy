@@ -9,7 +9,7 @@
 #import "DZWebViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface DZWebViewController ()//<WKUIDelegate, WKNavigationDelegate>
+@interface DZWebViewController ()
 {
     WKWebView *webV;
 }
