@@ -10,4 +10,6 @@
 
 @interface NSString (common)
 - (BOOL)isBlankString;
+- (BOOL)isNullString;
+- (NSString *) formatString:(NSString *)string;
 @end

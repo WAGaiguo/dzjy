@@ -10,4 +10,5 @@
 
 @interface DZMyBoughtViewController : DZBaseViewController
 @property (nonatomic, assign)NSInteger integer;
+- (void)requestDataType:(NSInteger)integer;
 @end

@@ -32,6 +32,7 @@
     [self configSeveralItem];
     [self configScrollView];
     [self configAdapter];
+//    [self reqeustData:@""];
 }
 - (void)configHeader{
     [self setHeaderBackGroud:YES];
@@ -92,6 +93,7 @@
 #pragma _segement delegate
 - (void)segmentedDidChange:(NSInteger) index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+    [self requestDataType:index];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,6 +105,40 @@
     DZMyBoughtTipsView *tipView = [[DZMyBoughtTipsView alloc]init];
     [self.view addSubview:tipView];
     [tipView startAnimation];
+}
+
+- (void)reqeustData:(NSString *)type{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        if ([type isEqualToString:@""]) {
+            [_allAdapter reloadData:[obj objectForKey:@"list"]];
+        }else if ([type isEqualToString:@"0"]){
+            [_normalAdapter reloadData:[obj objectForKey:@"list"]];
+        }else if ([type isEqualToString:@"1"]){
+            [_revocationAdapter reloadData:[obj objectForKey:@"list"]];
+        }else if ([type isEqualToString:@"2"]){
+            [_passAdapter reloadData:[obj objectForKey:@"list"]];
+        }
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:type forKey:@"wantToBuyState"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory boughtList]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+}
+
+- (void)requestDataType:(NSInteger)integer{
+    if (integer == 0) {
+        [self reqeustData:@""];
+    }else if (integer == 1){
+        [self reqeustData:@"0"];
+    }else if (integer == 2){
+        [self reqeustData:@"2"];
+    }else if (integer == 3){
+        [self reqeustData:@"1"];
+    }
 }
 
 @end

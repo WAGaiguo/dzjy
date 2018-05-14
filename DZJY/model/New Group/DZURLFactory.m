@@ -138,7 +138,7 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
     return [self absulteString:@"/prumt/w/ord/list"];
 }
 + (NSString *)boughtList{
-    return [self absulteString:@"/prumt/w/wtb/list"];
+    return [self absulteString:@"/prumt/w/wtb/app/list"];
 }
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];

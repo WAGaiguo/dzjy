@@ -11,7 +11,6 @@
 
 @implementation DZMyBoughtAdapter
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
     return self.dataSource.count;
 }
 
@@ -26,6 +25,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
+    [cell setCellConttent:self.dataSource[indexPath.row]];
     return cell;
 }
 

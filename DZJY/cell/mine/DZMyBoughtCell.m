@@ -7,6 +7,9 @@
 //
 
 #import "DZMyBoughtCell.h"
+#import "NSDate+Format.h"
+#import "NSString+common.h"
+#import "DZCityModel.h"
 
 @implementation DZMyBoughtCell
 
@@ -85,7 +88,7 @@
     _newsLabel.textColor = UITitleColor;
     [backView addSubview:_newsLabel];
     
-    [self makeTEST];
+//    [self makeTEST];
 }
 
 - (void)makeTEST{
@@ -99,7 +102,38 @@
     [self setType:MyBoughtTypeNormal];
 }
 - (void)setCellConttent:(NSDictionary *)dic{
+    _titleLabel.text = [dic[@"wantToBuyName"] description];
+    _descLabel.text = [NSString stringWithFormat:@"%@%@",[self formatString:dic[@"category"]],[self formatString:dic[@"vari"]]];
+//    _cityLabel.text = [NSString stringWithFormat:@"期望货源地：%@%@%@",[self formatString:dic[@"expecAreaProv"]],[self formatString:dic[@"expecAreaCity"]] ,[self formatString:dic[@"expecAreaDist"]]];
+    NSString *areaStr = [DZCityModel prov:[self formatString:dic[@"expecAreaProv"]] city:[self formatString:dic[@"expecAreaCity"]] dist:[self formatString:dic[@"expecAreaDist"]]];
+    _cityLabel.text = [NSString stringWithFormat:@"期望货源地：%@", areaStr];
+    _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"releDate"]];
+    _currentsLabel.text = [NSString stringWithFormat:@"当前有%@家供应商",[self formatString2:[dic objectForKey:@"recomCount"]]];
     
+    _newsLabel.text = [NSString stringWithFormat:@"有%@家新意向",[self formatString2:[dic objectForKey:@"hasReadCount"]]];
+    [self setCurrentType:dic[@"wantToBuyState"]];
+    
+}
+- (NSString *) formatString:(NSString *)string{
+    if ([string isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return string;
+}
+- (NSString *)formatString2:(NSString *)string{
+    if ([string isEqual:[NSNull null]]) {
+        return @"0";
+    }
+    return string;
+}
+- (void)setCurrentType:(NSString *)type{
+    if([type isEqualToString:@"0"]){
+        [self setType:MyBoughtTypeNormal];
+    }else if ([type isEqualToString:@"1"]){
+        [self setType:MyBoughtTypePass];
+    }else if ([type isEqualToString:@"2"]){
+        [self setType:MyBoughtTypeRevocation];
+    }
 }
 -(void)setType:(MyBoughtType)type{
     switch (type) {

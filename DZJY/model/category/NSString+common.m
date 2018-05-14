@@ -24,4 +24,16 @@
     }
     return NO;
 }
+- (BOOL)isNullString{
+    if ([self isEqual:[NSNull null]]) {
+        return YES;
+    }
+    return NO;
+}
+- (NSString *) formatString:(NSString *)string{
+    if ([string isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return string;
+}
 @end

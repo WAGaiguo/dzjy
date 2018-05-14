@@ -92,7 +92,9 @@
             [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
         }
         if (num == 0) {
-            [me.navigationController pushViewController:[DZMyBoughtViewController new] animated:YES];
+            DZMyBoughtViewController * boughtV = [DZMyBoughtViewController new];
+            [boughtV requestDataType:0];
+            [me.navigationController pushViewController:boughtV animated:YES];
         } else if (num == 1){
             DZMyOrderViewController *order = [DZMyOrderViewController new];
             [order reqeustDataType:0];
@@ -119,6 +121,7 @@
     if (num == 0) {
         DZMyBoughtViewController *myBought = [[DZMyBoughtViewController alloc]init];
         myBought.integer = 1;
+        [myBought requestDataType:1];
         [self.navigationController pushViewController:myBought animated:YES];
     } else if (num == 1){
         DZMyOrderViewController *myOrder = [DZMyOrderViewController new];

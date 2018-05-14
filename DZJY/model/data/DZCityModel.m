@@ -7,6 +7,7 @@
 //
 
 #import "DZCityModel.h"
+#import "NSString+common.h"
 
 @implementation DZCityModel
 // 根据返回的code进行拼接城市地址
@@ -18,21 +19,29 @@
     static NSString *provs = @"";
     static NSString *citys = @"";
     static NSString *dists = @"";
-    [provinceArray enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    if ([prov isBlankString]) {
+        return @"";
+    }
+    [provinceArray enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {// 第一次循环 *省*
         if ([[obj objectForKey:@"code"] isEqualToString:prov]) {
             provs = [obj objectForKey:@"name"];
-            [[obj objectForKey:@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([obj[@"code"] isEqualToString:city]) {
-                    citys = obj[@"name"];
-                    [obj[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        if ([obj[@"code"] isEqualToString:dist]) {
-                            dists = obj[@"name"];
-                            *stop = YES;
+            if (![city isBlankString]) {
+                [[obj objectForKey:@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {// 第二次循环 *市*
+                    if ([obj[@"code"] isEqualToString:city]) {
+                        citys = obj[@"name"];
+                        if (![dist isBlankString]) {
+                            [obj[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {// 第三次循环 *县* 地区
+                                if ([obj[@"code"] isEqualToString:dist]) {
+                                    dists = obj[@"name"];
+                                    *stop = YES;
+                                }
+                            }];
                         }
-                    }];
-                    *stop = YES;
-                }
-            }];
+                        *stop = YES;
+                    }
+                }];
+            }
+            
             *stop = YES;
         }
     }];
