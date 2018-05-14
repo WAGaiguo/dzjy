@@ -11,4 +11,5 @@
 @interface DZWeb2ViewController : DZBaseViewController
 @property (nonatomic, strong)NSString *navigationTitle;
 @property (nonatomic, strong)NSString *content;
+@property (nonatomic, strong)NSDictionary *dic;
 @end

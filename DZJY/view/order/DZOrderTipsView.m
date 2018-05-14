@@ -17,7 +17,13 @@
         backV.backgroundColor = UIBlackColor;
         backV.alpha = 0.5;
         [self addSubview:backV];
-        
+        [backV bk_whenTapped:^{
+            [UIView animateWithDuration:0.33 animations:^{
+                [self setAlpha:0];
+            } completion:^(BOOL finished) {
+                [self removeFromSuperview];
+            }];
+        }];
         [self afterView];
     }
     return self;

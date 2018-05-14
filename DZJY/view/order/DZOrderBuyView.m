@@ -88,7 +88,9 @@
     DZOrderBuyBtnView *orderBtn = [[DZOrderBuyBtnView alloc]initWithFrame:CGRectMake(-5, 350 - 47, SCREEN_WIDTH, 47)];
     [_backContentV addSubview:orderBtn];
     [orderBtn setTapBlcok:^{
-        
+        if (_tapBuyBlock) {
+            _tapBuyBlock(_numberButton.currentNumber);
+        }
     }];
     
     _numberButton = [PPNumberButton numberButtonWithFrame:CGRectMake(SCREEN_WIDTH - 200, lineView.bottom + 20, 150, 32)];

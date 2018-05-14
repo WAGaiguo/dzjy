@@ -108,11 +108,15 @@
     DZUserManager *manager = [DZUserManager manager];
     DZLoginViewController *loginC = [DZLoginViewController new];
     WEAK_SELF
+    __weak DZHomeAdapter *weak_adapter = _adapter;
     [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
         if (![manager isLogined]){
-            [me presentViewController:loginC animated:YES completion:nil];
+            [me presentViewController:loginC animated:YES completion:nil];return;
         }
-        
+        DZWeb2ViewController *web = [DZWeb2ViewController new];
+        web.content = @"https://www.baidu.com/";
+        web.dic = weak_adapter.dataSource[indexPath.row];
+        [me.navigationController pushViewController:web animated:YES];
     }];
 }
 - (void)tapToSearch{
@@ -126,7 +130,6 @@
     [params putString:@"releDateLong" forKey:@"orderBy"];
     [params putString:@"DESC" forKey:@"sortOrder"];
     DZResponseHandler *handler = [DZResponseHandler new];
-//    handler.type = HZRequestManangerTypeLoadingOnly ;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         if (currentPage == 1) {
             [_adapter reloadData:[obj objectForKey:@"list"]];
