@@ -10,4 +10,5 @@
 
 @interface DZMyOrderViewController : DZBaseViewController
 @property (nonatomic, assign)NSInteger integer;
+- (void)reqeustDataType:(NSInteger )integer;
 @end

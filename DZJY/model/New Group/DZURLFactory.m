@@ -17,14 +17,14 @@
 /*
  *  测试部署环境
  */
-NSString * const DZBaseUrl = @"http://192.168.20.243";
-NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
+//NSString * const DZBaseUrl = @"http://192.168.20.243";
+//NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 
 /*
      本地部署环境
  */
-//NSString * const DZBaseUrl = @"http://192.168.20.5";
-//NSString * const DZCommonUrl = @"http://192.168.20.11/";
+NSString * const DZBaseUrl = @"http://192.168.20.5";
+NSString * const DZCommonUrl = @"http://192.168.20.11/";
 
 @implementation DZURLFactory
 + (NSString *)baseUrl{
@@ -134,7 +134,12 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 + (NSString *)pwdChange{
     return [self absulteString:@"/security/w/user/pwd/update"];
 }
-
++ (NSString *)orderList{
+    return [self absulteString:@"/prumt/w/ord/list"];
+}
++ (NSString *)boughtList{
+    return [self absulteString:@"/prumt/w/wtb/list"];
+}
 + (NSString *)searchWantToBuy{
     return [self absulteString:@"/searchWantToBuy"];
 }

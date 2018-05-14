@@ -94,7 +94,9 @@
         if (num == 0) {
             [me.navigationController pushViewController:[DZMyBoughtViewController new] animated:YES];
         } else if (num == 1){
-            [me.navigationController pushViewController:[DZMyOrderViewController new] animated:YES];
+            DZMyOrderViewController *order = [DZMyOrderViewController new];
+            [order reqeustDataType:0];
+            [me.navigationController pushViewController:order animated:YES];
         }else if (num == 2){
             DZMyContractViewController *contractV = [DZMyContractViewController new];
             [contractV reqeustDataType:0];
@@ -121,10 +123,12 @@
     } else if (num == 1){
         DZMyOrderViewController *myOrder = [DZMyOrderViewController new];
         myOrder.integer = 2;
+        [myOrder reqeustDataType:2];
         [self.navigationController pushViewController:myOrder animated:YES];
     }else if (num == 2){
         DZMyOrderViewController *myOrder = [DZMyOrderViewController new];
         myOrder.integer = 3;
+        [myOrder reqeustDataType:3];
         [self.navigationController pushViewController:myOrder animated:YES];
     }else if (num == 3){
         DZMyContractViewController *contract = [DZMyContractViewController new];

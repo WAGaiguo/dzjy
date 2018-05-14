@@ -8,6 +8,7 @@
 
 #import "DZMyOrderCell.h"
 #import <NSAttributedString+YYText.h>
+#import "NSDate+Format.h"
 
 @implementation DZMyOrderCell
 
@@ -52,6 +53,7 @@
     _stateLabel.height = 30;
     _stateLabel.right = backView.width - 11;
     _stateLabel.centerY = 30;
+    _stateLabel.textAlignment = NSTextAlignmentRight;
     [backView addSubview:_stateLabel];
     
 }
@@ -80,9 +82,9 @@
     _priceLabel.textColor = UICommonColor;
     [backView addSubview:_priceLabel];
     
-    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
-    _priceLabel.text = @"￥555.555";
-    _imageV.backgroundColor = UICyanColor;
+//    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
+//    _priceLabel.text = @"￥555.555";
+//    _imageV.backgroundColor = UICyanColor;
 }
 - (NSMutableAttributedString *)attributeString:(NSString *)content state:(DZPayState)state{
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:content];
@@ -158,7 +160,7 @@
         }
     } forControlEvents:UIControlEventTouchUpInside];
     
-    [self test];
+//    [self test];
     
 }
 - (void)test{
@@ -175,5 +177,39 @@
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:str];
     [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:85.0f/255.0f green:85.0f/255.0f blue:85.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 5)];
     return attribute;
+}
+- (void)setContent:(NSDictionary *)dic{
+    _orderNums.text = [NSString stringWithFormat:@"订单编号：%@",dic[@"ordNum"]];
+    _timeLabel.text = [NSDate timestampToTime: dic[@"ordDate"]];
+    _dealLabel.text = [NSString stringWithFormat:@"成交量：%@%@",dic[@"buyCount"], dic[@"measUnitName"]];
+    _companyLabel.text = [dic[@"sellerName"] description];
+    [self state:dic[@"ordStateType"]];
+    _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, dic[@"fileUrl"]]]];
+    
+    NSString *titleStr = [NSString stringWithFormat:@"  %@", [dic[@"commName"] description]];
+    
+    if ([[dic[@"listModeType"] description] isEqualToString:@"0"]) {
+        _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState1];
+    } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"]){
+        _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState2];
+    } else{
+        _titleLabel.attributedText = [self attributeString:titleStr state:DZPayStateAll];
+    }
+}
+- (void)state:(NSString *)state{
+    if ([state isEqualToString:@"0"]) {
+        _stateLabel.text = @"待双方支付";
+    }else if ([state isEqualToString:@"1"]){
+        _stateLabel.text = @"待买方支付";
+    }else if ([state isEqualToString:@"2"]){
+        _stateLabel.text = @"待卖方支付";
+    }else if ([state isEqualToString:@"3"]){
+        _stateLabel.text = @"取消";
+    }else if ([state isEqualToString:@"4"]){
+        _stateLabel.text = @"撤销";
+    }else if ([state isEqualToString:@"5"]){
+        _stateLabel.text = @"已生成合同";
+    }
 }
 @end

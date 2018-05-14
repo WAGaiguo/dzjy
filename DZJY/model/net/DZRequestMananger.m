@@ -29,11 +29,12 @@ AFHTTPSessionManager* defaultRequestManager;
         // 请求格式
 //        AFHTTPRequestSerializer* requestSerializer = [AFHTTPRequestSerializer serializer];
         AFJSONRequestSerializer * requestSerializer = [AFJSONRequestSerializer serializer];
-        
+        // 设置请求头
+        if ([[DZUserManager manager] isLogined]) {
+            [requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
+        }
         [requestSerializer setTimeoutInterval:20];
         [defaultRequestManager setRequestSerializer:requestSerializer];
-        
-        
         AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         [securityPolicy setValidatesDomainName:NO];
         securityPolicy.allowInvalidCertificates = YES;

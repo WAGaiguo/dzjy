@@ -124,8 +124,12 @@
     [HudUtils show:MAIN_WINDOW];
     NSString *username = _usernameField.text;
     NSString *passWord = _passwordField.text;
+    // 测试
     username = @"lixue01";
-    passWord = @"A123456";
+    passWord = @"a123456";
+    // 开发
+    username = @"newmaijia711";
+    passWord = @"a123456";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -137,6 +141,14 @@
     [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [HudUtils hide:MAIN_WINDOW];
         NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+        if (responseObject == [NSNull null]) {
+            [HudUtils showMessage:@"登录异常"];
+            return ;
+        }
+        if (dic.count <= 0) {
+            [HudUtils showMessage:@"登录异常 请稍后重试"];
+            return ;
+        }
         DZUserManager *manager = [DZUserManager manager];
         [manager login:dic[@"result"]];
         [HudUtils showMessage:@"登录成功"];

@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
     return [self.dataSource count];
 }
 
@@ -25,8 +24,9 @@
         cell = [[DZMyOrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     [cell setCallBlock:^{
-        [self makePhoneCall:@"15501281444"];
+        [self makePhoneCall:self.dataSource[indexPath.row][@"mobile"]];
     }];
+    [cell setContent:self.dataSource[indexPath.row]];
     return cell;
 }
 @end
