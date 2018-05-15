@@ -15,4 +15,5 @@
 @property (nonatomic, strong) UILabel *typeLabel;
 @property (nonatomic, strong) UIButton *cancelBtn;
 @property (nonatomic, copy)void (^cancelBlock)(UITableViewCell *cell);
+@property (nonatomic, strong)NSDictionary *dic;
 @end

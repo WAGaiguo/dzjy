@@ -7,6 +7,7 @@
 //
 
 #import "DZMyAttentionCell.h"
+#import "NSString+common.h"
 
 @implementation DZMyAttentionCell
 
@@ -70,12 +71,29 @@
     } forControlEvents:UIControlEventTouchUpInside];
     
     
-    [self test];
+//    [self test];
 }
 - (void)test{
     _imageV.backgroundColor = UICyanColor;
     _titleLabel.text = @"荷兰土豆";
     _pirceLabel.text = @"5.0元/公斤";
     _typeLabel.text = @"已下架";
+}
+- (void)setDic:(NSDictionary *)dic{
+    _titleLabel.text = [[dic objectForKey:@"commName"] description];
+    _pirceLabel.text = [NSString stringWithFormat:@"%@元/%@",[dic objectForKey:@"basePrice"],[dic objectForKey:@"measUnitName"]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, dic[@"fileUrl"]]]];
+    [self makeType:dic[@"listStateType"]];
+}
+- (void)makeType:(NSString *)type{
+    if ([type isEqualToString:@"0"]) {
+        _typeLabel.text = @"待上架";
+    }else if ([type isEqualToString:@"1"]){
+        _typeLabel.text = @"已上架";
+    }else if ([type isEqualToString:@"2"]){
+        _typeLabel.text = @"已下架";
+    }else if ([type isEqualToString:@"3"]){
+        _typeLabel.text = @"暂停";
+    }
 }
 @end

@@ -15,7 +15,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
+//    return 8;
     return [self.dataSource count];
 }
 
@@ -27,6 +27,7 @@
     [cell setCancelBlock:^(UITableViewCell *cell) {
         [HudUtils showMessage:@"取消"];
     }];
+    [cell setDic:self.dataSource[indexPath.row]];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -34,7 +34,7 @@
 - (void)requestData{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@",[obj mj_JSONString]);
+        [_adapter reloadData:obj[@"list"]];
     }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
