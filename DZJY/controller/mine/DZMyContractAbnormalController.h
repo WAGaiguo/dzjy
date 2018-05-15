@@ -7,7 +7,8 @@
 //
 
 #import "DZBaseViewController.h"
+#import "DZTableViewController.h"
 
-@interface DZMyContractAbnormalController : DZBaseViewController
+@interface DZMyContractAbnormalController : DZTableViewController
 
 @end

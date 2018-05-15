@@ -22,6 +22,7 @@
     DZMyContractAbnormalAdapter *_adapter7;
     DZMyContractAbnormalAdapter *_adapter8;
     DZMyContractAbnormalAdapter *_adapter9;
+    DZMyContractAbnormalAdapter *_adapter;
     UIImageView *_imageV;
     DZMySelectedView *_varietyView;
     BOOL _isSelected;
@@ -35,11 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configHeader];
-    [self configSeveralItem];
-    [self configSelectItem];
-    [self configScrollView];
-    [self configAdapter];
-    [self configVerity];
+//    [self configSeveralItem];
+//    [self configSelectItem];
+//    [self configScrollView];
+//    [self configAdapter];
+//    [self configVerity];
+    [self makeAdapter];
     [self requestData];
 }
 - (void)configHeader{
@@ -49,6 +51,14 @@
     [self setHeaderBackGroud:YES];
     [self setRightImage:@"question_mark"];
 }
+- (void)makeAdapter{
+    _adapter = [DZMyContractAbnormalAdapter new];
+    [self.tableView setAdapter:_adapter];
+}
+
+/**
+ *  以前原来的 old
+ **/
 -(void)configSeveralItem{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH - 44, 44)];
     _segmentView.titles = @[@"全部", @"待交收", @"交手中", @"待评价", @"解除", @"终止", @"强制解除", @"强制终止", @"已完成"];
@@ -125,7 +135,7 @@
 - (void)requestData{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [_adapter1 reloadData:obj];
+        [_adapter reloadData:obj];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory contractAbnormalList]];
