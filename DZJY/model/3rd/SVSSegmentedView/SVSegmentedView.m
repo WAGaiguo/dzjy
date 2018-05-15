@@ -84,6 +84,9 @@ static char btRuntimeIndexKey;
     [UIView animateWithDuration:0.25 animations:^{
         _label.frame = CGRectMake(selectedBt.frame.origin.x + 30 - _minTitleMargin * 1.4, 42, selectedBt.frame.size.width - 60 + _minTitleMargin + _minTitleMargin * 2, 2);
     }];
+//    if ([_delegate respondsToSelector:@selector(segmentedDidChange:)]) {
+//        [_delegate segmentedDidChange:_selectedIndex];
+//    }
 }
 
 - (void)titleBeClick:(SVSegmentedTitleButton *)bt{

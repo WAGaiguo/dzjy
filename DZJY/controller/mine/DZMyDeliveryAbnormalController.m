@@ -11,6 +11,7 @@
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
 #import "DZMyDeliveryAdapter.h"
+#import "DZMyDeliveryAbnormalAdapter.h"
 
 @interface DZMyDeliveryAbnormalController ()<SVSegmentedViewDelegate>{
     UIImageView *_imageV;
@@ -25,6 +26,8 @@
     DZMyDeliveryAdapter *_adapter7;
     DZMyDeliveryAdapter *_adapter8;
     DZMyDeliveryAdapter *_adapter9;
+    DZMyDeliveryAbnormalAdapter *_goodsAdapter;
+    DZMyDeliveryAbnormalAdapter *_ticktAdapter;
 }
 @property (nonatomic, strong) DZMineCommenScrollView *scrollView;
 @property (nonatomic, strong) SVSegmentedView *segmentView;
@@ -40,17 +43,21 @@
     [self setHeaderBackGroud:YES];
     [self setRightImage:@"question_mark"];
     [self configSeveralItem];
-    [self configSelectItem];
+//    [self configSelectItem];
     [self configScrollView];
-    [self configAdapter];
-    [self configVerity];
+//    [self configAdapter];
+//    [self configVerity];
+    [self configNowAdapter];
+    [self requestGoodsData];
 }
 -(void)configSeveralItem{
-    _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH - 44, 44)];
-    _segmentView.titles = @[@"全部", @"待交收", @"交手中", @"待评价", @"解除", @"终止", @"强制解除", @"强制终止", @"已完成"];
+    _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 44)];
+    _segmentView.titles = @[@"验货异议", @"验票异议"];
+    //@[@"全部", @"待交收", @"交手中", @"待评价", @"解除", @"终止", @"强制解除", @"强制终止", @"已完成"];
     _segmentView.selectedFontColor = RGBCOLOR(254, 82, 0);
     _segmentView.defaultFontColor = UITitleColor;
     _segmentView.minTitleMargin = 12;
+    _segmentView.horizontalMargin = 0;
     _segmentView.delegate = self;
     [self.view addSubview:_segmentView];
 }
@@ -69,7 +76,7 @@
     WEAK_SELF
     _scrollView = [[DZMineCommenScrollView alloc]initWithFrame:CGRectMake(0, DZ_TOP + 44, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 44)];
     [self.view addSubview:_scrollView];
-    _scrollView.dataSource =@[@"全部", @"待交收", @"交手中", @"待评价", @"解除", @"终止", @"强制解除", @"强制终止", @"已完成"];
+    _scrollView.dataSource = @[@"验货异议", @"验票异议"];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
     }];
@@ -98,7 +105,13 @@
     [self imageVisSelected];
     [_varietyView setCurrent:index];
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+    if (index == 0) {
+        [self requestGoodsData];
+    }else if (index == 1){
+        [self requestTicktData];
+    }
 }
+
 - (void)imageVisSelected{
     if (_isSelected) {
         _imageV.transform = CGAffineTransformMakeRotation(-M_PI);
@@ -109,6 +122,41 @@
     }
     _isSelected = ! _isSelected;
 }
+
+- (void)configNowAdapter{
+    _goodsAdapter = [DZMyDeliveryAbnormalAdapter new];
+    _ticktAdapter = [DZMyDeliveryAbnormalAdapter new];
+    NSArray *adpterArr = @[_goodsAdapter, _ticktAdapter];
+    [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setAdapter:adpterArr[idx]];
+    }];
+}
+
+- (void)requestGoodsData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_goodsAdapter reloadData:obj[@"list"]];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory deliveryGoodsList]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+}
+- (void)requestTicktData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_ticktAdapter reloadData:obj[@"list"]];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory deliveryTicketList]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

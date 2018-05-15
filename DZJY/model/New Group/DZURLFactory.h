@@ -57,6 +57,8 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
 // 我的交收
 + (NSString *)deliveryList;
++ (NSString *)deliveryGoodsList; //验货异议
++ (NSString *)deliveryTicketList; //验票异议
 
 // 提单
 + (NSString *)ladingList;
