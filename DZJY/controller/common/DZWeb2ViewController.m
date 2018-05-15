@@ -45,7 +45,7 @@
     
     [self makeBtnView];
     
-    NSLog(@"%@", _dic);
+   
 }
 - (void)makeTipsView{
     DZOrderTipsView *tipView = [[DZOrderTipsView alloc]initWithFrame:SCREEN_BOUNDS];
@@ -62,6 +62,9 @@
     [btnV setBuyBlock:^{
         [me makeBuyView];
     }];
+    [btnV setAttentionBlock:^{
+        [me requestData];
+    }];
 }
 - (void)makeBuyView{
     buyView = [[DZOrderBuyView alloc]init];
@@ -77,6 +80,22 @@
     [self makeTipsView];
 }
 
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        NSLog(@"%@", [obj mj_JSONString]);
+    }];
+    NSString *listId = [_dic[@"data"] objectForKey:@"id"];
+    NSLog(@"$$$$$:::::%@", listId);
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:listId forKey:@"listId"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory attentionAdd]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+#pragma 动态调节下面按钮的高度
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if ((scrollView.contentOffset.y < _currentPoint.y) || scrollView.contentOffset.y <= 0.5) {
         //必须出现bottomView

@@ -19,7 +19,7 @@
     if (self){
         _attentionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_attentionBtn setImage:[UIImage imageNamed:@"attention"] forState:UIControlStateNormal];
-        [_attentionBtn setTitle:@"订阅" forState:UIControlStateNormal];
+        [_attentionBtn setTitle:@"关注" forState:UIControlStateNormal];
         _attentionBtn.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.4, 47);
         _attentionBtn.backgroundColor = UIWhiteColor;
         [_attentionBtn setTitleColor:UITitleColor forState:UIControlStateNormal];
@@ -43,10 +43,10 @@
     _isAttentioned = isAttentioned;
     if(_isAttentioned){
         [_attentionBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        [_attentionBtn setTitle:@"已订阅" forState:UIControlStateNormal];
+        [_attentionBtn setTitle:@"已关注" forState:UIControlStateNormal];
     }else{
         [_attentionBtn setImage:[UIImage imageNamed:@"attention"] forState:UIControlStateNormal];
-        [_attentionBtn setTitle:@"订阅" forState:UIControlStateNormal];
+        [_attentionBtn setTitle:@"关注" forState:UIControlStateNormal];
     }
 }
 - (void)attention{
