@@ -40,6 +40,7 @@
     [self configScrollView];
     [self configAdapter];
     [self configVerity];
+    [self requestData];
 }
 - (void)configHeader{
     [self setTitle:@"合同结束请求处理"];
@@ -78,7 +79,15 @@
     }];
 }
 - (void)configAdapter{
-    _adapter1 = _adapter2 = _adapter3 = _adapter4 = _adapter5 = _adapter6 = _adapter7 = _adapter8 = _adapter9 =   [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter1 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter2 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter3 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter4 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter5 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter6 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter7 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter8 = [[DZMyContractAbnormalAdapter alloc]init];
+    _adapter9 = [[DZMyContractAbnormalAdapter alloc]init];
     NSArray *adpterArr = @[_adapter1, _adapter2, _adapter3, _adapter4, _adapter5, _adapter6, _adapter7, _adapter8, _adapter9];
     [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setAdapter:adpterArr[idx]];
@@ -112,6 +121,18 @@
     }
     _isSelected = ! _isSelected;
 }
+
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_adapter1 reloadData:obj];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory contractAbnormalList]];
+    [manager setHandler:handler];
+    [manager post];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

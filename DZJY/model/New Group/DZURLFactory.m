@@ -116,7 +116,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)contractList{
     return [self absulteString:@"/prumt/w/cont/list"];
 }
-
++ (NSString *)contractAbnormalList{
+    return [self absulteString:@"/prumt/w/cont/app/contTermiList"];
+}
 // 交收
 + (NSString *)deliveryList{
     return [self absulteString:@"/prumt/w/cont/deliv/list"];

@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
     return [self.dataSource count];
 }
 
@@ -24,6 +23,10 @@
     if (cell == nil){
         cell = [[DZMyContractAbormalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contractAbormalCell"];
     }
+    [cell setCallBlock:^{
+        [self makePhoneCall:self.dataSource[indexPath.row][@"contactMobile"]];
+    }];
+    [cell setContent:self.dataSource[indexPath.row]];
     return cell;
 }
 @end

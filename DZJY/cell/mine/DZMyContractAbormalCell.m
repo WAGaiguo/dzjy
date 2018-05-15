@@ -7,6 +7,7 @@
 //
 
 #import "DZMyContractAbormalCell.h"
+#import "NSDate+Format.h"
 
 @implementation DZMyContractAbormalCell
 @synthesize backView;
@@ -78,7 +79,7 @@
     yuanyin.text = @"原因说明:";
     [backView addSubview:yuanyin];
     
-    _reasonLabel = [[UILabel alloc]initWithFrame:CGRectMake(yuanyin.right, yuanyin.top, _applyTopLabel.width, 43)];
+    _reasonLabel = [[DZLeftTobLabel alloc]initWithFrame:CGRectMake(yuanyin.right, yuanyin.top, _applyTopLabel.width, 43)];
     _reasonLabel.numberOfLines = 0;
     _reasonLabel.textColor = UISubTitleColor;
     _reasonLabel.font = [UIFont systemFontOfSize:12];
@@ -125,12 +126,11 @@
     btn.titleLabel.font = [UIFont systemFontOfSize:13];
     [backView addSubview:btn];
     [btn bk_addEventHandler:^(id sender) {
-        [HudUtils showMessage:@"打电话测试"];
         if (_callBlock) {
             _callBlock();
         }
     } forControlEvents:UIControlEventTouchUpInside];
-    [self test];
+//    [self test];
 }
 
 - (void)test{
@@ -144,4 +144,58 @@
     _contractTopLabel.text = @"合同合同，合同合同合同，合同";
     _contractBottomLabel.text = @"合同合同，合同合同合同，合";
 }
+- (void)setContent:(NSDictionary *)dic{
+    _timeLabel.text = [NSString stringWithFormat:@"申请时间：%@", [NSDate timestampToTime:dic[@"propDate"]]];
+    _applyTopLabel.text = [dic[@"treatResltType"] isEqualToString:@"0"] ? @"合同结束，有违约金":@"合同结束，无违约金";
+    NSString *buyOrSell = [dic[@"buySellFlag2"] isEqualToString:@"0"]?@"买方":@"卖方";
+    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@；违约金：%@", buyOrSell, dic[@"liquDama"]]];
+    
+    _reasonLabel.text = dic[@"endReason"];
+    _contractTopLabel.text = dic[@"commName"];
+    _contractBottomLabel.text = [NSString stringWithFormat:@"￥%@*%@%@，共计：￥%@",dic[@"price"],dic[@"buyCount"],dic[@"measUnitName"],dic[@"totalMoney"]];
+    _companyLabel.text = dic[@"sellerName"];
+    [self setTypeStr:dic[@"termiContStateType"]];
+    
+}
+- (NSString *)isNull:(NSString *)str{
+    if ([str isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return str;
+}
+- (NSMutableAttributedString *)addColor:(NSString *)str{
+    NSMutableAttributedString *colorStr = [[NSMutableAttributedString alloc]initWithString:str];
+    [colorStr addAttribute:NSForegroundColorAttributeName value:UICommonColor range:NSMakeRange(4, 2)];
+    [colorStr addAttribute:NSForegroundColorAttributeName value:UICommonColor range:NSMakeRange(11, str.length - 11)];
+    return colorStr;
+}
+- (void)setTypeStr:(NSString *)type{
+    if ([type isEqualToString:@"0"]) {
+        _stateLabel.text = @"取消";
+    }else if ([type isEqualToString:@"1"]){
+        _stateLabel.text = @"完成";
+    }else if ([type isEqualToString:@"2"]){
+        _stateLabel.text = @"待卖方确认";
+    }else if ([type isEqualToString:@"3"]){
+        _stateLabel.text = @"拒绝";
+    }else if ([type isEqualToString:@"4"]){
+        _stateLabel.text = @"待买方确认";
+    }
+}
 @end
+
+@implementation DZLeftTobLabel
+- (id)initWithFrame:(CGRect)frame {
+    return [super initWithFrame:frame];
+}
+- (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
+    CGRect textRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
+    textRect.origin.y = bounds.origin.y;
+    return textRect;
+}
+-(void)drawTextInRect:(CGRect)requestedRect {
+    CGRect actualRect = [self textRectForBounds:requestedRect limitedToNumberOfLines:self.numberOfLines];
+    [super drawTextInRect:actualRect];
+}
+@end
+

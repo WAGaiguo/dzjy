@@ -86,7 +86,6 @@
         NSLog(@"%@", [obj mj_JSONString]);
     }];
     NSString *listId = [_dic[@"data"] objectForKey:@"id"];
-    NSLog(@"$$$$$:::::%@", listId);
     DZRequestParams *params = [DZRequestParams new];
     [params putString:listId forKey:@"listId"];
     DZRequestMananger *manager = [DZRequestMananger new];
