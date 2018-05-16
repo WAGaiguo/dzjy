@@ -19,4 +19,5 @@
 @property (nonatomic, strong)UILabel *effectiveData;
 @property (nonatomic, strong)UILabel *addedLabel;
 @property (nonatomic, strong)UILabel *typeLabel;
+- (void)setContent:(NSDictionary *)dic;
 @end

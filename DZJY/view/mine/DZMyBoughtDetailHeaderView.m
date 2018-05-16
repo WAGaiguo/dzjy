@@ -7,6 +7,9 @@
 //
 
 #import "DZMyBoughtDetailHeaderView.h"
+#import "NSDate+Format.h"
+#import "DZCityModel.h"
+#import "NSString+common.h"
 
 @implementation DZMyBoughtDetailHeaderView
 
@@ -114,7 +117,7 @@
     rightView.backgroundColor = UISeperatorColor;
     [self addSubview:rightView];
     
-    [self test];
+//    [self test];
 }
 - (void)test{
     _label1.text = [NSString stringWithFormat:@"求购编号：%@", nil];
@@ -132,5 +135,23 @@
     label.font = [UIFont systemFontOfSize:font];
     label.textColor = color;
     return label;
+}
+- (void)setContent:(NSDictionary *)dic{
+    _label1.text = [NSString stringWithFormat:@"求购编号：%@", [self fromatStr:dic[@"wantToBuyNumb"]]];
+    _label2.text = [NSString stringWithFormat:@"交易员：%@", [self fromatStr:dic[@"releMembName"]]];
+    _titleLabel.text = [NSString stringWithFormat:@"商品：%@",  [self fromatStr:dic[@"wantToBuyName"]]];
+    _numsLabel.text = [NSString stringWithFormat:@"采购量：%@ %@",  [self fromatStr:dic[@"buyCount"]], [self fromatStr:dic[@"measUnitName"]]];
+    _priceLabel.text = [NSString stringWithFormat:@"期望价格：%@/%@",  [self fromatStr:dic[@"expecPrice"]], [self fromatStr:dic[@"measUnitName"]]];
+    NSString *cityStr = [DZCityModel prov:[self fromatStr:dic[@"expecAreaProv"]]  city:[self fromatStr:dic[@"expecAreaCity"]] dist:[self fromatStr:dic[@"expecAreaDist"]]];
+    _areaLabel.text = [NSString stringWithFormat:@"期望货源地：%@",cityStr];
+    _releaseData.text = [NSString stringWithFormat:@"发布日期：%@", [NSDate timestampToTime:[self fromatStr:dic[@"releMembName"]]]];
+    _effectiveData.text = [NSString stringWithFormat:@"有效日期：%@",  [NSDate timestampToTime:[self fromatStr:dic[@"effePer"]]]];
+    _addedLabel.text = [NSString stringWithFormat:@"补充说明：%@", [self fromatStr:dic[@"remarks"]]];
+}
+- (NSString *)fromatStr:(NSString *)str{
+    if ([str isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return str;
 }
 @end

@@ -9,5 +9,5 @@
 #import "DZTableViewController.h"
 
 @interface DZMyBoughtDetailController : DZTableViewController
-
+@property (nonatomic, strong)NSString *commId;
 @end

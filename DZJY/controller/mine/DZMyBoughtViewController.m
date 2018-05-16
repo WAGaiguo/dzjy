@@ -15,13 +15,12 @@
 
 @interface DZMyBoughtViewController ()<SVSegmentedViewDelegate>{
     DZMineCommenScrollView *_scrollView;
-    DZMyBoughtAdapter *_allAdapter;
-    DZMyBoughtAdapter *_normalAdapter;
-    DZMyBoughtAdapter *_revocationAdapter;
-    DZMyBoughtAdapter *_passAdapter;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
-
+@property (nonatomic, strong)DZMyBoughtAdapter *allAdapter;
+@property (nonatomic, strong)DZMyBoughtAdapter *normalAdapter;
+@property (nonatomic, strong)DZMyBoughtAdapter *revocationAdapter;
+@property (nonatomic, strong)DZMyBoughtAdapter *passAdapter;
 @end
 
 @implementation DZMyBoughtViewController
@@ -72,22 +71,23 @@
     }];
     WEAK_SELF
     [_allAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [me toDetail:cell indexPath:indexPath];
+        [me toDetail:cell indexPath:indexPath commId:me.allAdapter.dataSource[indexPath.row][@"wtbId"]];
     }];
     [_normalAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [me toDetail:cell indexPath:indexPath];
+        [me toDetail:cell indexPath:indexPath commId:me.normalAdapter.dataSource[indexPath.row][@"wtbId"]];
     }];
     [_revocationAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [me toDetail:cell indexPath:indexPath];
+        [me toDetail:cell indexPath:indexPath commId:me.revocationAdapter.dataSource[indexPath.row][@"wtbId"]];
     }];
     [_passAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [me toDetail:cell indexPath:indexPath];
+        [me toDetail:cell indexPath:indexPath commId:me.passAdapter.dataSource[indexPath.row][@"wtbId"]];
     }];
 }
 
-- (void)toDetail:(id)cell indexPath:(NSIndexPath *)indexPath{
-    [HudUtils showMessage:@"测试成功"];
-    [self.navigationController pushViewController:[DZMyBoughtDetailController new] animated:YES];
+- (void)toDetail:(id)cell indexPath:(NSIndexPath *)indexPath commId:(NSString *)commId{
+    DZMyBoughtDetailController *detailC = [DZMyBoughtDetailController new];
+    detailC.commId = commId;
+    [self.navigationController pushViewController:detailC animated:YES];
 }
 
 #pragma _segement delegate

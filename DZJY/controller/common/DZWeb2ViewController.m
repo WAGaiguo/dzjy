@@ -79,11 +79,13 @@
 - (void)more{
     [self makeTipsView];
 }
-
+/**
+ *  关注数据请求
+ **/
 - (void)requestData{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@", [obj mj_JSONString]);
+        [HudUtils showMessage:@"关注成功"];
     }];
     NSString *listId = [_dic[@"data"] objectForKey:@"id"];
     DZRequestParams *params = [DZRequestParams new];

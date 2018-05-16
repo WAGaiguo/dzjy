@@ -135,6 +135,7 @@
 		1E644A832079B8A00078DAF2 /* DZWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E644A822079B8A00078DAF2 /* DZWebViewController.m */; };
 		1E7073F220AAB3C900A90A98 /* DZMyDeliveryAbnormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073F120AAB3C900A90A98 /* DZMyDeliveryAbnormalCell.m */; };
 		1E7073F520AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073F420AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m */; };
+		1E7073F920AC268F00A90A98 /* DZMyBoughtDetailAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073F820AC268F00A90A98 /* DZMyBoughtDetailAdapter.m */; };
 		1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1082084951600E31C62 /* DZOrderFinishController.m */; };
 		1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10C2084955500E31C62 /* DZOrderFinishView.m */; };
 		1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */; };
@@ -431,6 +432,8 @@
 		1E7073F120AAB3C900A90A98 /* DZMyDeliveryAbnormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyDeliveryAbnormalCell.m; sourceTree = "<group>"; };
 		1E7073F320AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyDeliveryAbnormalAdapter.h; sourceTree = "<group>"; };
 		1E7073F420AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyDeliveryAbnormalAdapter.m; sourceTree = "<group>"; };
+		1E7073F720AC268F00A90A98 /* DZMyBoughtDetailAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtDetailAdapter.h; sourceTree = "<group>"; };
+		1E7073F820AC268F00A90A98 /* DZMyBoughtDetailAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtDetailAdapter.m; sourceTree = "<group>"; };
 		1E92D1072084951600E31C62 /* DZOrderFinishController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderFinishController.h; sourceTree = "<group>"; };
 		1E92D1082084951600E31C62 /* DZOrderFinishController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderFinishController.m; sourceTree = "<group>"; };
 		1E92D10B2084955500E31C62 /* DZOrderFinishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderFinishView.h; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				1E3436A52099529800190689 /* DZMyLadingAdapter.m */,
 				1E7073F320AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.h */,
 				1E7073F420AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m */,
+				1E7073F720AC268F00A90A98 /* DZMyBoughtDetailAdapter.h */,
+				1E7073F820AC268F00A90A98 /* DZMyBoughtDetailAdapter.m */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -1410,6 +1415,7 @@
 				1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */,
 				1E34363F20901C4600190689 /* DZMyAttentionCell.m in Sources */,
 				1E343629208EFCE900190689 /* DZMyBoughtAdapter.m in Sources */,
+				1E7073F920AC268F00A90A98 /* DZMyBoughtDetailAdapter.m in Sources */,
 				1E0550562074A919000F5188 /* DZURLFactory.m in Sources */,
 				1E3436702094047F00190689 /* DZMyFundViewController.m in Sources */,
 				1E3436C8209AAFD800190689 /* DZMyInvoiceViewController.m in Sources */,

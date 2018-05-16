@@ -52,7 +52,6 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
 // 我的合同
 + (NSString *)contractList;
-+ (NSString *)contractDetail;
 + (NSString *)contractAbnormalList; //合同异常
 
 // 我的交收
@@ -74,6 +73,7 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
 // 求购
 + (NSString *)boughtList;
++ (NSString *)boughtDetail;
 
 + (NSString *)searchWantToBuy;
 + (NSString *)hotSuppliseList;

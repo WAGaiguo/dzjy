@@ -30,10 +30,10 @@
     }
     return NO;
 }
-- (NSString *) formatString:(NSString *)string{
-    if ([string isEqual:[NSNull null]]) {
+- (NSString *)formatString{
+    if ([self isEqual:[NSNull null]]) {
         return @"";
     }
-    return string;
+    return self;
 }
 @end

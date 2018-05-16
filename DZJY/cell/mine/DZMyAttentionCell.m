@@ -81,9 +81,15 @@
 }
 - (void)setDic:(NSDictionary *)dic{
     _titleLabel.text = [[dic objectForKey:@"commName"] description];
-    _pirceLabel.text = [NSString stringWithFormat:@"%@元/%@",[dic objectForKey:@"basePrice"],[dic objectForKey:@"measUnitName"]];
+    _pirceLabel.text = [NSString stringWithFormat:@"%@元%@",[dic objectForKey:@"basePrice"],[self isNullString:[dic objectForKey:@"measUnitName"]]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, dic[@"fileUrl"]]]];
     [self makeType:dic[@"listStateType"]];
+}
+- (NSString *)isNullString:(NSString *)str{
+    if ([str isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return [NSString stringWithFormat:@"/%@", str];
 }
 - (void)makeType:(NSString *)type{
     if ([type isEqualToString:@"0"]) {
