@@ -9,6 +9,7 @@
 #import "DZMyInvoiceAddController.h"
 #import "DZMyInvoiceView.h"
 #import "DZMyInvoiceSetDefaultView.h"
+#import "NSString+PDRegex.h"
 @interface DZMyInvoiceAddController (){
     DZMyInvoiceView *_invoiceView;
     DZMyInvoiceSetDefaultView *_defaultView;
@@ -26,11 +27,6 @@
     [self setHeaderBackGroud:YES];
     [self configHeader];
     [self configFooterBtn];
-    if ([_addTitle isEqualToString:@"新增增值税专用发票"]) {
-        
-    }else if ([_addTitle isEqualToString:@"新增增值税普通发票"]){
-        
-    }
 }
 
 - (void)configHeader{
@@ -84,6 +80,27 @@
     if (TRIM_STRING(account).length == 0) {
         [HudUtils showMessage:@"银行账号不能为空"];return;
     }
+    if (![phone isNumber]) {
+        [HudUtils showMessage:@"请输入正确的手机号"];return;
+    }
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [HudUtils showMessage:@"保存成功"];
+        //        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:company forKey:@"compName"];
+    [params putString:address forKey:@"regAddress"];
+    [params putString:phone forKey:@"regTel"];
+    [params putString:code forKey:@"socioUniCreditCode"];
+    [params putString:bank forKey:@"bankName"];
+    [params putString:account forKey:@"bankAccNumb"];
+    [params putString:[_invoType isEqualToString:@"0"]?@"0":@"1" forKey:@"invoType"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory invoiceInsert]];
+    [manager setParams:[params params]];
+    [manager setHandler: handler];
+    [manager post];
 }
 
 - (void)didReceiveMemoryWarning {

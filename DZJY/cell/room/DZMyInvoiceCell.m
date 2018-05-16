@@ -40,6 +40,7 @@
 }
 - (void)setContent:(NSDictionary *)dic{
     [_invoiceView setContent:dic];
+    [_editView setDefalut:[dic[@"defaultFlag"] isEqualToString:@"0"]];
 }
 - (void)afterView{
     

@@ -27,7 +27,7 @@
     }
     __weak DZMyInvoiceCell *weak_cell = cell;
     [cell setTapBlock:^(NSInteger integer) {
-        [self tapBtn:integer cell:weak_cell];
+        [self tapBtn:integer cell:weak_cell dic:self.dataSource[indexPath.row]];
     }];
     [cell setContent:self.dataSource[indexPath.row]];
     return cell;
@@ -35,7 +35,7 @@
 /**
  *  点击设置默认1  编辑2  删除3  对应按钮处理事件
  **/
-- (void)tapBtn:(NSInteger )integer cell:(DZMyInvoiceCell *)cell{
+- (void)tapBtn:(NSInteger )integer cell:(DZMyInvoiceCell *)cell dic:(NSDictionary *)dic{
     DZAlertview *alertView = [DZAlertview new];
     DZMyInvoiceEditViewController *editController = [DZMyInvoiceEditViewController new];
     switch (integer) {
@@ -43,9 +43,15 @@
             [cell.editView setDefalut:NO];
             break;
         case 2:
-            editController.editTitle = @"编辑增值税专用发票";
+            if ([dic[@"invoType"] isEqualToString:@"0"]) {
+                editController.editTitle = @"编辑增值税普通发票";
+                editController.invoType = @"0";
+            }else if([dic[@"invoType"] isEqualToString:@"1"]){
+                editController.editTitle = @"编辑增值税专用发票";
+                editController.invoType = @"1";
+            }
+            editController.dic = dic;
             [[self firstViewController].navigationController pushViewController:editController animated:YES];
-            
             break;
         case 3:
             [alertView showAlert:@"是否删除" controller:[self firstViewController] confirm:^{

@@ -10,4 +10,6 @@
 
 @interface DZMyInvoiceAddController : DZTableViewController
 @property (nonatomic, strong)NSString *addTitle;
+@property (nonatomic, strong)NSString *invoType;
+@property (nonatomic, strong)NSDictionary *dic;
 @end

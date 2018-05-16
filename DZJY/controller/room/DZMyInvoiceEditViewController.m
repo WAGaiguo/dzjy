@@ -9,6 +9,7 @@
 #import "DZMyInvoiceEditViewController.h"
 #import "DZMyInvoiceView.h"
 #import "DZMyInvoiceSetDefaultView.h"
+#import "NSString+common.h"
 
 @interface DZMyInvoiceEditViewController (){
     DZMyInvoiceView *_invoiceView;
@@ -27,6 +28,7 @@
     [self setHeaderBackGroud:YES];
     [self configHeader];
     [self configFooterBtn];
+    [self setDic:_dic];
 }
 
 - (void)configHeader{
@@ -54,8 +56,23 @@
     self.tableView.sectionFooterHeight = 7;
     self.tableView.tableFooterView = backV;
 }
+- (void)setDic:(NSDictionary *)dic{
+    _dic = dic;
+    _invoiceView.companyField.text = [self isNull:dic[@"compName"]];
+    _invoiceView.addressField.text = [self isNull:dic[@"regAddress"]];
+    _invoiceView.phoneField.text = [self isNull:dic[@"regTel"]];
+    _invoiceView.codeField.text = [self isNull:dic[@"socioUniCreditCode"]];
+    _invoiceView.bankField.text = [self isNull:dic[@"bankName"]];
+    _invoiceView.accountField.text = [self isNull:dic[@"bankAccNumb"]];
+}
+
+- (NSString *)isNull:(NSString *)str{
+    if ([str isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return str;
+}
 - (void)saveMessage{
-    [HudUtils showMessage:@"保存"];
     NSString *company = _invoiceView.companyField.text;
     NSString *address = _invoiceView.addressField.text;
     NSString *phone = _invoiceView.phoneField.text;
@@ -75,11 +92,31 @@
         [HudUtils showMessage:@"信用码不能为空"];return;
     }
     if (TRIM_STRING(bank).length == 0) {
-        [HudUtils showMessage:@"银行卡号不能为空"];return;
+        [HudUtils showMessage:@"开户银行不能为空"];return;
     }
     if (TRIM_STRING(account).length == 0) {
         [HudUtils showMessage:@"银行账号不能为空"];return;
     }
+    
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [HudUtils showMessage:@"保存成功"];
+//        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:company forKey:@"compName"];
+    [params putString:address forKey:@"regAddress"];
+    [params putString:phone forKey:@"regTel"];
+    [params putString:code forKey:@"socioUniCreditCode"];
+    [params putString:bank forKey:@"bankName"];
+    [params putString:account forKey:@"bankAccNumb"];
+    [params putString:_dic[@"id"] forKey:@"id"];
+    [params putString:isDefault?@"0":@"1" forKey:@"defaultFlag"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory invoiceUpdate]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler: handler];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

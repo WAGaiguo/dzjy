@@ -63,14 +63,14 @@
     [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setAdapter:adapterArr[idx]];
         if (idx == 0) {
-            [obj setTableFooterView:[self configFooterBtn:@"新增增值税专用发票"]];
+            [obj setTableFooterView:[self configFooterBtn:@"新增增值税专用发票" type:@"1"]];
         }
         if (idx == 1) {
-            [obj setTableFooterView:[self configFooterBtn:@"新增增值税普通发票"]];
+            [obj setTableFooterView:[self configFooterBtn:@"新增增值税普通发票" type:@"0"]];
         }
     }];
 }
-- (UIView *)configFooterBtn:(NSString *)title{
+- (UIView *)configFooterBtn:(NSString *)title type:(NSString *)type{
     UIView *backV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(7, 7, SCREEN_WIDTH - 14, 43);
@@ -82,14 +82,15 @@
     btn.layer.masksToBounds = YES;
     btn.layer.cornerRadius = 5;
     [btn bk_addEventHandler:^(id sender) {
-        [self addInvoice:title];
+        [self addInvoice:title type:type];
     } forControlEvents:UIControlEventTouchUpInside];
     [backV addSubview:btn];
     return backV;
 }
-- (void)addInvoice:(NSString*)title{
+- (void)addInvoice:(NSString*)title type:(NSString *)type{
     DZMyInvoiceAddController *addController = [[DZMyInvoiceAddController alloc]init];
     addController.addTitle = title;
+    addController.invoType = type;
     [self.navigationController pushViewController:addController animated:YES];
 }
 #pragma _segement delegate
@@ -119,6 +120,7 @@
             [_normalAdapter reloadData:obj];
         }];
         DZRequestParams *params = [DZRequestParams new];
+        [params putString:@"0" forKey:@"invoType"];
         DZRequestMananger *manager = [DZRequestMananger new];
         [manager setUrlString:[DZURLFactory invoiceList]];
         [manager setParams:[params params]];
