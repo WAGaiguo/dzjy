@@ -86,7 +86,10 @@
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [HudUtils showMessage:@"保存成功"];
-        //        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+        if (_successBlock) {
+            _successBlock();
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:company forKey:@"compName"];

@@ -12,4 +12,5 @@
 @property (nonatomic, strong)NSString *editTitle;
 @property (nonatomic, strong)NSString *invoType;
 @property (nonatomic, strong)NSDictionary *dic;
+@property (nonatomic, copy) void (^successBlock)(void);
 @end
