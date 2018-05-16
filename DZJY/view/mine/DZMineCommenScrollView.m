@@ -10,7 +10,7 @@
 
 @interface DZMineCommenScrollView()<UIScrollViewDelegate>
 {
-    
+    CGPoint current_point;
 }
 @end
 
@@ -26,7 +26,7 @@
         _scrollView.bounces = NO;
         [self addSubview:_scrollView];
         _scrollView.delegate = self;
-     
+        current_point = _scrollView.contentOffset;
     }
     return self;
 }
@@ -63,11 +63,16 @@
 //    }
 //}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    bool isE = current_point.x == scrollView.contentOffset.x;
+    if (isE) {
+        return;
+    }
     if (_scrollView == scrollView) {
         if ((int)scrollView.contentOffset.x % (int)SCREEN_WIDTH == 0) {
             if (_scrollBlock) {
                 _scrollBlock((scrollView.contentOffset.x +SCREEN_WIDTH/2)/SCREEN_WIDTH);
             }
+            current_point = scrollView.contentOffset;
         }
         
     }

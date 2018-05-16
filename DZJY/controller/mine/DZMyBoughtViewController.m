@@ -57,6 +57,7 @@
     _scrollView.dataSource = @[@"",@"",@"",@""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        [me requestDataType:num];
     }];
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * _integer, 0)];
 }

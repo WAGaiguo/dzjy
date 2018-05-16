@@ -21,6 +21,7 @@
     DZMineCommenScrollView *_scrollView;
     NSString *_startDate;
     NSString *_endDate;
+//    NSInteger _current;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
 
@@ -103,6 +104,7 @@
     _scrollView.dataSource = @[@"",@"",@""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        [me requestDataType];
     }];
     self.tableView.tableFooterView = _scrollView;
 }
