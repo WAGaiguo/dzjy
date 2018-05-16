@@ -16,6 +16,7 @@
 @property (nonatomic, strong)UITextField *codeField;
 @property (nonatomic, strong)UITextField *bankField;
 @property (nonatomic, strong)UITextField *accountField;
+- (void)setContent:(NSDictionary *)dic;
 - (void)setUnabled;
 - (void)setPlaceholderNil;
 @end

@@ -52,7 +52,17 @@
     _me_height = me_height;
     _scrollView.height = me_height;
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (_scrollView == scrollView) {
+//        if ((int)scrollView.contentOffset.x % (int)SCREEN_WIDTH == 0) {
+//            if (_scrollBlock) {
+//                _scrollBlock((scrollView.contentOffset.x +SCREEN_WIDTH/2)/SCREEN_WIDTH);
+//            }
+//        }
+//        
+//    }
+//}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (_scrollView == scrollView) {
         if ((int)scrollView.contentOffset.x % (int)SCREEN_WIDTH == 0) {
             if (_scrollBlock) {

@@ -8,6 +8,7 @@
 
 #import "DZMyMembersCell.h"
 #import "DZCityModel.h"
+#import "NSString+common.h"
 
 @implementation DZMyMembersCell
 
@@ -190,6 +191,9 @@
                               @"24":@"有限责任公司",
                               @"25":@"农民专业合作经济组织"
                               };
+    if ([self isNull:strIntger]) {
+        return;
+    }
     if (strIntger.integerValue > 25) {
         _titleRightLabel.text = @""; return;
     }

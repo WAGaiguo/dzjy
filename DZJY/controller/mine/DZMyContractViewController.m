@@ -160,7 +160,6 @@
     [manager post];
 }
 - (void)reqeustDataType:(NSInteger )integer{
-    NSLog(@"%ld", integer);
     if (integer == 0) {
         [self requestData:@""];
     }else{

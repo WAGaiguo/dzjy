@@ -14,4 +14,5 @@
 @property (nonatomic, strong)DZMyInvoiceView *invoiceView;
 @property (nonatomic, strong)DZMyInvoiceEditView *editView;
 @property (nonatomic, copy)void(^tapBlock)(NSInteger integer);
+- (void)setContent:(NSDictionary *)dic;
 @end

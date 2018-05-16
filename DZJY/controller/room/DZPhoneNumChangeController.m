@@ -47,6 +47,7 @@
     _scrollView.pagingEnabled = YES;
     _scrollView.backgroundColor = UIBackgroundColor;
     _scrollView.scrollEnabled = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:_scrollView];
 }
 - (void)configStep{
@@ -107,7 +108,7 @@
  * 绑定新手机 相关操作
  **/
 - (void)configNewPhoneField{
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH + 7, 7, SCREEN_WIDTH - 14, 108)];
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH + 7, 44, SCREEN_WIDTH - 14, 108)];
     backView.backgroundColor = UIWhiteColor;
     [_scrollView addSubview:backView];
     
@@ -127,7 +128,7 @@
 }
 - (void)configNextStep2{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(SCREEN_WIDTH + 7, 127, SCREEN_WIDTH - 14, 43);
+    btn.frame = CGRectMake(SCREEN_WIDTH + 7, 164, SCREEN_WIDTH - 14, 43);
     [btn setBackgroundImage:[UIImage imageNamed:@"导航条"] forState:UIControlStateNormal];
     [btn setTitle:@"下一步" forState:UIControlStateNormal];
     [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];

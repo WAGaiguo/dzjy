@@ -38,6 +38,9 @@
     }
     return self;
 }
+- (void)setContent:(NSDictionary *)dic{
+    [_invoiceView setContent:dic];
+}
 - (void)afterView{
     
 }

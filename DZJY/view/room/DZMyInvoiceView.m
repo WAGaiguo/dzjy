@@ -94,4 +94,19 @@ static const int dz_hight = 48;
 - (void)setPlaceholderNil{
     _companyField.placeholder = _addressField.placeholder = _phoneField.placeholder = _codeField.placeholder = _bankField.placeholder = _accountField.placeholder = nil;
 }
+- (void)setContent:(NSDictionary *)dic{
+    _companyField.text = [self isNull:dic[@"compName"]];
+    _addressField.text = [self isNull:dic[@"regAddress"]];
+    _phoneField.text = [self isNull:dic[@"regTel"]];
+    _codeField.text = [self isNull:dic[@"socioUniCreditCode"]];
+    _bankField.text = [self isNull:dic[@"bankName"]];
+    _accountField.text = [self isNull:dic[@"bankAccNumb"]];
+    
+}
+- (NSString *)isNull:(NSString *)str{
+    if ([str isEqual:[NSNull null]]) {
+        return @"";
+    }
+    return str;
+}
 @end

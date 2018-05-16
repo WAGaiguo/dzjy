@@ -120,6 +120,7 @@
     _scrollView.dataSource = @[@"全部", @"待双方支付", @"待买方支付", @"待卖方支付", @"已生成合同", @"取消", @"撤销"];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        [me reqeustDataType:num];
     }];
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * _integer, 0)];
 }
@@ -168,7 +169,6 @@
     [manager post];
 }
 - (void)reqeustDataType:(NSInteger )integer{
-    NSLog(@"%ld", integer);
     if (integer == 0) {
         [self requstData:@""];
     }else{

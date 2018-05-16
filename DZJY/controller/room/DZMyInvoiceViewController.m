@@ -16,6 +16,7 @@
     DZMineCommenScrollView *_scrollView;
     DZMyInvoiceAdapter *_dedicatedAdapter;
     DZMyInvoiceAdapter *_normalAdapter;
+    BOOL  _isFirst;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
 
@@ -25,13 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _isFirst = YES;
     [self setTitle:@"我的发票"];
     [self setHeaderBackGroud:YES];
     [self setBackEnabled:YES];
     [self configSeveralItem];
     [self configScrollView];
     [self configAdapter];
-    [self requestData];
+    [self requestDedicateData];
 }
 -(void)configSeveralItem{
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 44)];
@@ -49,6 +51,9 @@
     _scrollView.dataSource = @[@"",@""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        if (num == 1) {
+            [me requestNormalData];
+        }
     }];
 }
 - (void)configAdapter{
@@ -90,8 +95,37 @@
 #pragma _segement delegate
 - (void)segmentedDidChange:(NSInteger) index{
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+    if (index == 1) {
+        [self requestNormalData];
+    }
 }
-- (void)requestData{
+- (void)requestDedicateData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_dedicatedAdapter reloadData:obj];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [params putString:@"1" forKey:@"invoType"];
+    [manager setUrlString:[DZURLFactory invoiceList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+- (void)requestNormalData{
+    if (_isFirst) {
+        DZResponseHandler *handler = [DZResponseHandler new];
+        [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+            [_normalAdapter reloadData:obj];
+        }];
+        DZRequestParams *params = [DZRequestParams new];
+        DZRequestMananger *manager = [DZRequestMananger new];
+        [manager setUrlString:[DZURLFactory invoiceList]];
+        [manager setParams:[params params]];
+        [manager setHandler:handler];
+        [manager post];
+        _isFirst = NO;
+    }
     
 }
 - (void)didReceiveMemoryWarning {

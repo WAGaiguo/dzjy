@@ -46,7 +46,7 @@
     WEAK_SELF
     _scrollView = [[DZMineCommenScrollView alloc]initWithFrame:CGRectMake(0, DZ_TOP + 44, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 44)];
     [self.view addSubview:_scrollView];
-    _scrollView.dataSource = @[@"",@"",@""];
+    _scrollView.dataSource = @[@"", @"", @""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
     }];
