@@ -78,6 +78,9 @@
     if (self){
         _imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"支付"]];
         _imageV.top = 5;
+        _imageV.width = 34;
+        _imageV.height = 34;
+        _imageV.contentMode = UIViewContentModeScaleAspectFit;
         _imageV.centerX = SCREEN_WIDTH/8.0;
         [self addSubview:_imageV];
         

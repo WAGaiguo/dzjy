@@ -33,6 +33,7 @@
     [super viewDidLoad];
     [self setBackEnabled:YES];
     [self setTitle:@"我的资金"];
+    [self.titleView setIsTitleWhite:YES];
     [self configTableHeader];
     [self configScrollView];
     [self configAdapter];

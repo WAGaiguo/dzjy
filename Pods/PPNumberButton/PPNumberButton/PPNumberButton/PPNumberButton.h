@@ -98,6 +98,8 @@ IB_DESIGNABLE
 /** 目前支持一位小数的递增 */
 @property (nonatomic, assign ) BOOL decimalNum;
 
+/** 数量展示/输入框*/
+@property (nonatomic, strong) UITextField *textField;
 @end
 
 #pragma mark - NSString分类

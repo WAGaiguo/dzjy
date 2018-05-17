@@ -86,8 +86,6 @@
     [_itemView setSelectIndex:^(NSInteger index) {
         [me tapItem:index];
     }];
-//    [self configCityView];
-//    [self configSortView];
 }
 // *** 排序 ***
 - (void)configSortView{
@@ -100,7 +98,7 @@
     WEAK_SELF
     [_sortView setTapSelect:^(NSInteger aaa, NSString *name) {
         orderBy = name;
-        [me.itemView setSelectedNone];
+//        [me.itemView setSelectedNone];
         [me requestFirstData];
         currentTag = 33;
     }];
@@ -117,7 +115,7 @@
     [_cityView setTapCityBlock:^(NSString *nameStr) {
         checkArea = nameStr;
         [me.itemView setAddressName:nameStr];
-        [me.itemView setSelectedNone];
+//        [me.itemView setSelectedNone];
         [me requestFirstData];
         currentTag = 33;
     }];
@@ -128,13 +126,12 @@
         [_cityView setSelfHide];
         _sortView = nil;
         _cityView = nil;
-        [_itemView setSelectedNone];
+//        [_itemView setSelectedNone];
         currentTag = 33;
         return;
     }
     if (index == 0) {
         [self configCityView];
-        [_sortView setSelfHide];
         [_sortView setSelfHide];
         _sortView = nil;
         [_itemView setSelectedCity];
@@ -142,7 +139,6 @@
         [self configSortView];
         [_cityView setSelfHide];
         _cityView = nil;
-        [_sortView setAnimation];
         [_itemView setSelectedOrder];
     }
     currentTag = index;
@@ -185,7 +181,6 @@
             [self addNoMoreData];
         }
     }];
-    NSLog(@"%@", checkArea);
     DZRequestParams *params = [DZRequestParams new];
     [params putInteger:pageNo forKey:@"pageNo"];
     [params putInteger:pageSize forKey:@"pageSize"];

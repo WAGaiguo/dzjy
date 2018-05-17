@@ -34,6 +34,7 @@
     currentTag = 33;
       errorView = [[DZNetErrorView alloc]initWithFrame:COMMON_FRAME fatherView:self.view];
     [self setBackEnabled:YES];
+    [self setHeaderBackGroud:YES];
     [self configSearchView];
     [self configItemView];
     
@@ -60,13 +61,17 @@
     [_itemView setSelectIndex:^(NSInteger index) {
         [me tapItem:index];
     }];
-    [self configCityView];
-    [self configSortView];
+//    [self configCityView];
+//    [self configSortView];
 }
 // *** 排序 ***
 - (void)configSortView{
     _sortView = [[DZSortView alloc]initWithFrame:COMMON_FRAME];
+    _sortView.alpha = 0;
     [self.view addSubview:_sortView];
+    [UIView animateWithDuration:0.33 animations:^{
+        _sortView.alpha = 1;
+    }];
     [_sortView setTapSelect:^(NSInteger aaa, NSString *bbb) {
         
     }];
@@ -74,7 +79,11 @@
 // **** 城市选择 ***
 - (void)configCityView{
     _cityView = [[DZCitySelectView alloc]initWithFrame:COMMON_FRAME];
+    _cityView.alpha = 0;
     [self.view addSubview:_cityView];
+    [UIView animateWithDuration:0.33 animations:^{
+        _cityView.alpha = 1;
+    }];
     [_cityView setTapCityBlock:^(NSString *nameStr) {
         
     }];
@@ -83,15 +92,22 @@
     if (currentTag == index) {
         [_sortView setSelfHide];
         [_cityView setSelfHide];
+        _sortView = nil;
+        _cityView = nil;
+        [_itemView setSelectedNone];
         currentTag = 33;
         return;
     }
     if (index == 0) {
-        [_cityView setAnimation];
+        [self configCityView];
         [_sortView setSelfHide];
+        _sortView = nil;
+        [_itemView setSelectedCity];
     }else if (index == 1){
+        [self configSortView];
         [_cityView setSelfHide];
-        [_sortView setAnimation];
+        _cityView = nil;
+        [_itemView setSelectedOrder];
     }
     currentTag = index;
 }

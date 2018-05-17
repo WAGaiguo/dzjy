@@ -8,6 +8,7 @@
 
 #import "DZOrderBuyView.h"
 #import <PPNumberButton.h>
+#import "UIToolbar+Builder.h"
 
 @interface DZOrderBuyView()
 {
@@ -103,6 +104,18 @@
     [_backContentV addSubview:_numberButton];
     [_numberButton setResultBlock:^(PPNumberButton *ppBtn, CGFloat number, BOOL increaseStatus) {
         NSLog(@"%f",number);
+    }];
+    [_numberButton.textField setInputAccessoryView:[UIToolbar inputAccessoryView]];
+    WEAK_SELF
+    [_numberButton.textField setBk_didBeginEditingBlock:^(UITextField *textField) {
+        [UIView animateWithDuration:0.33 animations:^{
+            [me setBottom:SCREEN_HEIGHT - 100];
+        }];
+    }];
+    [_numberButton.textField setBk_didEndEditingBlock:^(UITextField *textField) {
+        [UIView animateWithDuration:0.33 animations:^{
+            [me setBottom:SCREEN_HEIGHT];
+        }];
     }];
     
     _unitLabel = [[UILabel alloc]initWithFrame:CGRectMake(_numberButton.right + 10, _numberButton.top, 40, 32)];

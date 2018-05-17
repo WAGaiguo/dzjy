@@ -36,6 +36,7 @@
     currentTag = 33;
     [self setBackEnabled:YES];
     [self setTitle:@""];
+    [self setHeaderBackGroud:YES];
     [self configAdapter];
     [self configSearchView];
     [self configItemV];
