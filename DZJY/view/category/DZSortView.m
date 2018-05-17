@@ -35,7 +35,7 @@
         itemV1.isSelected = YES;
         [self addSubview:itemV1];
         [itemV1 bk_whenTapped:^{
-            [self tapT:0];
+            [self tapT:0 name:@"releDateLong"];
             itemV2.isSelected = NO;
             itemV3.isSelected = NO;
             itemV1.isSelected = YES;
@@ -45,7 +45,7 @@
         itemV2.titleLabel.text = @"发布价格";
         [self addSubview:itemV2];
         [itemV2 bk_whenTapped:^{
-            [self tapT:1];
+            [self tapT:1 name:@"basePrice"];
             itemV2.isSelected = YES;
             itemV3.isSelected = NO;
             itemV1.isSelected = NO;
@@ -55,20 +55,20 @@
         itemV3.titleLabel.text = @"可购买量";
         [self addSubview:itemV3];
         [itemV3 bk_whenTapped:^{
-            [self tapT:2];
+            [self tapT:2 name:@"allowBuyCount"];
             itemV2.isSelected = NO;
             itemV3.isSelected = YES;
             itemV1.isSelected = NO;
         }];
-        self.alpha = 0;
+//        self.alpha = 0;
     }
     return self;
 }
 
-- (void)tapT: (NSInteger)aaa{
+- (void)tapT: (NSInteger)aaa name:(NSString *)name{
     [self setSelfHide];
     if (_tapSelect) {
-        _tapSelect(aaa);
+        _tapSelect(aaa, name);
     }
 }
 - (void)setAnimation{
@@ -81,7 +81,7 @@
     [UIView animateWithDuration:0.33 animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        self.hidden = YES;
+        [self removeFromSuperview];
     }];
 }
 @end

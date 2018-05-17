@@ -24,6 +24,7 @@
 @property(nonatomic, strong)NSArray *proviceData;
 @property(nonatomic, strong)NSArray *cityData;
 @property(nonatomic, strong)DZCityAdapter *cityAdapter;
+@property(nonatomic, strong)NSString *provinceStr;
 
 @end
 
@@ -36,8 +37,7 @@
         [self makeDataSource];
         [self configProvince];
         [self configCity];
-        self.hidden = YES;
-        self.alpha = 0;
+//        self.hidden = YES;
     }
     return self;
 }
@@ -46,9 +46,9 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wag" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//    NSLog(@"%@",[jsonarr mj_JSONString]);
     _proviceData = [NSArray arrayWithArray:jsonArr];
     _cityData = [NSArray arrayWithArray:_proviceData[1][@"children"]];
+    _provinceStr = [_proviceData firstObject][@"name"];
 }
 - (void)configProvince{
     _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT - DZ_TOP - 43)];
@@ -63,6 +63,7 @@
         [cell setIsSelected:YES];
         me.selectRow = indexPath.row;
         [me.cityAdapter reloadData:me.proviceData[indexPath.row][@"children"]];
+        _provinceStr = cell.titleLabel.text;
     }];
     [_provinceAdapter setAfterReuseCell:^(DZProvinceCell * cell, NSIndexPath *indexPath) {
         if (me.selectRow == indexPath.row){
@@ -79,10 +80,12 @@
     _cityAdapter = [[DZCityAdapter alloc]initWithDataSource:_cityData];
     [_cityTableView setAdapter:_cityAdapter];
     WEAK_SELF
-    [_cityAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
+    [_cityAdapter setDidCellSelected:^(DZCityCell* cell, NSIndexPath *indexPath) {
         if (me.tapCityBlock) {
-            me.tapCityBlock(@"city");
+            NSString *str = [NSString stringWithFormat:@"%@%@",me.provinceStr, cell.titleLabel.text];
+            me.tapCityBlock(str);
         }
+        [me setSelfHide];
     }];
     _cityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -100,11 +103,12 @@
         if (me.tapCityBlock){
             me.tapCityBlock(_proviceData[me.selectRow][@"name"]);
         }
+        [me setSelfHide];
     }];
     return backView;
 }
 - (void)setAnimation{
-    self.hidden = NO;
+    self.alpha = 0;
     [UIView animateWithDuration:0.33 animations:^{
         self.alpha = 1;
     }];
@@ -113,7 +117,7 @@
     [UIView animateWithDuration:0.33 animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        self.hidden = YES;
+        [self removeFromSuperview];
     }];
 }
 @end

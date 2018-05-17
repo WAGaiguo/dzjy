@@ -75,10 +75,6 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)boughtList;
 + (NSString *)boughtDetail;
 
-+ (NSString *)searchWantToBuy;
-+ (NSString *)hotSuppliseList;
-
 + (NSString *)search;
-+ (NSString *)getFileByName;
 
 @end

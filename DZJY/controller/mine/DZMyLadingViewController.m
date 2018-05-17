@@ -71,6 +71,7 @@
     _scrollView.dataSource = @[@"全部", @"待打印", @"已打印", @"已完成", @"取消"];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        [me requestDataIntger:num];
     }];
 }
 - (void)configAdapter{

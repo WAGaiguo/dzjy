@@ -18,6 +18,8 @@
     return self;
 }
 - (void)afterView{
+    self.backgroundColor = UIBackgroundColor;
+    
     UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"未搜索到"]];
     imageV.centerX = SCREEN_WIDTH/2.0;
     imageV.centerY = SCREEN_HEIGHT/4;

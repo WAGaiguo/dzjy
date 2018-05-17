@@ -140,10 +140,6 @@
 - (void)requstData:(NSString *)type{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//        if ([obj isEqual:[NSNull null]]) {
-//            [HudUtils showMessage:@"没有数据"];
-//            return ;
-//        }
         if ([type isEqualToString:@"0"]) {
             [_bothAdapter reloadData:[obj objectForKey:@"list"]];
         }else if ([type isEqualToString:@"1"]){

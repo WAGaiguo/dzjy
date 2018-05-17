@@ -150,18 +150,10 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)boughtDetail{
     return [self absulteString:@"/prumt/w/wtb/info"];
 }
-
-+ (NSString *)searchWantToBuy{
-    return [self absulteString:@"/searchWantToBuy"];
-}
-+ (NSString *)hotSuppliseList{
-    return [self absulteString:@"/w/listingInformation/getHotSuppliseList"];
-}
+// 搜索
 + (NSString *)search{
-    return [self absulteString:@"synth/w/listingInformation/search"];
+    return [self absulteString:@"/synth/w/listingInformation/search"];
 }
-+ (NSString *)getFileByName{
-    return [self absulteString:@"synth/w/listingInformation/search"];
-}
+
 
 @end

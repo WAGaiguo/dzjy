@@ -23,13 +23,17 @@
 @interface DZSearchResultViewController ()
 {
     DZSearchNilView *nilView;
-    DZCategoryFirstItemView *_itemView;
     DZSortView *_sortView;
     DZCitySelectView *_cityView;
     NSInteger currentTag;
     DZNetErrorView *errorView;
     DZHomeAdapter *_adapter;
+    NSInteger currentPage;
+    
+    NSString *checkArea;
+    NSString *orderBy;
 }
+@property (nonatomic, strong)DZCategoryFirstItemView *itemView;
 @end
 
 @implementation DZSearchResultViewController
@@ -40,14 +44,19 @@
     [self setHeaderBackGroud:YES];
     [self setBackEnabled:YES];
     [self makeRightBtn];
-    [self hasNilView:YES];
     [self configItemView];
-    [self getSearchData];
+    [self configAdapter];
+    currentPage = 1;
+    checkArea = @"";
+    orderBy = @"";
+    [self getSearchData:1 pageSize:30];
 }
 - (void)hasNilView:(BOOL)has{
     if (has){
         if (nilView == nil){
-            nilView = [[DZSearchNilView alloc]initWithFrame:CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43) fatherView:self.view];}
+            nilView = [[DZSearchNilView alloc]initWithFrame:CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)];
+            [self.view addSubview:nilView];
+        }
     }else{
         [nilView removeFromSuperview];
         nilView = nil;
@@ -77,38 +86,64 @@
     [_itemView setSelectIndex:^(NSInteger index) {
         [me tapItem:index];
     }];
-    [self configCityView];
-    [self configSortView];
+//    [self configCityView];
+//    [self configSortView];
 }
 // *** 排序 ***
 - (void)configSortView{
     _sortView = [[DZSortView alloc]initWithFrame:COMMON_FRAME];
+    _sortView.alpha = 0;
     [self.view addSubview:_sortView];
-    [_sortView setTapSelect:^(NSInteger aaa) {
-        
+    [UIView animateWithDuration:0.33 animations:^{
+        _sortView.alpha = 1;
+    }];
+    WEAK_SELF
+    [_sortView setTapSelect:^(NSInteger aaa, NSString *name) {
+        orderBy = name;
+        [me.itemView setSelectedNone];
+        [me requestFirstData];
+        currentTag = 33;
     }];
 }
 // **** 城市选择 ***
 - (void)configCityView{
     _cityView = [[DZCitySelectView alloc]initWithFrame:COMMON_FRAME];
+    _cityView.alpha = 0;
     [self.view addSubview:_cityView];
+    [UIView animateWithDuration:0.33 animations:^{
+        _cityView.alpha = 1;
+    }];
+    WEAK_SELF
     [_cityView setTapCityBlock:^(NSString *nameStr) {
-        
+        checkArea = nameStr;
+        [me.itemView setAddressName:nameStr];
+        [me.itemView setSelectedNone];
+        [me requestFirstData];
+        currentTag = 33;
     }];
 }
 - (void)tapItem:(NSInteger)index{
     if (currentTag == index) {
         [_sortView setSelfHide];
         [_cityView setSelfHide];
+        _sortView = nil;
+        _cityView = nil;
+        [_itemView setSelectedNone];
         currentTag = 33;
         return;
     }
     if (index == 0) {
-        [_cityView setAnimation];
+        [self configCityView];
         [_sortView setSelfHide];
+        [_sortView setSelfHide];
+        _sortView = nil;
+        [_itemView setSelectedCity];
     }else if (index == 1){
+        [self configSortView];
         [_cityView setSelfHide];
+        _cityView = nil;
         [_sortView setAnimation];
+        [_itemView setSelectedOrder];
     }
     currentTag = index;
 }
@@ -122,29 +157,57 @@
 - (void)more{
     [self back];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)configAdapter{
+    _adapter = [DZHomeAdapter new];
+    [self.tableView setFrame:CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)];
+    [self.tableView setAdapter:_adapter];
+    [self addInfinite];
+    [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
+       
+    }];
 }
-- (void)getSearchData{
-    DZRequestParams *params = [DZRequestParams new];
-//    [params putInteger:1 forKey:@"pageNo"];
-//    [params putInteger:30 forKey:@"pageSize"];
-    [params putString:_searchTitle forKey:@"searchName"];
-   
+- (void)getSearchData:(NSInteger)pageNo pageSize:(NSInteger)pageSize{
     DZResponseHandler *handler = [DZResponseHandler new];
     handler.type = HZRequestManangerTypeDefault | HZRequestManangerTypeLoadingOnly | HZRequestManangerTypeTipsOnly;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@", [obj mj_JSONString]);
+        if (pageNo == 1) {
+            if ([obj[@"list"] count] <= 0) {
+                [self hasNilView:YES];
+            }else{
+                [self hasNilView:NO];
+                [_adapter reloadData:obj[@"list"]];
+            }
+        }else if (pageNo > 1){
+            [_adapter appendData:obj[@"list"]];
+            [self stopInfinite];
+        }
+        if ([[obj objectForKey:@"list"] count] < pageSize) {
+            [self addNoMoreData];
+        }
     }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-        NSLog(@"--failed--");
-    }];
+    NSLog(@"%@", checkArea);
+    DZRequestParams *params = [DZRequestParams new];
+    [params putInteger:pageNo forKey:@"pageNo"];
+    [params putInteger:pageSize forKey:@"pageSize"];
+    [params putString:_searchTitle forKey:@"commName"];
+    [params putString:checkArea forKey:@"checkArea"];
+    [params putString:orderBy forKey:@"orderBy"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory search]];
     [manager setHandler:handler];
     [manager setParams:[params params]];
     [manager post];
 }
+- (void)requestFirstData{
+    currentPage = 1;
+    [self getSearchData:currentPage pageSize:30];
+}
+- (void)Infinite{
+    currentPage = currentPage + 1;
+    [self getSearchData:currentPage pageSize:30];
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 @end

@@ -55,6 +55,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(DZUserManager, manager);
 - (void)login:(NSDictionary *)info{
     _user = [[DZLoginUser alloc]initWithJsonObject:info];
     [self save:info];
+    [self performSelector:@selector(logout) withObject:nil afterDelay:24 * 60 * 60];
 }
 - (void)logout{
     [[NSFileManager defaultManager] removeItemAtPath:UIDocumentFile(@"user.bat") error:nil];

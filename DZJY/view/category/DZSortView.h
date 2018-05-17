@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DZSortView : UIView
-@property (nonatomic, copy)void (^tapSelect)(NSInteger );
+@property (nonatomic, copy)void (^tapSelect)(NSInteger num, NSString *name);
 - (void)setAnimation;
 - (void)setSelfHide;
 @end

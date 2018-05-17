@@ -11,4 +11,8 @@
 @interface DZCategoryFirstItemView : UIView
 @property (nonatomic, strong)UILabel *titleLabel;
 @property (nonatomic, copy)void (^selectIndex)(NSInteger index);
+- (void)setAddressName:(NSString *)name;
+- (void)setSelectedNone;
+- (void)setSelectedCity;
+- (void)setSelectedOrder;
 @end

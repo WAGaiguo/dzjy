@@ -40,7 +40,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
-    [cell setContent:[self.dataSource objectAtIndex:indexPath.item]];
+    [cell setContent:[self.dataSource objectAtIndex:indexPath.row]];
     return cell;
 }
 @end

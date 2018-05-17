@@ -79,6 +79,11 @@
     _scrollView.dataSource = @[@"验货异议", @"验票异议"];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        if (num == 0) {
+            [me requestGoodsData];
+        }else if (num == 1){
+            [me requestTicktData];
+        }
     }];
 }
 - (void)configAdapter{

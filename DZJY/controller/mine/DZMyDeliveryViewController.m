@@ -75,6 +75,7 @@
     _scrollView.dataSource =@[@"全部", @"待发货", @"待验货", @"待验票", @"验货异议中", @"验票异议中", @"强制解除", @"解除", @"待支付", @"已完成"];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        [me requestDataType:num];
     }];
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH *_integer, 0)];
 }

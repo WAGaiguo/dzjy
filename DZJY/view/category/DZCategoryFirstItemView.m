@@ -61,12 +61,20 @@
     if (_selectIndex) {
         _selectIndex(interger);
     }
-    if (interger == 0) {
-        [_itemView setIsSelected:YES];
-        sortImageV.image = [UIImage imageNamed:@"排序-1"];
-    } else{
-        [_itemView setIsSelected:NO];
-        sortImageV.image = [UIImage imageNamed:@"排序"];
-    }
+}
+- (void)setAddressName:(NSString *)name{
+    _itemView.titleLabel.text = name;
+}
+- (void)setSelectedNone{
+    [_itemView setIsSelected:NO];
+    sortImageV.image = [UIImage imageNamed:@"排序"];
+}
+- (void)setSelectedCity{
+    [_itemView setIsSelected:YES];
+    sortImageV.image = [UIImage imageNamed:@"排序"];
+}
+- (void)setSelectedOrder{
+    [_itemView setIsSelected:NO];
+    sortImageV.image = [UIImage imageNamed:@"排序-1"];
 }
 @end

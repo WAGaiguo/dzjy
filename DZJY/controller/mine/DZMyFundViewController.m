@@ -88,6 +88,7 @@
     _scrollView.dataSource = @[@"",@"",@""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        [me reqeustData];
     }];
     self.tableView.tableFooterView = _scrollView;
 }
@@ -113,7 +114,6 @@
 - (void)requestTotalData{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@", [obj mj_JSONString]);
         [self getMonthFirstAndLastDayWith];
     }];
     DZRequestParams *params = [DZRequestParams new];

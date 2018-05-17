@@ -79,9 +79,10 @@
         me.segmentView.selectedIndex = num;
     }];
     [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH *_integer, 0)];
-//    [_scrollView setScrollBlock:^(NSInteger num) {
-//        [me reqeustDataType:num];
-//    }];
+    [_scrollView setScrollBlock:^(NSInteger num) {
+        me.segmentView.selectedIndex = num;
+        [me reqeustDataType:num];
+    }];
 }
 - (void)configAdapter{
     _adapter1 = [DZMyContractAdapter new];

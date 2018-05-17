@@ -67,7 +67,7 @@
 - (void)configSortView{
     _sortView = [[DZSortView alloc]initWithFrame:COMMON_FRAME];
     [self.view addSubview:_sortView];
-    [_sortView setTapSelect:^(NSInteger aaa) {
+    [_sortView setTapSelect:^(NSInteger aaa, NSString *bbb) {
         
     }];
 }
