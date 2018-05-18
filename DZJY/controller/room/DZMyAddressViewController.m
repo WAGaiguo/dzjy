@@ -9,7 +9,7 @@
 #import "DZMyAddressViewController.h"
 #import "DZMyAddressAdapter.h"
 #import "DZMyAddressAddController.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 #import "DZMyAddressCell.h"
 #import "DZAlertview.h"
 #import "DZMyAddressEditController.h"

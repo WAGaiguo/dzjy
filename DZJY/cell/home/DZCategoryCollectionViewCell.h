@@ -10,8 +10,11 @@
 
 @interface DZCategoryCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIButton *titleBtn;
+@property (nonatomic, strong) NSString *cid;
 @end
 
 @interface DZCategoryCollectionReusableView: UICollectionReusableView
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) NSString *cid;
+@property (nonatomic, copy) void (^tapHeaderBlock)(NSString *cid);
 @end

@@ -10,6 +10,7 @@
 #import "DZPathGetter.h"
 #import "NSString+Base64.h"
 #import "NSString+MD5.h"
+#import "NSString+Common.h"
 
 @interface DZLoginViewController ()
 {
@@ -140,14 +141,15 @@
    
     [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [HudUtils hide:MAIN_WINDOW];
-        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
         if (responseObject == [NSNull null]) {
-            [HudUtils showMessage:@"登录异常"];
-            return ;
+            [HudUtils showMessage:@"登录异常"]; return;
         }
+        if ([[NSString isBlankString:responseObject] isEqualToString:@""]) {
+            [HudUtils showMessage:@"服务端异常 请稍后重试"]; return;
+        }
+        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
         if (dic.count <= 0) {
-            [HudUtils showMessage:@"登录异常 请稍后重试"];
-            return ;
+            [HudUtils showMessage:@"登录异常 请稍后重试"]; return ;
         }
         DZUserManager *manager = [DZUserManager manager];
         [manager login:dic[@"result"]];
@@ -156,7 +158,13 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [HudUtils hide:MAIN_WINDOW];
+        if (error == nil) {
+            [HudUtils showMessage:@"服务端异常 请稍后重试"];return ;
+        }
         NSDictionary *errorDic = [NSJSONSerialization JSONObjectWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONReadingMutableContainers error:nil];
+        if (errorDic.count <= 0) {
+            [HudUtils showMessage:@"服务端异常 请稍后重试"];return ;
+        }
         [HudUtils showMessage:errorDic[@"message"]];
     }];
     

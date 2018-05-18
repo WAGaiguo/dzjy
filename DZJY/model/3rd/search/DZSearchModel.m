@@ -34,6 +34,7 @@
     PYSearchViewController *pySearch = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"请输入关键字" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         DZSearchResultViewController *searchC =[[DZSearchResultViewController alloc]init];
         searchC.searchTitle = searchText;
+//        [searchViewController.navigationController pushViewController:searchC animated:YES];
         [searchViewController presentViewController:searchC animated:NO completion:nil];
     }];
     pySearch.searchBarBackgroundColor = UIBackgroundColor;

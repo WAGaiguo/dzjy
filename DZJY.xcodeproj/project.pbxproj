@@ -102,7 +102,7 @@
 		1E343714209C5C8500190689 /* GTLCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E343701209C54F000190689 /* GTLCalendarCell.xib */; };
 		1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E343708209C54F000190689 /* GTLCalendarHeaderReusableView.xib */; };
 		1E343718209EDE5400190689 /* DZAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343717209EDE5400190689 /* DZAboutUsViewController.m */; };
-		1E34371B20A0005600190689 /* NSString+common.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34371A20A0005600190689 /* NSString+common.m */; };
+		1E34371B20A0005600190689 /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34371A20A0005600190689 /* NSString+Common.m */; };
 		1E34371E20A2F8AD00190689 /* DZMemberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34371D20A2F8AC00190689 /* DZMemberLabel.m */; };
 		1E530296206934E20010D78A /* DZRequestMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530294206934DC0010D78A /* DZRequestMananger.m */; };
 		1E530297206934E50010D78A /* DZRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E530295206934DC0010D78A /* DZRequestParams.m */; };
@@ -136,6 +136,7 @@
 		1E7073F220AAB3C900A90A98 /* DZMyDeliveryAbnormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073F120AAB3C900A90A98 /* DZMyDeliveryAbnormalCell.m */; };
 		1E7073F520AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073F420AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m */; };
 		1E7073F920AC268F00A90A98 /* DZMyBoughtDetailAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073F820AC268F00A90A98 /* DZMyBoughtDetailAdapter.m */; };
+		1E7073FC20AE73ED00A90A98 /* DZHomeCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7073FB20AE73ED00A90A98 /* DZHomeCategoryView.m */; };
 		1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1082084951600E31C62 /* DZOrderFinishController.m */; };
 		1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10C2084955500E31C62 /* DZOrderFinishView.m */; };
 		1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */; };
@@ -155,7 +156,6 @@
 		1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047AD206A10170029C481 /* DZTableViewController.m */; };
 		1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B0206A1D190029C481 /* DZTestAdapter.m */; };
 		1EA047B6206CAF250029C481 /* DZSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B5206CAF250029C481 /* DZSearchView.m */; };
-		1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047B9206CC3E10029C481 /* DZSearchViewController.m */; };
 		1EA047BD206CC4650029C481 /* DZSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */; };
 		1EA047C0206CE2F60029C481 /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA047BF206CE2F60029C481 /* NSDate+Format.m */; };
 		1EAD73C72068CD1C00BD7EF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73C62068CD1C00BD7EF7 /* AppDelegate.m */; };
@@ -366,8 +366,8 @@
 		1E34370D209C54F000190689 /* GTLGradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLGradientView.m; sourceTree = "<group>"; };
 		1E343716209EDE5400190689 /* DZAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZAboutUsViewController.h; sourceTree = "<group>"; };
 		1E343717209EDE5400190689 /* DZAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZAboutUsViewController.m; sourceTree = "<group>"; };
-		1E34371920A0005600190689 /* NSString+common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+common.h"; sourceTree = "<group>"; };
-		1E34371A20A0005600190689 /* NSString+common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+common.m"; sourceTree = "<group>"; };
+		1E34371920A0005600190689 /* NSString+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
+		1E34371A20A0005600190689 /* NSString+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
 		1E34371C20A2F8AC00190689 /* DZMemberLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMemberLabel.h; sourceTree = "<group>"; };
 		1E34371D20A2F8AC00190689 /* DZMemberLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMemberLabel.m; sourceTree = "<group>"; };
 		1E530290206934DC0010D78A /* DZResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZResponseHandler.h; path = DZJY/model/net/DZResponseHandler.h; sourceTree = SOURCE_ROOT; };
@@ -434,6 +434,8 @@
 		1E7073F420AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyDeliveryAbnormalAdapter.m; sourceTree = "<group>"; };
 		1E7073F720AC268F00A90A98 /* DZMyBoughtDetailAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyBoughtDetailAdapter.h; sourceTree = "<group>"; };
 		1E7073F820AC268F00A90A98 /* DZMyBoughtDetailAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyBoughtDetailAdapter.m; sourceTree = "<group>"; };
+		1E7073FA20AE73ED00A90A98 /* DZHomeCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeCategoryView.h; sourceTree = "<group>"; };
+		1E7073FB20AE73ED00A90A98 /* DZHomeCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZHomeCategoryView.m; sourceTree = "<group>"; };
 		1E92D1072084951600E31C62 /* DZOrderFinishController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderFinishController.h; sourceTree = "<group>"; };
 		1E92D1082084951600E31C62 /* DZOrderFinishController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderFinishController.m; sourceTree = "<group>"; };
 		1E92D10B2084955500E31C62 /* DZOrderFinishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderFinishView.h; sourceTree = "<group>"; };
@@ -471,8 +473,6 @@
 		1EA047B0206A1D190029C481 /* DZTestAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTestAdapter.m; sourceTree = "<group>"; };
 		1EA047B4206CAF250029C481 /* DZSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchView.h; sourceTree = "<group>"; };
 		1EA047B5206CAF250029C481 /* DZSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchView.m; sourceTree = "<group>"; };
-		1EA047B8206CC3E10029C481 /* DZSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchViewController.h; sourceTree = "<group>"; };
-		1EA047B9206CC3E10029C481 /* DZSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchViewController.m; sourceTree = "<group>"; };
 		1EA047BB206CC4650029C481 /* DZSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZSearchResultViewController.h; sourceTree = "<group>"; };
 		1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZSearchResultViewController.m; sourceTree = "<group>"; };
 		1EA047BE206CE2F60029C481 /* NSDate+Format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Format.h"; sourceTree = "<group>"; };
@@ -594,6 +594,8 @@
 				1E34369620984DB300190689 /* DZMessageNilView.m */,
 				1E34369E209856C200190689 /* DZMessageSearchView.h */,
 				1E34369F209856C200190689 /* DZMessageSearchView.m */,
+				1E7073FA20AE73ED00A90A98 /* DZHomeCategoryView.h */,
+				1E7073FB20AE73ED00A90A98 /* DZHomeCategoryView.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1067,8 +1069,6 @@
 		1EA047B7206CC3A00029C481 /* search */ = {
 			isa = PBXGroup;
 			children = (
-				1EA047B8206CC3E10029C481 /* DZSearchViewController.h */,
-				1EA047B9206CC3E10029C481 /* DZSearchViewController.m */,
 				1EA047BB206CC4650029C481 /* DZSearchResultViewController.h */,
 				1EA047BC206CC4650029C481 /* DZSearchResultViewController.m */,
 			);
@@ -1213,8 +1213,8 @@
 				1E628EEF207CA33400169A64 /* UIImage+resize.m */,
 				1E92D15020888B0400E31C62 /* NSString+Base64.h */,
 				1E92D15120888B0400E31C62 /* NSString+Base64.m */,
-				1E34371920A0005600190689 /* NSString+common.h */,
-				1E34371A20A0005600190689 /* NSString+common.m */,
+				1E34371920A0005600190689 /* NSString+Common.h */,
+				1E34371A20A0005600190689 /* NSString+Common.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -1509,6 +1509,7 @@
 				1E3436E9209C029600190689 /* DZMyAddressAddController.m in Sources */,
 				1E3436852094387800190689 /* DZMyDeliveryAdapter.m in Sources */,
 				1E628EF6207CB81E00169A64 /* DZCategoryItemView.m in Sources */,
+				1E7073FC20AE73ED00A90A98 /* DZHomeCategoryView.m in Sources */,
 				1EAD73F82068ECCB00BD7EF7 /* DZPathGetter.m in Sources */,
 				1E3436F6209C3AF800190689 /* CKDatePickerView.m in Sources */,
 				1E05503D2071F4BB000F5188 /* DZUserManager.m in Sources */,
@@ -1525,7 +1526,7 @@
 				1E343622208ECD6700190689 /* DZMyBoughtTipsView.m in Sources */,
 				1E34366B2092B77F00190689 /* DZSettingCell.m in Sources */,
 				1E628F01207DD44E00169A64 /* DZSpecificationView.m in Sources */,
-				1E34371B20A0005600190689 /* NSString+common.m in Sources */,
+				1E34371B20A0005600190689 /* NSString+Common.m in Sources */,
 				1E3436632092B33D00190689 /* DZSettingViewController.m in Sources */,
 				1E7073F220AAB3C900A90A98 /* DZMyDeliveryAbnormalCell.m in Sources */,
 				1E3436F9209C548000190689 /* DZCalendarViewController.m in Sources */,
@@ -1534,7 +1535,6 @@
 				1E628F0A207DEAE500169A64 /* DZSortView.m in Sources */,
 				1E3436D7209AE9EA00190689 /* DZMyInvoiceAddController.m in Sources */,
 				1EAD73F22068EA1D00BD7EF7 /* HudUtils.m in Sources */,
-				1EA047BA206CC3E10029C481 /* DZSearchViewController.m in Sources */,
 				1E92D12920872F7400E31C62 /* DZOrderConfirmFooterView.m in Sources */,
 				1E343713209C556F00190689 /* GTLGradientView.m in Sources */,
 				1E3436AC2099803700190689 /* DZMyMembersViewController.m in Sources */,

@@ -31,6 +31,7 @@
     _titleLabel.font = [UIFont systemFontOfSize:16];
     _titleLabel.textColor = RGBCOLOR(153, 153, 153);
     _titleLabel.text = @"白菜";
+    _titleLabel.userInteractionEnabled = YES;
     [self addSubview:_titleLabel];
     
     _itemView = [[DZCategoryItemSelectView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/3.0, 0, SCREEN_WIDTH/3 + 20, 43)];
@@ -49,11 +50,15 @@
     [sortBack addSubview:sortImageV];
     [sortImageV setUserInteractionEnabled:YES];
     
-    [_itemView bk_whenTapped:^{
+    
+    [_titleLabel bk_whenTapped:^{
         [self setSelectItem:0];
     }];
-    [sortBack bk_whenTapped:^{
+    [_itemView bk_whenTapped:^{
         [self setSelectItem:1];
+    }];
+    [sortBack bk_whenTapped:^{
+        [self setSelectItem:2];
     }];
 }
 
@@ -69,12 +74,19 @@
     [_itemView setIsSelected:NO];
     sortImageV.image = [UIImage imageNamed:@"排序"];
 }
+- (void)setselectCategory{
+    [_itemView setIsSelected:NO];
+    sortImageV.image = [UIImage imageNamed:@"排序"];
+    _titleLabel.textColor = UICommonColor;
+}
 - (void)setSelectedCity{
     [_itemView setIsSelected:YES];
     sortImageV.image = [UIImage imageNamed:@"排序"];
+    _titleLabel.textColor = UISubTitleColor;
 }
 - (void)setSelectedOrder{
     [_itemView setIsSelected:NO];
     sortImageV.image = [UIImage imageNamed:@"排序-1"];
+    _titleLabel.textColor = UISubTitleColor;
 }
 @end

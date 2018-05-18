@@ -7,7 +7,7 @@
 //
 
 #import "DZCityModel.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @implementation DZCityModel
 // 根据返回的code进行拼接城市地址

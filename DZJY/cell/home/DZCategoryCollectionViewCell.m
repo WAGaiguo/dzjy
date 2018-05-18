@@ -34,6 +34,11 @@
         _titleLabel.textColor = RGBCOLOR(250, 114, 7);
         _titleLabel.text = @"水生菜类";
         [self addSubview:_titleLabel];
+        [self bk_whenTapped:^{
+            if (_tapHeaderBlock) {
+                _tapHeaderBlock(_cid);
+            }
+        }];
     }
     return self;
 }

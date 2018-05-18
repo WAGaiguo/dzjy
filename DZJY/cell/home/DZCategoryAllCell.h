@@ -10,5 +10,6 @@
 
 @interface DZCategoryAllCell : UITableViewCell
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) NSString *cid;
 @property (nonatomic, assign) BOOL isSelected;
 @end

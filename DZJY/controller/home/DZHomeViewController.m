@@ -12,15 +12,17 @@
 #import "DZWeb2ViewController.h"
 #import <SDCycleScrollView.h>
 #import "DZHomeAdapter.h"
-#import "DZCategoryAllController.h"
 #import "DZSearchModel.h"
-#import "DZCategoryFirstController.h"
 #import "DZLoginViewController.h"
+#import "DZSearchResultViewController.h"
+
 
 #import "DZRegisterViewController.h"
 #import <MJExtension.h>
 #import "DZOrderFinishController.h"
 #import "DZOrderConfirmViewController.h"
+#import "DZCategoryAllController.h"
+#import "DZCategoryFirstController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -73,32 +75,39 @@
     _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(7, 127, SCREEN_WIDTH - 14, 206)];
     WEAK_SELF
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
+        DZSearchResultViewController *searchResult = [DZSearchResultViewController new];
         if (indexPath.item == 0){
             [me.navigationController pushViewController:[[DZOrderFinishController alloc]init] animated:YES];
             return ;
         }
         if (indexPath.item == 1){
-            DZWeb2ViewController *web = [DZWeb2ViewController new];
-            web.content = @"https://www.baidu.com/";
-            [me.navigationController pushViewController:web animated:YES];
-            return;
+            searchResult.categoryTitle = @"瓜果类";
+            searchResult.commCateSecondId = @"";
         }
         if (indexPath.item == 2){
             [me.navigationController pushViewController:[DZOrderConfirmViewController new] animated:YES];return;
         }
-        if (indexPath.item < 4) {
-            [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return;
-            return;
-            
+        if (indexPath.item == 3) {
+            searchResult.categoryTitle = @"甘蓝类";
+            searchResult.commCateSecondId = @"";
         }
-        if (indexPath.item >= 4 && indexPath.item < 7) {
-            [me.navigationController pushViewController:[DZCategoryFirstController new] animated:YES];
-            return;
+        else if (indexPath.item == 4) {
+            searchResult.categoryTitle = @"根茎菜类";
+            searchResult.commCateSecondId = @"";
         }
-        if (indexPath.item == 7) {
-            [me.navigationController pushViewController:[DZCategoryAllController new] animated:YES];
+        else if (indexPath.item == 5) {
+            searchResult.categoryTitle = @"豆菜类";
+            searchResult.commCateSecondId = @"";
         }
-
+        else if (indexPath.item == 6) {
+            searchResult.categoryTitle = @"葱姜蒜类";
+            searchResult.commCateSecondId = @"";
+        }
+        else if (indexPath.item == 7) {
+            searchResult.categoryTitle = @"全部菜类";
+            searchResult.commCateSecondId = @"";
+        }
+        [me.navigationController pushViewController:searchResult animated:YES];
     }];
     [_headerView addSubview:_itemView];
 }

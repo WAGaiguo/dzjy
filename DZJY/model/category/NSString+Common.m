@@ -6,9 +6,9 @@
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
-@implementation NSString (common)
+@implementation NSString (Common)
 - (BOOL)isBlankString{
     if (self == nil || self == NULL) {
         return YES;
@@ -35,5 +35,20 @@
         return @"";
     }
     return self;
+}
++ (NSString *)isBlankString:(NSString *)string{
+    if (string == nil || string == NULL) {
+        return @"";
+    }
+    if ([string isEqualToString:@"<null>"] || [string isEqualToString:@"<nil>"]) {
+        return @"";
+    }
+    if ([string isKindOfClass:[NSNull class]]) {
+        return @"";
+    }
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+        return @"";
+    }
+    return string;
 }
 @end

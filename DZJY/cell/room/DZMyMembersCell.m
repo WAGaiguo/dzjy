@@ -8,7 +8,7 @@
 
 #import "DZMyMembersCell.h"
 #import "DZCityModel.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @implementation DZMyMembersCell
 

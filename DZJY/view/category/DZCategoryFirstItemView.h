@@ -13,6 +13,7 @@
 @property (nonatomic, copy)void (^selectIndex)(NSInteger index);
 - (void)setAddressName:(NSString *)name;
 - (void)setSelectedNone;
+- (void)setselectCategory;
 - (void)setSelectedCity;
 - (void)setSelectedOrder;
 @end

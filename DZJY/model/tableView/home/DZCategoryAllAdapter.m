@@ -27,6 +27,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
+//    cell.titleLabel.text = @"蔬菜";
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

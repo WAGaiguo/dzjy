@@ -9,7 +9,7 @@
 #import "DZMyBoughtDetailHeaderView.h"
 #import "NSDate+Format.h"
 #import "DZCityModel.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @implementation DZMyBoughtDetailHeaderView
 

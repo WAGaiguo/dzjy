@@ -7,7 +7,7 @@
 //
 
 #import "DZRequestParams.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @implementation DZRequestParams
 - (instancetype)init

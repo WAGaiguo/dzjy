@@ -9,7 +9,7 @@
 #import "DZMyInvoiceEditViewController.h"
 #import "DZMyInvoiceView.h"
 #import "DZMyInvoiceSetDefaultView.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @interface DZMyInvoiceEditViewController (){
     DZMyInvoiceView *_invoiceView;

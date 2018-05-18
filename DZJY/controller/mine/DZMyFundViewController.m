@@ -12,7 +12,7 @@
 #import "DZMineCommenScrollView.h"
 #import "DZMyFundAdapter.h"
 #import "DZCalendarViewController.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @interface DZMyFundViewController ()<SVSegmentedViewDelegate>{
     DZMyPointsHeaderView *_headerView;

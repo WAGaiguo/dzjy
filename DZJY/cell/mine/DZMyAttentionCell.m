@@ -7,7 +7,7 @@
 //
 
 #import "DZMyAttentionCell.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 
 @implementation DZMyAttentionCell
 

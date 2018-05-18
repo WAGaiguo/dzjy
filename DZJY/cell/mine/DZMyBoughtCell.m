@@ -8,7 +8,7 @@
 
 #import "DZMyBoughtCell.h"
 #import "NSDate+Format.h"
-#import "NSString+common.h"
+#import "NSString+Common.h"
 #import "DZCityModel.h"
 
 @implementation DZMyBoughtCell

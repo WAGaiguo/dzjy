@@ -17,6 +17,8 @@
 #import "DZCategoryAllController.h"
 #import "DZNetErrorView.h"
 #import "DZHomeAdapter.h"
+#import "DZHomeCategoryView.h"
+#import "NSString+Common.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
@@ -25,6 +27,7 @@
     DZSearchNilView *nilView;
     DZSortView *_sortView;
     DZCitySelectView *_cityView;
+    DZHomeCategoryView *_categoryView;
     NSInteger currentTag;
     DZNetErrorView *errorView;
     DZHomeAdapter *_adapter;
@@ -40,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self formateStr];
     currentTag = 88;
     [self setHeaderBackGroud:YES];
     [self setBackEnabled:YES];
@@ -50,6 +54,12 @@
     checkArea = @"";
     orderBy = @"";
     [self getSearchData:1 pageSize:30];
+}
+- (void)formateStr{
+    _commFirstId = [NSString isBlankString:_commFirstId];
+    _commCateSecondId = [NSString isBlankString:_commCateSecondId];
+    _commCatgId = [NSString isBlankString:_commCatgId];
+    _searchTitle = [NSString isBlankString:_searchTitle];
 }
 - (void)hasNilView:(BOOL)has{
     if (has){
@@ -69,15 +79,13 @@
         [self back];
     }];
     [self.titleView addSubview:searchV];
-    
     [self setHasRightBtn:YES];
     [self.titleView.rightView setTitle:@"取消" forState:UIControlStateNormal];
-
 }
 - (void)configItemView{
     _itemView = [[DZCategoryFirstItemView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 43)];
-    if (_searchTitle != nil){
-        _itemView.titleLabel.text = _searchTitle;
+    if (_categoryTitle != nil){
+        _itemView.titleLabel.text = _categoryTitle;
     }else{
         _itemView.titleLabel.text = @"全部";
     }
@@ -120,34 +128,76 @@
         currentTag = 33;
     }];
 }
+// *** 分类选择 ***
+- (void)configCategory{
+    _categoryView = [[DZHomeCategoryView alloc]initWithFrame:COMMON_FRAME];
+    _categoryView.alpha = 0;
+    [self.view addSubview:_categoryView];
+    [UIView animateWithDuration:0.33 animations:^{
+        _categoryView.alpha = 1;
+    }];
+    WEAK_SELF
+    [_categoryView setTapAllBlock:^(NSString *cid, NSString *title) {
+        [HudUtils showMessage:title];
+    }];
+    [_categoryView setTapHeaderBlock:^(NSString *cid, NSString *title) {
+        [HudUtils showMessage:title];
+    }];
+    [_categoryView setTapItemBlock:^(NSString *cid, NSString *title) {
+        [HudUtils showMessage:title];
+    }];
+}
 - (void)tapItem:(NSInteger)index{
     if (currentTag == index) {
         [_sortView setSelfHide];
         [_cityView setSelfHide];
+        [_categoryView removeSelfFromSuperview];
         _sortView = nil;
         _cityView = nil;
+        _categoryView = nil;
 //        [_itemView setSelectedNone];
         currentTag = 33;
         return;
     }
     if (index == 0) {
-        [self configCityView];
         [_sortView setSelfHide];
-        _sortView = nil;
-        [_itemView setSelectedCity];
-    }else if (index == 1){
-        [self configSortView];
         [_cityView setSelfHide];
+        _sortView = nil;
         _cityView = nil;
+        [_itemView setselectCategory];
+        [self configCategory];
+    }
+    else if (index == 1) {
+        [_sortView setSelfHide];
+        [_categoryView removeSelfFromSuperview];
+        _sortView = nil;
+        _categoryView = nil;
+        [_itemView setSelectedCity];
+        [self configCityView];
+    }else if (index == 2){
+        [_cityView setSelfHide];
+        [_categoryView removeSelfFromSuperview];
+        _cityView = nil;
+        _categoryView = nil;
         [_itemView setSelectedOrder];
+        [self configSortView];
     }
     currentTag = index;
 }
 -(void)back{
     if (self.navigationController != nil){
-        [self.navigationController popViewControllerAnimated:NO];
+        if (_categoryTitle != nil) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self.navigationController popViewControllerAnimated:NO];
+        }
     }else{
-        [self dismissViewControllerAnimated:NO completion:nil];
+        if (_categoryTitle != nil) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+           [self dismissViewControllerAnimated:NO completion:nil];
+        }
+        
     }
 }
 - (void)more{
@@ -187,6 +237,9 @@
     [params putString:_searchTitle forKey:@"commName"];
     [params putString:checkArea forKey:@"checkArea"];
     [params putString:orderBy forKey:@"orderBy"];
+    [params putString:_commFirstId forKey:@"commFirstId"];
+    [params putString:_commCateSecondId forKey:@"commCateSecondId"];
+    [params putString:_commCatgId forKey:@"commCatgId"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory search]];
     [manager setHandler:handler];
