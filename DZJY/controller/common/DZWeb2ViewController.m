@@ -45,7 +45,7 @@
     
     [self makeBtnView];
     
-   
+    NSLog(@"%@", _dic);
 }
 - (void)makeTipsView{
     DZOrderTipsView *tipView = [[DZOrderTipsView alloc]initWithFrame:SCREEN_BOUNDS];

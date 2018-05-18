@@ -141,11 +141,12 @@
    
     [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [HudUtils hide:MAIN_WINDOW];
+        NSLog(@"%@", responseObject);
         if (responseObject == [NSNull null]) {
             [HudUtils showMessage:@"登录异常"]; return;
         }
-        if ([[NSString isBlankString:responseObject] isEqualToString:@""]) {
-            [HudUtils showMessage:@"服务端异常 请稍后重试"]; return;
+        if (responseObject == nil) {
+            [HudUtils showMessage:@"服务端异常 请稍后重试"];return;
         }
         NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
         if (dic.count <= 0) {

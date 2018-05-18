@@ -112,7 +112,7 @@
     [_headerView addSubview:_itemView];
 }
 - (void)configAdapter{
-    _adapter = [[DZHomeAdapter alloc]init];
+    _adapter = [[DZHomeAdapter alloc]initWithDataSource:nil];
     [self.tableView setAdapter:_adapter];
     DZUserManager *manager = [DZUserManager manager];
     DZLoginViewController *loginC = [DZLoginViewController new];

@@ -163,6 +163,7 @@
         _imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"立即购买"]];
         _imageV.left = 0;
         _imageV.top = 0;
+        _imageV.width = SCREEN_WIDTH;
         [self addSubview:_imageV];
         [self bk_whenTapped:^{
             if (_tapBlcok){
