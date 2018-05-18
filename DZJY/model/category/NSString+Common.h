@@ -19,5 +19,6 @@
 - (BOOL)isBlankString;
 - (BOOL)isNullString;
 - (NSString *)formatString;
-+ (NSString *)isBlankString:(NSString *)string;
++ (NSString *)isBlankString:(id)string;
++ (NSString *)formateString:(NSString *)string;
 @end

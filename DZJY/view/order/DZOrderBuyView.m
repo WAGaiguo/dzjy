@@ -9,6 +9,7 @@
 #import "DZOrderBuyView.h"
 #import <PPNumberButton.h>
 #import "UIToolbar+Builder.h"
+#import "NSString+Common.h"
 
 @interface DZOrderBuyView()
 {
@@ -86,7 +87,7 @@
         [self setSelfHiden];
     }];
     
-    DZOrderBuyBtnView *orderBtn = [[DZOrderBuyBtnView alloc]initWithFrame:CGRectMake(-5, 350 - 47, SCREEN_WIDTH, 47)];
+    DZOrderBuyBtnView *orderBtn = [[DZOrderBuyBtnView alloc]initWithFrame:CGRectMake(0, 350 - 47, SCREEN_WIDTH, 47)];
     [_backContentV addSubview:orderBtn];
     [orderBtn setTapBlcok:^{
         if (_tapBuyBlock) {
@@ -96,8 +97,8 @@
     
     _numberButton = [PPNumberButton numberButtonWithFrame:CGRectMake(SCREEN_WIDTH - 200, lineView.bottom + 20, 150, 32)];
     _numberButton.shakeAnimation = YES;
-    _numberButton.minValue = 1;
-    _numberButton.maxValue = 10;
+//    _numberButton.minValue = 1;
+//    _numberButton.maxValue = 10;
     _numberButton.increaseTitle = @"+";
     _numberButton.decreaseTitle = @"-";
     _numberButton.borderColor = UISeperatorColor;
@@ -124,10 +125,10 @@
     [_backContentV addSubview:_unitLabel];
     
     
-    _unitLabel.text = @"箱";
-    _imageV.backgroundColor = UICyanColor;
-    _titleLabel.text = @";aewjfoiajefiejwfiji";
-    _priceLabel.text = @"￥55";
+//    _unitLabel.text = @"箱";
+//    _imageV.backgroundColor = UICyanColor;
+//    _titleLabel.text = @";aewjfoiajefiejwfiji";
+//    _priceLabel.text = @"￥55";
 }
 - (void)setSelfHiden{
     [MAIN_WINDOW endEditing:YES];
@@ -153,6 +154,14 @@
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@元/%@",priceStr,unitStr]];
     [attString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, priceStr.length)];
     return attString;
+}
+- (void)setContentDic:(NSDictionary *)dic{
+    _titleLabel.text = [[dic objectForKey:@"commName"]description];
+    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
+    _numsBottomLabel.text = [NSString stringWithFormat:@"库存：%@%@",[NSString formateString: dic[@"listCount"]], [[dic objectForKey:@"measUnit"]description]];
+    _unitLabel.text = [NSString formateString: [dic objectForKey:@"measUnit"]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, [dic objectForKey:@"fileUrl"]]]];
+//    _numberButton.maxValue = [dic[@"listCount"] doubleValue];
 }
 @end
 

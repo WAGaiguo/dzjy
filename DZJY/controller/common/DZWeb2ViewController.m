@@ -12,6 +12,7 @@
 #import "DZOrderBuyView.h"
 #import "DZOrderAttentionBuyView.h"
 #import "DZOrderConfirmViewController.h"
+#import "NSString+Common.h"
 
 @interface DZWeb2ViewController ()<UIScrollViewDelegate>
 {
@@ -67,13 +68,27 @@
     }];
 }
 - (void)makeBuyView{
-    buyView = [[DZOrderBuyView alloc]init];
+    if (buyView == nil) {
+        buyView = [[DZOrderBuyView alloc]init];
+        [buyView setContentDic:_dic[@"data"]];
+        [self.view addSubview:buyView];
+    }
     [buyView animation];
-    [self.view addSubview:buyView];
     WEAK_SELF
-    [buyView setTapBuyBlock:^(NSInteger nums) {
-        [me.navigationController pushViewController:[DZOrderConfirmViewController new] animated:YES];
-        [HudUtils showMessage:[NSString stringWithFormat:@"%ld", nums]];
+    [buyView setTapBuyBlock:^(double nums) {
+        NSString *allowBuyCount = me.dic[@"data"][@"allowBuyCount"];
+        if (nums > [allowBuyCount doubleValue]) {
+            [HudUtils showMessage:@"亲，您买的有点多"]; return ;
+        }
+        NSString *startBuyCount = me.dic[@"data"][@"startBuyCount"];
+        if (nums < [startBuyCount doubleValue]) {
+            [HudUtils showMessage:[NSString stringWithFormat:@"亲，您购买的数量必须大于%@%@", startBuyCount, [NSString isBlankString:me.dic[@"measUnit"]]]]; return;
+        }
+        if ([allowBuyCount doubleValue] - nums < [startBuyCount doubleValue]) {
+            [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;
+        }
+        DZOrderConfirmViewController *confirmV = [DZOrderConfirmViewController new];
+        [me.navigationController pushViewController:confirmV animated:YES];
     }];
 }
 - (void)more{

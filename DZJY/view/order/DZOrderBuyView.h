@@ -16,7 +16,8 @@
 @property (nonatomic, strong) UILabel *numsBottomLabel;
 @property (nonatomic, strong) UILabel *unitLabel;
 
-@property (nonatomic, copy)void(^tapBuyBlock)(NSInteger nums);
+@property (nonatomic, copy)void(^tapBuyBlock)(double nums);
+- (void)setContentDic:(NSDictionary *)dic;
 - (void)animation;
 @end
 
