@@ -67,9 +67,15 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 
 // 修改登录密码
 + (NSString *)pwdChange;
++ (NSString *)getCode; // 获取手机验证码
++ (NSString *)phoneChangeFirst; //手机验证码修改手机号
++ (NSString *)phoneChangeSecond; //修改手机号
 
 // 订单
 + (NSString *)orderList;
++ (NSString *)orderDetail;
++ (NSString *)orderGet; //订单加载
++ (NSString *)orderConfirm; //确认订单
 
 // 求购
 + (NSString *)boughtList;

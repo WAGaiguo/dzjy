@@ -27,9 +27,9 @@
 - (UIViewController *)getRootViewController{
     UIViewController *rootViewcontroller = nil;
     _tabBarViewController = [[DZTabBarViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:_tabBarViewController];
-    nav.navigationBarHidden = YES;
-    rootViewcontroller = nav;
+    _navigationController = [[UINavigationController alloc]initWithRootViewController:_tabBarViewController];
+    _navigationController.navigationBarHidden = YES;
+    rootViewcontroller = _navigationController;
     return rootViewcontroller;
 }
 

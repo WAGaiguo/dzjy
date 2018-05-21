@@ -125,6 +125,7 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    [manager.requestSerializer setAccessibilityContainerType:(UIAccessibilityContainerType)];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager POST:[DZURLFactory addressDelete] parameters:addressId progress:^(NSProgress * _Nonnull uploadProgress) {

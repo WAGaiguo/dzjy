@@ -63,6 +63,7 @@
 - (void)callOnSuccess:(NSData *)responseData request:(DZRequestMananger *)request{
     NSError *jsonError;
     id object = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&jsonError];
+//    NSLog(@"***---%@---***", object);
     if (jsonError != nil) {
         [self requestFailed:request error:jsonError];
         return;
@@ -95,8 +96,13 @@
     }
 }
 - (void)requestFailed:(DZRequestMananger *)request error:(NSError *)error{
+    NSLog(@"******---%@---*****", error);
     [self dismissLoading];
     NSString  *message = [error localizedDescription];
+    if (error.code == -1011) {
+        message = @"请先登录";
+//        [APPDELEGATE.]
+    }
     if(error.code == 3840){
         message = @"数据解析错误";
     }
@@ -105,10 +111,10 @@
     }
     if (error.code == 401) {
         message = @"没有操作权限";
-        if ([message containsString:@"Access token expired"]) {
-            [[DZUserManager manager] logout];
-            message = @"登录过期，请重新登录";
-        }
+//        if ([message containsString:@"Access token expired"]) {
+//            [[DZUserManager manager] logout];
+//            message = @"登录过期，请重新登录";
+//        }
     }
     if (error.code == 3) {
 //        [request cancelAll];

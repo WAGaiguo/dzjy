@@ -10,6 +10,8 @@
 #import <YYAnimatedImageView.h>
 #import <NSString+YYAdd.h>
 #import <NSAttributedString+YYText.h>
+#import "UIToolbar+Builder.h"
+#import "NSString+Common.h"
 
 @implementation DZOrderConfirmCell
 
@@ -85,9 +87,9 @@
     _priceLabel.textColor = UICommonColor;
     [backView addSubview:_priceLabel];
     
-    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
-    _priceLabel.text = @"￥555.555";
-    _imageV.backgroundColor = UICyanColor;
+//    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
+//    _priceLabel.text = @"￥555.555";
+//    _imageV.backgroundColor = UICyanColor;
 }
 - (void)third{
     UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(13, 192, 150, 37)];
@@ -126,24 +128,26 @@
     [self addSubview:lineView3];
     _numberButton = [PPNumberButton numberButtonWithFrame:CGRectMake(SCREEN_WIDTH - 167, label3.top + 2.5, 150, 32)];
     _numberButton.shakeAnimation = YES;
-    _numberButton.minValue = 1;
-    _numberButton.maxValue = 10;
+//    _numberButton.minValue = 1;
+//    _numberButton.maxValue = 10;
     _numberButton.increaseTitle = @"+";
     _numberButton.decreaseTitle = @"-";
     _numberButton.borderColor = UISeperatorColor;
-    _numberButton.currentNumber = 5;
+//    _numberButton.currentNumber = 5;
     [self addSubview:_numberButton];
+    WEAK_SELF
     [_numberButton setResultBlock:^(PPNumberButton *ppBtn, CGFloat number, BOOL increaseStatus) {
-        NSLog(@"%f",number);
+        [me changeNums:number];
     }];
+    [_numberButton.textField setInputAccessoryView:[UIToolbar inputAccessoryView]];
     
     UIView *lineView7 = [[UIView alloc]initWithFrame:CGRectMake(0, lineView3.bottom + 20, SCREEN_WIDTH, 7)];
     lineView7.backgroundColor = UIBackgroundColor;
     lineView7.tag = 77;
     [self addSubview:lineView7];
     
-    _startNumsLabel.text = @"1000";
-    _buyNumsLabel.text = @"10000";
+//    _startNumsLabel.text = @"1000";
+//    _buyNumsLabel.text = @"10000";
     
 }
 - (void)fouth{
@@ -171,7 +175,7 @@
     label.textColor = [UIColor colorWithHex:@"fe5200"];
     label.font = [UIFont boldSystemFontOfSize:14];
     label.textAlignment = NSTextAlignmentRight;
-    label.text = @"￥500000";
+//    label.text = @"￥500000";
     return label;
 }
 - (UIView *)lineView{
@@ -186,13 +190,13 @@
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:content];
     if (state == DZPayState1){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
-        attach.image = [UIImage imageNamed:@"预付"];
+        attach.image = [UIImage imageNamed:@"先款"];
 //        attach.bounds = CGRectMake(0, 0, 32, 16);
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
         [attString insertAttributedString:attributeStr2 atIndex:0];
     }else if (state == DZPayState2){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
-        attach.image = [UIImage imageNamed:@"先款"];
+        attach.image = [UIImage imageNamed:@"预付"];
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
 //        attach.bounds = CGRectMake(0, 0, 32, 16);
         [attString insertAttributedString:attributeStr2 atIndex:0];
@@ -209,12 +213,103 @@
     }
     return attString;
 }
+- (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"￥%@元/%@",priceStr,unitStr]];
+    [attString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, priceStr.length+1)];
+    return attString;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
+#pragma  赋值操作
+- (void)setContent:(NSArray *)arr{
+    _arr = arr;
+    NSDictionary *dic = [arr firstObject];
+    
+    _companyLabel.text = [[dic[@"membInfo"] objectForKey:@"compFullName"] description];
+    _personLabel.text = [NSString stringWithFormat:@"%@   %@", [NSString formateString:[dic[@"membInfo"] objectForKey:@"userName"]], [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactMobile"]]];
+    
+    _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[dic[@"payMethType"] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
+    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl,[dic[@"commPicture"] firstObject][@"fileUrl"]]]];
+    
+    
+    _startNumsLabel.text = [dic[@"startBuyCount"] description];
+    _buyNumsLabel.text = [dic[@"allowBuyCount"] description];
+    [self changeNums:[[_arr objectAtIndex:1] floatValue]];
+    _numberButton.currentNumber = [[_arr objectAtIndex:1] floatValue];
 }
 
+- (void)changeNums:(CGFloat)nums{
+    // 价格数组
+    NSDictionary *dic = [_arr firstObject];
+    float totalNums = nums;
+    NSLog(@"-----%lf", totalNums);
+    _numberButton.currentNumber = totalNums;
+    _numberButton.maxValue = [dic[@"allowBuyCount"] floatValue];
+    NSArray *priceArr = dic[@"commPrice"];
+    _money1abel.text = [NSString stringWithFormat:@"￥%.2lf", [dic[@"basePrice"] floatValue] * totalNums];
+//    static float totalPrice = 0;
+    if (priceArr != nil) {
+        [priceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ( [[obj objectForKey:@"wegtLimit"] floatValue] <= totalNums) {
+                float totalPrice = totalNums * [[obj objectForKey:@"price"] floatValue];
+                _money1abel.text = [NSString stringWithFormat:@"￥%.2lf", totalPrice];
+                *stop = YES;
+            }
+            ;
+        }];
+    }
+    _money2Label.text = [NSString stringWithFormat:@"￥%@",dic[@"buyerBailScale"]];
+//    NSLog(@"%@", _money1abel.text);
+    [self serviceCharge:[[_money1abel.text substringFromIndex:1] floatValue]];
+}
+- (void)serviceCharge:(float)totalMoney{
+    NSDictionary *dic =  [_arr lastObject];
+//    _money3Label.text = @"￥0.00";
+    float serviceNums = 0;
+    if (dic[@"cashCommSerChargeMage"] != nil) {
+        NSDictionary *comDic = dic[@"cashCommSerChargeMage"];
+        if (![comDic isEqual:[NSNull null]]) {
+            if ([[comDic[@"colleMethType2"] description] isEqualToString:@"0"]) {
+                serviceNums = [comDic[@"buyerVal"] floatValue]/100 * totalMoney;
+                if (serviceNums > [comDic[@"buyerOneceMax"] floatValue]) {
+                    serviceNums = [comDic[@"buyerOneceMax"] floatValue];
+                }
+                if (serviceNums < [comDic[@"buyerOneceMin"] floatValue]) {
+                    serviceNums = [comDic[@"buyerOneceMin"] floatValue];
+                }
+            }
+        }
+      
+    }
+    if (dic[@"cashCommSpeSerChargeMage"] != nil) { //
+        NSDictionary *speDic = dic[@"cashCommSpeSerChargeMage"];
+        if (![speDic isEqual:[NSNull null]]) {
+            if ((![NSString isNullString:speDic[@"appointMembGrade"]] || ![NSString isNullString:speDic[@"appointMembId"]]) && ![dic[@"busiDirecType"] isEqualToString:@"1"]) {
+                if ([dic[@"discountType"] isEqualToString:@"0"]) { // 优惠政策是总体折扣
+                    serviceNums = serviceNums * [speDic[@"serChargeDiscount"] floatValue];
+                    NSDictionary *comDic = dic[@"cashCommSerChargeMage"] == nil ? @{}:dic[@"cashCommSerChargeMage"];
+                    if (serviceNums > [comDic[@"buyerOneceMax"] floatValue]) {
+                        serviceNums = [comDic[@"buyerOneceMax"] floatValue];
+                    }
+                    if (serviceNums < [comDic[@"buyerOneceMin"] floatValue]) {
+                        serviceNums = [comDic[@"buyerOneceMin"] floatValue];
+                    }
+                }else if ([dic[@"discountType"] isEqualToString:@"1"]){ //重新指定
+                    serviceNums = serviceNums * [speDic[@"scale"] floatValue];
+                    if (serviceNums > [speDic[@"serChargeMax"] floatValue]) {
+                        serviceNums = [speDic[@"serChargeMax"] floatValue];
+                    }
+                    if (serviceNums < [speDic[@"serChargeMin"] floatValue]) {
+                        serviceNums = [speDic[@"serChargeMin"] floatValue];
+                    }
+                }
+            }
+        }
+        
+    }
+    _money3Label.text = [NSString stringWithFormat:@"￥%.2lf", serviceNums];
+}
 @end

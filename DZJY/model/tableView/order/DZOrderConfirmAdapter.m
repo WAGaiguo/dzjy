@@ -23,9 +23,10 @@
     if (cell == nil){
         cell = [[DZOrderConfirmCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    if (self.afterReuseCell) {
-        self.afterReuseCell(cell,indexPath);
-    }
+//    if (self.afterReuseCell) {
+//        self.afterReuseCell(cell,indexPath);
+//    }
+    [cell setContent:self.dataSource];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

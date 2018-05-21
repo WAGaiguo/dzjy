@@ -137,11 +137,33 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)memberInfo{
     return [self absulteString:@"/memb/w/info/get"];
 }
+// 密码修改
 + (NSString *)pwdChange{
     return [self absulteString:@"/security/w/user/pwd/update"];
 }
+// 获取手机验证码
++ (NSString *)getCode{
+    return [self absulteString:@"/security/mobile/valCode/create"];
+}
+// 手机号修改
++ (NSString *)phoneChangeFirst{
+    return [self absulteString:@"/memb/w/mobile/update/byMobile"];
+}
++ (NSString *)phoneChangeSecond{
+    return [self absulteString:@"/memb/w/mobile/update"];
+}
+// 订单
 + (NSString *)orderList{
     return [self absulteString:@"/prumt/w/ord/list"];
+}
++ (NSString *)orderDetail{
+    return [self absulteString:@"/synth/w/listingInformation/get"];
+}
++ (NSString *)orderGet{
+    return [self absulteString:@"/sale/w/placeOrder/get"];
+}
++ (NSString *)orderConfirm{
+    return [self absulteString:@"/synth/w/supplierDetails/get"];
 }
 // 求购
 + (NSString *)boughtList{

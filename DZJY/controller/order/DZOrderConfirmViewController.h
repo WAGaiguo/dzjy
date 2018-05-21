@@ -9,5 +9,8 @@
 #import "DZTableViewController.h"
 
 @interface DZOrderConfirmViewController : DZTableViewController
-
+@property (nonatomic, assign) NSInteger buyCount;
+@property (nonatomic, strong) NSString *cid;
+@property (nonatomic, strong) NSString *membId;
+@property (nonatomic, strong) NSDictionary *dataDic;
 @end

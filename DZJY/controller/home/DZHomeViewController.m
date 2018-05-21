@@ -156,7 +156,7 @@
         [self stopInfinite];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
-    [manager setUrlString:@"http://192.168.20.5/synth/searchApp"];
+    [manager setUrlString:[DZURLFactory homeList]];
     [manager setHandler:handler];
     [manager setParams:[params params]];
     [manager post];

@@ -9,5 +9,5 @@
 #import "DZTableViewAdapter.h"
 
 @interface DZOrderConfirmAdapter : DZTableViewAdapter
-
+//@property (nonatomic, strong)NSArray *serviceArr;
 @end

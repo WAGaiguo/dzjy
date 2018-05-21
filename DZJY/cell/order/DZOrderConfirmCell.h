@@ -28,4 +28,6 @@ typedef NS_ENUM(NSUInteger, DZPayState) {
 @property (nonatomic, strong)UILabel *money2Label;
 @property (nonatomic, strong)UILabel *money3Label;
 
+@property (nonatomic, strong)NSArray *arr;
+- (void)setContent:(NSArray *)arr;
 @end

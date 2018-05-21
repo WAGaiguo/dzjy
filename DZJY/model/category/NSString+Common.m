@@ -36,6 +36,12 @@
     }
     return self;
 }
++ (BOOL)isNullString:(id)string{
+    if ([string isEqual:[NSNull null]]) {
+        return YES;
+    }
+    return NO;
+}
 + (NSString *)formateString:(id)string{
     if ([string isEqual:[NSNull null]]) {
         return @"";

@@ -21,6 +21,7 @@
     DZOrderBuyView *buyView;
     CGPoint _currentPoint;
 }
+@property (nonatomic, strong)NSDictionary *dataDic;
 @end
 
 @implementation DZWeb2ViewController
@@ -46,7 +47,8 @@
     
     [self makeBtnView];
     
-    NSLog(@"%@", _dic);
+//    NSLog(@"%@", _dic);
+    [self reqeustDetailData];
 }
 - (void)makeTipsView{
     DZOrderTipsView *tipView = [[DZOrderTipsView alloc]initWithFrame:SCREEN_BOUNDS];
@@ -87,7 +89,14 @@
         if ([allowBuyCount doubleValue] - nums < [startBuyCount doubleValue]) {
             [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;
         }
+        if ([[me.dic[@"data"][@"id"] description] isEqualToString:[DZUserManager manager].user.id]) {
+            [HudUtils showMessage:@"自己就不要买自己的东西了"];
+        }
         DZOrderConfirmViewController *confirmV = [DZOrderConfirmViewController new];
+        confirmV.buyCount = nums;
+        confirmV.cid = [me.dic[@"data"][@"commCatgId"] description];
+        confirmV.membId = [me.dic[@"data"][@"membId"] description];
+        confirmV.dataDic = me.dataDic;
         [me.navigationController pushViewController:confirmV animated:YES];
     }];
 }
@@ -152,6 +161,20 @@
             btnV.top = SCREEN_HEIGHT ;
         } completion:nil];
     }
+}
+
+- (void)reqeustDetailData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        _dataDic = [NSDictionary dictionaryWithDictionary:obj];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:_dic[@"data"][@"id"] forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory orderDetail]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
 }
 
 - (void)didReceiveMemoryWarning {
