@@ -19,6 +19,11 @@
 		1E0550562074A919000F5188 /* DZURLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550552074A919000F5188 /* DZURLFactory.m */; };
 		1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0550582074C1BE000F5188 /* DZRegisterViewController.m */; };
 		1E05505D2074CBC1000F5188 /* MLTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05505C2074CB51000F5188 /* MLTransition.m */; };
+		1E27224420B3BE8B006127F0 /* DZOrderCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */; };
+		1E27224720B3DCE7006127F0 /* DZOrderCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224620B3DCE7006127F0 /* DZOrderCheckCell.m */; };
+		1E27224A20B3DE44006127F0 /* DZOrderCheckAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224920B3DE44006127F0 /* DZOrderCheckAdapter.m */; };
+		1E27224D20B3EAEB006127F0 /* DZOrderCheck2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224C20B3EAEB006127F0 /* DZOrderCheck2Cell.m */; };
+		1E27225020B3F4FE006127F0 /* DZOrderCheck3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224F20B3F4FE006127F0 /* DZOrderCheck3Cell.m */; };
 		1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34360F208D71FB00190689 /* DZMineHeaderView.m */; };
 		1E343613208D978500190689 /* DZMineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343612208D978500190689 /* DZMineFooterView.m */; };
 		1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34361A208DA07700190689 /* SVSegmentedView.m */; };
@@ -202,6 +207,16 @@
 		1E0550582074C1BE000F5188 /* DZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZRegisterViewController.m; sourceTree = "<group>"; };
 		1E05505B2074CB51000F5188 /* MLTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLTransition.h; sourceTree = "<group>"; };
 		1E05505C2074CB51000F5188 /* MLTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLTransition.m; sourceTree = "<group>"; };
+		1E27224220B3BE8B006127F0 /* DZOrderCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckViewController.h; sourceTree = "<group>"; };
+		1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheckViewController.m; sourceTree = "<group>"; };
+		1E27224520B3DCE7006127F0 /* DZOrderCheckCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckCell.h; sourceTree = "<group>"; };
+		1E27224620B3DCE7006127F0 /* DZOrderCheckCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheckCell.m; sourceTree = "<group>"; };
+		1E27224820B3DE44006127F0 /* DZOrderCheckAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckAdapter.h; sourceTree = "<group>"; };
+		1E27224920B3DE44006127F0 /* DZOrderCheckAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheckAdapter.m; sourceTree = "<group>"; };
+		1E27224B20B3EAEB006127F0 /* DZOrderCheck2Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheck2Cell.h; sourceTree = "<group>"; };
+		1E27224C20B3EAEB006127F0 /* DZOrderCheck2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheck2Cell.m; sourceTree = "<group>"; };
+		1E27224E20B3F4FE006127F0 /* DZOrderCheck3Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheck3Cell.h; sourceTree = "<group>"; };
+		1E27224F20B3F4FE006127F0 /* DZOrderCheck3Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheck3Cell.m; sourceTree = "<group>"; };
 		1E34360E208D71FB00190689 /* DZMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineHeaderView.h; sourceTree = "<group>"; };
 		1E34360F208D71FB00190689 /* DZMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineHeaderView.m; sourceTree = "<group>"; };
 		1E343611208D978500190689 /* DZMineFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineFooterView.h; sourceTree = "<group>"; };
@@ -989,6 +1004,8 @@
 				1E92D1082084951600E31C62 /* DZOrderFinishController.m */,
 				1E92D11C2086D75700E31C62 /* DZOrderConfirmViewController.h */,
 				1E92D11D2086D75700E31C62 /* DZOrderConfirmViewController.m */,
+				1E27224220B3BE8B006127F0 /* DZOrderCheckViewController.h */,
+				1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -1017,6 +1034,12 @@
 			children = (
 				1E92D1202086DE4300E31C62 /* DZOrderConfirmCell.h */,
 				1E92D1212086DE4300E31C62 /* DZOrderConfirmCell.m */,
+				1E27224520B3DCE7006127F0 /* DZOrderCheckCell.h */,
+				1E27224620B3DCE7006127F0 /* DZOrderCheckCell.m */,
+				1E27224B20B3EAEB006127F0 /* DZOrderCheck2Cell.h */,
+				1E27224C20B3EAEB006127F0 /* DZOrderCheck2Cell.m */,
+				1E27224E20B3F4FE006127F0 /* DZOrderCheck3Cell.h */,
+				1E27224F20B3F4FE006127F0 /* DZOrderCheck3Cell.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -1026,6 +1049,8 @@
 			children = (
 				1E92D1242086E11500E31C62 /* DZOrderConfirmAdapter.h */,
 				1E92D1252086E11500E31C62 /* DZOrderConfirmAdapter.m */,
+				1E27224820B3DE44006127F0 /* DZOrderCheckAdapter.h */,
+				1E27224920B3DE44006127F0 /* DZOrderCheckAdapter.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -1407,6 +1432,7 @@
 				1E628EE7207C5B0B00169A64 /* DZCategoryAllCell.m in Sources */,
 				1E92D15220888B0400E31C62 /* NSString+Base64.m in Sources */,
 				1E3436CB209AB11000190689 /* DZMyInvoiceAdapter.m in Sources */,
+				1E27224A20B3DE44006127F0 /* DZOrderCheckAdapter.m in Sources */,
 				1E628EE1207C57D300169A64 /* DZCategoryAllController.m in Sources */,
 				1E34369420946F1500190689 /* DZMyContractAbnormalAdapter.m in Sources */,
 				1E3436452090301F00190689 /* DZMyClientViewController.m in Sources */,
@@ -1451,6 +1477,7 @@
 				1E34365A2091600300190689 /* DZMyOrderAdapter.m in Sources */,
 				1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */,
 				1E7073F520AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m in Sources */,
+				1E27224D20B3EAEB006127F0 /* DZOrderCheck2Cell.m in Sources */,
 				1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */,
 				1E3436A0209856C200190689 /* DZMessageSearchView.m in Sources */,
 				1E628F1E207F351500169A64 /* DZCategoryFirstItemView.m in Sources */,
@@ -1471,6 +1498,7 @@
 				1E343712209C555500190689 /* GTLCalendarHeaderReusableView.m in Sources */,
 				1E34364E2090596000190689 /* DZMyBoughtDetailController.m in Sources */,
 				1E343625208EF48700190689 /* DZMineCommenScrollView.m in Sources */,
+				1E27225020B3F4FE006127F0 /* DZOrderCheck3Cell.m in Sources */,
 				1E3436CE209AB1E500190689 /* DZMyInvoiceCell.m in Sources */,
 				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
@@ -1503,6 +1531,7 @@
 				1E628F17207EFA0A00169A64 /* DZSearchModel.m in Sources */,
 				1E0550592074C1BE000F5188 /* DZRegisterViewController.m in Sources */,
 				1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */,
+				1E27224420B3BE8B006127F0 /* DZOrderCheckViewController.m in Sources */,
 				1E0550382071D03D000F5188 /* DZHomeViewController.m in Sources */,
 				1E530297206934E50010D78A /* DZRequestParams.m in Sources */,
 				1E3436672092B70600190689 /* DZSettingAdapter.m in Sources */,
@@ -1520,6 +1549,7 @@
 				1E343688209438C200190689 /* DZMyDeliveryCell.m in Sources */,
 				1E3436A92099530D00190689 /* DZMyLadingCell.m in Sources */,
 				1E628F0D207DF79B00169A64 /* DZCitySelectView.m in Sources */,
+				1E27224720B3DCE7006127F0 /* DZOrderCheckCell.m in Sources */,
 				1E628F24207F4BC300169A64 /* DZNetErrorView.m in Sources */,
 				1E05504A20731434000F5188 /* DZMineCollectionReusableView.m in Sources */,
 				1E343654209086E800190689 /* DZMyOrderViewController.m in Sources */,

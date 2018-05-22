@@ -96,20 +96,16 @@
     }
 }
 - (void)requestFailed:(DZRequestMananger *)request error:(NSError *)error{
-    NSLog(@"******---%@---*****", error);
     [self dismissLoading];
     NSString  *message = [error localizedDescription];
     if (error.code == -1011) {
         message = @"请先登录";
-//        [APPDELEGATE.]
-    }
-    if(error.code == 3840){
+        [[DZUserManager manager] logout];
+    }else if(error.code == 3840){
         message = @"数据解析错误";
-    }
-    if(error.code == -1001){
+    }else if(error.code == -1001){
         message = @"网络连接超时";
-    }
-    if (error.code == 401) {
+    }else if (error.code == 401) {
         message = @"没有操作权限";
 //        if ([message containsString:@"Access token expired"]) {
 //            [[DZUserManager manager] logout];

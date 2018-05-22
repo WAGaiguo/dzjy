@@ -23,6 +23,7 @@
 #import "DZOrderConfirmViewController.h"
 #import "DZCategoryAllController.h"
 #import "DZCategoryFirstController.h"
+#import "DZOrderCheckViewController.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -85,7 +86,7 @@
             searchResult.commCateSecondId = @"";
         }
         if (indexPath.item == 2){
-            [me.navigationController pushViewController:[DZOrderConfirmViewController new] animated:YES];return;
+            [me.navigationController pushViewController:[DZOrderCheckViewController new] animated:YES];return;
         }
         if (indexPath.item == 3) {
             searchResult.categoryTitle = @"甘蓝类";

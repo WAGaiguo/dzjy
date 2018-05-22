@@ -86,10 +86,6 @@
     _priceLabel.font = [UIFont systemFontOfSize:12];
     _priceLabel.textColor = UICommonColor;
     [backView addSubview:_priceLabel];
-    
-//    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
-//    _priceLabel.text = @"￥555.555";
-//    _imageV.backgroundColor = UICyanColor;
 }
 - (void)third{
     UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(13, 192, 150, 37)];
@@ -145,10 +141,6 @@
     lineView7.backgroundColor = UIBackgroundColor;
     lineView7.tag = 77;
     [self addSubview:lineView7];
-    
-//    _startNumsLabel.text = @"1000";
-//    _buyNumsLabel.text = @"10000";
-    
 }
 - (void)fouth{
     UIView *lineView7 = [self viewWithTag:77];
@@ -175,7 +167,6 @@
     label.textColor = [UIColor colorWithHex:@"fe5200"];
     label.font = [UIFont boldSystemFontOfSize:14];
     label.textAlignment = NSTextAlignmentRight;
-//    label.text = @"￥500000";
     return label;
 }
 - (UIView *)lineView{
@@ -230,7 +221,8 @@
     _companyLabel.text = [[dic[@"membInfo"] objectForKey:@"compFullName"] description];
     _personLabel.text = [NSString stringWithFormat:@"%@   %@", [NSString formateString:[dic[@"membInfo"] objectForKey:@"userName"]], [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactMobile"]]];
     
-    _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[dic[@"payMethType"] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
+    
+    _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[[NSString formateString:dic[@"payMethType"]] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
     _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl,[dic[@"commPicture"] firstObject][@"fileUrl"]]]];
     
@@ -245,12 +237,10 @@
     // 价格数组
     NSDictionary *dic = [_arr firstObject];
     float totalNums = nums;
-    NSLog(@"-----%lf", totalNums);
     _numberButton.currentNumber = totalNums;
     _numberButton.maxValue = [dic[@"allowBuyCount"] floatValue];
     NSArray *priceArr = dic[@"commPrice"];
     _money1abel.text = [NSString stringWithFormat:@"￥%.2lf", [dic[@"basePrice"] floatValue] * totalNums];
-//    static float totalPrice = 0;
     if (priceArr != nil) {
         [priceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ( [[obj objectForKey:@"wegtLimit"] floatValue] <= totalNums) {
@@ -261,15 +251,16 @@
             ;
         }];
     }
-    _money2Label.text = [NSString stringWithFormat:@"￥%@",dic[@"buyerBailScale"]];
-//    NSLog(@"%@", _money1abel.text);
     [self serviceCharge:[[_money1abel.text substringFromIndex:1] floatValue]];
 }
 - (void)serviceCharge:(float)totalMoney{
-    NSDictionary *dic =  [_arr lastObject];
-//    _money3Label.text = @"￥0.00";
+    NSDictionary *dic1 = [_arr firstObject];
+    NSString *baozhengStr = [NSString formateString:dic1[@"buyerBailScale"]];
+    _money2Label.text = [NSString stringWithFormat:@"￥%.2lf",[baozhengStr floatValue] * totalMoney/100];
+    NSDictionary *dic = [_arr lastObject];
     float serviceNums = 0;
-    if (dic[@"cashCommSerChargeMage"] != nil) {
+    NSDictionary *comDic = dic[@"cashCommSerChargeMage"];
+    if (comDic != nil) {
         NSDictionary *comDic = dic[@"cashCommSerChargeMage"];
         if (![comDic isEqual:[NSNull null]]) {
             if ([[comDic[@"colleMethType2"] description] isEqualToString:@"0"]) {
@@ -284,21 +275,23 @@
         }
       
     }
-    if (dic[@"cashCommSpeSerChargeMage"] != nil) { //
+    if (dic[@"cashCommSpeSerChargeMage"] != nil) { //现货特殊手续费
         NSDictionary *speDic = dic[@"cashCommSpeSerChargeMage"];
-        if (![speDic isEqual:[NSNull null]]) {
-            if ((![NSString isNullString:speDic[@"appointMembGrade"]] || ![NSString isNullString:speDic[@"appointMembId"]]) && ![dic[@"busiDirecType"] isEqualToString:@"1"]) {
-                if ([dic[@"discountType"] isEqualToString:@"0"]) { // 优惠政策是总体折扣
-                    serviceNums = serviceNums * [speDic[@"serChargeDiscount"] floatValue];
-                    NSDictionary *comDic = dic[@"cashCommSerChargeMage"] == nil ? @{}:dic[@"cashCommSerChargeMage"];
-                    if (serviceNums > [comDic[@"buyerOneceMax"] floatValue]) {
-                        serviceNums = [comDic[@"buyerOneceMax"] floatValue];
+        if (speDic != nil) { // ![speDic isEqual:[NSNull null]]
+            if ((![NSString isNullString:speDic[@"appointMembGrade"]] || ![NSString isNullString:speDic[@"appointMembId"]]) && ![speDic[@"busiDirecType"] isEqualToString:@"1"]) {
+                if ([speDic[@"discountType"] isEqualToString:@"0"]) { // 优惠政策是总体折扣
+                    serviceNums = serviceNums * [speDic[@"serChargeDiscount"] floatValue] / 100;
+                    NSDictionary *comDic = dic[@"cashCommSerChargeMage"];
+                    if (comDic != nil) {
+                        if (serviceNums > [comDic[@"buyerOneceMax"] floatValue]) {
+                            serviceNums = [comDic[@"buyerOneceMax"] floatValue];
+                        }
+                        if (serviceNums < [comDic[@"buyerOneceMin"] floatValue]) {
+                            serviceNums = [comDic[@"buyerOneceMin"] floatValue];
+                        }
                     }
-                    if (serviceNums < [comDic[@"buyerOneceMin"] floatValue]) {
-                        serviceNums = [comDic[@"buyerOneceMin"] floatValue];
-                    }
-                }else if ([dic[@"discountType"] isEqualToString:@"1"]){ //重新指定
-                    serviceNums = serviceNums * [speDic[@"scale"] floatValue];
+                }else if ([speDic[@"discountType"] isEqualToString:@"1"]){ //重新指定
+                    serviceNums = serviceNums * [speDic[@"scale"] floatValue]/100;
                     if (serviceNums > [speDic[@"serChargeMax"] floatValue]) {
                         serviceNums = [speDic[@"serChargeMax"] floatValue];
                     }

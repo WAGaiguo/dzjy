@@ -165,6 +165,12 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)orderConfirm{
     return [self absulteString:@"/synth/w/supplierDetails/get"];
 }
++ (NSString *)orderSubmit{
+    return [self absulteString:@"/prumt/w/placeOrder/add"];
+}
++ (NSString *)orderCheck{
+    return [self absulteString:@"/sale/w/placeOrder/getOrderInfo"];
+}
 // 求购
 + (NSString *)boughtList{
     return [self absulteString:@"/prumt/w/wtb/app/list"];

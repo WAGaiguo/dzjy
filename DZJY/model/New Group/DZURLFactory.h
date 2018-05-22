@@ -76,6 +76,8 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)orderDetail;
 + (NSString *)orderGet; //订单加载
 + (NSString *)orderConfirm; //确认订单
++ (NSString *)orderSubmit; //提交订单
++ (NSString *)orderCheck; //订单查看
 
 // 求购
 + (NSString *)boughtList;
