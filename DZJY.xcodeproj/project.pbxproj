@@ -24,6 +24,7 @@
 		1E27224A20B3DE44006127F0 /* DZOrderCheckAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224920B3DE44006127F0 /* DZOrderCheckAdapter.m */; };
 		1E27224D20B3EAEB006127F0 /* DZOrderCheck2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224C20B3EAEB006127F0 /* DZOrderCheck2Cell.m */; };
 		1E27225020B3F4FE006127F0 /* DZOrderCheck3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224F20B3F4FE006127F0 /* DZOrderCheck3Cell.m */; };
+		1E27225320B404A7006127F0 /* DZOrderCancelAndPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27225220B404A7006127F0 /* DZOrderCancelAndPayView.m */; };
 		1E343610208D71FB00190689 /* DZMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34360F208D71FB00190689 /* DZMineHeaderView.m */; };
 		1E343613208D978500190689 /* DZMineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E343612208D978500190689 /* DZMineFooterView.m */; };
 		1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E34361A208DA07700190689 /* SVSegmentedView.m */; };
@@ -217,6 +218,8 @@
 		1E27224C20B3EAEB006127F0 /* DZOrderCheck2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheck2Cell.m; sourceTree = "<group>"; };
 		1E27224E20B3F4FE006127F0 /* DZOrderCheck3Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheck3Cell.h; sourceTree = "<group>"; };
 		1E27224F20B3F4FE006127F0 /* DZOrderCheck3Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheck3Cell.m; sourceTree = "<group>"; };
+		1E27225120B404A7006127F0 /* DZOrderCancelAndPayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCancelAndPayView.h; sourceTree = "<group>"; };
+		1E27225220B404A7006127F0 /* DZOrderCancelAndPayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCancelAndPayView.m; sourceTree = "<group>"; };
 		1E34360E208D71FB00190689 /* DZMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineHeaderView.h; sourceTree = "<group>"; };
 		1E34360F208D71FB00190689 /* DZMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMineHeaderView.m; sourceTree = "<group>"; };
 		1E343611208D978500190689 /* DZMineFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMineFooterView.h; sourceTree = "<group>"; };
@@ -1025,6 +1028,8 @@
 				1E92D12820872F7400E31C62 /* DZOrderConfirmFooterView.m */,
 				1E92D12A20873E1200E31C62 /* DZOrderConfrimBtnView.h */,
 				1E92D12B20873E1200E31C62 /* DZOrderConfrimBtnView.m */,
+				1E27225120B404A7006127F0 /* DZOrderCancelAndPayView.h */,
+				1E27225220B404A7006127F0 /* DZOrderCancelAndPayView.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -1465,6 +1470,7 @@
 				1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */,
 				1E343633208F1F7500190689 /* DZMyPointsHeaderView.m in Sources */,
 				1E34361B208DA08200190689 /* SVSegmentedView.m in Sources */,
+				1E27225320B404A7006127F0 /* DZOrderCancelAndPayView.m in Sources */,
 				1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */,
 				1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */,
 				1EAD73D52068CD1C00BD7EF7 /* main.m in Sources */,

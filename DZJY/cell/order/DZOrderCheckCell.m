@@ -204,4 +204,7 @@
     lineView.width = SCREEN_WIDTH;
     return lineView;
 }
+- (void)setContent:(NSDictionary *)dic{
+    
+}
 @end

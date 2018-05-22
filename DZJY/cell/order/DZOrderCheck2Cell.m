@@ -178,4 +178,7 @@
     _label1.text = _label2.text = _label5.text = @"蔬菜";
     _label11.text = @"蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜蔬菜";
 }
+- (void)setContent:(NSDictionary *)dic{
+    
+}
 @end
