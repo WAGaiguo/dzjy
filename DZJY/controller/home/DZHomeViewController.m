@@ -86,7 +86,8 @@
             searchResult.commCateSecondId = @"";
         }
         if (indexPath.item == 2){
-            [me.navigationController pushViewController:[DZOrderCheckViewController new] animated:YES];return;
+            searchResult.categoryTitle = @"叶菜类";
+            searchResult.commCateSecondId = @"";
         }
         if (indexPath.item == 3) {
             searchResult.categoryTitle = @"甘蓝类";

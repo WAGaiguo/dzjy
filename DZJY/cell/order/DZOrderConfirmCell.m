@@ -277,7 +277,7 @@
     }
     if (dic[@"cashCommSpeSerChargeMage"] != nil) { //现货特殊手续费
         NSDictionary *speDic = dic[@"cashCommSpeSerChargeMage"];
-        if (speDic != nil) { // ![speDic isEqual:[NSNull null]]
+        if (![speDic isEqual:[NSNull null]]) { // ![speDic isEqual:[NSNull null]]
             if ((![NSString isNullString:speDic[@"appointMembGrade"]] || ![NSString isNullString:speDic[@"appointMembId"]]) && ![speDic[@"busiDirecType"] isEqualToString:@"1"]) {
                 if ([speDic[@"discountType"] isEqualToString:@"0"]) { // 优惠政策是总体折扣
                     serviceNums = serviceNums * [speDic[@"serChargeDiscount"] floatValue] / 100;

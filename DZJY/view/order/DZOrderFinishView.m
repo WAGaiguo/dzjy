@@ -48,7 +48,7 @@
     _moneyLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/2.0, label2.bottom + 10, SCREEN_WIDTH/2.0 - 8, 16)];
     _moneyLabel.font = [UIFont systemFontOfSize:15];
     _moneyLabel.textColor = [UIColor colorWithHex:@"fe5200"];
-    _moneyLabel.text = @"￥900.0";
+//    _moneyLabel.text = @"￥900.0";
     [self addSubview:_moneyLabel];
     
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, label3.bottom + 25, SCREEN_WIDTH, 7)];

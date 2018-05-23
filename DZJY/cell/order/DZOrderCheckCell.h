@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSUInteger, DZPayState) {
+    DZPayState1,
+    DZPayState2,
+    DZPayStateAll,
+};
 @interface DZOrderCheckCell : UITableViewCell
 @property (nonatomic, strong)UILabel *companyLabel;
 @property (nonatomic, strong)UILabel *personLabel;
@@ -23,5 +27,5 @@
 @property (nonatomic, strong)UILabel *moneyLabel3;
 @property (nonatomic, strong)UILabel *orderNums;
 @property (nonatomic, strong)UILabel *sellerName;
-- (void)setContent:(NSDictionary *)dic;
+- (void)setContent:(NSArray *)arr;
 @end

@@ -12,6 +12,8 @@
 #import "DZOrderConfrimBtnView.h"
 #import "DZOrderFinishController.h"
 #import "DZOrderConfirmCell.h"
+//#import "DZOrderCheckViewController.h"
+#import "DZOrderFinishController.h"
 
 @interface DZOrderConfirmViewController (){
     DZOrderConfirmAdapter *_adapter;
@@ -34,7 +36,6 @@
     [self setTitle:@"确认订单"];
     [self setBackEnabled:YES];
     [self setBackImageGray];
-//    [self setBackGroudHidden];
 }
 - (void)configAdapter{
     _adapter = [[DZOrderConfirmAdapter alloc]init];
@@ -42,14 +43,12 @@
     [_adapter setDidScroll:^(UITableView *tableView) {
         [MAIN_WINDOW endEditing:YES];
     }];
-    
+    self.tableView.allowsSelection = NO;
 }
 - (void)configSubmitBtn{
     DZOrderConfrimBtnView *btnView = [[DZOrderConfrimBtnView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 48, SCREEN_WIDTH, 48)];
     [self.view addSubview:btnView];
     [btnView setSubmitBlock:^{
-//        [HudUtils showMessage:@"提交订单"];
-//        [self.navigationController pushViewController:[DZOrderFinishController new] animated:YES];
         [self submitOrder];
     }];
 }
@@ -81,11 +80,9 @@
     NSString *listId = _dataDic[@"id"];
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//        NSLog(@"%@", obj);
-        [HudUtils showMessage:@"提交订单成功"];
-    }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-        
+        DZOrderFinishController *finish = [DZOrderFinishController new];
+        finish.dataDic = obj;
+        [self.navigationController pushViewController:finish animated:YES];
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putInteger:currentNums forKey:@"buyCount"];
@@ -95,6 +92,5 @@
     [manager setParams:[params dicParams]];
     [manager setHandler:handler];
     [manager post];
-    
 }
 @end

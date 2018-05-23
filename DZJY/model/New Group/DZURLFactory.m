@@ -43,6 +43,15 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
     return [self absulteString:@"/synth/searchApp"];
 }
 
++ (NSString *)mobileUpdateFirst{
+    return [self absulteString:@"/memb/w/mobile/update/byMobile"];
+}
++ (NSString *)mobileUpdateSecond{
+    return [self absulteString:@"/memb/w/mobile/update"];
+}
++ (NSString *)mobileGetCode{
+    return [self absulteString:@"/security/mobile/valCode/create"];
+}
 
 + (NSString *)addressList{
     return [self absulteString:@"/memb/w/address/list"];

@@ -63,4 +63,9 @@
     }
     return string;
 }
++ (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"￥%@元/%@",priceStr,unitStr]];
+    [attString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, priceStr.length+1)];
+    return attString;
+}
 @end

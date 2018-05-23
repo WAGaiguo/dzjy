@@ -16,6 +16,11 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)logout;
 + (NSString *)homeList;
 
+// 修改注册手机号
++ (NSString *)mobileUpdateFirst;
++ (NSString *)mobileUpdateSecond;
++ (NSString *)mobileGetCode;
+
 
 // 地址相关
 + (NSString *)addressList;

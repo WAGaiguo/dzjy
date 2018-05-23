@@ -9,5 +9,5 @@
 #import "DZBaseViewController.h"
 
 @interface DZOrderFinishController : DZBaseViewController
-
+@property (nonatomic, strong)NSDictionary *dataDic;
 @end

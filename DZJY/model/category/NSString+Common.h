@@ -22,4 +22,5 @@
 + (NSString *)isBlankString:(id)string;
 + (NSString *)formateString:(NSString *)string;
 + (BOOL)isNullString:(id)string;
++ (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr;
 @end

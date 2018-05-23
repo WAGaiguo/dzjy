@@ -31,6 +31,7 @@
         if (cell == nil){
             cell = [[DZOrderCheckCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"orderCheckCell"];
         }
+        [cell setContent:self.dataSource];
         return cell;
     }else if (indexPath.row == 1){
         DZOrderCheck2Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"orderCheck2Cell"];

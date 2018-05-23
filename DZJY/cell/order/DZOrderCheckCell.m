@@ -7,6 +7,8 @@
 //
 
 #import "DZOrderCheckCell.h"
+#import "NSString+Common.h"
+#import <NSAttributedString+YYText.h>
 
 @implementation DZOrderCheckCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -183,10 +185,10 @@
     [self test];
 }
 - (void)test{
-    _companyLabel.text = @"公司公司";
-    _personLabel.text = @"123456789000 alsjdf";
-    
-    _imageV.backgroundColor = UICyanColor;
+//    _companyLabel.text = @"公司公司";
+//    _personLabel.text = @"123456789000 alsjdf";
+//
+//    _imageV.backgroundColor = UICyanColor;
 
     _startNumsLabel.text = @"500";
     _buyNumsLabel.text = @"5000";
@@ -204,7 +206,51 @@
     lineView.width = SCREEN_WIDTH;
     return lineView;
 }
-- (void)setContent:(NSDictionary *)dic{
+- (void)setContent:(NSArray *)arr{
+    NSDictionary *dic = [arr firstObject];
+    NSDictionary *dataDic = [arr lastObject];
     
+    _companyLabel.text = [[dic[@"membInfo"] objectForKey:@"compFullName"] description];
+    _personLabel.text = [NSString stringWithFormat:@"%@   %@", [NSString formateString:[dic[@"membInfo"] objectForKey:@"userName"]], [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactMobile"]]];
+    
+    
+    _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[[NSString formateString:dic[@"payMethType"]] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
+    _priceLabel.attributedText = [NSString priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl,[dic[@"commPicture"] firstObject][@"fileUrl"]]]];
+    
+    _startNumsLabel.text = [NSString stringWithFormat:@"￥%@", dataDic[@"price"]];
+    _buyNumsLabel.text = [NSString stringWithFormat:@"%@%@", dataDic[@"buyCount"], dataDic[@"measUnit"]];
+    _totalMoneyLabel.text = [NSString stringWithFormat:@"￥%@", dataDic[@"totalMoney"]];
+    _moneyLabel1.text = [NSString stringWithFormat:@"￥%@", dataDic[@"buyerBail"]];
+    _moneyLabel2.text = [NSString stringWithFormat:@"￥%@", dataDic[@"buyerSerCharge"]];
+//    _moneyLabel3.text = 
+    
+}
+- (NSMutableAttributedString *)attributeString:(NSString *)content state:(DZPayState)state{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:content];
+    if (state == DZPayState1){
+        NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+        attach.image = [UIImage imageNamed:@"先款"];
+        //        attach.bounds = CGRectMake(0, 0, 32, 16);
+        NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
+        [attString insertAttributedString:attributeStr2 atIndex:0];
+    }else if (state == DZPayState2){
+        NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+        attach.image = [UIImage imageNamed:@"预付"];
+        NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
+        //        attach.bounds = CGRectMake(0, 0, 32, 16);
+        [attString insertAttributedString:attributeStr2 atIndex:0];
+    }else if (state == DZPayStateAll){
+        NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+        attach.image = [UIImage imageNamed:@"预付"];
+        NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
+        [attString insertAttributedString:attributeStr2 atIndex:0];
+        [attString insertString:@"  " atIndex:0];
+        NSTextAttachment *attach1 = [[NSTextAttachment alloc] init];
+        attach1.image = [UIImage imageNamed:@"先款"];
+        NSAttributedString *attributeStr1 = [NSAttributedString attributedStringWithAttachment:attach1];
+        [attString insertAttributedString:attributeStr1 atIndex:0];
+    }
+    return attString;
 }
 @end

@@ -9,5 +9,6 @@
 #import "DZTableViewController.h"
 
 @interface DZOrderCheckViewController : DZTableViewController
-
+@property (nonatomic, strong)NSDictionary *dataDic;
+@property (nonatomic, strong)NSDictionary *dic;
 @end

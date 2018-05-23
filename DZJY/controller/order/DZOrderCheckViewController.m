@@ -49,7 +49,21 @@
     }];
 }
 - (void)requestData{
-    
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_adapter reloadData:@[_dic, obj]];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+//    [params putString:_dataDic[@"buyerBail"] forKey:@"buyerBail"];
+//    [params putString:_dataDic[@"buyerSerCharge"] forKey:@"buyerSerCharge"];
+//    [params putString:_dataDic[@"listModeType"] forKey:@""];
+//    [params putString:_dataDic[@"listId"] forKey:@"listId"];
+    [params putString:_dataDic[@"orderId"] forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory orderCheck]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
