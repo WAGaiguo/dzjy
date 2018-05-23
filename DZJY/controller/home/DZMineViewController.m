@@ -22,6 +22,7 @@
 #import "DZMyDeliveryViewController.h"
 #import "DZMyDeliveryAbnormalController.h"
 #import "DZMyLadingViewController.h"
+#import "DZMessageNumsModel.h"
 
 
 @interface DZMineViewController ()
@@ -48,6 +49,7 @@
     [self configHeader];
     [self configFooter];
     [self addPullToRefresh];
+    [self pullToRefresh];
 }
 
 - (void)configHeader{
@@ -191,12 +193,6 @@
     [_footerView.ninthItem setNums:0];
 }
 
-
-
-
-
-
-
 //- (void)configCollection{
 //    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
 //
@@ -258,24 +254,41 @@
 //
 //    [self addBtn];
 //}
-//- (void)addBtn{
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
-//    btn.frame = CGRectMake(200, 200, 100, 100);
-//    btn.backgroundColor = UIOrangeColor;
-//    [self.view addSubview:btn];
-//    [btn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
-//}
-//- (void)clickBtn{
-//    [self stopRefresh];
-////    [self stopInfinite];
-//    [self addNoMoreData];
-//}
+
 
 - (void)pullToRefresh{
-    [HudUtils showMessage:@"下拉刷新测试"];
-    [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2];
+    DZMessageNumsModel *model = [DZMessageNumsModel new];
+    [model startRequest];
+    [model setSuccessBlock:^(NSDictionary *dic) {
+        [self setTipsNums:dic];
+        [self stopRefresh];
+    }];
+//    [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2];
 }
-
+- (void)setTipsNums:(NSDictionary *)dic{
+    [self tipsZero];
+    if (dic[@"1"] != nil) {
+        [_footerView.firstItem setNums:[dic[@"1"] integerValue]];
+    }
+    if (dic[@"2"] != nil) {
+        [_footerView.secondItem setNums:[dic[@"2"] integerValue]];
+    }
+    if (dic[@"3"] != nil) {
+        [_footerView.second2Item setNums:[dic[@"3"] integerValue]];
+    }
+    if (dic[@"4"] != nil) {
+        [_footerView.thirdItem setNums:[dic[@"4"] integerValue]];
+    }
+    if (dic[@"5"] != nil) {
+        [_footerView.fourthItem setNums:[dic[@"5"] integerValue]];
+    }
+    if (dic[@"6"] != nil) {
+        [_footerView.sixthItem setNums:[dic[@"6"] integerValue]];
+    }
+    if (dic[@"7"] != nil) {
+        [_footerView.seventhItem setNums:[dic[@"7"] integerValue]];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

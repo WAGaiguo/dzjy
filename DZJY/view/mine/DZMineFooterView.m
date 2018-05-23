@@ -169,9 +169,9 @@
         _titleLabel.text = @"test";
         [self addSubview:_titleLabel];
         
-        _numTips = [[UILabel alloc]initWithFrame:CGRectMake(_imageV.right - 3, _imageV.top - 5, 11, 11)];
+        _numTips = [[UILabel alloc]initWithFrame:CGRectMake(_imageV.right - 3, _imageV.top - 5, 15, 15)];
         _numTips.layer.masksToBounds = YES;
-        _numTips.layer.cornerRadius = 5.5f;
+        _numTips.layer.cornerRadius = 7.5f;
         _numTips.backgroundColor = UIRedColor;
         _numTips.font = [UIFont systemFontOfSize:10];
         _numTips.textColor = UIWhiteColor;
@@ -185,8 +185,10 @@
     if (num > 0) {
         _numTips.hidden = NO;
         _numTips.text = [NSString stringWithFormat:@"%ld", (long)num];
-        [_numTips sizeToFit];
         _numTips.layer.cornerRadius = _numTips.width/2.0;
+        if (num >99) {
+            _numTips.text = @"99";
+        }
     }else{
         _numTips.hidden = YES;
     }

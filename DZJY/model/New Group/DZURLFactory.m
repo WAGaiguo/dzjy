@@ -128,6 +128,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)contractAbnormalList{
     return [self absulteString:@"/prumt/w/cont/app/contTermiList"];
 }
++ (NSString *)contractNums{
+    return [self absulteString:@"/prumt/w/cont/list/num"];
+}
 // 交收
 + (NSString *)deliveryList{
     return [self absulteString:@"/prumt/w/cont/deliv/list"];
@@ -137,6 +140,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 }
 + (NSString *)deliveryTicketList{
     return [self absulteString:@"/prumt/w/exaInvo/diss/list"];
+}
++ (NSString *)deliveryNums{
+    return [self absulteString:@"/prumt/w/cont/deliv/list/num"];
 }
 // 提单
 + (NSString *)ladingList{
@@ -180,12 +186,18 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)orderCheck{
     return [self absulteString:@"/sale/w/placeOrder/getOrderInfo"];
 }
++ (NSString *)orderNums{
+    return [self absulteString:@"/prumt/w/ord/list/num"];
+}
 // 求购
 + (NSString *)boughtList{
     return [self absulteString:@"/prumt/w/wtb/app/list"];
 }
 + (NSString *)boughtDetail{
     return [self absulteString:@"/prumt/w/wtb/info"];
+}
++ (NSString *)boughtNums{
+    return [self absulteString:@"/prumt/w/wtb/app/recom/num"];
 }
 // 搜索
 + (NSString *)search{

@@ -58,11 +58,13 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 // 我的合同
 + (NSString *)contractList;
 + (NSString *)contractAbnormalList; //合同异常
++ (NSString *)contractNums;
 
 // 我的交收
 + (NSString *)deliveryList;
 + (NSString *)deliveryGoodsList; //验货异议
 + (NSString *)deliveryTicketList; //验票异议
++ (NSString *)deliveryNums;
 
 // 提单
 + (NSString *)ladingList;
@@ -83,10 +85,12 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)orderConfirm; //确认订单
 + (NSString *)orderSubmit; //提交订单
 + (NSString *)orderCheck; //订单查看
++ (NSString *)orderNums;
 
 // 求购
 + (NSString *)boughtList;
 + (NSString *)boughtDetail;
++ (NSString *)boughtNums;
 
 + (NSString *)search;
 

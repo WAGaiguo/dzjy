@@ -162,7 +162,6 @@
     [manager setHandler:handler];
     [manager setParams:[params params]];
     [manager post];
-    
 }
 - (void)Infinite{
     currentPage = currentPage + 1;
