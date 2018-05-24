@@ -38,7 +38,7 @@
     [self configContentHeader];
     [self configSaveFooter];
     [self setDics:_dic];
-    [self requestData];
+//    [self requestData];
 }
 - (void)configContentHeader{
     _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48 - 48)];

@@ -73,19 +73,7 @@
     [backV addSubview:btn];
     return backV;
 }
-#pragma 地址列表数据请求操作
-- (void)requestData{
-    DZRequestParams *params = [DZRequestParams new];
-    DZResponseHandler *handler = [DZResponseHandler new];
-    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [_adapter reloadData:obj];
-    }];
-    DZRequestMananger *manager = [DZRequestMananger new];
-    [manager setUrlString:[DZURLFactory addressList]];
-    [manager setHandler:handler];
-    [manager setParams:[params params]];
-    [manager post];
-}
+
 /*
  * 点击编辑相关操作
  */
@@ -110,6 +98,19 @@
         }];
     }
 }
+#pragma 地址列表数据请求操作
+- (void)requestData{
+    DZRequestParams *params = [DZRequestParams new];
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_adapter reloadData:obj];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory addressList]];
+    [manager setHandler:handler];
+    [manager setParams:[params params]];
+    [manager post];
+}
 #pragma 设置默认操作
 - (void)requestSetDefault:(NSDictionary *)dic{
     DZResponseHandler *handler = [DZResponseHandler new];
@@ -126,43 +127,42 @@
     [manager post];
     
 }
+#pragma 删除数据操作
 - (void)deleteAddress:(NSString *)addressId{
-//    DZRequestParams *params = [DZRequestParams new];
-//    DZResponseHandler *handler = [DZResponseHandler new];
-//    [params putString:addressId forKey:@"id"];
-//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-////        [HudUtils showMessage:@"删除成功"];
-////        [self requestData];
-//        NSLog(@"%@",[obj mj_JSONString]);
-//    }];
-//    DZRequestMananger *manager = [DZRequestMananger new];
-//    [manager setUrlString:[DZURLFactory addressDelete]];
-//    [manager setHandler:handler];
-//    [manager setParams:[params params]];
-//    [manager post];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:addressId forKey:@"id"];
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
+    [params putString:addressId forKey:@"id"];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [self requestData];
+        [HudUtils showMessage:@"删除成功"];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory addressDelete]];
+    [manager setHandler:handler];
+    [manager setParams:[params dicParams]];
+    [manager post];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    [manager.requestSerializer setAccessibilityContainerType:(UIAccessibilityContainerType)];
 //    [manager.requestSerializer setStringEncoding:NSUTF8StringEncoding];
-    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
+//    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
 //    NSString *utf8Str = [NSString stringWithCString:[addressId UTF8String] encoding:NSUnicodeStringEncoding];
 //    [manager.requestSerializer setValue:@"text/plain;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript" ,nil];
-    NSData *stringData = [addressId dataUsingEncoding:NSUTF8StringEncoding];
-    id json = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
-    NSLog(@"-------------************------------");
-    NSLog(@"%@", stringData);
-    NSLog(@"%@", json);
-    NSDictionary *dic = @{@"id": addressId};
-    [manager POST:[DZURLFactory addressDelete] parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", [responseObject mj_JSONString]);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript" ,nil];
+//    NSData *stringData = [addressId dataUsingEncoding:NSUTF8StringEncoding];
+//    id json = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
+//    NSDictionary *dic = @{@"id": addressId};
+//    [manager POST:[DZURLFactory addressDelete] parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@", [responseObject mj_JSONString]);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@", error);
+//    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
