@@ -20,3 +20,6 @@
 @property (nonatomic, strong)DZMessageModel*model;
 - (void)setContent:(DZMessageModel *)content;
 @end
+
+@interface DZMessageCell2 : DZMessageCell
+@end

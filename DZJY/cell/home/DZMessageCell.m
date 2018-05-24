@@ -117,3 +117,7 @@
     }
 }
 @end
+
+@implementation DZMessageCell2
+
+@end

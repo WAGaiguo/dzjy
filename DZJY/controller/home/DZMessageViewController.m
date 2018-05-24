@@ -89,6 +89,7 @@
         model.content = [obj[@"content"] description];
         model.id =      [obj[@"id"] description];
         model.readFlag = [obj[@"readFlag"] description];
+        model.isFolder = NO;
         [model hightForContent:model.content]; // 设置height高度
         [dataArr addObject:model];
     }];

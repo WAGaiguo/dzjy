@@ -12,6 +12,8 @@
 @implementation DZMessageAdapter
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     DZMessageModel *model = self.dataSource[indexPath.row];
+//    DZMessageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    [cell setIsFolder: model.isFolder];
     if (model.isFolder) {
         return 84 + model.height + 10;
     }
@@ -25,20 +27,35 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DZMessageModel *model = self.dataSource[indexPath.row];
+    if (model.isFolder) {
+        DZMessageCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell2"];
+        if (cell == nil) {
+            cell = [[DZMessageCell2 alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"messageCell2"];
+        }
+        [cell setContent:model];
+        [cell setIsFolder:YES];
+        return cell;
+    }
     DZMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell"];
     if (cell == nil){
         cell = [[DZMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"messageCell"];
     }
-    DZMessageModel *model = self.dataSource[indexPath.row];
     [cell setContent: model];
+    [cell setIsFolder:NO];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DZMessageModel *model = self.dataSource[indexPath.row];
-    DZMessageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell setIsFolder:! cell.isFolder];
     model.isFolder = ! model.isFolder;
+    if (model.isFolder) {
+        DZMessageCell2 *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [cell setIsFolder:model.isFolder];
+    }else{
+        DZMessageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [cell setIsFolder: model.isFolder];
+    }
     [tableView reloadData];
 }
 @end

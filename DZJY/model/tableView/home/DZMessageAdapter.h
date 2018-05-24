@@ -12,7 +12,7 @@
 
 @end
 
-// message content模型封装
+// message content 模型封装
 @interface DZMessageModel : NSObject
 @property (nonatomic, copy)NSString *id;
 @property (nonatomic, copy)NSString *title;

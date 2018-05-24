@@ -97,6 +97,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)messageUpdate{
     return [self absulteString:@"/memb/w/mess/update"];
 }
++ (NSString *)messageNums{
+    return [self absulteString:@"/memb/w/app/mess/unReadCount"];
+}
 // 积分
 + (NSString *)pointsList{
     return [self absulteString:@"/memb/w/integ/list"];
