@@ -55,13 +55,10 @@
  */
 - (void)addPullToRefresh{
     WEAK_SELF
-
+    _tableView.showsPullToRefresh = YES;
     [_tableView addPullToRefreshWithActionHandler:^{
         [me pullToRefresh];
     }];
-//    [_tableView.pullToRefreshView setTitle:@"下拉刷新" forState:SVPullToRefreshStateTriggered];
-//    [_tableView.pullToRefreshView setTitle:@"正在加载中..." forState:SVPullToRefreshStateLoading];
-//    [_tableView.pullToRefreshView setTitle:@"刷新完成" forState:SVPullToRefreshStateStopped];
 }
 
 - (void)pullToRefresh{
@@ -73,7 +70,9 @@
 - (void)stopRefresh{
     [_tableView.pullToRefreshView stopAnimating];
 }
-
+- (void)noRefresh{
+    _tableView.showsPullToRefresh = NO;
+}
 /*
  *  上拉加载
  */

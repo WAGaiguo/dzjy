@@ -48,7 +48,6 @@
     [self.titleView setIsTitleWhite:YES];
     [self configHeader];
     [self configFooter];
-    [self addPullToRefresh];
     [self pullToRefresh];
 }
 
@@ -177,9 +176,11 @@
         if (isFirst) {
             [self requestUserInforData];
             isFirst = NO;
+            [self addPullToRefresh];
         }
     }else{
         isFirst = YES;
+        [self noRefresh];
     }
 }
 - (void)relodCurrentState{
