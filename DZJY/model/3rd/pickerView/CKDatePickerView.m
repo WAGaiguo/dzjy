@@ -124,6 +124,7 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
     NSString *cityName;
     NSString *cityId;
     NSString *districtName;
+    NSString *districtId;
 }
 @property (nonatomic,strong) UIView *backgroundView;
 
@@ -244,19 +245,28 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
-        provinceName = [_provinceArray[row] objectForKey:@"name"];
         _cityArray = [_provinceArray[row] objectForKey:@"children"];
         _districtArray = [_cityArray[0] objectForKey:@"children"];
+        provinceName = [_provinceArray[row] objectForKey:@"name"];
+        provinceId = [_provinceArray[row] objectForKey:@"code"];
+        cityName = [_cityArray[0] objectForKey:@"name"];
+        cityId = [_cityArray[0] objectForKey:@"code"];
+        districtName = [_districtArray[0] objectForKey:@"name"];
+        districtId = [_districtArray[0] objectForKey:@"code"];
         [self.pickerView reloadComponent:1];
         [self.pickerView reloadComponent:2];
         [self.pickerView selectRow:0 inComponent:1 animated:YES];
         [self.pickerView selectRow:1 inComponent:2 animated:YES];
     }else if (component == 1){
-        cityName = [_provinceArray[row] objectForKey:@"name"];
+        cityName = [_cityArray[row] objectForKey:@"name"];
+        cityId = [_cityArray[row] objectForKey:@"code"];
+        districtName = [_districtArray[0] objectForKey:@"name"];
+        districtId = [_districtArray[0] objectForKey:@"code"];
         _districtArray = [_cityArray[row] objectForKey:@"children"];
         [self.pickerView reloadComponent:2];
         [self.pickerView selectRow:1 inComponent:2 animated:YES];
     }else{
+        districtId = [_districtArray[row] objectForKey:@"code"];
         districtName = [_districtArray[row] objectForKey:@"name"];
     }
 }
@@ -273,7 +283,7 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
 
 - (void)p_pickerConfirmAction {
     if (_selectBlock) {
-        _selectBlock([NSString stringWithFormat:@"%@%@%@",provinceName,cityName,districtName], provinceName, cityName, districtName);
+        _selectBlock([NSString stringWithFormat:@"%@%@%@",provinceName,cityName,districtName], provinceName, provinceId,cityName, cityId,districtName, districtId);
     }
 }
 
@@ -284,9 +294,16 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
     _provinceArray = [NSArray arrayWithArray:jsonArr];
     _cityArray = [_provinceArray[0] objectForKey:@"children"];
     _districtArray = [_cityArray[0] objectForKey:@"children"];
+    provinceName = [_provinceArray[0] objectForKey:@"name"];
+    provinceId = [_provinceArray[0] objectForKey:@"code"];
+    cityName = [_cityArray[0] objectForKey:@"name"];
+    cityId = [_cityArray[0] objectForKey:@"code"];
+    districtName = [_districtArray[0] objectForKey:@"name"];
+    districtId = [_districtArray[0] objectForKey:@"code"];
     [self.pickerView selectRow:0 inComponent:0 animated:YES];
-    [self.pickerView selectRow:2 inComponent:1 animated:YES];
-    [self.pickerView selectRow:2 inComponent:2 animated:YES];
+    [self.pickerView selectRow:0 inComponent:1 animated:YES];
+    [self.pickerView selectRow:0 inComponent:2 animated:YES];
+
 }
 
 #pragma mark - getter & setter

@@ -21,7 +21,7 @@
 @end
 
 @interface CKDatePickerView : NSObject
-@property (nonatomic, copy)void(^selectBlock)(NSString *text, NSString*compAreaProv, NSString *compAreaCity, NSString *compAreaDist);
+@property (nonatomic, copy)void(^selectBlock)(NSString *text, NSString*compAreaProv, NSString *provId, NSString *compAreaCity,NSString *cityId, NSString *compAreaDist, NSString *distId);
 @property (nonatomic,strong) NSArray<NSArray<NSString *> *> *dataSource;
 @property (nonatomic,assign) id<CKDatePickerViewDelegate> delegate;
 

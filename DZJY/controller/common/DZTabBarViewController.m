@@ -10,6 +10,7 @@
 #import "DZHomeViewController.h"
 #import "DZMineViewController.h"
 #import "DZMessageViewController.h"
+#import "NSString+Common.h"
 
 @interface DZTabBarViewController ()
 
@@ -48,10 +49,14 @@
     
     WEAK_SELF
     me.delegate = self;
+    [self requestData];
 }
 
 -(void)setBadageValue:(NSString *)nums{
-    _messageViewController.tabBarItem.badgeValue = nums;
+    _messageViewController.tabBarItem.badgeValue = [NSString formateString:nums];
+    if ([nums isEqualToString:@"0"] || [nums length]<=0) {
+        _messageViewController.tabBarItem.badgeValue = nil;
+    }
 }
 
 // 处理点击其它 item 返回自定义事件
@@ -60,6 +65,23 @@
         return YES;
     }
     return YES;
+}
+
+// 消息数量
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    handler.type = HZRequestManangerTypeBackground;
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        if (obj != nil) {
+            [self setBadageValue:[NSString stringWithFormat:@"%@", obj]];
+        }
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory messageNums]];
+    [manager setHandler: handler];
+    [manager post];
+    
+    [self performSelector:@selector(requestData) withObject:nil afterDelay:30 * 60];
 }
 
 - (void)didReceiveMemoryWarning {

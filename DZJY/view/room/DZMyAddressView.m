@@ -20,7 +20,7 @@
     return self;
 }
 - (void)afterView{
-    _backV = [[UIView alloc]initWithFrame:CGRectMake(7, 7, SCREEN_WIDTH - 14, 288)];
+    _backV = [[UIView alloc]initWithFrame:CGRectMake(7, 7, SCREEN_WIDTH - 14, 288 - 48)];
     _backV.backgroundColor = UIWhiteColor;
     [self addSubview:_backV];
     
@@ -49,12 +49,12 @@
     [_phoneField setInputAccessoryView:[UIToolbar inputAccessoryView]];
     [_backV addSubview:_phoneField];
     
-    UILabel *codeLabel = [self label:@"身份证号" top:48 * 4];
-    _codeField = [self textField:codeLabel.top];
-    [_backV addSubview:_codeField];
+//    UILabel *codeLabel = [self label:@"身份证号" top:48 * 4];
+//    _codeField = [self textField:codeLabel.top];
+//    [_backV addSubview:_codeField];
     
     int n = 1;
-    while (n<6) {
+    while (n < 5) {
         [self lineView:n * 48];
         n++;
     }

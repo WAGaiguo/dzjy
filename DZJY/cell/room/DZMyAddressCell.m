@@ -89,9 +89,9 @@
     _phoneLabel.text = [[dic objectForKey:@"mobile"] description];
     _addressLabel.text = [[dic objectForKey:@"address"] description];
     if ([[dic objectForKey:@"defaultFlag"] isEqualToString:@"1"]) {
-        [_editView setDefalut:YES];
-    }else{
         [_editView setDefalut:NO];
+    }else{
+        [_editView setDefalut:YES];
     }
 }
 

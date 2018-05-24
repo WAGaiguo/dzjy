@@ -93,7 +93,9 @@
     DZAlertview *alertView = [DZAlertview new];
   
     if (integer == 1) {
-        [cell.editView setDefalut:NO];
+        if ([[dic objectForKey:@"defaultFlag"] isEqualToString:@"1"]) {
+            [self requestSetDefault:dic];
+        }
     }else if (integer == 2){
         DZMyAddressEditController *editController = [DZMyAddressEditController new];
         editController.dic = dic;
@@ -107,6 +109,22 @@
             [self deleteAddress:[dic objectForKey:@"id"]];
         }];
     }
+}
+#pragma 设置默认操作
+- (void)requestSetDefault:(NSDictionary *)dic{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [self requestData];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:[dic[@"id"] description] forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory addressDefault]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+    
 }
 - (void)deleteAddress:(NSString *)addressId{
 //    DZRequestParams *params = [DZRequestParams new];
@@ -124,13 +142,21 @@
 //    [manager post];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    [manager.requestSerializer setAccessibilityContainerType:(UIAccessibilityContainerType)];
-    [manager.requestSerializer setStringEncoding:NSUTF8StringEncoding];
+//    [manager.requestSerializer setStringEncoding:NSUTF8StringEncoding];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
 //    NSString *utf8Str = [NSString stringWithCString:[addressId UTF8String] encoding:NSUnicodeStringEncoding];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager POST:[DZURLFactory addressDelete] parameters:addressId progress:^(NSProgress * _Nonnull uploadProgress) {
+//    [manager.requestSerializer setValue:@"text/plain;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript" ,nil];
+    NSData *stringData = [addressId dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
+    NSLog(@"-------------************------------");
+    NSLog(@"%@", stringData);
+    NSLog(@"%@", json);
+    NSDictionary *dic = @{@"id": addressId};
+    [manager POST:[DZURLFactory addressDelete] parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", [responseObject mj_JSONString]);

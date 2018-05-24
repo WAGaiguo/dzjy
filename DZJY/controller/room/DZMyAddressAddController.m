@@ -37,10 +37,11 @@
     [self requestData];
 }
 - (void)configHeader{
-    _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
+    _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48 - 48 - 48)];
+    _addressView.backV.height = 48 * 4;
     self.tableView.tableHeaderView = _addressView;
-    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 240, SCREEN_WIDTH - 14, 48)];
-    [_addressView.backV addSubview:_defaultView];
+//    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 240, SCREEN_WIDTH - 14, 48)];
+//    [_addressView.backV addSubview:_defaultView];
     WEAK_SELF
     [_addressView setTapDistrictBlock:^{
         [me selectDistrict];
@@ -52,11 +53,11 @@
 - (void)selectDistrict{
     [MAIN_WINDOW endEditing:YES];
     CKDatePickerView *picker = [CKDatePickerView new];
-    [picker setSelectBlock:^(NSString *text, NSString *compAreaProv, NSString *compAreaCity, NSString *compAreaDist) {
+    [picker setSelectBlock:^(NSString *text, NSString *compAreaProv, NSString *provId, NSString *compAreaCity, NSString *cityId, NSString *compAreaDist, NSString *distId) {
         _addressView.districtField.text = text;
-        compAreaProvs = compAreaProv;
-        compAreaCitys = compAreaCity;
-        compAreaDists = compAreaDist;
+        compAreaProvs = provId;
+        compAreaCitys = cityId;
+        compAreaDists = distId;
     }];
 
     [picker show];
@@ -104,6 +105,7 @@
     [params putString:address forKey:@"address"];
     [params putString:contactName forKey:@"contactName"];
     [params putString:mobile forKey:@"mobile"];
+    NSLog(@"%@--%@--%@", compAreaProvs, compAreaCitys, compAreaDists);
     [params putString:compAreaProvs forKey:@"compAreaProv"];
     [params putString:compAreaCitys forKey:@"compAreaCity"];
     [params putString:compAreaDists forKey:@"compAreaDist"];

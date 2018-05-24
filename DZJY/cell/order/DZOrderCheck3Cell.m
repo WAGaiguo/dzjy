@@ -100,4 +100,7 @@
     _label5.backgroundColor = UICyanColor;
     _label2.text = _label1.text = _label5.text = @"订单点单点单点单";
 }
+- (void)setContent:(NSDictionary *)dic{
+    
+}
 @end

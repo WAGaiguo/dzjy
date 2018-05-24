@@ -12,6 +12,7 @@
 #import "DZCommonSaveView.h"
 #import "NSString+PDRegex.h"
 #import "CKDatePickerView.h"
+#import "DZCityModel.h"
 
 @interface DZMyAddressEditController (){
     DZMyAddressView *_addressView;
@@ -20,6 +21,7 @@
     NSString *compAreaCitys;
     NSString *compAreaDists;
     NSString *compAreaProvs;
+    BOOL isChanged;
 }
 
 @end
@@ -29,18 +31,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     isDefault = NO;
+    isChanged = NO;
     [self setTitle:@"编辑地址"];
     [self setHeaderBackGroud:YES];
     [self setBackEnabled:YES];
     [self configContentHeader];
     [self configSaveFooter];
-//    [self setDics:_dic];
+    [self setDics:_dic];
     [self requestData];
 }
 - (void)configContentHeader{
-    _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
+    _addressView = [[DZMyAddressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48 - 48)];
     self.tableView.tableHeaderView = _addressView;
-    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 240, SCREEN_WIDTH - 14, 48)];
+    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 240 - 48, SCREEN_WIDTH - 14, 48)];
     [_addressView.backV addSubview:_defaultView];
     WEAK_SELF
     [_addressView setTapDistrictBlock:^{
@@ -48,16 +51,17 @@
     }];
     [_defaultView setOnBlock:^(BOOL isOn) {
         isDefault = isOn;
+        isChanged = YES;
     }];
 }
 - (void)selectDistrict{
     [MAIN_WINDOW endEditing:YES];
     CKDatePickerView *picker = [CKDatePickerView new];
-    [picker setSelectBlock:^(NSString *text, NSString *compAreaProv, NSString *compAreaCity, NSString *compAreaDist) {
+    [picker setSelectBlock:^(NSString *text, NSString *compAreaProv, NSString *provId, NSString *compAreaCity, NSString *cityId, NSString *compAreaDist, NSString *distId) {
         _addressView.districtField.text = text;
-        compAreaProvs = compAreaProv;
-        compAreaCitys = compAreaCity;
-        compAreaDists = compAreaDist;
+        compAreaProvs = provId;
+        compAreaCitys = cityId;
+        compAreaDists = distId;
     }];
     [picker show];
 }
@@ -72,19 +76,21 @@
 #pragma 数据初始化
 -(void)setDics:(NSDictionary *)dic{
     NSLog(@"%@",[dic mj_JSONString]);
-    
+    compAreaProvs = [dic objectForKey:@"compAreaProv"];
+    compAreaCitys = [dic objectForKey:@"compAreaCity"];
+    compAreaDists = [dic objectForKey:@"compAreaDist"];
     _addressView.personField.text = [[dic objectForKey:@"contactName"] description];
-//    _addressView.districtField.text = [self prov:dic[@"compAreaProv"] city:dic[@"compAreaCity"] dist:dic[@"compAreaDist"]];
+    _addressView.districtField.text = [DZCityModel prov:dic[@"compAreaProv"] city:dic[@"compAreaCity"] dist:dic[@"compAreaDist"]];
     _addressView.addressField.text = [[dic objectForKey:@"address"] description];
     _addressView.phoneField.text = [[dic objectForKey:@"mobile"] description];
-//    _addressView.codeField.text =
+    _defaultView.isOn = [[dic objectForKey:@"defaultFlag"] isEqualToString:@"0"] ? YES:NO;
 }
 - (void)save{
     NSString *person = _addressView.personField.text;
     NSString *district = _addressView.districtField.text;
     NSString *address = _addressView.addressField.text;
     NSString *phone = _addressView.phoneField.text;
-    NSString *code = _addressView.codeField.text;
+//    NSString *code = _addressView.codeField.text;
     if (TRIM_STRING_length(person) <= 0) {
         [HudUtils showMessage:@"联系人不能为空"];return;
     }
@@ -126,6 +132,7 @@
         if (_backBlock) {
             _backBlock();
         }
+        [self requestSetDefault];
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
@@ -137,6 +144,28 @@
     [manager setHandler:handler];
     [manager post];
 }
+/**
+ *  设置默认
+ **/
+- (void)requestSetDefault{
+    if (isChanged) {
+        if (isDefault) {
+            DZResponseHandler *handler = [DZResponseHandler new];
+            [handler setType:HZRequestManangerTypeBackground];
+            [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+                NSLog(@"%@", obj);
+            }];
+            DZRequestParams *params = [DZRequestParams new];
+            [params putString:[_dic[@"id"] description] forKey:@"id"];
+            DZRequestMananger *manager = [DZRequestMananger new];
+            [manager setUrlString:[DZURLFactory addressDefault]];
+            [manager setParams:[params dicParams]];
+            [manager setHandler:handler];
+            [manager post];
+        }
+    }
+}
+
 - (void)requestData{
 //    DZRequestParams *params = [DZRequestParams new];
 ////    NSLog(@"id::::::  %@",_dic[@"id"]);

@@ -39,7 +39,7 @@
     editController.dic = dic;
     switch (integer) {
         case 1:
-            [cell.editView setDefalut:NO];
+//            [self requestSetDefault:dic];
             break;
         case 2:
             [[self firstViewController].navigationController pushViewController:editController animated:YES];
@@ -53,4 +53,6 @@
             break;
     }
 }
+
+
 @end
