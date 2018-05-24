@@ -18,7 +18,7 @@
 @property (nonatomic, assign)BOOL isFolder;
 @property (nonatomic, assign)BOOL isRed;
 @property (nonatomic, strong)DZMessageModel*model;
-- (void)setContent:(DZMessageModel *)content;
+- (void)setContent:(DZMessageModel *)content integer:(NSInteger)integer;
 @end
 
 @interface DZMessageCell2 : DZMessageCell

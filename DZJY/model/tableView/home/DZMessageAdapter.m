@@ -33,7 +33,7 @@
         if (cell == nil) {
             cell = [[DZMessageCell2 alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"messageCell2"];
         }
-        [cell setContent:model];
+        [cell setContent:model integer:indexPath.row];
         [cell setIsFolder:YES];
         return cell;
     }
@@ -41,7 +41,7 @@
     if (cell == nil){
         cell = [[DZMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"messageCell"];
     }
-    [cell setContent: model];
+    [cell setContent: model integer:indexPath.row];
     [cell setIsFolder:NO];
     return cell;
 }

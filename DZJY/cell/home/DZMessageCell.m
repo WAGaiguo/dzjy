@@ -9,6 +9,7 @@
 #import "DZMessageCell.h"
 #import "NSDate+Format.h"
 
+#define imageArr @[@"消息1", @"消息2", @"消息3", @"消息4"]
 
 @interface DZMessageCell(){
     UIView *backV;
@@ -98,13 +99,13 @@
 - (void)setIsRed:(BOOL)isRed{
     _isRed = isRed;
     if (isRed) {
-        redV.hidden = YES;
-    }else{
         redV.hidden = NO;
+    }else{
+        redV.hidden = YES;
     }
 }
 
-- (void)setContent:(DZMessageModel *)content{
+- (void)setContent:(DZMessageModel *)content integer:(NSInteger)integer{
     _model = content;
     _contentLabel.text = content.content;
     _titleLabel.text = content.title;
@@ -115,6 +116,7 @@
     }else{
         [self setIsRed:NO];
     }
+    _imageV.image = [UIImage imageNamed:imageArr[integer % 4]];
 }
 @end
 
