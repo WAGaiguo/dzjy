@@ -134,21 +134,21 @@
         } else if ([type isEqualToString:@"2"]){
             [_adapter2 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"4"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter3 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"3"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter4 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"5"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter5 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"6"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter6 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"0"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter7 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"1"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter8 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"8"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter9 reloadData:[obj objectForKey:@"list"]];
         } else if ([type isEqualToString:@"7"]){
-            [_adapter2 reloadData:[obj objectForKey:@"list"]];
+            [_adapter10 reloadData:[obj objectForKey:@"list"]];
         }
     }];
     DZRequestParams *params = [DZRequestParams new];

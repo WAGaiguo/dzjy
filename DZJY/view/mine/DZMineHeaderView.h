@@ -10,7 +10,7 @@
 
 @interface DZMineHeaderView : UIView
 @property (nonatomic, assign)BOOL logined;
-- (void)setTitle:(NSString *)title subTitle:(NSString *)subTitle img:(NSString *)imageUrl;
+- (void)setTitle:(NSString *)title subTitle:(NSString *)subTitle img:(NSString *)imageUrl type:(NSString *)type;
 @property (nonatomic, copy)void (^loginBlock)(void);
 @property (nonatomic, copy)void (^selectBlock)(NSInteger integer);
 @end

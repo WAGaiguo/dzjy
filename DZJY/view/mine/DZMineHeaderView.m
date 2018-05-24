@@ -8,6 +8,7 @@
 
 #import "DZMineHeaderView.h"
 #import "DZHomeItemView.h"
+#import "DZMemberLabel.h"
 @interface DZMineHeaderView(){
     DZMineLoginedView *_loginView;
     DZMineUnLoginedView *_unLoginView;
@@ -79,11 +80,11 @@
         }
     }
 }
-- (void)setTitle:(NSString *)title subTitle:(NSString *)subTitle img:(NSString *)imageUrl{
-//    _loginView.titleLabel.text = title;
+- (void)setTitle:(NSString *)title subTitle:(NSString *)subTitle img:(NSString *)imageUrl type:(NSString *)type{
     _loginView.subTitleLabel.text = subTitle;
     [_loginView.titleImageV sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     [_loginView.titleLabel setText:[[DZUserManager manager] user].loginName];
+    [_loginView.memberLabel setText:type];
 }
 
 @end

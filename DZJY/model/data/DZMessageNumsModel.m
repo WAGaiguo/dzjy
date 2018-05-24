@@ -32,6 +32,9 @@
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
         [HudUtils showMessage:@"请求异常，请稍后重试"];
+        if (_faildBlock) {
+            _faildBlock();
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
@@ -54,6 +57,9 @@
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
         [HudUtils showMessage:@"请求异常，请稍后重试"];
+        if (_faildBlock) {
+            _faildBlock();
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
@@ -76,6 +82,9 @@
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
         [HudUtils showMessage:@"请求异常，请稍后重试"];
+        if (_faildBlock) {
+            _faildBlock();
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
@@ -101,6 +110,9 @@
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
         [HudUtils showMessage:@"请求异常，请稍后重试"];
+        if (_faildBlock) {
+            _faildBlock();
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     [manager setUrlString:[DZURLFactory deliveryNums]];

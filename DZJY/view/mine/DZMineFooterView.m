@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         [self setWidth:SCREEN_WIDTH];
-        [self setHeight:400];
+        [self setHeight:400 - 44];
         [self setBackgroundColor:UIWhiteColor];
         [self configTopItem];
         [self configBottomItem];
@@ -176,6 +176,7 @@
         _numTips.font = [UIFont systemFontOfSize:10];
         _numTips.textColor = UIWhiteColor;
 //        _numTips.text = @"5";
+        _numTips.hidden = YES;
         _numTips.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_numTips];
     }

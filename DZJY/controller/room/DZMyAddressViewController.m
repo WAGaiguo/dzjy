@@ -126,7 +126,9 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
 //    [manager.requestSerializer setAccessibilityContainerType:(UIAccessibilityContainerType)];
+    [manager.requestSerializer setStringEncoding:NSUTF8StringEncoding];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
+//    NSString *utf8Str = [NSString stringWithCString:[addressId UTF8String] encoding:NSUnicodeStringEncoding];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager POST:[DZURLFactory addressDelete] parameters:addressId progress:^(NSProgress * _Nonnull uploadProgress) {
         

@@ -170,11 +170,21 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self relodCurrentState];
+    
+    // 保证每次登陆完成 只加载一次信息数据
+    static BOOL isFirst = YES;
+    if ([manager isLogined]) {
+        if (isFirst) {
+            [self requestUserInforData];
+            isFirst = NO;
+        }
+    }else{
+        isFirst = YES;
+    }
 }
 - (void)relodCurrentState{
     if ([manager isLogined]) {
         [_headerView setLogined:YES];
-        [_headerView setTitle:@"关怀久" subTitle:@"公司全称：：：：" img:nil];
     }else{
         [_headerView setLogined:NO];
         [self tipsZero];
@@ -263,6 +273,9 @@
         [self setTipsNums:dic];
         [self stopRefresh];
     }];
+    [model setFaildBlock:^{
+        [self stopRefresh];
+    }];
 //    [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2];
 }
 - (void)setTipsNums:(NSDictionary *)dic{
@@ -288,6 +301,18 @@
     if (dic[@"7"] != nil) {
         [_footerView.seventhItem setNums:[dic[@"7"] integerValue]];
     }
+}
+
+- (void)requestUserInforData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    handler.type = HZRequestManangerTypeBackground;
+    [handler setDidSuccess:^(DZRequestMananger *manager1, id obj) {
+        [_headerView setTitle:manager.user.loginName subTitle:[obj[@"compFullName"] description] img:[NSString stringWithFormat:@"%@%@",DZCommonUrl, obj[@"compLogo"]] type:obj[@"memebGrade"]];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory memberInfo]];
+    [manager setHandler:handler];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

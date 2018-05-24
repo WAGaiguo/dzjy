@@ -12,4 +12,5 @@
 - (void)startRequest;
 @property (nonatomic, strong)NSMutableDictionary *dataDic;
 @property (nonatomic, copy)void(^successBlock)(NSDictionary *dic);
+@property (nonatomic, copy)void(^faildBlock)(void);
 @end
