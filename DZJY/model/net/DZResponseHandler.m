@@ -106,11 +106,10 @@
     }else if(error.code == -1001){
         message = @"网络连接超时";
     }else if (error.code == 401) {
-        message = @"没有操作权限";
-//        if ([message containsString:@"Access token expired"]) {
-//            [[DZUserManager manager] logout];
-//            message = @"登录过期，请重新登录";
-//        }
+        if ([message containsString:@"Access token expired"]) {
+            [[DZUserManager manager] logout];
+            message = @"登录过期，请重新登录";
+        }
     }
     if (error.code == 3) {
 //        [request cancelAll];

@@ -64,6 +64,7 @@
     _invoiceView.codeField.text = [self isNull:dic[@"socioUniCreditCode"]];
     _invoiceView.bankField.text = [self isNull:dic[@"bankName"]];
     _invoiceView.accountField.text = [self isNull:dic[@"bankAccNumb"]];
+    isDefault = [dic[@"defaultFlag"] isEqualToString:@"0"];
 }
 
 - (NSString *)isNull:(NSString *)str{
@@ -101,6 +102,9 @@
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [HudUtils showMessage:@"保存成功"];
+        if (_successBlock) {
+            _successBlock();
+        }
         [self.navigationController popViewControllerAnimated:YES];
     }];
     DZRequestParams *params = [DZRequestParams new];
@@ -118,6 +122,26 @@
     [manager setHandler: handler];
     [manager post];
 }
+/**
+ *  设置默认
+ **/
+//- (void)setDefault:(NSDictionary *)dic{
+//    DZResponseHandler *handler = [DZResponseHandler new];
+//    [handler setType:HZRequestManangerTypeBackground];
+//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+//        if (_successBlock) {
+//            _successBlock();
+//        }
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }];
+//    DZRequestParams *params = [DZRequestParams new];
+//    [params putString:[dic[@"id"] description] forKey:@"id"];
+//    DZRequestMananger *manager = [DZRequestMananger new];
+//    [manager setUrlString:[DZURLFactory invoiceDefault]];
+//    [manager setParams:[params dicParams]];
+//    [manager setHandler:handler];
+//    [manager post];
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

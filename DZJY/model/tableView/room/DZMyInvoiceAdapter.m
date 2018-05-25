@@ -38,9 +38,14 @@
 - (void)tapBtn:(NSInteger )integer cell:(DZMyInvoiceCell *)cell dic:(NSDictionary *)dic{
     DZAlertview *alertView = [DZAlertview new];
     DZMyInvoiceEditViewController *editController = [DZMyInvoiceEditViewController new];
+    [editController setSuccessBlock:^{
+        [self requestDedicateData:[dic[@"invoType"] description]];
+    }];
     switch (integer) {
         case 1:
-            [cell.editView setDefalut:NO];
+            if ([dic[@"defaultFlag"] isEqualToString:@"1"]) {
+                [self setDefault:dic];
+            }
             break;
         case 2:
             if ([dic[@"invoType"] isEqualToString:@"0"]) {
@@ -54,12 +59,65 @@
             [[self firstViewController].navigationController pushViewController:editController animated:YES];
             break;
         case 3:
-            [alertView showAlert:@"是否删除" controller:[self firstViewController] confirm:^{
-                
-            }];
+            {
+                [alertView showAlert:@"是否删除" controller:[self firstViewController] confirm:^{
+                    [self deleteData:dic];
+                }];
             break;
+            }
         default:
             break;
     }
 }
+/**
+ *  删除
+ **/
+- (void)deleteData:(NSDictionary *)dic{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [self requestDedicateData:[dic[@"invoType"] description]];
+        [HudUtils showMessage:@"删除成功"];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:[dic[@"id"] description] forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory invoiceDelete]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+}
+/**
+ *  设置默认
+ **/
+- (void)setDefault:(NSDictionary *)dic{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [self requestDedicateData:[dic[@"invoType"] description]];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:[dic[@"id"] description] forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory invoiceDefault]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+}
+/**
+ *  刷新数据
+ **/
+- (void)requestDedicateData:(NSString *)type{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [self reloadData:obj];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [params putString:type forKey:@"invoType"];
+    [manager setUrlString:[DZURLFactory invoiceList]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
+}
+
 @end

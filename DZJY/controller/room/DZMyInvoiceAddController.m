@@ -30,13 +30,14 @@
 }
 
 - (void)configHeader{
-    _invoiceView = [[DZMyInvoiceView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343)];
+    _invoiceView = [[DZMyInvoiceView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
+    _invoiceView.backV.height = 48 * 6;
     self.tableView.tableHeaderView = _invoiceView;
-    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 288, SCREEN_WIDTH - 14, 48)];
-    [_invoiceView.backV addSubview:_defaultView];
-    [_defaultView setOnBlock:^(BOOL isOn) {
-        isDefault = isOn;
-    }];
+//    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 288, SCREEN_WIDTH - 14, 48)];
+//    [_invoiceView.backV addSubview:_defaultView];
+//    [_defaultView setOnBlock:^(BOOL isOn) {
+//        isDefault = isOn;
+//    }];
 }
 - (void)configFooterBtn{
     UIView *backV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 43)];
@@ -84,12 +85,13 @@
         [HudUtils showMessage:@"请输入正确的手机号"];return;
     }
     DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [HudUtils showMessage:@"保存成功"];
         [self.navigationController popViewControllerAnimated:YES];
         if (_successBlock) {
             _successBlock();
         }
+        [HudUtils showMessage:@"保存成功"];
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:company forKey:@"compName"];

@@ -90,11 +90,11 @@
 - (void)addInvoice:(NSString*)title type:(NSString *)type{
     DZMyInvoiceAddController *addController = [[DZMyInvoiceAddController alloc]init];
     [addController setSuccessBlock:^{
-//        if ([type isEqualToString:@"0"]) {
-//            [self requestNormalData];
-//        }else if ([type isEqualToString:@"1"]){
-//            [self requestDedicateData];
-//        }
+        if ([type isEqualToString:@"0"]) {
+            [self requestNormalData];
+        }else if ([type isEqualToString:@"1"]){
+            [self requestDedicateData];
+        }
     }];
     addController.addTitle = title;
     addController.invoType = type;
