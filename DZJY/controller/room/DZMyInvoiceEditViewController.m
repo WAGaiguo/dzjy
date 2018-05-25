@@ -10,6 +10,7 @@
 #import "DZMyInvoiceView.h"
 #import "DZMyInvoiceSetDefaultView.h"
 #import "NSString+Common.h"
+#import "DZCommonSaveView.h"
 
 @interface DZMyInvoiceEditViewController (){
     DZMyInvoiceView *_invoiceView;
@@ -41,20 +42,12 @@
     }];
 }
 - (void)configFooterBtn{
-    UIView *backV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 43)];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(7, 0, SCREEN_WIDTH - 14, 43);
-    [btn setBackgroundImage:[UIImage imageNamed:@"导航条"] forState:UIControlStateNormal];
-    [btn setTitle:@"保存" forState:UIControlStateNormal];
-    [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
-    btn.layer.masksToBounds = YES;
-    btn.layer.cornerRadius = 5;
-    [btn bk_addEventHandler:^(id sender) {
+    DZCommonSaveView *saveV = [DZCommonSaveView new];
+    [saveV setSaveBlock:^{
         [self saveMessage];
-    } forControlEvents:UIControlEventTouchUpInside];
-    [backV addSubview:btn];
+    }];
     self.tableView.sectionFooterHeight = 7;
-    self.tableView.tableFooterView = backV;
+    self.tableView.tableFooterView = saveV;
 }
 - (void)setDic:(NSDictionary *)dic{
     _dic = dic;
@@ -100,6 +93,7 @@
     }
     
     DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [HudUtils showMessage:@"保存成功"];
         if (_successBlock) {
@@ -122,26 +116,6 @@
     [manager setHandler: handler];
     [manager post];
 }
-/**
- *  设置默认
- **/
-//- (void)setDefault:(NSDictionary *)dic{
-//    DZResponseHandler *handler = [DZResponseHandler new];
-//    [handler setType:HZRequestManangerTypeBackground];
-//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//        if (_successBlock) {
-//            _successBlock();
-//        }
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }];
-//    DZRequestParams *params = [DZRequestParams new];
-//    [params putString:[dic[@"id"] description] forKey:@"id"];
-//    DZRequestMananger *manager = [DZRequestMananger new];
-//    [manager setUrlString:[DZURLFactory invoiceDefault]];
-//    [manager setParams:[params dicParams]];
-//    [manager setHandler:handler];
-//    [manager post];
-//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

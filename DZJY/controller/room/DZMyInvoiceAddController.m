@@ -10,10 +10,11 @@
 #import "DZMyInvoiceView.h"
 #import "DZMyInvoiceSetDefaultView.h"
 #import "NSString+PDRegex.h"
+#import "DZCommonSaveView.h"
+
 @interface DZMyInvoiceAddController (){
     DZMyInvoiceView *_invoiceView;
     DZMyInvoiceSetDefaultView *_defaultView;
-    BOOL isDefault;
 }
 
 @end
@@ -33,30 +34,16 @@
     _invoiceView = [[DZMyInvoiceView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
     _invoiceView.backV.height = 48 * 6;
     self.tableView.tableHeaderView = _invoiceView;
-//    _defaultView = [[DZMyInvoiceSetDefaultView alloc]initWithFrame:CGRectMake(7, 288, SCREEN_WIDTH - 14, 48)];
-//    [_invoiceView.backV addSubview:_defaultView];
-//    [_defaultView setOnBlock:^(BOOL isOn) {
-//        isDefault = isOn;
-//    }];
 }
 - (void)configFooterBtn{
-    UIView *backV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 43)];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(7, 0, SCREEN_WIDTH - 14, 43);
-    [btn setBackgroundImage:[UIImage imageNamed:@"导航条"] forState:UIControlStateNormal];
-    [btn setTitle:@"保存" forState:UIControlStateNormal];
-    [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
-    btn.layer.masksToBounds = YES;
-    btn.layer.cornerRadius = 5;
-    [btn bk_addEventHandler:^(id sender) {
+    DZCommonSaveView *saveV = [DZCommonSaveView new];
+    [saveV setSaveBlock:^{
         [self saveMessage];
-    } forControlEvents:UIControlEventTouchUpInside];
-    [backV addSubview:btn];
+    }];
     self.tableView.sectionFooterHeight = 7;
-    self.tableView.tableFooterView = backV;
+    self.tableView.tableFooterView = saveV;
 }
 - (void)saveMessage{
-    [HudUtils showMessage:@"保存"];
     NSString *company = _invoiceView.companyField.text;
     NSString *address = _invoiceView.addressField.text;
     NSString *phone = _invoiceView.phoneField.text;
