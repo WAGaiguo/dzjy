@@ -32,6 +32,7 @@
     if (self) {
 
         [self afterView];
+        [self requestData];
     }
     return self;
 }
@@ -39,6 +40,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self afterView];
+        [self requestData];
     }
     return self;
 }
@@ -159,5 +161,16 @@
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
+}
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        NSLog(@"%@", obj);
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory getFileByName]];
+    [manager setHandler:handler];
+    [manager post];
 }
 @end

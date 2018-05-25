@@ -42,7 +42,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)homeList{
     return [self absulteString:@"/synth/searchApp"];
 }
-
++ (NSString *)getFileByName{
+    return [self absulteString:@"/getFileByName"];
+}
 + (NSString *)mobileUpdateFirst{
     return [self absulteString:@"/memb/w/mobile/update/byMobile"];
 }

@@ -10,4 +10,5 @@
 
 @interface DZTabBarViewController : UITabBarController<UITabBarControllerDelegate>
 - (void)setBadageValue: (NSString *)nums;
+- (void)setDecreaseBadageValue;
 @end

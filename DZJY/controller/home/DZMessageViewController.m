@@ -16,6 +16,7 @@
     DZMessageNilView *nilView;
     DZMessageSearchView *searchView;
     DZMessageAdapter *_adapter;
+    NSInteger currentPageNo;
 }
 @end
 
@@ -23,16 +24,17 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    currentPageNo = 1;
     [self setTitle:@"站内信"];
     [self setHeaderBackGroud:YES];
 //    [self configSearchView];
     [self configAdapter];
-    [self reqeustData];
-    
-    DZTabBarViewController *tabbarV =(DZTabBarViewController *) self.parentViewController;
-    [tabbarV setBadageValue:@"20"];
+    [self reqeustData:currentPageNo pageSize:20];
+    [self addInfinite];
+
 }
 
+// 增加搜索按钮
 - (void)configSearchView{
     searchView = [[DZMessageSearchView alloc]init];
     [self.tableView setTableHeaderView:searchView];
@@ -61,26 +63,43 @@
     nilView = nil;
 }
 
-- (void)reqeustData{
+- (void)reqeustData:(NSInteger)pageNo pageSize:(NSInteger)pageSize{
+    NSLog(@"pageNo::: %ld", pageNo);
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [self modelData:[obj objectForKey:@"list"]];
-        if ([[obj objectForKey:@"list"] count] == 0) {
-            [self configNilView];
+        if (currentPageNo == 1) {
+            [self modelData:[obj objectForKey:@"list"] pageNo:pageNo];
+            if ([[obj objectForKey:@"list"] count] == 0) {
+                [self configNilView];
+            }else{
+                if (nilView != nil) {
+                    [self removeNilView];
+                }
+            }
         }else{
-            if (nilView != nil) {
-                [self removeNilView];
+            [self modelData:[obj objectForKey:@"list"] pageNo:pageNo];
+            [self stopInfinite];
+            if ([[obj objectForKey:@"list"] count] < pageSize) {
+                [self addNoMoreData];
             }
         }
     }];
-    DZRequestParams *params = [DZRequestParams new];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [self stopInfinite];
+    }];
+    NSDictionary *pageInfo = @{@"pageNo":@(pageNo), @"pageSize":@(pageSize)};
+    NSDictionary *pageIn = @{@"pageInfo": pageInfo};
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory messageList]];
-    [manager setParams:[params params]];
+    [manager setParams:pageIn];
     [manager setHandler:handler];
     [manager post];
 }
-- (void)modelData:(NSArray *)data{
+- (void)Infinite{
+    currentPageNo++;
+    [self reqeustData:currentPageNo pageSize:20];
+}
+- (void)modelData:(NSArray *)data pageNo:(NSInteger)pageNo{
     NSMutableArray *dataArr = [NSMutableArray array];
     [data enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DZMessageModel *model = [DZMessageModel new];
@@ -93,6 +112,10 @@
         [model hightForContent:model.content]; // 设置height高度
         [dataArr addObject:model];
     }];
-    [_adapter reloadData:dataArr];
+    if (pageNo == 1) {
+        [_adapter reloadData:dataArr];
+    }else{
+        [_adapter appendData:dataArr];
+    }
 }
 @end

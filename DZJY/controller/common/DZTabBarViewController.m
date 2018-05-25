@@ -58,6 +58,12 @@
         _messageViewController.tabBarItem.badgeValue = nil;
     }
 }
+- (void)setDecreaseBadageValue{
+    if (_messageViewController.tabBarItem.badgeValue != nil) {
+        NSInteger currentNums = [_messageViewController.tabBarItem.badgeValue integerValue];
+        _messageViewController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", currentNums - 1];
+    }
+}
 
 // 处理点击其它 item 返回自定义事件
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{

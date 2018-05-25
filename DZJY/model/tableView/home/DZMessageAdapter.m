@@ -8,6 +8,7 @@
 
 #import "DZMessageAdapter.h"
 #import "DZMessageCell.h"
+#import "DZTabBarViewController.h"
 
 @implementation DZMessageAdapter
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -48,6 +49,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DZMessageModel *model = self.dataSource[indexPath.row];
+   
     model.isFolder = ! model.isFolder;
     if (model.isFolder) {
         DZMessageCell2 *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -57,6 +59,28 @@
         [cell setIsFolder: model.isFolder];
     }
     [tableView reloadData];
+    if (model.isFolder) {
+        if ([model.readFlag isEqualToString:@"1"]) {
+            [self requestData:model];
+        }
+    }
+}
+- (void)requestData:(DZMessageModel *)model{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        model.readFlag = @"0";
+        [self.view reloadData];
+        DZTabBarViewController *tabbarV =(DZTabBarViewController *) [self firstViewController].parentViewController;
+        [tabbarV setDecreaseBadageValue];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:model.id forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory messageUpdate]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
 }
 @end
 
