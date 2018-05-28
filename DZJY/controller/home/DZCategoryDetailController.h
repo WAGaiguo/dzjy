@@ -9,5 +9,6 @@
 #import "DZTableViewController.h"
 
 @interface DZCategoryDetailController : DZTableViewController
-
+@property (nonatomic, strong)NSString *thirdId;
+@property (nonatomic, strong)NSString *navTitle;
 @end

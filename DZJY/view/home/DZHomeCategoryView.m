@@ -34,7 +34,6 @@
     if (self) {
 
         [self afterView];
-        [self requestData];
     }
     return self;
 }
@@ -42,14 +41,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self afterView];
-//        [self requestData];
     }
     return self;
 }
 - (void)afterView{
     // 初始化赋值
-    _firstName = @"水果";
-    _firstId = @"id";
+//    _firstName = @"水果";
+//    _firstId = @"id";
     
     [self configLeftTable];
     [self configCollection];
@@ -177,23 +175,25 @@
     [_adapter reloadData:_dataSource];
     _collectionData = [[_dataSource firstObject] objectForKey:@"children"];
     [_collectionV reloadData];
+    _firstName = [[_dataSource firstObject] objectForKey:@"name"];
+    _firstId = [[_dataSource firstObject] objectForKey:@"pid"];
 }
-- (void)requestData{
-    DZResponseHandler *handler = [DZResponseHandler new];
-    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [_adapter reloadData:obj];
-        self.dataSource = obj;
-        _collectionData = [[self.dataSource objectAtIndex:0] objectForKey:@"children"];
-        [_collectionV reloadData];
-    }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-        NSLog(@"---失败---");
-    }];
-    DZRequestParams *params = [DZRequestParams new];
-    DZRequestMananger *manager = [DZRequestMananger new];
-    [manager setUrlString:[DZURLFactory getFileByName]];
-    [manager setParams:[params dicParams]];
-    [manager setHandler:handler];
-    [manager post];
-}
+//- (void)requestData{
+//    DZResponseHandler *handler = [DZResponseHandler new];
+//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+//        [_adapter reloadData:obj];
+//        self.dataSource = obj;
+//        _collectionData = [[self.dataSource objectAtIndex:0] objectForKey:@"children"];
+//        [_collectionV reloadData];
+//    }];
+//    [handler setDidFailed:^(DZRequestMananger *manager) {
+//        NSLog(@"---失败---");
+//    }];
+//    DZRequestParams *params = [DZRequestParams new];
+//    DZRequestMananger *manager = [DZRequestMananger new];
+//    [manager setUrlString:[DZURLFactory getFileByName]];
+//    [manager setParams:[params dicParams]];
+//    [manager setHandler:handler];
+//    [manager post];
+//}
 @end

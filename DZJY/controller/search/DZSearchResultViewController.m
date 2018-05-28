@@ -87,6 +87,7 @@
     [self setHasRightBtn:YES];
     [self.titleView.rightView setTitle:@"取消" forState:UIControlStateNormal];
 }
+// *** 横向三个选择 ***
 - (void)configItemView{
     _itemView = [[DZCategoryFirstItemView alloc]initWithFrame:CGRectMake(0, DZ_TOP, SCREEN_WIDTH, 43)];
     if (_categoryTitle != nil){
@@ -143,13 +144,22 @@
     }];
     WEAK_SELF
     [_categoryView setTapAllBlock:^(NSString *cid, NSString *title) {
-        [HudUtils showMessage:title];
+        me.itemView.titleLabel.text = [NSString stringWithFormat:@"全部%@", title];
+        _commFirstId = cid;
+        [me requestFirstData];
+        [me tapItem:0];
     }];
     [_categoryView setTapHeaderBlock:^(NSString *cid, NSString *title) {
-        [HudUtils showMessage:title];
+        me.itemView.titleLabel.text = title;
+        me.commCateSecondId = cid;
+        [me requestFirstData];
+        [me tapItem:0];
     }];
     [_categoryView setTapItemBlock:^(NSString *cid, NSString *title) {
-        [HudUtils showMessage:title];
+        DZCategoryDetailController *detail = [DZCategoryDetailController new];
+        detail.thirdId = cid;
+        detail.navTitle = title;
+        [me.navigationController pushViewController:detail animated:YES];
     }];
 }
 - (void)tapItem:(NSInteger)index{

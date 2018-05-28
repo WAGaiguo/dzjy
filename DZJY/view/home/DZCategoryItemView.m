@@ -13,6 +13,7 @@
     DZCategoryItemSelectView *_varietyView;
     DZCategoryItemSelectView *_specificationView;
     DZCategoryItemSelectView *_areaView;
+    UIImageView *sortImageV;
 }
 @end
 
@@ -33,22 +34,27 @@
     _titleLabel.text = @"白菜";
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_titleLabel];
+    _titleLabel.userInteractionEnabled = YES;
+    
     {
         _varietyView = [[DZCategoryItemSelectView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/5.0, 0, SCREEN_WIDTH/5.0 + 10, 43)];
         _varietyView.titleLabel.text = @"品种";
         [self addSubview:_varietyView];
     }
+    
     {
         _specificationView = [[DZCategoryItemSelectView alloc]initWithFrame:CGRectMake(itemWidth * 2 + 10, 0, itemWidth + 10, 43)];
         _specificationView.titleLabel.text = @"规格";
         [self addSubview:_specificationView];
     }
+    
     {
         _areaView = [[DZCategoryItemSelectView alloc]initWithFrame:CGRectMake(itemWidth * 3 + 20, 0, itemWidth + 10, 43)];
         _areaView.titleLabel.text = @"全国";
         [self addSubview:_areaView];
     }
-    UIImageView *sortImageV = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth * 4 + 30, 0, itemWidth - 30, 43)];
+    
+    sortImageV = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth * 4 + 30, 0, itemWidth - 30, 43)];
     sortImageV.contentMode = UIViewContentModeCenter;
     sortImageV.image = [UIImage imageNamed:@"排序"];
     sortImageV.tag = 10;
@@ -67,6 +73,9 @@
     [sortImageV bk_whenTapped:^{
         [self setSelectItem:3];
     }];
+    [_titleLabel bk_whenTapped:^{
+        [self setSelectItem:-1];
+    }];
     
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 43 - ONE_PIXEL, SCREEN_WIDTH, ONE_PIXEL)];
     lineView.backgroundColor = UISeperatorColor;
@@ -82,22 +91,36 @@
             [_varietyView setIsSelected:YES];
             [_specificationView setIsSelected:NO];
             [_areaView setIsSelected:NO];
+            sortImageV.image = [UIImage imageNamed:@"排序"];
+            [_titleLabel setTextColor:RGBCOLOR(153, 153, 153)];
             break;
         case 1:
             [_varietyView setIsSelected:NO];
             [_specificationView setIsSelected:YES];
             [_areaView setIsSelected:NO];
+            sortImageV.image = [UIImage imageNamed:@"排序"];
+            [_titleLabel setTextColor:RGBCOLOR(153, 153, 153)];
             break;
         case 2:
             [_varietyView setIsSelected:NO];
             [_specificationView setIsSelected:NO];
             [_areaView setIsSelected:YES];
+            sortImageV.image = [UIImage imageNamed:@"排序"];
+            [_titleLabel setTextColor:RGBCOLOR(153, 153, 153)];
             break;
         case 3:
             [_varietyView setIsSelected:NO];
             [_specificationView setIsSelected:NO];
             [_areaView setIsSelected:NO];
+            sortImageV.image = [UIImage imageNamed:@"排序-1"];
+            [_titleLabel setTextColor:RGBCOLOR(153, 153, 153)];
             break;
+        case -1:
+            [_varietyView setIsSelected:NO];
+            [_specificationView setIsSelected:NO];
+            [_areaView setIsSelected:NO];
+            sortImageV.image = [UIImage imageNamed:@"排序"];
+            [_titleLabel setTextColor:UICommonColor];
             
         default:
             break;
@@ -109,6 +132,15 @@
     if (selected) {
         sortImage.image = [UIImage imageNamed:@""];
     }
+}
+- (void)setVarityTitle:(NSString *)title{
+    _varietyView.titleLabel.text = title;
+}
+- (void)setSpecificationTitle:(NSString *)title{
+    _specificationView.titleLabel.text = title;
+}
+- (void)setCityTitle:(NSString *)title{
+    _areaView.titleLabel.text = title;
 }
 @end
 

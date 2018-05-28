@@ -11,6 +11,9 @@
 @interface DZCategoryItemView : UIView
 @property (nonatomic, strong)UILabel *titleLabel;
 @property (nonatomic, copy)void (^selectIndex)(NSInteger );
+- (void)setVarityTitle:(NSString *)title;
+- (void)setSpecificationTitle:(NSString *)title;
+- (void)setCityTitle:(NSString *)title;
 @end
 
 
