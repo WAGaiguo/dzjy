@@ -36,6 +36,8 @@
     
     NSString *checkArea;
     NSString *orderBy;
+    BOOL isFirstLoadCategory;
+    NSMutableArray *categoryData;
 }
 @property (nonatomic, strong)DZCategoryFirstItemView *itemView;
 @end
@@ -46,6 +48,8 @@
     [super viewDidLoad];
     [self formateStr];
     currentTag = 88;
+    isFirstLoadCategory = YES;
+//    categoryData = [NSMutableArray array];
     [self setHeaderBackGroud:YES];
     [self setBackEnabled:YES];
     [self makeRightBtn];
@@ -167,6 +171,7 @@
         _cityView = nil;
         [_itemView setselectCategory];
         [self configCategory];
+        [self requestCategoryData];
     }
     else if (index == 1) {
         [_sortView setSelfHide];
@@ -255,7 +260,26 @@
     currentPage = currentPage + 1;
     [self getSearchData:currentPage pageSize:30];
 }
-
+- (void)requestCategoryData{
+    if (isFirstLoadCategory) {
+        DZResponseHandler *handler = [DZResponseHandler new];
+        [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+            categoryData = [NSMutableArray arrayWithArray:obj];
+            [_categoryView setDataSource:categoryData];
+            isFirstLoadCategory = NO;
+        }];
+        DZRequestParams *params = [DZRequestParams new];
+        DZRequestMananger *manager = [DZRequestMananger new];
+        [manager setUrlString:[DZURLFactory getFileByName]];
+        [manager setParams:[params dicParams]];
+        [manager setHandler:handler];
+        [manager post];
+    }else{
+        if (categoryData != nil) {
+            [_categoryView setDataSource:categoryData];
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

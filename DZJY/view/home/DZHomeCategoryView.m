@@ -42,7 +42,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self afterView];
-        [self requestData];
+//        [self requestData];
     }
     return self;
 }
@@ -172,12 +172,18 @@
         [self removeFromSuperview];
     }];
 }
+- (void)setDataSource:(NSArray *)dataSource{
+    _dataSource = dataSource;
+    [_adapter reloadData:_dataSource];
+    _collectionData = [[_dataSource firstObject] objectForKey:@"children"];
+    [_collectionV reloadData];
+}
 - (void)requestData{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [_adapter reloadData:obj];
         self.dataSource = obj;
-        _collectionData = [[obj objectAtIndex:0] objectForKey:@"children"];
+        _collectionData = [[self.dataSource objectAtIndex:0] objectForKey:@"children"];
         [_collectionV reloadData];
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
