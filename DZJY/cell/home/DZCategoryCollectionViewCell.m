@@ -23,6 +23,13 @@
     }
     return self;
 }
+-(void)setContent:(NSDictionary *)dic{
+    [_titleBtn setTitle:[dic[@"name"] description] forState:UIControlStateNormal];
+    _cid = [dic[@"id"] description];
+    
+    CGFloat len = [dic[@"name"] description].length;
+    _titleBtn.width = len * 13 + 30;
+}
 @end
 
 @implementation DZCategoryCollectionReusableView
@@ -41,5 +48,9 @@
         }];
     }
     return self;
+}
+- (void)setContent:(NSDictionary *)dic{
+    _titleLabel.text = [dic[@"name"] description];
+    _cid = [dic[@"id"] description];
 }
 @end

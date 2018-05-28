@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
     return [self.dataSource count];
 }
 
@@ -27,7 +26,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
-//    cell.titleLabel.text = @"蔬菜";
+    [cell setContent:self.dataSource[indexPath.row]];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

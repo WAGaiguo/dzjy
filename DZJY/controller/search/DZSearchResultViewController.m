@@ -19,6 +19,7 @@
 #import "DZHomeAdapter.h"
 #import "DZHomeCategoryView.h"
 #import "NSString+Common.h"
+#import "DZCategoryDetailController.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 

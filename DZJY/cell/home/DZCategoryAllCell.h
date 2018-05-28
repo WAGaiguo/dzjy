@@ -12,4 +12,5 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) NSString *cid;
 @property (nonatomic, assign) BOOL isSelected;
+- (void)setContent:(NSDictionary *)dic;
 @end

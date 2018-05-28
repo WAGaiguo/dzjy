@@ -52,4 +52,9 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)setContent:(NSDictionary *)dic{
+    _titleLabel.text = [dic[@"name"] description];
+    _cid = [dic[@"id"] description];
+}
+
 @end
