@@ -7,13 +7,14 @@
 //
 
 #import "DZCategoryCollectionViewCell.h"
+#import "UIImage+resize.h"
 
 @implementation DZCategoryCollectionViewCell
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         _titleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_titleBtn setBackgroundImage:[UIImage imageNamed:@"框框"] forState:UIControlStateNormal];
+        [_titleBtn setBackgroundImage:[UIImage resizableImage] forState:UIControlStateNormal];
         _titleBtn.frame = CGRectMake(0, 0, 64, 32);
         [_titleBtn setTitle:@"娃娃鱼" forState:UIControlStateNormal];
         [_titleBtn setTitleColor:RGBCOLOR(51, 51, 51) forState:UIControlStateNormal];
