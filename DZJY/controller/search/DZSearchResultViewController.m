@@ -37,9 +37,10 @@
     NSString *checkArea;
     NSString *orderBy;
     BOOL isFirstLoadCategory;
-    NSMutableArray *categoryData;
+    
 }
 @property (nonatomic, strong)DZCategoryFirstItemView *itemView;
+@property (nonatomic, strong)NSMutableArray *categoryData;
 @end
 
 @implementation DZSearchResultViewController
@@ -146,19 +147,24 @@
     [_categoryView setTapAllBlock:^(NSString *cid, NSString *title) {
         me.itemView.titleLabel.text = [NSString stringWithFormat:@"全部%@", title];
         _commFirstId = cid;
+        _commCateSecondId = @"";
         [me requestFirstData];
         [me tapItem:0];
     }];
     [_categoryView setTapHeaderBlock:^(NSString *cid, NSString *title) {
         me.itemView.titleLabel.text = title;
+        _commFirstId = @"";
         me.commCateSecondId = cid;
         [me requestFirstData];
         [me tapItem:0];
     }];
-    [_categoryView setTapItemBlock:^(NSString *cid, NSString *title) {
+    [_categoryView setTapItemBlock:^(NSString *cid, NSString *title, NSArray *verityData) {
         DZCategoryDetailController *detail = [DZCategoryDetailController new];
         detail.thirdId = cid;
         detail.navTitle = title;
+        detail.categoryDataArr = me.categoryData;
+        detail.searchTitle = me.searchTitle;
+        detail.varietyDataArr = verityData;
         [me.navigationController pushViewController:detail animated:YES];
     }];
 }
@@ -247,6 +253,9 @@
             [self addNoMoreData];
         }
     }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        NSLog(@"------失败------");
+    }];
     DZRequestParams *params = [DZRequestParams new];
     [params putInteger:pageNo forKey:@"pageNo"];
     [params putInteger:pageSize forKey:@"pageSize"];
@@ -274,8 +283,8 @@
     if (isFirstLoadCategory) {
         DZResponseHandler *handler = [DZResponseHandler new];
         [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-            categoryData = [NSMutableArray arrayWithArray:obj];
-            [_categoryView setDataSource:categoryData];
+            _categoryData = [NSMutableArray arrayWithArray:obj];
+            [_categoryView setDataSource:_categoryData];
             isFirstLoadCategory = NO;
         }];
         DZRequestParams *params = [DZRequestParams new];
@@ -285,8 +294,8 @@
         [manager setHandler:handler];
         [manager post];
     }else{
-        if (categoryData != nil) {
-            [_categoryView setDataSource:categoryData];
+        if (_categoryData != nil) {
+            [_categoryView setDataSource:_categoryData];
         }
     }
 }

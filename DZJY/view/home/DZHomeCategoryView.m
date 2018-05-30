@@ -159,8 +159,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     DZCategoryCollectionViewCell *cell = (DZCategoryCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    NSDictionary *dicItem = [_collectionData[indexPath.section][@"children"] objectAtIndex:indexPath.item];
     if (_tapItemBlock) {
-        _tapItemBlock(cell.cid, cell.titleBtn.titleLabel.text);
+        _tapItemBlock(cell.cid, cell.titleBtn.titleLabel.text, dicItem[@"commVarietList"]);
     }
 }
 - (void)removeSelfFromSuperview{
@@ -176,24 +177,6 @@
     _collectionData = [[_dataSource firstObject] objectForKey:@"children"];
     [_collectionV reloadData];
     _firstName = [[_dataSource firstObject] objectForKey:@"name"];
-    _firstId = [[_dataSource firstObject] objectForKey:@"pid"];
+    _firstId = [[_dataSource firstObject] objectForKey:@"id"];
 }
-//- (void)requestData{
-//    DZResponseHandler *handler = [DZResponseHandler new];
-//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//        [_adapter reloadData:obj];
-//        self.dataSource = obj;
-//        _collectionData = [[self.dataSource objectAtIndex:0] objectForKey:@"children"];
-//        [_collectionV reloadData];
-//    }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
-//        NSLog(@"---失败---");
-//    }];
-//    DZRequestParams *params = [DZRequestParams new];
-//    DZRequestMananger *manager = [DZRequestMananger new];
-//    [manager setUrlString:[DZURLFactory getFileByName]];
-//    [manager setParams:[params dicParams]];
-//    [manager setHandler:handler];
-//    [manager post];
-//}
 @end

@@ -76,22 +76,25 @@
     _itemView = [[DZHomeItemView alloc]initWithFrame:CGRectMake(7, 127, SCREEN_WIDTH - 14, 206)];
     WEAK_SELF
     [_itemView setSelectIndex:^(NSIndexPath *indexPath) {
+        if (![[DZUserManager manager] isLogined]) {
+            [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return ;
+        }
         DZSearchResultViewController *searchResult = [DZSearchResultViewController new];
         if (indexPath.item == 0){
-            [me.navigationController pushViewController:[[DZOrderFinishController alloc]init] animated:YES];
-            return ;
+            searchResult.categoryTitle = @"茄果菜类";
+            searchResult.commCateSecondId = @"500283373999563365";
         }
         if (indexPath.item == 1){
             searchResult.categoryTitle = @"瓜果类";
-            searchResult.commCateSecondId = @"";
+            searchResult.commCateSecondId = @"4413840363314912797";
         }
         if (indexPath.item == 2){
             searchResult.categoryTitle = @"叶菜类";
-            searchResult.commCateSecondId = @"";
+            searchResult.commCateSecondId = @"500283373999563363";
         }
         if (indexPath.item == 3) {
             searchResult.categoryTitle = @"甘蓝类";
-            searchResult.commCateSecondId = @"";
+            searchResult.commCateSecondId = @"500283373999563361";
         }
         else if (indexPath.item == 4) {
             searchResult.categoryTitle = @"根茎菜类";

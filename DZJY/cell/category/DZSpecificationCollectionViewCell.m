@@ -8,6 +8,7 @@
 
 #import "DZSpecificationCollectionViewCell.h"
 #import "UIImage+resize.h"
+#import "DZSpecificationView.h"
 
 @implementation DZSpecificationCollectionViewCell
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -28,9 +29,19 @@
 - (void)setIsSelected:(BOOL)isSelected{
     _isSelected = isSelected;
     if (_isSelected) {
-        
+        [_titleBtn setTitleColor:UICommonColor forState:UIControlStateNormal];
     }else{
-        
+        [_titleBtn setTitleColor:RGBCOLOR(51, 51, 51) forState:UIControlStateNormal];
+    }
+}
+- (void)setContentModel:(DZSpecificationModel *)model indexPath:(NSIndexPath *)indexPath{
+    NSString *index = [NSString stringWithFormat:@"%ld", indexPath.item + 1];
+    [_titleBtn setTitle:model.dictTaxt[index] forState:UIControlStateNormal];
+    NSLog(@"%ld", model.currentIndex);
+    if (model.currentIndex == indexPath.item) {
+        [self setIsSelected:YES];
+    }else{
+        [self setIsSelected:NO];
     }
 }
 @end

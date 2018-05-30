@@ -10,7 +10,7 @@
 
 @interface DZHomeCategoryView : UIView
 @property (nonatomic, strong)NSArray *dataSource;
-@property (nonatomic, copy)void (^tapItemBlock)(NSString *cid, NSString *title);
+@property (nonatomic, copy)void (^tapItemBlock)(NSString *cid, NSString *title, NSArray *commVarietList);
 @property (nonatomic, copy)void (^tapHeaderBlock)(NSString *cid, NSString *title);
 @property (nonatomic, copy)void (^tapAllBlock)(NSString *cid, NSString *title);
 - (void)removeSelfFromSuperview;

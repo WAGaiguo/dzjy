@@ -63,12 +63,16 @@
 - (void)callOnSuccess:(NSData *)responseData request:(DZRequestMananger *)request{
     NSError *jsonError;
     id object = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&jsonError];
-//    NSLog(@"***---%@---***", object);
     if (jsonError != nil) {
         [self requestFailed:request error:jsonError];
         return;
     }
-    NSInteger errorCode = [[object objectForKey:@"code"] integerValue];
+    NSInteger errorCode;
+    if (!_willParsedDataContainsDataKey) { // 添加只返回结果处理 不包含code msg result
+        errorCode = [[object objectForKey:@"code"] integerValue];
+    }else{
+        errorCode = 0;
+    }
     if (errorCode == 0) {
         if (!_willParsedDataContainsDataKey) {
             object = [object objectForKey:@"result"];

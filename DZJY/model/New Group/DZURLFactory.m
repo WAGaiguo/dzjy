@@ -208,6 +208,9 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)search{
     return [self absulteString:@"/synth/w/listingInformation/search"];
 }
++ (NSString *)searchSpecification{
+    return [self absulteString:@"/conf/attribute/set/forGidList"];
+}
 
 
 @end

@@ -11,4 +11,9 @@
 @interface DZCategoryDetailController : DZTableViewController
 @property (nonatomic, strong)NSString *thirdId;
 @property (nonatomic, strong)NSString *navTitle;
+@property (nonatomic, strong)NSString *searchTitle;
+// 上级菜单传过来的分类数据源
+@property (nonatomic, strong)NSArray *categoryDataArr;
+// 品种数据源
+@property (nonatomic, strong)NSArray *varietyDataArr;
 @end

@@ -55,6 +55,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DZVarietyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"mineCell" forIndexPath:indexPath];
+    NSDictionary *dic = _dataSource[indexPath.row];
+    [cell.titleBtn setTitle:[dic[@"variName"] description] forState:UIControlStateNormal];
+    cell.titleId = [dic[@"id"] description];
     return cell;
 }
 
@@ -67,17 +70,25 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dic = _dataSource[indexPath.row];
     if (_selectIndex) {
-        _selectIndex(indexPath);
+        _selectIndex([dic[@"variName"] description], [dic[@"id"] description]);
     }
+}
+
+// *** 数据处理 ***
+- (void)setDataSource:(NSArray *)dataSource{
+    _dataSource = dataSource;
+    [_collectionV reloadData];
 }
 
 - (void)setAnimation{
     self.hidden = NO;
     _collectionV.height = 0;
+    CGFloat height = ((_dataSource.count / 3 + 1) * 40 + 40) > ((SCREEN_HEIGHT - DZ_TOP - 44) * 7 / 10 ) ? (SCREEN_HEIGHT - DZ_TOP - 44) * 7 / 10  : ((_dataSource.count / 3 + 1) * 40 + 40);
     [UIView animateWithDuration:0.33 animations:^{
         self.alpha = 1;
-        _collectionV.height = (_dataSource.count / 3 + 1) * 40 + 40;
+        _collectionV.height = height;
     }];
 }
 - (void)setSelfHide{

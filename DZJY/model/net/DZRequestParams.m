@@ -36,6 +36,7 @@
 - (void)putObject:(NSObject *)value forKey:(NSString *)key{
     [self putString:[value description] forKey:key];
 }
+
 - (NSDictionary *)params{
     if ([[DZUserManager manager] isLogined]) {
         if ([[[DZUserManager manager] user].parentId isBlankString]) {

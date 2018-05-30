@@ -32,12 +32,12 @@
     topLabel.text = @"抱歉，未能找到您搜索的商品";
     [self addSubview:topLabel];
     
-    UILabel *bottomLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, topLabel.bottom + 9, SCREEN_WIDTH, 15)];
-    bottomLabel.textAlignment = NSTextAlignmentCenter;
-    bottomLabel.textColor = RGBCOLOR(153, 153, 153);
-    bottomLabel.font = [UIFont systemFontOfSize:12];
-    bottomLabel.text = @"换一个商品关键词试试吧";
-    [self addSubview:bottomLabel];
+//    UILabel *bottomLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, topLabel.bottom + 9, SCREEN_WIDTH, 15)];
+//    bottomLabel.textAlignment = NSTextAlignmentCenter;
+//    bottomLabel.textColor = RGBCOLOR(153, 153, 153);
+//    bottomLabel.font = [UIFont systemFontOfSize:12];
+//    bottomLabel.text = @"换一个商品关键词试试吧";
+//    [self addSubview:bottomLabel];
 }
 -(instancetype)initWithFrame:(CGRect)frame fatherView:(UIView *)fatherView{
     self = [super initWithFrame:frame];

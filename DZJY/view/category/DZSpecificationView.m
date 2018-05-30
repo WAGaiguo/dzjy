@@ -15,6 +15,9 @@
     UIView *_backView;
     UIButton *cancelBtn;
     UIButton *sureBtn;
+    NSMutableArray *_commSetAttrildArr;
+    NSMutableArray *_commAttrildArr;
+    NSMutableArray *_commAttribtValArr;
 }
 @end
 
@@ -38,6 +41,10 @@
         self.alpha = 0;
         self.hidden = YES;
         [self configTwoBtn];
+        
+        _commAttrildArr = [NSMutableArray array];
+        _commSetAttrildArr = [NSMutableArray array];
+        _commAttribtValArr = [NSMutableArray array];
     }
     return self;
 }
@@ -89,16 +96,21 @@
 #pragma collectionV delegate and dataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DZSpecificationCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"mineCell" forIndexPath:indexPath];
+    DZSpecificationModel *model = self.dataSource[indexPath.section];
+    [cell setContentModel:model indexPath:indexPath];
     return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     DZCommenCollectionHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"view" forIndexPath:indexPath];
+    DZSpecificationModel *model = self.dataSource[indexPath.section];
+    view.titleLabel.text = model.commAttribtName;
     return view;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [_dataSource[section] count];
+    DZSpecificationModel *model = _dataSource[section];
+    return [model.dictTaxt count]   ;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -110,9 +122,19 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (_selectIndex) {
-        _selectIndex(indexPath);
+    DZSpecificationModel *model = self.dataSource[indexPath.section];
+    model.currentIndex = indexPath.item;
+    [_collectionV reloadData];
+    
+    if (model.currentSection == -1) {
+        [_commSetAttrildArr addObject:model.attribtId];
+        [_commAttrildArr addObject:model.id];
+        [_commAttribtValArr addObject:@(indexPath.item + 1)];
+        model.currentSection = [_commAttribtValArr count] - 1;
+    }else{
+        _commAttribtValArr[model.currentSection] = @(indexPath.item + 1);
     }
+
 }
 
 - (void)setAnimation{
@@ -140,8 +162,22 @@
 }
 
 - (void)tapSure{
-    [HudUtils showMessage:@"确定"];
+    if (_selectBlock) {
+        _selectBlock(_commSetAttrildArr, _commAttrildArr, _commAttribtValArr);
+        [_commSetAttrildArr removeAllObjects];
+        [_commAttrildArr removeAllObjects];
+        [_commAttribtValArr removeAllObjects];
+    }
     [self setSelfHide];
 }
+
+- (void)setDataSource:(NSArray *)dataSource{
+    _dataSource = dataSource;
+    [_collectionV reloadData];
+}
+
+@end
+
+@implementation DZSpecificationModel
 
 @end

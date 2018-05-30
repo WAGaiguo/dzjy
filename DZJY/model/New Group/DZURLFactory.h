@@ -85,7 +85,7 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 // 订单
 + (NSString *)orderList;
 + (NSString *)orderDetail;
-+ (NSString *)orderGet; //订单加载
++ (NSString *)orderGet;     //订单加载
 + (NSString *)orderConfirm; //确认订单
 + (NSString *)orderSubmit; //提交订单
 + (NSString *)orderCheck; //订单查看
@@ -96,6 +96,8 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)boughtDetail;
 + (NSString *)boughtNums;
 
+// 搜索相关
 + (NSString *)search;
++ (NSString *)searchSpecification; //规格属性筛选
 
 @end

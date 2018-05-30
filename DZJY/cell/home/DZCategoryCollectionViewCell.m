@@ -52,6 +52,6 @@
 }
 - (void)setContent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"name"] description];
-    _cid = [dic[@"pid"] description];
+    _cid = [dic[@"id"] description];
 }
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class DZSpecificationModel;
 @interface DZSpecificationCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIButton *titleBtn;
 @property (nonatomic, assign) BOOL isSelected;
+- (void)setContentModel:(DZSpecificationModel *)model indexPath:(NSIndexPath *)indexPath;
 @end

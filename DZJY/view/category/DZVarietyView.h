@@ -10,7 +10,7 @@
 
 @interface DZVarietyView : UIView
 
-@property (nonatomic, copy)void (^selectIndex)(NSIndexPath *);
+@property (nonatomic, copy)void (^selectIndex)(NSString *title, NSString *titleId);
 @property (nonatomic, strong)NSArray *dataSource;
 - (void)setAnimation;
 - (void)setSelfHide;
