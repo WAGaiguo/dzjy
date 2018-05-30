@@ -29,11 +29,24 @@
     [self setHeaderBackGroud:YES];
 //    [self configSearchView];
     [self configAdapter];
-    [self reqeustData:currentPageNo pageSize:20];
-    [self addInfinite];
+//    [self reqeustData:currentPageNo pageSize:20];
+//    [self addInfinite];
 
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    static BOOL isFirst = YES;
+    if ([[DZUserManager manager] isLogined]) {
+        if (isFirst) {
+            [self reqeustData:currentPageNo pageSize:20];
+            isFirst = NO;
+            [self addInfinite];
+        }
+    }else{
+        isFirst = YES;
+        [self addNoMoreData];
+    }
+}
 // 增加搜索按钮
 - (void)configSearchView{
     searchView = [[DZMessageSearchView alloc]init];
