@@ -24,7 +24,6 @@
     DZResponseHandler *handler = [DZResponseHandler new];
     handler.type = HZRequestManangerTypeBackground;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        NSLog(@"%@", obj);
         if (obj != nil) {
             [_dataDic setObject:obj forKey:@"1"];
         }

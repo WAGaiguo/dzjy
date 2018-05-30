@@ -105,7 +105,6 @@
     [params putString:address forKey:@"address"];
     [params putString:contactName forKey:@"contactName"];
     [params putString:mobile forKey:@"mobile"];
-    NSLog(@"%@--%@--%@", compAreaProvs, compAreaCitys, compAreaDists);
     [params putString:compAreaProvs forKey:@"compAreaProv"];
     [params putString:compAreaCitys forKey:@"compAreaCity"];
     [params putString:compAreaDists forKey:@"compAreaDist"];

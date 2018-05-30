@@ -37,7 +37,6 @@
 - (void)setContentModel:(DZSpecificationModel *)model indexPath:(NSIndexPath *)indexPath{
     NSString *index = [NSString stringWithFormat:@"%ld", indexPath.item + 1];
     [_titleBtn setTitle:model.dictTaxt[index] forState:UIControlStateNormal];
-    NSLog(@"%ld", model.currentIndex);
     if (model.currentIndex == indexPath.item) {
         [self setIsSelected:YES];
     }else{

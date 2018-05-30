@@ -64,7 +64,6 @@
 }
 
 - (void)reqeustData:(NSInteger)pageNo pageSize:(NSInteger)pageSize{
-    NSLog(@"pageNo::: %ld", pageNo);
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         if (currentPageNo == 1) {

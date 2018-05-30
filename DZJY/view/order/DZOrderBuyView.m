@@ -104,7 +104,6 @@
     _numberButton.borderColor = UISeperatorColor;
     [_backContentV addSubview:_numberButton];
     [_numberButton setResultBlock:^(PPNumberButton *ppBtn, CGFloat number, BOOL increaseStatus) {
-        NSLog(@"%f",number);
     }];
     [_numberButton.textField setInputAccessoryView:[UIToolbar inputAccessoryView]];
     WEAK_SELF

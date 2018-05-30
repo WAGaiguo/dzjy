@@ -75,7 +75,6 @@
 }
 #pragma 数据初始化
 -(void)setDics:(NSDictionary *)dic{
-    NSLog(@"%@",[dic mj_JSONString]);
     compAreaProvs = [dic objectForKey:@"compAreaProv"];
     compAreaCitys = [dic objectForKey:@"compAreaCity"];
     compAreaDists = [dic objectForKey:@"compAreaDist"];
@@ -184,7 +183,6 @@
 //    [manager setParams:[params params]];
 //    [manager post];
     
-    NSLog(@"%@",_dic[@"id"]);
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];

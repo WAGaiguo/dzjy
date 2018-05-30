@@ -141,7 +141,6 @@
    
     [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [HudUtils hide:MAIN_WINDOW];
-        NSLog(@"%@", responseObject);
         if (responseObject == [NSNull null]) {
             [HudUtils showMessage:@"登录异常"]; return;
         }
@@ -201,66 +200,6 @@
     return view;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (void)configButton{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(100, 100, 100, 100);
-    btn.backgroundColor = UIGreenColor;
-    [btn setTitle:@"保存" forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(touchBtn) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn2.frame = CGRectMake(100, 220, 100, 100);
-    btn2.backgroundColor = UIGreenColor;
-    [btn2 setTitle:@"读取" forState:UIControlStateNormal];
-    [self.view addSubview:btn2];
-    [btn2 addTarget:self action:@selector(touchBtn2) forControlEvents:UIControlEventTouchUpInside];
-}
-
-- (void)touchBtn{
-    NSDictionary *info = @{@"username" :@"usernameTTtt", @"nickname":@"nicknameTT"};
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    if (jsonString.length != 0) {
-        [jsonString writeToFile:UIDocumentFile(@"user.bat") atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    }
-    
-    NSString *string = nil;
-    NSLog(@"%@", string);
-    NSLog(@"%@", [string description]);
-    NSLog(@"%@", [NSString description]);
-    NSInteger aaa = 555555;
-    NSNumber *bbb = @(666666);
-    NSLog(@"%@",[bbb description]);
-    NSLog(@"%ld", (long)aaa );
-}
-
-- (void)touchBtn2{
-    NSString *encodeString = [[NSString alloc]initWithContentsOfFile:UIDocumentFile(@"user.bat") encoding:NSUTF8StringEncoding error:nil];
-    id userInfo = [NSJSONSerialization JSONObjectWithData:[encodeString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-    NSLog(@"---%@----",encodeString);
-    NSLog(@"%@", userInfo);
-    NSLog(@"%@", [[userInfo objectForKey:@"username"]description]);
-    NSLog(@"%@", [userInfo description]);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 
 @end

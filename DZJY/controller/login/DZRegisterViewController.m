@@ -50,7 +50,7 @@
     NSString *filePath = UIDocumentFile(@"address.plist");
     NSDictionary *dic1 = @{@"address":@"111111111111111", @"id":@"1"};
     NSDictionary *dic2 = @{@"address":@"222222222222222", @"id":@"2"};
-    NSArray *arr = @[dic1, dic2];
+//    NSArray *arr = @[dic1, dic2];
     NSMutableArray *mutalbeArr = [NSMutableArray array];
     NSLog(@"----%ld", [mutalbeArr count]);
     [mutalbeArr addObject:dic1];

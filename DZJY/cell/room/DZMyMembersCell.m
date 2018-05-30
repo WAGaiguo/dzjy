@@ -46,7 +46,6 @@
     return self;
 }
 - (void)setAccountContent:(NSIndexPath *)indexPath{
-    NSLog(@"%@", _dic);
     switch (indexPath.row) {
         case 0:
             _titleLeftLabel.text = @"会员编号";
