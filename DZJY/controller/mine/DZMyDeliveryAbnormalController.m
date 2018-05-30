@@ -12,6 +12,7 @@
 #import "DZMySelectedView.h"
 #import "DZMyDeliveryAdapter.h"
 #import "DZMyDeliveryAbnormalAdapter.h"
+#import "DZCommonTipsView.h"
 
 @interface DZMyDeliveryAbnormalController ()<SVSegmentedViewDelegate>{
     UIImageView *_imageV;
@@ -161,7 +162,12 @@
     [manager setHandler:handler];
     [manager post];
 }
-
+- (void)more{
+    DZCommonTipsView *tipsV = [DZCommonTipsView new];
+    [tipsV myDeliveryAbnormalText];
+    [self.view addSubview:tipsV];
+    [tipsV startAnimation];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

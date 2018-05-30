@@ -11,6 +11,7 @@
 #import "SVSegmentedView.h"
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
+#import "DZCommonTipsView.h"
 
 @interface DZMyContractAbnormalController ()<SVSegmentedViewDelegate>{
     DZMyContractAbnormalAdapter *_adapter1;
@@ -142,7 +143,13 @@
     [manager setHandler:handler];
     [manager post];
 }
-
+- (void)more{
+    DZCommonTipsShortView *tipsV = [DZCommonTipsShortView new];
+//    [tipsV setShort];
+    [tipsV myContractAbnormalText];
+    [self.view addSubview:tipsV];
+    [tipsV startAnimation];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

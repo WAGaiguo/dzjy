@@ -179,6 +179,7 @@
 		1EAD74062068EE6100BD7EF7 /* NSDate+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD73FC2068EE4400BD7EF7 /* NSDate+AES.m */; };
 		1EAD740D2068EF5300BD7EF7 /* UITableView+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */; };
 		1EAD74102068EF9900BD7EF7 /* DZTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */; };
+		1EC8384F20BE92BB00395C77 /* DZCommonTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8384E20BE92BB00395C77 /* DZCommonTipsView.m */; };
 		1EF8B6AE20A55E5C008EB028 /* DZCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */; };
 		1EF8B6B020A56D3E008EB028 /* agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF8B6AF20A56B56008EB028 /* agreement.html */; };
 		340AD05E867BF2A0E9D98DE5 /* libPods-DZJY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE38328D711D756068A077C2 /* libPods-DZJY.a */; };
@@ -528,6 +529,8 @@
 		1EAD740C2068EF5300BD7EF7 /* UITableView+Adapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Adapter.m"; sourceTree = "<group>"; };
 		1EAD740E2068EF9900BD7EF7 /* DZTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZTableViewAdapter.h; sourceTree = "<group>"; };
 		1EAD740F2068EF9900BD7EF7 /* DZTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTableViewAdapter.m; sourceTree = "<group>"; };
+		1EC8384D20BE92BB00395C77 /* DZCommonTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCommonTipsView.h; sourceTree = "<group>"; };
+		1EC8384E20BE92BB00395C77 /* DZCommonTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCommonTipsView.m; sourceTree = "<group>"; };
 		1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCityModel.h; sourceTree = "<group>"; };
 		1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCityModel.m; sourceTree = "<group>"; };
 		1EF8B6AF20A56B56008EB028 /* agreement.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = agreement.html; sourceTree = "<group>"; };
@@ -1080,6 +1083,8 @@
 				1E34365F20920E7F00190689 /* DZMySelectedView.m */,
 				1E34371C20A2F8AC00190689 /* DZMemberLabel.h */,
 				1E34371D20A2F8AC00190689 /* DZMemberLabel.m */,
+				1EC8384D20BE92BB00395C77 /* DZCommonTipsView.h */,
+				1EC8384E20BE92BB00395C77 /* DZCommonTipsView.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1484,6 +1489,7 @@
 				1EAD73F02068EA1100BD7EF7 /* UIColor+Instance.m in Sources */,
 				1EA047B1206A1D1A0029C481 /* DZTestAdapter.m in Sources */,
 				1EA047A22069EA8B0029C481 /* DZBaseViewController.m in Sources */,
+				1EC8384F20BE92BB00395C77 /* DZCommonTipsView.m in Sources */,
 				1E628F21207F43DD00169A64 /* DZSearchNilView.m in Sources */,
 				1E34365A2091600300190689 /* DZMyOrderAdapter.m in Sources */,
 				1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */,

@@ -11,6 +11,7 @@
 #import "SVSegmentedView.h"
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
+#import "DZCommonTipsView.h"
 
 @interface DZMyContractViewController ()<SVSegmentedViewDelegate>{
     DZMyContractAdapter *_adapter1;
@@ -166,6 +167,12 @@
     }else{
         [self requestData:[NSString stringWithFormat:@"%ld", integer - 1]];
     }
+}
+- (void)more{
+    DZCommonTipsView *tipsV = [[DZCommonTipsView alloc]init];
+    [tipsV myContractText];
+    [self.view addSubview:tipsV];
+    [tipsV startAnimation];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

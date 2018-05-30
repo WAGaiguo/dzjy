@@ -11,6 +11,7 @@
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
 #import "DZMyLadingAdapter.h"
+#import "DZCommonTipsView.h"
 
 @interface DZMyLadingViewController ()<SVSegmentedViewDelegate>{
     DZMyLadingAdapter *_adapter1;
@@ -146,6 +147,12 @@
     }else{
         [self requestData:[NSString stringWithFormat:@"%ld", intger - 1]];
     }
+}
+- (void)more{
+    DZCommonTipsView *tipsV = [DZCommonTipsView new];
+    [tipsV myDeliveryAbnormalText];
+    [self.view addSubview:tipsV];
+    [tipsV startAnimation];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -141,8 +141,8 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putInteger:pageNo forKey:@"pageNo"];
     [params putInteger:pageSize forKey:@"pageSize"];
-//    [params putString:@"releDateLong" forKey:@"orderBy"];
-//    [params putString:@"DESC" forKey:@"sortOrder"];
+    [params putString:@"releDateLong" forKey:@"orderBy"];
+    [params putString:@"DESC" forKey:@"sortOrder"];
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         if (currentPage == 1) {

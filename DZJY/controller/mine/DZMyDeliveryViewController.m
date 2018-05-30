@@ -11,6 +11,7 @@
 #import "DZMineCommenScrollView.h"
 #import "DZMySelectedView.h"
 #import "DZMyDeliveryAdapter.h"
+#import "DZCommonTipsView.h"
 
 @interface DZMyDeliveryViewController ()<SVSegmentedViewDelegate>{
     UIImageView *_imageV;
@@ -183,6 +184,12 @@
     }
 }
 
+- (void)more{
+    DZCommonTipsView *tipsV = [DZCommonTipsView new];
+    [tipsV myDeliveryText];
+    [self.view addSubview:tipsV];
+    [tipsV startAnimation];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
