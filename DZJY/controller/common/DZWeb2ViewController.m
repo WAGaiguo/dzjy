@@ -46,8 +46,6 @@
     [webV loadRequest:request];
     
     [self makeBtnView];
-    
-//    NSLog(@"%@", _dic);
     [self reqeustDetailData];
 }
 - (void)makeTipsView{
@@ -107,9 +105,12 @@
  *  关注数据请求
  **/
 - (void)requestData{
+    if (btnV.isAttentioned) {
+        [HudUtils showMessage:@"您已经关注过了"];return;
+    }
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [HudUtils showMessage:@"关注成功"];
+        [btnV setIsAttentioned:YES];
     }];
     NSString *listId = [_dic[@"data"] objectForKey:@"id"];
     DZRequestParams *params = [DZRequestParams new];
@@ -167,6 +168,11 @@
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         _dataDic = [NSDictionary dictionaryWithDictionary:obj];
+        if ([_dataDic[@"comConId"] isEqual:[NSNull null]]) {
+            [btnV setIsAttentioned:NO];
+        }else{
+            [btnV setIsAttentioned:YES];
+        }
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_dic[@"data"][@"id"] forKey:@"id"];

@@ -42,7 +42,7 @@
 - (void)setIsAttentioned:(BOOL)isAttentioned{
     _isAttentioned = isAttentioned;
     if(_isAttentioned){
-        [_attentionBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_attentionBtn setImage:[UIImage imageNamed:@"yiguanzhu"] forState:UIControlStateNormal];
         [_attentionBtn setTitle:@"已关注" forState:UIControlStateNormal];
     }else{
         [_attentionBtn setImage:[UIImage imageNamed:@"attention"] forState:UIControlStateNormal];
