@@ -19,7 +19,6 @@
     UITextField *_codeField;
     UIScrollView *_scrollView;
     UIButton *_codeBtn;
-    
 }
 @end
 
@@ -67,11 +66,18 @@
     UIImageView *hiddenImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"隐藏"]];
     hiddenImageV.centerY = 25;
     hiddenImageV.right = 250;
+    hiddenImageV.height = 14;
+    hiddenImageV.contentMode = UIViewContentModeScaleAspectFit;
     hiddenImageV.userInteractionEnabled = YES;
     [passwordView addSubview:hiddenImageV];
     [hiddenImageV bk_whenTapped:^{
         bool isHidden = _passwordField.secureTextEntry;
         _passwordField.secureTextEntry = isHidden ? NO : YES;
+        if (_passwordField.secureTextEntry) {
+            hiddenImageV.image = [UIImage imageNamed:@"隐藏"];
+        }else{
+            hiddenImageV.image = [UIImage imageNamed:@"显示"];
+        }
     }];
     
 //    UILabel *label = [[UILabel alloc]init];

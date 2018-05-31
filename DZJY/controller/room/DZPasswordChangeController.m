@@ -38,21 +38,21 @@
     self.tableView.tableHeaderView = backView;
    
     
-    UIView *firstView = [self commonFieldView:@"用户名" rightImage:nil text:@"用户名："];
+    UIView *firstView = [self commonFieldView:@"用户名" rightImage:nil text:@"用户名:"];
     firstView.top = 0;
     [backgroundView addSubview:firstView];
     _usernameField = [self textField:[[DZUserManager manager] user].loginName];
     [_usernameField setEnabled:NO];
     [firstView addSubview:_usernameField];
     
-    UIView *secondView = [self commonFieldView:@"旧密码" rightImage:@"隐藏" text:@"旧密码："];
+    UIView *secondView = [self commonFieldView:@"旧密码" rightImage:@"隐藏" text:@"旧密码:"];
     secondView.top = 54;
     [backgroundView addSubview:secondView];
     _oldField = [self textField:@"请输入旧密码"];
     [_oldField setSecureTextEntry:YES];
     [secondView addSubview:_oldField];
     
-    UIView *thirdView = [self commonFieldView:@"新密码" rightImage:@"显示" text:@"新密码："];
+    UIView *thirdView = [self commonFieldView:@"新密码" rightImage:@"显示" text:@"新密码:"];
     thirdView.top = 108;
     [backgroundView addSubview:thirdView];
     _newField = [self textField:@"请输入新密码"];
@@ -96,13 +96,36 @@
     UIImageView *rightImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:image]];
     rightImage.centerY = 27;
     rightImage.right = SCREEN_WIDTH - 24;
+    rightImage.height = 14;
+    rightImage.contentMode = UIViewContentModeScaleAspectFit;
     [view addSubview:rightImage];
+    rightImage.userInteractionEnabled = YES;
+    [rightImage bk_whenTapped:^{
+        UITextField *field = nil;
+        if ([text isEqualToString:@"旧密码:"]) {
+            field = _oldField;
+        }else if ([text isEqualToString:@"新密码:"]) {
+            field = _newField;
+        }else if ([text isEqualToString:@"确认密码:"]) {
+            field = _confirmField;
+        }
+        [self tapShowOrHidden:text imageV:rightImage field:field];
+    }];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(imageV.right + 6, 0, 75, 53)];
     label.textColor = UI999999Color;
     label.font = [UIFont systemFontOfSize:15];
     label.text = text;
     [view addSubview:label];
     return view;
+}
+- (void)tapShowOrHidden:(NSString *)text imageV:(UIImageView *)imageV field:(UITextField *)field{
+        bool isHidden = field.secureTextEntry;
+        field.secureTextEntry = isHidden ? NO : YES;
+        if (field.secureTextEntry) {
+            imageV.image = [UIImage imageNamed:@"隐藏"];
+        }else{
+            imageV.image = [UIImage imageNamed:@"显示"];
+        }
 }
 - (void)configFooterView{
     UIView *backView = [[UIView alloc]init];

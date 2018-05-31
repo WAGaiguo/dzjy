@@ -100,6 +100,9 @@
 //    [manager setHandler:handler];
 //    [manager post];
     
+    if (![[DZUserManager manager] isLogined]) {
+        [HudUtils showMessage:@"您当前还没有登录"];return;
+    }
     [[DZUserManager manager] logout];
     if ([DZUserManager manager].user == nil) {
         [HudUtils showMessage:@"退出登录成功"];
