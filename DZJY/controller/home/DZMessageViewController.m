@@ -44,6 +44,7 @@
         }
     }else{
         isFirst = YES;
+        [_adapter reloadData:nil];
         [self addNoMoreData];
     }
 }

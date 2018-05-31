@@ -103,7 +103,7 @@
     [self dismissLoading];
     NSString  *message = [error localizedDescription];
     if (error.code == -1011) {
-        message = @"请先登录";
+        message = @"登录过期，请重新登录";
         [[DZUserManager manager] logout];
     }else if(error.code == 3840){
         message = @"数据解析错误";

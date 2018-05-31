@@ -54,14 +54,14 @@
 
 -(void)setBadageValue:(NSString *)nums{
     _messageViewController.tabBarItem.badgeValue = [NSString formateString:nums];
-    if ([nums isEqualToString:@"0"] || [nums length]<=0) {
+    if ([nums isEqualToString:@"0"] || [nums length] <= 0) {
         _messageViewController.tabBarItem.badgeValue = nil;
     }
 }
 - (void)setDecreaseBadageValue{
     if (_messageViewController.tabBarItem.badgeValue != nil) {
         NSInteger currentNums = [_messageViewController.tabBarItem.badgeValue integerValue];
-        _messageViewController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", currentNums - 1];
+        [self setBadageValue:[NSString stringWithFormat:@"%ld", currentNums - 1]];
     }
 }
 
@@ -82,12 +82,15 @@
             [self setBadageValue:[NSString stringWithFormat:@"%@", obj]];
         }
     }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [self setBadageValue:@"0"];
+    }];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory messageNums]];
     [manager setHandler: handler];
     [manager post];
     
-    [self performSelector:@selector(requestData) withObject:nil afterDelay:30 * 60];
+    [self performSelector:@selector(requestData) withObject:nil afterDelay:5 * 60];
 }
 
 - (void)didReceiveMemoryWarning {
