@@ -16,14 +16,9 @@
 #import "DZLoginViewController.h"
 #import "DZSearchResultViewController.h"
 
-
-#import "DZRegisterViewController.h"
-#import <MJExtension.h>
-#import "DZOrderFinishController.h"
-#import "DZOrderConfirmViewController.h"
 #import "DZCategoryAllController.h"
 #import "DZCategoryFirstController.h"
-#import "DZOrderCheckViewController.h"
+#import "NSDate+Format.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;
@@ -49,7 +44,8 @@
     currentPage = 1;
     [self requestData:currentPage pageSize:10];
     [self addInfinite];
-   
+    
+    [[DZUserManager manager] isTokenExpired];
 }
 - (void)configSearchView{
     _searchView = [[DZSearchView alloc]initWithFrame:CGRectMake(0, (DZ_TOP) - 40, SCREEN_WIDTH, 40)];

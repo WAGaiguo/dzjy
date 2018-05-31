@@ -108,5 +108,4 @@
     NSInteger years = time/3600/24/30/12;
     return [NSString stringWithFormat:@"%ld年前",(long)years];
 }
-
 @end

@@ -17,4 +17,6 @@
 - (DZLoginUser *)user;
 
 - (void)logout;
+- (BOOL)isTokenExpired;// 登录是否过期
+
 @end

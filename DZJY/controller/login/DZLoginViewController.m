@@ -155,7 +155,7 @@
         [manager login:dic[@"result"]];
         [HudUtils showMessage:@"登录成功"];
          [[DZRequestMananger new] setHeader:nil];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self back];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [HudUtils hide:MAIN_WINDOW];
         if (error == nil) {
@@ -199,7 +199,5 @@
     [view addSubview:imageV];
     return view;
 }
-
-
 
 @end

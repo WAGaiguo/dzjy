@@ -55,11 +55,27 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(DZUserManager, manager);
 - (void)login:(NSDictionary *)info{
     _user = [[DZLoginUser alloc]initWithJsonObject:info];
     [self save:info];
-    [self performSelector:@selector(logout) withObject:nil afterDelay:24 * 60 * 60];
+    
+    _lastSign = [[NSDate date] timeIntervalSince1970];
+    [[NSUserDefaults standardUserDefaults]setDouble:_lastSign forKey:@"sign_time"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+- (BOOL)isTokenExpired{
+    NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+    _lastSign = [[NSUserDefaults standardUserDefaults]doubleForKey:@"sign_time"];
+    if ((currentTime - _lastSign) < 24 * 3600) {
+        return YES;
+    }else{
+        if ([self isLogined]) {
+            [self logout];
+        }
+        return NO;
+    }
 }
 - (void)logout{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"sign_time"];
     [[NSFileManager defaultManager] removeItemAtPath:UIDocumentFile(@"user.bat") error:nil];
     _user = nil;
-//    [APPDELEGATE ]
+    _lastSign = 0;
 }
 @end

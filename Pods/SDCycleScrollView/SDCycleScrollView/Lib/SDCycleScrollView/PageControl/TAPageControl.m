@@ -357,7 +357,6 @@ static CGSize const kDefaultDotSize = {8, 8};
         _dotSize = kDefaultDotSize;
         return _dotSize;
     }
-    
     return _dotSize;
 }
 

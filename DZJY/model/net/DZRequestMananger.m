@@ -7,6 +7,7 @@
 //
 
 #import "DZRequestMananger.h"
+#import "NSDate+Format.h"
 
 @interface DZRequestMananger()
 
@@ -46,6 +47,7 @@ AFHTTPSessionManager* defaultRequestManager;
 }
 
 - (void)callOnStart{
+    [[DZUserManager manager] isTokenExpired];
     [_handler requestStarted:self];
 }
 
@@ -62,6 +64,7 @@ AFHTTPSessionManager* defaultRequestManager;
     if ([[DZUserManager manager] isLogined]) {
         [defaultRequestManager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
     }
+    
 }
 
 - (void)get{
