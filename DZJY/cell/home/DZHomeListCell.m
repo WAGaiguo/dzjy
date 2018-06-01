@@ -99,7 +99,6 @@
     _id = [dic[@"id"] description];
     
     NSString *allowBuy = _allowBuyCountDic[[dic[@"id"] description]];
-    NSLog(@"====== %@", allowBuy);
     if (allowBuy.integerValue == 0) {
         _numsLabel.hidden = YES;
     }else{
