@@ -16,6 +16,9 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)logout;
 + (NSString *)homeList;
 
+// 挂牌详情展示 HTML链接
++ (NSString *)homeListDetail:(NSString *)detailId;
+
 // 文件相关
 + (NSString *)getFileByName;
 
@@ -99,5 +102,7 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 // 搜索相关
 + (NSString *)search;
 + (NSString *)searchSpecification; //规格属性筛选
+
+
 
 @end

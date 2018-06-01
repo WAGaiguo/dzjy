@@ -41,6 +41,7 @@
     webV.opaque = NO;
     webV.frame = CGRectMake(0, DZ_TOP, SCREEN_WIDTH, SCREEN_HEIGHT - (DZ_TOP));
     webV.scrollView.delegate = self;
+    _content = [DZURLFactory homeListDetail:_dic[@"data"][@"id"]];
     [self.view addSubview:webV];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_content]];
     [webV loadRequest:request];

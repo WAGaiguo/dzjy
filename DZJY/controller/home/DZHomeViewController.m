@@ -125,6 +125,7 @@
         }
         DZWeb2ViewController *web = [DZWeb2ViewController new];
         web.content = @"https://www.baidu.com/";
+        
         web.dic = weak_adapter.dataSource[indexPath.row];
         [me.navigationController pushViewController:web animated:YES];
     }];
