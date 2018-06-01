@@ -90,18 +90,26 @@
     _titleLabel.text = [[dic objectForKey:@"commName"]description];
     _areaLabel.text = [[dic objectForKey:@"provCityDist"]description];
     _mininumLabel.text = [NSString stringWithFormat:@"起订量：%@ %@", [[dic objectForKey: @"startBuyCount"]description], [[dic objectForKey:@"measUnit"]description]];
-    _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@",[[dic objectForKey:@"allowBuyCount"]description],[[dic objectForKey:@"measUnit"]description]];
+//    _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@",[[dic objectForKey:@"allowBuyCount"]description],[[dic objectForKey:@"measUnit"]description]];
     _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
     [NSString stringWithFormat:@"%@元/%@",[dic[@"basePrice"]description], [[dic objectForKey:@"measUnit"]description]];
     _timeLabel.text = [NSDate updateTimeForNow:[[dic objectForKey:@"releDateLong"]description]];
     NSString *picStr = [NSString stringWithFormat:@"%@%@",DZCommonUrl,[[dic objectForKey:@"fileUrl"]description]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:picStr]];
     _id = [dic[@"id"] description];
+    
+    NSString *allowBuy = _allowBuyCountDic[[dic[@"id"] description]];
+    NSLog(@"====== %@", allowBuy);
+    if (allowBuy.integerValue == 0) {
+        _numsLabel.hidden = YES;
+    }else{
+        _numsLabel.hidden = NO;
+        _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@", allowBuy, [[dic objectForKey:@"measUnit"]description]];
+    }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
+- (void)setAllowBuyDic:(NSDictionary *)dic{
+    
 }
 
 @end

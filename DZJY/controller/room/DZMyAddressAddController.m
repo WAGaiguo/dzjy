@@ -75,7 +75,7 @@
     NSString *district = _addressView.districtField.text;
     NSString *address = _addressView.addressField.text;
     NSString *phone = _addressView.phoneField.text;
-    NSString *code = _addressView.codeField.text;
+//    NSString *code = _addressView.codeField.text;
     if (TRIM_STRING_length(person) <= 0) {
         [HudUtils showMessage:@"联系人不能为空"];return;
     }

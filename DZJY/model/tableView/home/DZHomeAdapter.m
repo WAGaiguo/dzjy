@@ -26,6 +26,7 @@
     if (self.afterReuseCell) {
         self.afterReuseCell(cell,indexPath);
     }
+    cell.allowBuyCountDic = _allowBuyDic;
     [cell setContent:self.dataSource[indexPath.row][@"data"]];
     return cell;
 }

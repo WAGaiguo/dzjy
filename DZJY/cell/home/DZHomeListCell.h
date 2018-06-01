@@ -18,5 +18,6 @@
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) NSString *id;
 
+@property (nonatomic, strong) NSDictionary *allowBuyCountDic;
 - (void)setContent:(NSDictionary *)dic;
 @end
