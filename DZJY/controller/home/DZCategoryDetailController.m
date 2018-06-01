@@ -285,9 +285,20 @@
                 [self.tableView setTableHeaderView:nil];
                 [_adapter reloadData:obj[@"list"]];
                 self.tableView.scrollEnabled = YES;
+                if (_adapter.allowBuyDic == nil) {// 处理可购买量数据源
+                    _adapter.allowBuyDic = [NSMutableDictionary dictionaryWithDictionary:obj[@"listedAllowBuyCount"]];
+                }else{
+                    [_adapter.allowBuyDic removeAllObjects];
+                    _adapter.allowBuyDic = obj[@"listedAllowBuyCount"];
+                }
             }
         }else if (pageNo > 1){
             [_adapter appendData:obj[@"list"]];
+            if (_adapter.allowBuyDic) {// 处理加载更多可购买量数据源
+                [_adapter.allowBuyDic addEntriesFromDictionary:[obj objectForKey:@"listedAllowBuyCount"]];
+            }else{
+                _adapter.allowBuyDic = [NSMutableDictionary dictionaryWithDictionary:obj[@"listedAllowBuyCount"]];
+            }
             [self stopInfinite];
         }
         if ([[obj objectForKey:@"list"] count] < pageSize) {
