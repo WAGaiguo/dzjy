@@ -16,6 +16,7 @@
 #import "DZHomeAdapter.h"
 #import "DZSearchNilView.h"
 #import "DZHomeCategoryView.h"
+#import "DZSearchModel.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
@@ -84,7 +85,10 @@
 - (void)configSearchView{
     CGFloat s_width = self.titleView.leftView.right;
     DZSearchView *searchV = [[DZSearchView alloc]initWithFrame:CGRectMake(s_width, DZ_TOP - 40, SCREEN_WIDTH - s_width - 40, 40)];
-//    [searchV setPlaceholder:@"白菜"];
+    [searchV setPlaceholder:_searchTitle];
+    [searchV setTapBlock:^{
+        [DZSearchModel makeSearchViewController:self];
+    }];
     [self.titleView addSubview:searchV];
     [self setHasRightBtn:YES];
     [self.titleView.rightView setImage:[UIImage imageNamed:@"全部分类"] forState:UIControlStateNormal];

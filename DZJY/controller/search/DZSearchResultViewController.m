@@ -82,7 +82,7 @@
     CGFloat s_width = self.titleView.leftView.right;
     DZSearchView *searchV = [[DZSearchView alloc]initWithFrame:CGRectMake(s_width, DZ_TOP - 40, SCREEN_WIDTH - s_width - 40, 40)];
     [searchV setTapBlock:^{
-        [self back];
+        [DZSearchModel makeSearchViewController:self];
     }];
     [self.titleView addSubview:searchV];
     [self setHasRightBtn:YES];
