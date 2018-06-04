@@ -41,6 +41,7 @@
     webV.opaque = NO;
     webV.frame = CGRectMake(0, DZ_TOP, SCREEN_WIDTH, SCREEN_HEIGHT - (DZ_TOP));
     webV.scrollView.delegate = self;
+//    webV.scrollView.bounces = NO;
     _content = [DZURLFactory homeListDetail:_dic[@"data"][@"id"]];
     [self.view addSubview:webV];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_content]];
@@ -85,9 +86,9 @@
         if (nums < [startBuyCount doubleValue]) {
             [HudUtils showMessage:[NSString stringWithFormat:@"亲，您购买的数量必须大于%@%@", startBuyCount, [NSString isBlankString:me.dic[@"measUnit"]]]]; return;
         }
-        if ([allowBuyCount doubleValue] - nums < [startBuyCount doubleValue]) {
-            [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;
-        }
+//        if ([allowBuyCount doubleValue] - nums < [startBuyCount doubleValue]) {
+//            [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;
+//        }
         if ([[me.dic[@"data"][@"id"] description] isEqualToString:[DZUserManager manager].user.id]) {
             [HudUtils showMessage:@"自己就不要买自己的东西了"];
         }

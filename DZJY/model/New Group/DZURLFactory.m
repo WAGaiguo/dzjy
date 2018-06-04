@@ -211,6 +211,14 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 + (NSString *)searchSpecification{
     return [self absulteString:@"/conf/attribute/set/forGidList"];
 }
+// 我的客户
++ (NSString *)clientMember{
+    return [self absulteString:@"/memb/w/direct/list"];
+}
++ (NSString *)clientDeal{
+    return [self absulteString:@"/memb/w/trans/membList"];
+}
+
 // 挂牌详情展示 HTML链接
 + (NSString *)homeListDetail:(NSString *)detailId{
     return [NSString stringWithFormat:@"%@id=%@",[self absulteString:@"/detail/?"], detailId];

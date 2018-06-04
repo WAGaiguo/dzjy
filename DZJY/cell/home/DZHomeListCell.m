@@ -99,16 +99,13 @@
     _id = [dic[@"id"] description];
     
     NSString *allowBuy = _allowBuyCountDic[[dic[@"id"] description]];
-    if (allowBuy.integerValue == 0) {
-        _numsLabel.hidden = YES;
-    }else{
+//    if (allowBuy.integerValue == 0) {
+//        _numsLabel.hidden = YES;
+//    }else{
         _numsLabel.hidden = NO;
         _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@", allowBuy, [[dic objectForKey:@"measUnit"]description]];
-    }
+//    }
 }
 
-- (void)setAllowBuyDic:(NSDictionary *)dic{
-    
-}
 
 @end
