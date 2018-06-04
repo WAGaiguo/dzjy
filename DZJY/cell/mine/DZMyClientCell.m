@@ -7,6 +7,7 @@
 //
 
 #import "DZMyClientCell.h"
+#import "NSString+Common.h"
 
 @implementation DZMyClientCell
 
@@ -39,7 +40,7 @@
     _titleLabel.textColor = UITitleColor;
     [backView addSubview:_titleLabel];
     
-    _subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(_imageV.right + 12, _titleLabel.bottom + 7, SCREEN_WIDTH - 160, 16)];
+    _subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(_imageV.right + 12, _titleLabel.bottom + 7, SCREEN_WIDTH - 100, 16)];
     _subTitleLabel.font = [UIFont systemFontOfSize:12];
     _subTitleLabel.textColor = UISubTitleColor;
     [backView addSubview:_subTitleLabel];
@@ -52,7 +53,8 @@
     _subTitleLabel.text = @"张三的歌";
 }
 -(void)setContent:(NSDictionary *)dic{
-    
+    _titleLabel.text = [NSString formateString:dic[@"compFullName"]];
+    _subTitleLabel.text = [NSString stringWithFormat:@"%@   %@   %@", [NSString formateString:dic[@"contactName"]], [NSString formateString:dic[@"contactMobile"]], [NSString formateString:dic[@"contactTel"]]];
 }
 
 @end

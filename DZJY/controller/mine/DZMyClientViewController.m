@@ -15,6 +15,7 @@
     DZMineCommenScrollView *_scrollView;
     DZMyClientAdapter *_adapter1;
     DZMyClientAdapter *_adapter2;
+    BOOL isFirst;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
 @end
@@ -22,6 +23,7 @@
 @implementation DZMyClientViewController
 
 - (void)viewDidLoad {
+    isFirst = YES;
     [super viewDidLoad];
     [self setBackEnabled:YES];
     [self setHeaderBackGroud:YES];
@@ -30,6 +32,7 @@
     [self configSvsegmentView];
     [self configScrollView];
     [self configAdapter];
+    [self requestData];
 }
 
 /**
@@ -52,6 +55,9 @@
     _scrollView.dataSource = @[@"", @""];
     [_scrollView setScrollBlock:^(NSInteger num) {
         me.segmentView.selectedIndex = num;
+        if (num == 1) {
+            [me requestDealData];
+        }
     }];
 }
 - (void)configAdapter{
@@ -68,9 +74,45 @@
         
     }];
 }
+- (void)segmentedDidChange:(NSInteger) index{
+    [_scrollView.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
+    if (index == 1) {
+        [self requestDealData];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (void)requestData{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_adapter1 reloadData:obj];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory clientMember]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
+}
+- (void)requestDealData{
+    if (isFirst) {
+        DZResponseHandler *handler = [DZResponseHandler new];
+        [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+            if (obj) {
+                [_adapter2 reloadData:obj[@"page"][@"list"]];
+//                NSLog(@"%@", obj[@"page"][@"list"]);
+                isFirst = NO;
+            }
+        }];
+        DZRequestParams *params = [DZRequestParams new];
+        DZRequestMananger *manager = [DZRequestMananger new];
+        [manager setUrlString:[DZURLFactory clientDeal]];
+        [manager setParams:[params dicParams]];
+        [manager setHandler:handler];
+        [manager post];
+    }
+}
 
 @end

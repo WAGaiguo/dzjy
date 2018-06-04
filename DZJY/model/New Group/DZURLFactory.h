@@ -104,9 +104,8 @@ FOUNDATION_EXPORT NSString *const DZCommonUrl;
 + (NSString *)searchSpecification; //规格属性筛选
 
 // ***我的客户***
-// 定向供应商会员
-+ (NSString *)clientMember;
-// 已交易过的
-+ (NSString *)clientDeal;
++ (NSString *)clientMember;// 定向供应商会员
++ (NSString *)clientDeal;// 已交易过的
+
 
 @end

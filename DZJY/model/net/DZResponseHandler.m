@@ -104,7 +104,7 @@
     NSString  *message = [error localizedDescription];
     if (error.code == -1011) {
         message = @"登录过期，请重新登录";
-        [[DZUserManager manager] logout];
+//        [[DZUserManager manager] logout];
     }else if(error.code == 3840){
         message = @"数据解析错误";
     }else if(error.code == -1001){

@@ -1719,7 +1719,7 @@
 				DEVELOPMENT_TEAM = 5J3D27HWQC;
 				GCC_PREFIX_HEADER = DZJY/DZHeader.h;
 				INFOPLIST_FILE = DZJY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazongjiaoyi.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1740,7 +1740,7 @@
 				DEVELOPMENT_TEAM = 5J3D27HWQC;
 				GCC_PREFIX_HEADER = DZJY/DZHeader.h;
 				INFOPLIST_FILE = DZJY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazongjiaoyi.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";

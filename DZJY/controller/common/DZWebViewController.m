@@ -40,7 +40,11 @@
     } else if (_nativeContent){
         NSString *htmlPath = [[NSBundle mainBundle]pathForResource:_nativeContent ofType:nil];
         NSURL *url = [NSURL fileURLWithPath:htmlPath];
-        [webV loadFileURL:url allowingReadAccessToURL:url];
+        if (@available(iOS 9.0, *)) {
+            [webV loadFileURL:url allowingReadAccessToURL:url];
+        } else {
+            
+        }
     }
 //    webV.UIDelegate = self;
 //    webV.navigationDelegate = self;
