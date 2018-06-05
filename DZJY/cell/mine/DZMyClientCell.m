@@ -55,6 +55,7 @@
 -(void)setContent:(NSDictionary *)dic{
     _titleLabel.text = [NSString formateString:dic[@"compFullName"]];
     _subTitleLabel.text = [NSString stringWithFormat:@"%@   %@   %@", [NSString formateString:dic[@"contactName"]], [NSString formateString:dic[@"contactMobile"]], [NSString formateString:dic[@"contactTel"]]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]]];
 }
 
 @end
