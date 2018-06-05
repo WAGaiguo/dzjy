@@ -7,6 +7,7 @@
 //
 
 #import "DZMyFundCell.h"
+#import "NSDate+Format.h"
 
 @implementation DZMyFundCell
 
@@ -52,7 +53,7 @@
     _timeLabel.textColor = UISubTitleColor;
     [backView addSubview:_timeLabel];
     
-    [self test];
+//    [self test];
 }
 
 - (void)test{
@@ -60,6 +61,18 @@
     _moneyLabel.text = @"-99999";
     _descLabel.text = [NSString stringWithFormat:@"摘要：%@",@"blakjfoiewfjei"];
     _timeLabel.text = [NSString stringWithFormat:@"时间：%@",@"2018-05-01"];
+}
+
+- (void)setContent:(NSDictionary *)dic{
+    _titleLabel.text = [dic[@"othPartyName"] description];
+    if ([dic[@"reveMoney"] integerValue] > 0) {
+        _moneyLabel.text = [dic[@"reveMoney"] description];
+    }
+    if ([dic[@"disbMoney"] integerValue] > 0) {
+        _moneyLabel.text = [NSString stringWithFormat:@"-%@", [dic[@"disbMoney"] description]];
+    }
+    _descLabel.text = [NSString stringWithFormat:@"摘要：%@",dic[@"abst"]];
+    _timeLabel.text = [NSString stringWithFormat:@"时间：%@",[NSDate timestampToTime: dic[@"createDate"]]];
 }
 
 @end

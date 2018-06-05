@@ -69,4 +69,11 @@
     _pointsLabel.width = _pointsLabel.width + 20;
     _pointsLabel.centerX = SCREEN_WIDTH/2.0;
 }
+- (void)setBottomFundContent:(NSString *)disb reve:(NSString *)reve{
+    [_pointsLabel setText:[NSString stringWithFormat:@"总支出：%@ 总收入%@",disb, reve]];
+    [_pointsLabel sizeToFit];
+    _pointsLabel.height = 25;
+    _pointsLabel.width = _pointsLabel.width + 20;
+    _pointsLabel.centerX = SCREEN_WIDTH/2.0;
+}
 @end

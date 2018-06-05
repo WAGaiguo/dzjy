@@ -385,9 +385,6 @@ didSelectSearchSuggestionAtIndex:(NSInteger)index
 @end
 
 
-@interface DZDeleteTips2View : UIView
-//@property (nonatomic, copy)void (^deleteBlock)(void);
-@end
 
 
 

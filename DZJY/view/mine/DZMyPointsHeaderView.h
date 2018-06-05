@@ -14,4 +14,5 @@
 @property (nonatomic, copy)void (^tapBlock)(void);
 - (void)setTopContent:(NSString *)str;
 - (void)setBottomContent:(NSString *)str;
+- (void)setBottomFundContent:(NSString *)disb reve:(NSString *)reve;
 @end

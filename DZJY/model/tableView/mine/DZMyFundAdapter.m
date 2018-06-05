@@ -15,7 +15,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
     return [self.dataSource count];
 }
 
@@ -24,6 +23,7 @@
     if (cell == nil){
         cell = [[DZMyFundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fundCell"];
     }
+    [cell setContent:self.dataSource[indexPath.row]];
     return cell;
 }
 @end

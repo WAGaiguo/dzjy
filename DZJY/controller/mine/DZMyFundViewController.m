@@ -37,7 +37,7 @@
     [self configTableHeader];
     [self configScrollView];
     [self configAdapter];
-    [self requestTotalData];
+    [self getMonthFirstAndLastDayWith];
 }
 - (void)configTableHeader{
     UIView *tableHeader = [[UIView alloc]init];
@@ -59,18 +59,20 @@
             _startDate = fromDate;
             _endDate = toDate;
             [self reqeustData];
+            [self requestTotalData];
         }else{
             _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
             _startDate = fromDate;
             _endDate = toDate;
             [self reqeustData];
+            [self requestTotalData];
         }
      }];
     WEAK_SELF
     [_headerView setTapBlock:^{
         [me presentViewController:calendarV animated:YES completion:nil];
     }];
-    [_headerView setBottomContent:@"总支出：55555 共收入：66666"];
+    [_headerView setBottomContent:@"总支出：0  总收入：0"];
     
     _segmentView = [[SVSegmentedView alloc]initWithFrame:CGRectMake(0, 172, SCREEN_WIDTH, 44)];
     _segmentView.titles = @[@"全部", @"支出", @"收入"];
@@ -114,15 +116,24 @@
 
 - (void)requestTotalData{
     DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeBackground];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [self getMonthFirstAndLastDayWith];
+//        [self getMonthFirstAndLastDayWith];
+//        NSLog(@"%@", obj);
+        [self setTotleContent:[obj[@"list"] firstObject]];
     }];
     DZRequestParams *params = [DZRequestParams new];
+    [params putString:_startDate forKey:@"dateTimeStart"];
+    [params putString:_endDate forKey:@"dateTimeEnd"];
+    [params putString:[[DZUserManager manager] user].id forKey:@"accId"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory fundInfo]];
-    [manager setParams:[params params]];
+    [manager setParams:[params dicParams]];
     [manager setHandler:handler];
     [manager post];
+}
+- (void)setTotleContent:(NSDictionary *)dic{
+    [_headerView setBottomFundContent:dic[@"totalDisbMoney"] reve:dic[@"totalReveMoney"]];
 }
 - (void)reqeustData{
     if (_segmentView.selectedIndex == 0) {
@@ -186,6 +197,7 @@
     _startDate = firstString;
     _endDate = lastString;
     [self requestDataType:@""];
+    [self requestTotalData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

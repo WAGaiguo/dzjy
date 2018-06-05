@@ -111,7 +111,7 @@ NSString * const DZCommonUrl = @"http://192.168.20.11/";
 }
 // 资金
 + (NSString *)fundInfo{
-    return [self absulteString:@"/pay/w/yeepay/acc/getAccInfo"];
+    return [self absulteString:@"/pay/w/reveDisbDetails/list"];
 }
 + (NSString *)fundList{
     return [self absulteString:@"/pay/w/reveDisbDetails/listByMemb"];

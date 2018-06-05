@@ -13,4 +13,7 @@
 @property (nonatomic, strong) UILabel *descLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *moneyLabel;
+
+- (void)setContent:(NSDictionary *)dic;
+
 @end
