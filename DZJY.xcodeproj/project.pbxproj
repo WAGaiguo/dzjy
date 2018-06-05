@@ -24,6 +24,7 @@
 		1E23343620C5258400B1D276 /* CKRefreshHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E23342920C5258400B1D276 /* CKRefreshHeader.xib */; };
 		1E23343720C5258400B1D276 /* DZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23342A20C5258400B1D276 /* DZTableView.m */; };
 		1E23343A20C5258400B1D276 /* DZLoadingMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23343220C5258400B1D276 /* DZLoadingMoreFooter.m */; };
+		1E23343D20C621FD00B1D276 /* DZDeleteTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23343C20C621FD00B1D276 /* DZDeleteTipsView.m */; };
 		1E27224420B3BE8B006127F0 /* DZOrderCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */; };
 		1E27224720B3DCE7006127F0 /* DZOrderCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224620B3DCE7006127F0 /* DZOrderCheckCell.m */; };
 		1E27224A20B3DE44006127F0 /* DZOrderCheckAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224920B3DE44006127F0 /* DZOrderCheckAdapter.m */; };
@@ -222,6 +223,8 @@
 		1E23343120C5258400B1D276 /* DZRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZRefreshHeader.h; sourceTree = "<group>"; };
 		1E23343220C5258400B1D276 /* DZLoadingMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZLoadingMoreFooter.m; sourceTree = "<group>"; };
 		1E23343320C5258400B1D276 /* DZTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTableView.h; sourceTree = "<group>"; };
+		1E23343C20C621FD00B1D276 /* DZDeleteTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZDeleteTipsView.m; sourceTree = "<group>"; };
+		1E23344220C630DD00B1D276 /* DZDeleteTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZDeleteTipsView.h; path = Pods/PYSearch/DZDeleteTipsView.h; sourceTree = SOURCE_ROOT; };
 		1E27224220B3BE8B006127F0 /* DZOrderCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckViewController.h; sourceTree = "<group>"; };
 		1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheckViewController.m; sourceTree = "<group>"; };
 		1E27224520B3DCE7006127F0 /* DZOrderCheckCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckCell.h; sourceTree = "<group>"; };
@@ -618,6 +621,7 @@
 		1E05504C207362BC000F5188 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				1E23344220C630DD00B1D276 /* DZDeleteTipsView.h */,
 				1E05504D2073630E000F5188 /* DZHomeItemView.h */,
 				1E05504E2073630E000F5188 /* DZHomeItemView.m */,
 				1E628EEB207C9D2300169A64 /* DZCategoryAllHeaderView.h */,
@@ -630,6 +634,7 @@
 				1E34369F209856C200190689 /* DZMessageSearchView.m */,
 				1E7073FA20AE73ED00A90A98 /* DZHomeCategoryView.h */,
 				1E7073FB20AE73ED00A90A98 /* DZHomeCategoryView.m */,
+				1E23343C20C621FD00B1D276 /* DZDeleteTipsView.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1552,6 +1557,7 @@
 				1E343613208D978500190689 /* DZMineFooterView.m in Sources */,
 				1E34369A2098543100190689 /* DZMessageAdapter.m in Sources */,
 				1E23343720C5258400B1D276 /* DZTableView.m in Sources */,
+				1E23343D20C621FD00B1D276 /* DZDeleteTipsView.m in Sources */,
 				1E3436F2209C0D9B00190689 /* DZCommonSaveView.m in Sources */,
 				1E343639208F325200190689 /* DZMyPointsCell.m in Sources */,
 				1E34368B209462D200190689 /* DZMyDeliveryAbnormalController.m in Sources */,

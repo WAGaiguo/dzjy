@@ -383,3 +383,13 @@ didSelectSearchSuggestionAtIndex:(NSInteger)index
                                      didSearchBlock:(PYDidSearchBlock)block;
 
 @end
+
+
+@interface DZDeleteTips2View : UIView
+//@property (nonatomic, copy)void (^deleteBlock)(void);
+@end
+
+
+
+
+

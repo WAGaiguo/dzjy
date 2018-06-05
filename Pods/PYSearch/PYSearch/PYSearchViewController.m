@@ -7,6 +7,8 @@
 #import "PYSearchViewController.h"
 #import "PYSearchConst.h"
 #import "PYSearchSuggestionViewController.h"
+#import "DZDeleteTipsView.h"
+
 
 #define PYRectangleTagMaxCol 3
 #define PYTextColor PYSEARCH_COLOR(113, 113, 113)
@@ -267,7 +269,7 @@
         [emptyButton setTitleColor:PYTextColor forState:UIControlStateNormal];
         [emptyButton setTitle:[NSBundle py_localizedStringForKey:PYSearchEmptyButtonText] forState:UIControlStateNormal];
         [emptyButton setImage:[NSBundle py_imageNamed:@"empty"] forState:UIControlStateNormal];
-        [emptyButton addTarget:self action:@selector(emptySearchHistoryDidClick) forControlEvents:UIControlEventTouchUpInside];
+        [emptyButton addTarget:self action:@selector(configDeleteView) forControlEvents:UIControlEventTouchUpInside];
         [emptyButton sizeToFit];
         emptyButton.py_width += PYSEARCH_MARGIN;
         emptyButton.py_height += PYSEARCH_MARGIN;
@@ -433,7 +435,7 @@
     emptySearchHistoryLabel.text = [NSBundle py_localizedStringForKey:PYSearchEmptySearchHistoryText];
     emptySearchHistoryLabel.textAlignment = NSTextAlignmentCenter;
     emptySearchHistoryLabel.py_height = 49;
-    [emptySearchHistoryLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emptySearchHistoryDidClick)]];
+    [emptySearchHistoryLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(configDeleteView)]];
     emptySearchHistoryLabel.py_width = footerView.py_width;
     emptySearchHistoryLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.emptySearchHistoryLabel = emptySearchHistoryLabel;
@@ -925,6 +927,17 @@
     self.searchSuggestionVC.tableView.contentInset = UIEdgeInsetsMake(-30, 0, self.keyboardHeight + 30, 0);
 }
 
+- (void)configDeleteView{
+    DZDeleteTipsView *deleteView = [DZDeleteTipsView new];
+    deleteView.alpha = 0;
+    [self.view addSubview:deleteView];
+    [UIView animateWithDuration:0.33 animations:^{
+        deleteView.alpha = 1;
+    }];
+    [deleteView setDeleteBlock:^{
+        [self emptySearchHistoryDidClick];
+    }];
+}
 
 - (void)emptySearchHistoryDidClick
 {
@@ -1208,3 +1221,88 @@
 }
 
 @end
+
+
+@implementation DZDeleteTips2View
+
+//-(instancetype)init{
+//    self = [super init];
+//    if (self) {
+//        self.frame = [UIScreen mainScreen].bounds;
+//        UIView *backView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//        backView.alpha = 0.5;
+//        backView.backgroundColor = UIBlackColor;
+//        [self addSubview:backView];
+//        [self afterView];
+//    }
+//    return self;
+//}
+//- (void)afterView{
+//    UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"是否删除弹框"]];
+//    [self addSubview:imageV];
+//    imageV.center = CGPointMake(SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0);
+//    imageV.userInteractionEnabled = YES;
+//    imageV.layer.masksToBounds = YES;
+//    imageV.layer.cornerRadius = 8.0f;
+//    imageV.width = 300;
+//    
+//    
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, imageV.height/2.0 - 10, imageV.width, 20)];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.text = @"历史搜索记录将被清空";
+//    [imageV addSubview:label];
+//    
+//    
+//    UILabel *subLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, imageV.height/2.0 + 10, imageV.width, 20)];
+//    subLabel.textAlignment = NSTextAlignmentCenter;
+//    subLabel.text = @"确定要删除？";
+//    [imageV addSubview:subLabel];
+//    
+//    
+//    UIView *horizontalLineView = [[UIView alloc]initWithFrame:CGRectMake(0, imageV.height - 50, imageV.width, ONE_PIXEL)];
+//    horizontalLineView.backgroundColor = UISeperatorColor;
+//    [imageV addSubview:horizontalLineView];
+//    
+//    
+//    UIView *verticalLineView = [[UIView alloc]initWithFrame:CGRectMake(imageV.width/2.0, horizontalLineView.top, ONE_PIXEL, 50)];
+//    verticalLineView.backgroundColor = UISeperatorColor;
+//    [imageV addSubview:verticalLineView];
+//    
+//    
+//    UILabel *cancelLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, imageV.height - 50, imageV.width/2.0, 50)];
+//    cancelLabel.textAlignment = NSTextAlignmentCenter;
+//    cancelLabel.text = @"取消";
+//    [imageV addSubview:cancelLabel];
+//    [cancelLabel bk_whenTapped:^{
+//        [self removeSelfView];
+//    }];
+//    
+//    UILabel *confimLabel = [[UILabel alloc]initWithFrame:CGRectMake(imageV.width/2.0, imageV.height - 50, imageV.width/2.0, 50)];
+//    confimLabel.textAlignment = NSTextAlignmentCenter;
+//    confimLabel.text = @"取消";
+//    [imageV addSubview:confimLabel];
+//    [confimLabel bk_whenTapped:^{
+//        if (_deleteBlock) {
+//            _deleteBlock();
+//        }
+//        [self removeSelfView];
+//    }];
+//}
+//
+//- (void)removeSelfView{
+//    self.alpha = 1;
+//    [UIView animateWithDuration:0.33 animations:^{
+//        self.alpha = 0;
+//    } completion:^(BOOL finished) {
+//        [self removeFromSuperview];
+//    }];
+//}
+
+
+@end
+
+
+
+
+
+
