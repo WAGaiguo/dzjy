@@ -52,6 +52,9 @@
     [self.titleView addSubview:_searchView];
     WEAK_SELF
     [_searchView setTapBlock:^{
+        if (![[DZUserManager manager] isLogined]){
+            [me presentViewController:[DZLoginViewController new] animated:YES completion:nil];return ;
+        }
         [me tapToSearch];
     }];
 }

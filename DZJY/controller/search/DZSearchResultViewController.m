@@ -60,6 +60,7 @@
     checkArea = @"";
     orderBy = @"";
     [self getSearchData:1 pageSize:30];
+    
 }
 - (void)formateStr{
     _commFirstId = [NSString isBlankString:_commFirstId];
@@ -81,6 +82,7 @@
 - (void)makeRightBtn{
     CGFloat s_width = self.titleView.leftView.right;
     DZSearchView *searchV = [[DZSearchView alloc]initWithFrame:CGRectMake(s_width, DZ_TOP - 40, SCREEN_WIDTH - s_width - 40, 40)];
+    [searchV setPlaceholder:_searchTitle];
     [searchV setTapBlock:^{
         [DZSearchModel makeSearchViewController:self];
     }];
@@ -165,7 +167,12 @@
         detail.categoryDataArr = me.categoryData;
         detail.searchTitle = me.searchTitle;
         detail.varietyDataArr = verityData;
-        [me.navigationController pushViewController:detail animated:YES];
+        if (me.navigationController != nil) {
+            [me.navigationController pushViewController:detail animated:YES];
+        }else{
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:me];
+            [nav.navigationController pushViewController:detail animated:YES];
+        }
     }];
 }
 - (void)tapItem:(NSInteger)index{

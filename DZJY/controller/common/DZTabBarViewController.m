@@ -11,6 +11,7 @@
 #import "DZMineViewController.h"
 #import "DZMessageViewController.h"
 #import "NSString+Common.h"
+#import "DZLoginViewController.h"
 
 @interface DZTabBarViewController ()
 
@@ -67,7 +68,11 @@
 
 // 处理点击其它 item 返回自定义事件
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    if ([viewController isKindOfClass:[DZMineViewController class]]) {
+    if ([viewController isKindOfClass:[DZMessageViewController class]]) {
+        if (![[DZUserManager manager] isLogined]) {
+            [self presentViewController:[DZLoginViewController new] animated:YES completion:nil];
+            return NO;
+        }
         return YES;
     }
     return YES;

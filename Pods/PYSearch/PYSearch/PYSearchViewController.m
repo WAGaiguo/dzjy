@@ -166,7 +166,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    self.navigationController.navigationBar.hidden = NO;
+
     if (self.cancelButtonWidth == 0) { // Just adapt iOS 11.2
         [self viewDidLayoutSubviews];
     }
@@ -184,7 +185,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+    self.navigationController.navigationBar.hidden = YES;
     [self.searchBar resignFirstResponder];
 }
 
