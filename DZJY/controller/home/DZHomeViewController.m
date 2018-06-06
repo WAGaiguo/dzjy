@@ -42,7 +42,7 @@
     [self configItemView];
     [self configAdapter];
     currentPage = 1;
-    [self requestData:currentPage pageSize:10];
+    [self requestData:currentPage pageSize:20];
     [self addInfinite];
     
     [[DZUserManager manager] isTokenExpired];
@@ -178,7 +178,7 @@
 }
 - (void)Infinite{
     currentPage = currentPage + 1;
-    [self requestData:currentPage pageSize:10];
+    [self requestData:currentPage pageSize:20];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
