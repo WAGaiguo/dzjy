@@ -17,6 +17,7 @@
 #import "DZSearchNilView.h"
 #import "DZHomeCategoryView.h"
 #import "DZSearchModel.h"
+#import "DZWeb2ViewController.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
@@ -76,9 +77,13 @@
 - (void)configAdapter{
     _adapter = [[DZHomeAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
-//    [self.tableView setFrame:COMMON_FRAME];
+    WEAK_SELF
+    __weak DZHomeAdapter *weak_adapter = _adapter;
     [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        
+        DZWeb2ViewController *web = [DZWeb2ViewController new];
+        web.dic = weak_adapter.dataSource[indexPath.row];
+        web.buyCount = [weak_adapter.allowBuyDic[weak_adapter.dataSource[indexPath.row][@"data"][@"id"]] floatValue];
+        [me.navigationController pushViewController:web animated:YES];
     }];
 }
 

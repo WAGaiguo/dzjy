@@ -78,8 +78,8 @@
     [buyView animation];
     WEAK_SELF
     [buyView setTapBuyBlock:^(double nums) {
-        NSString *allowBuyCount = me.dic[@"data"][@"allowBuyCount"];
-        if (nums > [allowBuyCount doubleValue]) {
+//        NSString *allowBuyCount = me.dic[@"data"][@"allowBuyCount"];
+        if (nums > _buyCount) {
             [HudUtils showMessage:@"亲，您买的有点多"]; return ;
         }
         NSString *startBuyCount = me.dic[@"data"][@"startBuyCount"];
@@ -90,7 +90,7 @@
 //            [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;
 //        }
         if ([[me.dic[@"data"][@"id"] description] isEqualToString:[DZUserManager manager].user.id]) {
-            [HudUtils showMessage:@"自己就不要买自己的东西了"];
+            [HudUtils showMessage:@"自己就不要买自己的东西了"];return;
         }
         DZOrderConfirmViewController *confirmV = [DZOrderConfirmViewController new];
         confirmV.buyCount = nums;

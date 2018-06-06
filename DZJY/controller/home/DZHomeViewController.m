@@ -127,9 +127,8 @@
             [me presentViewController:loginC animated:YES completion:nil];return;
         }
         DZWeb2ViewController *web = [DZWeb2ViewController new];
-        web.content = @"https://www.baidu.com/";
-        
         web.dic = weak_adapter.dataSource[indexPath.row];
+        web.buyCount = [weak_adapter.allowBuyDic[weak_adapter.dataSource[indexPath.row][@"data"][@"id"]] floatValue];
         [me.navigationController pushViewController:web animated:YES];
     }];
 }

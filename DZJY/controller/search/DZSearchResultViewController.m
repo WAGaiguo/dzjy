@@ -20,6 +20,7 @@
 #import "DZHomeCategoryView.h"
 #import "NSString+Common.h"
 #import "DZCategoryDetailController.h"
+#import "DZWeb2ViewController.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
@@ -237,8 +238,13 @@
     [self.tableView setFrame:CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)];
     [self.tableView setAdapter:_adapter];
     [self addInfinite];
+    __weak DZHomeAdapter *weak_adapter = _adapter;
+    WEAK_SELF
     [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-       
+        DZWeb2ViewController *web = [DZWeb2ViewController new];
+        web.dic = weak_adapter.dataSource[indexPath.row];
+        web.buyCount = [weak_adapter.allowBuyDic[weak_adapter.dataSource[indexPath.row][@"data"][@"id"]] floatValue];
+        [me.navigationController pushViewController:web animated:YES];
     }];
 }
 - (void)getSearchData:(NSInteger)pageNo pageSize:(NSInteger)pageSize{
