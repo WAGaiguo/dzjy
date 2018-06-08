@@ -132,11 +132,11 @@
     NSString *username = _usernameField.text;
     NSString *passWord = _passwordField.text;
     // 测试
-    username = @"lixue01";
-    passWord = @"a123456";
+//    username = @"lixue01";
+//    passWord = @"a123456";
     // 开发
-    username = @"newmaijia711";
-    passWord = @"a123456";
+//    username = @"newmaijia711";
+//    passWord = @"a123456";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
