@@ -118,6 +118,8 @@
         _titleImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"默认头像"]];
         _titleImageV.bottom = imageV.bottom + 10;
         _titleImageV.centerX = SCREEN_WIDTH/2.0;
+        _titleImageV.layer.masksToBounds = YES;
+        _titleImageV.layer.cornerRadius = _titleImageV.width/2.0;
         [self addSubview:_titleImageV];
         
         _memberLabel = [[DZMemberLabel alloc]init];

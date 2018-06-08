@@ -65,10 +65,10 @@
 
 - (void)setContent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"othPartyName"] description];
-    if ([dic[@"reveMoney"] integerValue] > 0) {
+    if ([[dic[@"reveMoney"] description] integerValue] > 0) {
         _moneyLabel.text = [dic[@"reveMoney"] description];
     }
-    if ([dic[@"disbMoney"] integerValue] > 0) {
+    if ([[dic[@"disbMoney"] description] integerValue] > 0) {
         _moneyLabel.text = [NSString stringWithFormat:@"-%@", [dic[@"disbMoney"] description]];
     }
     _descLabel.text = [NSString stringWithFormat:@"摘要：%@",dic[@"abst"]];

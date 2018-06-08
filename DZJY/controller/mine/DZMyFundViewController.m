@@ -116,10 +116,9 @@
 
 - (void)requestTotalData{
     DZResponseHandler *handler = [DZResponseHandler new];
+    handler.is20000Code = YES;
     [handler setType:HZRequestManangerTypeBackground];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//        [self getMonthFirstAndLastDayWith];
-//        NSLog(@"%@", obj);
         [self setTotleContent:[obj[@"list"] firstObject]];
     }];
     DZRequestParams *params = [DZRequestParams new];
@@ -146,15 +145,20 @@
 }
 - (void)requestDataType:(NSString *)type{
     DZResponseHandler *handler = [DZResponseHandler new];
+    handler.is20000Code = YES;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [HudUtils hide:MAIN_WINDOW];
+        NSLog(@"%@", obj);
         if ([type isEqualToString:@""]) {
             [_allAdapter reloadData:[obj objectForKey:@"list"]];
         }else if ([type isEqualToString:@"1"]){
             [_expendAdapter reloadData:[obj objectForKey:@"list"]];
         }else if ([type isEqualToString:@"0"]){
-            [_expendAdapter reloadData:[obj objectForKey:@"list"]];
+            [_incomeAdapter reloadData:[obj objectForKey:@"list"]];
         }
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        NSLog(@"faild-----faild");
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:type forKey:@"capitalType"];

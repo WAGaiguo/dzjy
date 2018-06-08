@@ -22,6 +22,7 @@
     if (self) {
         _willParseData = YES;
         _logEnabled = NO;
+        _is20000Code = NO;
         _type = HZRequestManangerTypeDefault;
     }
     return self;
@@ -78,7 +79,13 @@
             object = [object objectForKey:@"result"];
         }
         _didSuccess(request,object);
+    } else if (errorCode == 20000){
+        if (_is20000Code) { // 判断是否是返回20000， 20000则成功否则失败 目前支付20000
+            object = [object objectForKey:@"result"];
+            _didSuccess(request, object);
+        }
     }else{
+       
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[object objectForKey:@"msg"]                                                                      forKey:NSLocalizedDescriptionKey];
         NSError  *error = [NSError errorWithDomain:@"HZReuestError" code:errorCode userInfo:userInfo];
         [self requestFailed:request error:error];

@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger,HZRequestManangerType) {
 @property (nonatomic,assign)BOOL logEnabled;
 @property (nonatomic,assign)BOOL willParseData;
 @property (nonatomic,assign)BOOL willParsedDataContainsDataKey;
+@property (nonatomic,assign)BOOL is20000Code;
 @property (nonatomic,assign)HZRequestManangerType type;
 
 
