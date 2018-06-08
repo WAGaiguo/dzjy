@@ -25,6 +25,8 @@
 		1E23343720C5258400B1D276 /* DZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23342A20C5258400B1D276 /* DZTableView.m */; };
 		1E23343A20C5258400B1D276 /* DZLoadingMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23343220C5258400B1D276 /* DZLoadingMoreFooter.m */; };
 		1E23343D20C621FD00B1D276 /* DZDeleteTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23343C20C621FD00B1D276 /* DZDeleteTipsView.m */; };
+		1E23344B20CA30DD00B1D276 /* DZDataSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E23344A20CA30DD00B1D276 /* DZDataSourceModel.m */; };
+		1E23344C20CA3E6700B1D276 /* dataSourceDict.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E23344820CA2D7500B1D276 /* dataSourceDict.json */; };
 		1E27224420B3BE8B006127F0 /* DZOrderCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */; };
 		1E27224720B3DCE7006127F0 /* DZOrderCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224620B3DCE7006127F0 /* DZOrderCheckCell.m */; };
 		1E27224A20B3DE44006127F0 /* DZOrderCheckAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E27224920B3DE44006127F0 /* DZOrderCheckAdapter.m */; };
@@ -225,6 +227,9 @@
 		1E23343320C5258400B1D276 /* DZTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTableView.h; sourceTree = "<group>"; };
 		1E23343C20C621FD00B1D276 /* DZDeleteTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZDeleteTipsView.m; sourceTree = "<group>"; };
 		1E23344220C630DD00B1D276 /* DZDeleteTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZDeleteTipsView.h; path = Pods/PYSearch/DZDeleteTipsView.h; sourceTree = SOURCE_ROOT; };
+		1E23344820CA2D7500B1D276 /* dataSourceDict.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dataSourceDict.json; sourceTree = "<group>"; };
+		1E23344920CA30DD00B1D276 /* DZDataSourceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZDataSourceModel.h; sourceTree = "<group>"; };
+		1E23344A20CA30DD00B1D276 /* DZDataSourceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZDataSourceModel.m; sourceTree = "<group>"; };
 		1E27224220B3BE8B006127F0 /* DZOrderCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckViewController.h; sourceTree = "<group>"; };
 		1E27224320B3BE8B006127F0 /* DZOrderCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderCheckViewController.m; sourceTree = "<group>"; };
 		1E27224520B3DCE7006127F0 /* DZOrderCheckCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderCheckCell.h; sourceTree = "<group>"; };
@@ -1030,10 +1035,13 @@
 			children = (
 				1EF8B6AF20A56B56008EB028 /* agreement.html */,
 				1E92D1112084E99800E31C62 /* wag.json */,
+				1E23344820CA2D7500B1D276 /* dataSourceDict.json */,
 				1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */,
 				1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */,
 				1E27225420B53FF5006127F0 /* DZMessageNumsModel.h */,
 				1E27225520B53FF5006127F0 /* DZMessageNumsModel.m */,
+				1E23344920CA30DD00B1D276 /* DZDataSourceModel.h */,
+				1E23344A20CA30DD00B1D276 /* DZDataSourceModel.m */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1390,6 +1398,7 @@
 			files = (
 				1E343714209C5C8500190689 /* GTLCalendarCell.xib in Resources */,
 				1EAD73CF2068CD1C00BD7EF7 /* Assets.xcassets in Resources */,
+				1E23344C20CA3E6700B1D276 /* dataSourceDict.json in Resources */,
 				1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */,
 				1E23343620C5258400B1D276 /* CKRefreshHeader.xib in Resources */,
 				1E92D1122084E99800E31C62 /* wag.json in Resources */,
@@ -1597,6 +1606,7 @@
 				1E05504720722E82000F5188 /* DZMineCollectionViewCell.m in Sources */,
 				1E0550402071F512000F5188 /* DZLoginUser.m in Sources */,
 				1E343688209438C200190689 /* DZMyDeliveryCell.m in Sources */,
+				1E23344B20CA30DD00B1D276 /* DZDataSourceModel.m in Sources */,
 				1E3436A92099530D00190689 /* DZMyLadingCell.m in Sources */,
 				1E628F0D207DF79B00169A64 /* DZCitySelectView.m in Sources */,
 				1E27224720B3DCE7006127F0 /* DZOrderCheckCell.m in Sources */,
