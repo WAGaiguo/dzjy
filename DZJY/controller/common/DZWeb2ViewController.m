@@ -46,9 +46,7 @@
     [self.view addSubview:webV];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_content]];
     [webV loadRequest:request];
-    
-    NSLog(@"%@", _content);
-    
+        
     [self makeBtnView];
     [self reqeustDetailData];
 }

@@ -148,7 +148,6 @@
     handler.is20000Code = YES;
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [HudUtils hide:MAIN_WINDOW];
-        NSLog(@"%@", obj);
         if ([type isEqualToString:@""]) {
             [_allAdapter reloadData:[obj objectForKey:@"list"]];
         }else if ([type isEqualToString:@"1"]){

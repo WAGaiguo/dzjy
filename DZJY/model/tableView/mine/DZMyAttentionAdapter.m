@@ -25,7 +25,7 @@
         cell = [[DZMyAttentionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"attentionCell"];
     }
     [cell setCancelBlock:^(UITableViewCell *cell) {
-        [HudUtils showMessage:@"取消"];
+        [self requestData:self.dataSource[indexPath.row][@"id"] integer:indexPath.row];
     }];
     [cell setDic:self.dataSource[indexPath.row]];
     return cell;
@@ -35,5 +35,24 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.01;
+}
+
+/**
+ *  关注数据请求
+ **/
+- (void)requestData: (NSString *)cancelId integer:(NSInteger)integer{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [HudUtils showMessage:@"取消关注成功"];
+        [self.dataSource removeObjectAtIndex:integer];
+        [self.view reloadData];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:cancelId forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory attentionCancel]];
+    [manager setParams:[params params]];
+    [manager setHandler:handler];
+    [manager post];
 }
 @end
