@@ -132,10 +132,18 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putString:addressId forKey:@"id"];
     DZResponseHandler *handler = [DZResponseHandler new];
-    [handler setType:HZRequestManangerTypeBackground];
+    [handler setType:HZRequestManangerTypeTipsOnly];
     [params putString:addressId forKey:@"id"];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [self requestData];
+//        [self requestData];
+        // 暂时走了点歪路  还得遍历  删除  （留点小问题、以后解决）
+        [_adapter.dataSource enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj[@"id"] isEqualToString:addressId]) {
+                [_adapter.dataSource removeObjectAtIndex:idx];
+                [_adapter reloadData:_adapter.dataSource];
+                *stop = YES;
+            }
+        }];
         [HudUtils showMessage:@"删除成功"];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
@@ -143,26 +151,6 @@
     [manager setHandler:handler];
     [manager setParams:[params dicParams]];
     [manager post];
-    
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    [manager.requestSerializer setAccessibilityContainerType:(UIAccessibilityContainerType)];
-//    [manager.requestSerializer setStringEncoding:NSUTF8StringEncoding];
-//    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
-//    NSString *utf8Str = [NSString stringWithCString:[addressId UTF8String] encoding:NSUnicodeStringEncoding];
-//    [manager.requestSerializer setValue:@"text/plain;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript" ,nil];
-//    NSData *stringData = [addressId dataUsingEncoding:NSUTF8StringEncoding];
-//    id json = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
-//    NSDictionary *dic = @{@"id": addressId};
-//    [manager POST:[DZURLFactory addressDelete] parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-//
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@", [responseObject mj_JSONString]);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"%@", error);
-//    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

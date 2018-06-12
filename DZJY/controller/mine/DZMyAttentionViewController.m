@@ -25,8 +25,9 @@
     [self setHeaderBackGroud:YES];
     _adapter = [[DZMyAttentionAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_adapter setDidCellSelected:^(DZMyAttentionCell * cell, NSIndexPath *indexPath) {
-        [HudUtils showMessage:@"tip_Tips"];
+
     }];
     [self requestData];
 }

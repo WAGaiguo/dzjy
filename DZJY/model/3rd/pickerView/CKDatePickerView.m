@@ -283,6 +283,12 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
 
 - (void)p_pickerConfirmAction {
     if (_selectBlock) {
+        provinceName = provinceName == nil ? @"" : provinceName;
+        cityName = cityName == nil ? @"" : cityName;
+        districtName = districtName == nil ? @"" : districtName;
+        provinceId = (provinceId == nil ? @"" : provinceId);
+        cityId = (cityId == nil ? @"" : cityId);
+        districtId = (districtId == nil ? @"" : districtId);
         _selectBlock([NSString stringWithFormat:@"%@%@%@",provinceName,cityName,districtName], provinceName, provinceId,cityName, cityId,districtName, districtId);
     }
 }

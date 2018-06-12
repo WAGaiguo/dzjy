@@ -53,7 +53,9 @@
     }
 }
 - (void)showLoading{
-    [HudUtils show:self.hudView];
+    if ([self willShowLoading]) {
+        [HudUtils show:self.hudView];
+    }
 }
 
 - (void)requestStarted:(DZRequestMananger *)request{
@@ -93,9 +95,9 @@
 }
 - (void)request:(DZRequestMananger *)request success:(id)responseData{
     [self dismissLoading];
-    if(_logEnabled){
-        NSLog(@"%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-    }
+//    if(_logEnabled){
+//        NSLog(@"%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+//    }
     if(_willParseData){
         if(_didSuccess){
             [self callOnSuccess:responseData request:request];

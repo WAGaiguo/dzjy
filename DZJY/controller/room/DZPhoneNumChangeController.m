@@ -111,11 +111,10 @@
     btn.layer.cornerRadius = 5;
     [btn bk_addEventHandler:^(id sender) {
         if ([_passwordField.text isBlankString]) {
-            [HudUtils showMessage:@"请输入登录密码"];return ;
+            [HudUtils showMessage:@"请输入登录密码"]; return;
         }
         if (!(_codeField.text.length == 6) && ![_codeField.text isNumber]) {
-            [HudUtils showMessage:@"请输入正确的验证码"];
-            return ;
+            [HudUtils showMessage:@"请输入正确的验证码"]; return;
         }
         [self requestFirstData];
     } forControlEvents:UIControlEventTouchUpInside];
@@ -266,6 +265,7 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_phoneField.text forKey:@"mobile"];
     [params putString:_codeField.text forKey:@"mobileCode"];
+    [params putString:_passwordField.text forKey:@"password"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory mobileUpdateFirst]];
     [manager setParams:[params dicParams]];

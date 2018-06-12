@@ -104,7 +104,7 @@
         [obj setAdapter:adapterArr[idx]];
     }];
     [_allAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [HudUtils showMessage:@"点击测试"];
+//        [HudUtils showMessage:@"点击测试"];
     }];
 }
 
@@ -123,7 +123,7 @@
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_startDate forKey:@"dateTimeStart"];
-    [params putString:_endDate forKey:@"dateTimeEnd"];
+    [params putString:[NSString stringWithFormat:@"%@ %@", _endDate, @"23:59:59"] forKey:@"dateTimeEnd"];
     [params putString:[[DZUserManager manager] user].id forKey:@"accId"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory fundInfo]];
@@ -132,15 +132,15 @@
     [manager post];
 }
 - (void)setTotleContent:(NSDictionary *)dic{
-    [_headerView setBottomFundContent:dic[@"totalDisbMoney"] reve:dic[@"totalReveMoney"]];
+    [_headerView setBottomFundContent:[dic[@"totalDisbMoney"] isEqual:[NSNull null]]?@"0":dic[@"totalDisbMoney"] reve:[dic[@"totalReveMoney"] isEqual:[NSNull null]]?@"0":dic[@"totalReveMoney"]];
 }
 - (void)reqeustData{
     if (_segmentView.selectedIndex == 0) {
         [self requestDataType:@""];
     }else if (_segmentView.selectedIndex == 1){
-        [self requestDataType:@"1"];
+        [self requestDataType:@"2"];
     }else if (_segmentView.selectedIndex == 2){
-        [self requestDataType:@"0"];
+        [self requestDataType:@"1"];
     }
 }
 - (void)requestDataType:(NSString *)type{
@@ -150,19 +150,16 @@
         [HudUtils hide:MAIN_WINDOW];
         if ([type isEqualToString:@""]) {
             [_allAdapter reloadData:[obj objectForKey:@"list"]];
-        }else if ([type isEqualToString:@"1"]){
+        }else if ([type isEqualToString:@"2"]){
             [_expendAdapter reloadData:[obj objectForKey:@"list"]];
-        }else if ([type isEqualToString:@"0"]){
+        }else if ([type isEqualToString:@"1"]){
             [_incomeAdapter reloadData:[obj objectForKey:@"list"]];
         }
-    }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-        NSLog(@"faild-----faild");
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:type forKey:@"capitalType"];
     [params putString:_startDate forKey:@"dateTimeStart"];
-    [params putString:_endDate forKey:@"dateTimeEnd"];
+    [params putString:[NSString stringWithFormat:@"%@ %@", _endDate, @"23:59:59"] forKey:@"dateTimeEnd"];
     if ([[DZUserManager manager] isLogined]){
         if ([[[DZUserManager manager] user].parentId isBlankString]) {
             [params putString:[[DZUserManager manager] user].id forKey:@"accId"];

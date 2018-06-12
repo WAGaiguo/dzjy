@@ -44,18 +44,12 @@
     _subTitleLabel.font = [UIFont systemFontOfSize:12];
     _subTitleLabel.textColor = UISubTitleColor;
     [backView addSubview:_subTitleLabel];
-    
-    [self test];
 }
-- (void)test{
-    _imageV.backgroundColor = UICyanColor;
-    _titleLabel.text = @"初级会员";
-    _subTitleLabel.text = @"张三的歌";
-}
+
 -(void)setContent:(NSDictionary *)dic{
     _titleLabel.text = [NSString formateString:dic[@"compFullName"]];
     _subTitleLabel.text = [NSString stringWithFormat:@"%@   %@   %@", [NSString formateString:dic[@"contactName"]], [NSString formateString:dic[@"contactMobile"]], [NSString formateString:dic[@"contactTel"]]];
-    [_imageV sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]]];
+    [_imageV sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"client_logo"]];
 }
 
 @end

@@ -65,14 +65,16 @@
 
 - (void)setContent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"othPartyName"] description];
-    if ([[dic[@"reveMoney"] description] integerValue] > 0) {
+    if (![dic[@"reveMoney"] isEqual:[NSNull null]]) {
         _moneyLabel.text = [dic[@"reveMoney"] description];
     }
-    if ([[dic[@"disbMoney"] description] integerValue] > 0) {
+    if (![dic[@"disbMoney"] isEqual:[NSNull null]]) {
         _moneyLabel.text = [NSString stringWithFormat:@"-%@", [dic[@"disbMoney"] description]];
     }
     _descLabel.text = [NSString stringWithFormat:@"摘要：%@",dic[@"abst"]];
-    _timeLabel.text = [NSString stringWithFormat:@"时间：%@",[NSDate timestampToTime: dic[@"createDate"]]];
+    
+//    _timeLabel.text = [NSString stringWithFormat:@"时间：%@",[NSDate timestampToTime: dic[@"createDate"]]];
+    _timeLabel.text = [NSString stringWithFormat:@"时间：%@", dic[@"createDate"]];
 }
 
 @end

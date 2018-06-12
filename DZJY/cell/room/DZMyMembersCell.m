@@ -36,7 +36,7 @@
         _titleLeftLabel.font = [UIFont systemFontOfSize:14];
         [backView addSubview:_titleLeftLabel];
         
-        _titleRightLabel = [[UILabel alloc]initWithFrame:CGRectMake(_titleRightLabel.right - 60, 0, backView.width - _titleRightLabel.right + 50, 48)];
+        _titleRightLabel = [[UILabel alloc]initWithFrame:CGRectMake(_titleLeftLabel.right - 60, 0, backView.width - _titleLeftLabel.right + 50, 48)];
         _titleRightLabel.textAlignment = NSTextAlignmentRight;
         _titleRightLabel.font = [UIFont systemFontOfSize:14];
         _titleRightLabel.textColor = UI333333Color;
@@ -57,7 +57,7 @@
             break;
         case 2:
             _titleLeftLabel.text = @"手机号码";
-            _titleRightLabel.text = _dic[@"contactMobile"];
+            _titleRightLabel.text = _dic[@"mobile"];
             break;
         case 3:
             _titleLeftLabel.text = @"用户名";
@@ -101,27 +101,28 @@
             _titleLeftLabel.text = @"主营产品";
             _titleRightLabel.text = [self isNull:_dic[@"mainProduct"]]?@"":_dic[@"mainProduct"];
             break;
+//        case 7:
+//            _titleLeftLabel.text = @"证件类型";
+//            _titleRightLabel.text = [_dic[@""] description];
+//            break;
+//        case 8:
+//            _titleLeftLabel.text = @"证件号码";
+//            _titleRightLabel.text = [_dic[@""] description];
+//            break;
         case 7:
-            _titleLeftLabel.text = @"证件类型";
-            _titleRightLabel.text = [_dic[@""] description];
-            break;
-        case 8:
-            _titleLeftLabel.text = @"证件号码";
-            _titleRightLabel.text = [_dic[@""] description];
-            break;
-        case 9:
             _titleLeftLabel.text = @"公司地址";
             _titleRightLabel.text = [DZCityModel prov:_dic[@"compAreaLists"][0] city:_dic[@"compAreaLists"][1] dist:_dic[@"compAreaLists"][2]];
             break;
-        case 10:
+        case 8:
             _titleLeftLabel.text = @"详细地址";
             _titleRightLabel.text = [_dic[@"address"] description];
             break;
-        case 11:
-            _titleLeftLabel.text = @"社会统一信息代码";
-            _titleRightLabel.text = [_dic[@""] description];
+        case 9:
+            _titleLeftLabel.text = @"社会统一信用代码证";
+            _titleLeftLabel.width = 140;
+            _titleRightLabel.text = [_dic[@"socioUniCreditCode"] description];
             break;
-        case 12:
+        case 10:
             _titleLeftLabel.text = @"公司简介";
             _titleRightLabel.text = [self isNull:_dic[@"compProfile"]]?@"":[_dic[@"compProfile"] description];
             break;

@@ -277,9 +277,6 @@
             [self addNoMoreData];
         }
     }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-        NSLog(@"------失败------");
-    }];
     DZRequestParams *params = [DZRequestParams new];
     [params putInteger:pageNo forKey:@"pageNo"];
     [params putInteger:pageSize forKey:@"pageSize"];

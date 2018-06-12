@@ -13,6 +13,8 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        _isAddress = NO;
+        
         _selectBtn = [self button:@"默认发票" image:@"选中" integer:1];
         _selectBtn.width = 90;
         _selectBtn.height = 47;
@@ -52,10 +54,21 @@
 - (void)setDefalut:(BOOL)isDefalut{
     if (isDefalut) {
         [_selectBtn setTitle:@"默认发票" forState:UIControlStateNormal];
+        if (_isAddress) {
+            [_selectBtn setTitle:@"默认地址" forState:UIControlStateNormal];
+        }
         [_selectBtn setImage:[UIImage imageNamed:@"选中"] forState:UIControlStateNormal];
     }else{
         [_selectBtn setTitle:@"设为默认" forState:UIControlStateNormal];
         [_selectBtn setImage:[UIImage imageNamed:@"未选中"] forState:UIControlStateNormal];
+    }
+}
+- (void)setIsAddress:(BOOL)isAddress{
+    _isAddress = isAddress;
+    if (_isAddress) {
+        [_selectBtn setTitle:@"默认地址" forState:UIControlStateNormal];
+    }else{
+        [_selectBtn setTitle:@"默认地址" forState:UIControlStateNormal];
     }
 }
 @end

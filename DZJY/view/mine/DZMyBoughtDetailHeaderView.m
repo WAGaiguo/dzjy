@@ -144,7 +144,7 @@
     _priceLabel.text = [NSString stringWithFormat:@"期望价格：%@/%@",  [self fromatStr:dic[@"expecPrice"]], [self fromatStr:dic[@"measUnitName"]]];
     NSString *cityStr = [DZCityModel prov:[self fromatStr:dic[@"expecAreaProv"]]  city:[self fromatStr:dic[@"expecAreaCity"]] dist:[self fromatStr:dic[@"expecAreaDist"]]];
     _areaLabel.text = [NSString stringWithFormat:@"期望货源地：%@",cityStr];
-    _releaseData.text = [NSString stringWithFormat:@"发布日期：%@", [NSDate timestampToTime:[self fromatStr:dic[@"releMembName"]]]];
+    _releaseData.text = [NSString stringWithFormat:@"发布日期：%@", [NSDate timestampToTime:[self fromatStr:dic[@"releDate"]]]];
     _effectiveData.text = [NSString stringWithFormat:@"有效日期：%@",  [NSDate timestampToTime:[self fromatStr:dic[@"effePer"]]]];
     _addedLabel.text = [NSString stringWithFormat:@"补充说明：%@", [self fromatStr:dic[@"remarks"]]];
 }

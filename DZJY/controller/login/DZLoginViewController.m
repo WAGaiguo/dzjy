@@ -62,6 +62,7 @@
     passwordView.top = usernameView.bottom;
     [_scrollView addSubview:passwordView];
     _passwordField = [self textField:@"登录密码"];
+    _passwordField.secureTextEntry = YES;
     [passwordView addSubview:_passwordField];
     UIImageView *hiddenImageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"隐藏"]];
     hiddenImageV.centerY = 25;

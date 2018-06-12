@@ -104,7 +104,6 @@
 - (void)setCellConttent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"wantToBuyName"] description];
     _descLabel.text = [NSString stringWithFormat:@"%@%@",[self formatString:dic[@"category"]],[self formatString:dic[@"vari"]]];
-//    _cityLabel.text = [NSString stringWithFormat:@"期望货源地：%@%@%@",[self formatString:dic[@"expecAreaProv"]],[self formatString:dic[@"expecAreaCity"]] ,[self formatString:dic[@"expecAreaDist"]]];
     NSString *areaStr = [DZCityModel prov:[self formatString:dic[@"expecAreaProv"]] city:[self formatString:dic[@"expecAreaCity"]] dist:[self formatString:dic[@"expecAreaDist"]]];
     _cityLabel.text = [NSString stringWithFormat:@"期望货源地：%@", areaStr];
     _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"releDate"]];

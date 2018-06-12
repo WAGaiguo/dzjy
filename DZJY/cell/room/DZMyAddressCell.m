@@ -55,6 +55,7 @@
     [self lineView:_addressLabel.bottom - 1];
     
     _editView = [[DZMyInvoiceEditView alloc]initWithFrame:CGRectMake(0, 117, SCREEN_WIDTH - 14, 47)];
+    [_editView setIsAddress:YES];
     [backV addSubview:_editView];
     WEAK_SELF
     [_editView setClickBlock:^(NSInteger integer) {

@@ -14,4 +14,5 @@
 @property (nonatomic, strong)UIButton *deleteBtn;
 @property (nonatomic, copy)void (^clickBlock)(NSInteger integer);
 - (void)setDefalut:(BOOL)isDefalut;
+@property (nonatomic, assign)BOOL isAddress;
 @end

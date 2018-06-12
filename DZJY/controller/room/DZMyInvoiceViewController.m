@@ -109,6 +109,7 @@
 }
 - (void)requestDedicateData{
     DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeTipsOnly];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [_dedicatedAdapter reloadData:obj];
     }];
