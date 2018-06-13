@@ -11,11 +11,13 @@
 #import "DZMineCommenScrollView.h"
 #import "DZMyInvoiceAdapter.h"
 #import "DZMyInvoiceAddController.h"
+#import "DZMyInvoiceNormalAddController.h"
+#import "DZMyInvoiceNormalAdapter.h"
 
 @interface DZMyInvoiceViewController ()<SVSegmentedViewDelegate>{
     DZMineCommenScrollView *_scrollView;
     DZMyInvoiceAdapter *_dedicatedAdapter;
-    DZMyInvoiceAdapter *_normalAdapter;
+    DZMyInvoiceNormalAdapter *_normalAdapter;
     BOOL  _isFirst;
 }
 @property (nonatomic, strong)SVSegmentedView *segmentView;
@@ -58,7 +60,7 @@
 }
 - (void)configAdapter{
     _dedicatedAdapter = [DZMyInvoiceAdapter new];
-    _normalAdapter = [DZMyInvoiceAdapter new];
+    _normalAdapter = [DZMyInvoiceNormalAdapter new];
     NSArray *adapterArr = @[_dedicatedAdapter, _normalAdapter];
     [_scrollView.tableArr enumerateObjectsUsingBlock:^(UITableView * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setAdapter:adapterArr[idx]];
@@ -89,6 +91,7 @@
 }
 - (void)addInvoice:(NSString*)title type:(NSString *)type{
     DZMyInvoiceAddController *addController = [[DZMyInvoiceAddController alloc]init];
+    DZMyInvoiceNormalAddController *addNormalController = [DZMyInvoiceNormalAddController new];
     [addController setSuccessBlock:^{
         if ([type isEqualToString:@"0"]) {
             [self requestNormalData];
@@ -96,9 +99,18 @@
             [self requestDedicateData];
         }
     }];
+    [addNormalController setSuccessBlock:^{
+        _isFirst = YES;
+        [self requestNormalData];
+    }];
     addController.addTitle = title;
     addController.invoType = type;
-    [self.navigationController pushViewController:addController animated:YES];
+    if ([type isEqualToString:@"1"]) {
+        [self.navigationController pushViewController:addController animated:YES];
+    } else if ([type isEqualToString:@"0"]){
+        [self.navigationController pushViewController:addNormalController animated:YES];
+    }
+
 }
 #pragma _segement delegate
 - (void)segmentedDidChange:(NSInteger) index{
@@ -124,6 +136,7 @@
 - (void)requestNormalData{
     if (_isFirst) {
         DZResponseHandler *handler = [DZResponseHandler new];
+        [handler setType:HZRequestManangerTypeTipsOnly];
         [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
             [_normalAdapter reloadData:obj];
         }];

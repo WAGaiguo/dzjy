@@ -1,29 +1,26 @@
 //
-//  DZMyInvoiceAddController.m
+//  DZMyInvoiceNormalAddController.m
 //  DZJY
 //
-//  Created by wangaiguo on 2018/5/3.
+//  Created by wangaiguo on 2018/6/12.
 //  Copyright © 2018年 wangaiguo. All rights reserved.
 //
 
-#import "DZMyInvoiceAddController.h"
-#import "DZMyInvoiceView.h"
-#import "DZMyInvoiceSetDefaultView.h"
-#import "NSString+PDRegex.h"
+#import "DZMyInvoiceNormalAddController.h"
+#import "DZMyInvoiceNormalView.h"
 #import "DZCommonSaveView.h"
 
-@interface DZMyInvoiceAddController (){
-    DZMyInvoiceView *_invoiceView;
-    DZMyInvoiceSetDefaultView *_defaultView;
+@interface DZMyInvoiceNormalAddController (){
+    DZMyInvoiceNormalView *_invoiceView;
 }
 
 @end
 
-@implementation DZMyInvoiceAddController
+@implementation DZMyInvoiceNormalAddController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:_addTitle];
+    [self setTitle:@"新增增值税普通发票"];
     [self setBackEnabled:YES];
     [self setHeaderBackGroud:YES];
     [self configHeader];
@@ -31,8 +28,8 @@
 }
 
 - (void)configHeader{
-    _invoiceView = [[DZMyInvoiceView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 343 - 48)];
-    _invoiceView.backV.height = 48 * 6;
+    _invoiceView = [[DZMyInvoiceNormalView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,  48 * 2 + 7)];
+    _invoiceView.backV.height = 48 * 2;
     self.tableView.tableHeaderView = _invoiceView;
 }
 - (void)configFooterBtn{
@@ -45,31 +42,12 @@
 }
 - (void)saveMessage{
     NSString *company = _invoiceView.companyField.text;
-    NSString *address = _invoiceView.addressField.text;
-    NSString *phone = _invoiceView.phoneField.text;
     NSString *code = _invoiceView.codeField.text;
-    NSString *bank = _invoiceView.bankField.text;
-    NSString *account = _invoiceView.accountField.text;
     if (TRIM_STRING(company).length == 0) {
         [HudUtils showMessage:@"公司名不能为空"];return;
     }
-    if (TRIM_STRING(address).length == 0) {
-        [HudUtils showMessage:@"地址不能为空"];return;
-    }
-    if (TRIM_STRING(phone).length == 0) {
-        [HudUtils showMessage:@"手机号不能为空"];return;
-    }
     if (TRIM_STRING(code).length == 0) {
         [HudUtils showMessage:@"信用码不能为空"];return;
-    }
-    if (TRIM_STRING(bank).length == 0) {
-        [HudUtils showMessage:@"银行卡号不能为空"];return;
-    }
-    if (TRIM_STRING(account).length == 0) {
-        [HudUtils showMessage:@"银行账号不能为空"];return;
-    }
-    if (![phone isNumber]) {
-        [HudUtils showMessage:@"请输入正确的手机号"];return;
     }
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
@@ -81,12 +59,8 @@
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:company forKey:@"compName"];
-    [params putString:address forKey:@"regAddress"];
-    [params putString:phone forKey:@"regTel"];
     [params putString:code forKey:@"socioUniCreditCode"];
-    [params putString:bank forKey:@"bankName"];
-    [params putString:account forKey:@"bankAccNumb"];
-    [params putString:[_invoType isEqualToString:@"0"]?@"0":@"1" forKey:@"invoType"];
+    [params putString:@"0" forKey:@"invoType"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory invoiceInsert]];
     [manager setParams:[params params]];
@@ -94,8 +68,11 @@
     [manager post];
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
