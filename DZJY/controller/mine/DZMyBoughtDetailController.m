@@ -8,11 +8,11 @@
 
 #import "DZMyBoughtDetailController.h"
 #import "DZMyBoughtDetailHeaderView.h"
-#import "DZHomeAdapter.h"
+#import "DZMyBoughtDetailAdapter.h"
 
 @interface DZMyBoughtDetailController (){
     DZMyBoughtDetailHeaderView *_headerView;
-    DZHomeAdapter *_adapter; // 目前公用的一个adapter  后期如果大的改动在进行修改
+    DZMyBoughtDetailAdapter *_adapter; 
 }
 
 @end
@@ -33,7 +33,7 @@
     [self.tableView setTableHeaderView:_headerView];
 }
 - (void)configAdapter{
-    _adapter = [[DZHomeAdapter alloc]init];
+    _adapter = [[DZMyBoughtDetailAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
 }
 - (void)requestInforData{

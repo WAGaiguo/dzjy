@@ -204,7 +204,7 @@
 }
 - (void)addImage:(NSArray *)arr{
     if ([arr isKindOfClass:[NSNull class]]) {
-        _imageV1.backgroundColor = UIGrayColor;
+        _imageV1.image = [UIImage imageNamed:@"nothing"];
         return;
     }else{
         [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {

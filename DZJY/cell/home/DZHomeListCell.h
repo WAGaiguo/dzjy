@@ -20,4 +20,5 @@
 
 @property (nonatomic, strong) NSDictionary *allowBuyCountDic;
 - (void)setContent:(NSDictionary *)dic;
+- (void)setBoughtDetailContent:(NSDictionary *)dic;
 @end
