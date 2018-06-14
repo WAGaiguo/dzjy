@@ -11,4 +11,5 @@
 @interface DZOrderFinishView : UIView
 @property (nonatomic, strong)UIImageView *imageV;
 @property (nonatomic, strong)UILabel *moneyLabel;
+- (void)setContent:(NSDictionary *)dic;
 @end

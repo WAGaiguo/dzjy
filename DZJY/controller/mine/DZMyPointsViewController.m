@@ -35,8 +35,8 @@
     [self configTableHeader];
     [self configScrollView];
     [self configAdapter];
-    [self reqeustDataSumCount];
-//    [self getMonthFirstAndLastDayWith];
+//    [self reqeustDataSumCount];
+    [self getMonthFirstAndLastDayWith];
 }
 
 - (void)configHeader{
@@ -65,11 +65,13 @@
             _headerView.timeLabel.text = fromDate;
             _startDate = fromDate;
             _endDate = toDate;
+            [self reqeustDataSumCount];
             [self requestDataType];
         }else{
             _headerView.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",fromDate, toDate];
             _startDate = fromDate;
             _endDate = toDate;
+            [self reqeustDataSumCount];
             [self requestDataType];
         }
     }];
@@ -126,20 +128,23 @@
     [self requestDataType];
 }
 
+// *** 积分总量数据请求 ***
 - (void)reqeustDataSumCount{
     DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeTipsOnly];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [_headerView setBottomContent:obj];
-        [self getMonthFirstAndLastDayWith];
     }];
-    [handler setDidFailed:^(DZRequestMananger *manager) {
-    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:_startDate forKey:@"startDateTime"];
+    [params putString:_endDate forKey:@"endDateTime"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsSumCount]];
     [manager setHandler:handler];
+    [manager setParams:[params dicParams]];
     [manager post];
 }
-
+// *** list数据请求 ***
 - (void)reqeustData:(NSString *)type{
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
@@ -188,6 +193,7 @@
     
     _startDate = firstString;
     _endDate = lastString;
+    [self reqeustDataSumCount];
     [self reqeustData:@""];
 }
 

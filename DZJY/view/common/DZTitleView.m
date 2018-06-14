@@ -86,4 +86,14 @@
     }
 }
 
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+//    if (IS_IPHONE_X) {
+//        if (CGRectContainsPoint(CGRectMake(SCREEN_WIDTH - 100, 44, 100, 44), point)) {
+//            return [<#expression#>]
+//        }
+//    }
+//    
+//    return [super hitTest:point withEvent:event];
+//}
+
 @end

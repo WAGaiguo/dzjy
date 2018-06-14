@@ -7,11 +7,11 @@
 //
 
 #import "DZMyOrderViewController.h"
-#import "DZMyOrderTipsView.h"
 #import "DZMyOrderAdapter.h"
 #import "SVSegmentedView.h"
 #import "DZMySelectedView.h"
 #import "DZMineCommenScrollView.h"
+#import "DZCommonTipsView.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
@@ -102,7 +102,8 @@
     [self reqeustDataType:index];
 }
 - (void)more{
-    DZMyOrderTipsView *tipView = [[DZMyOrderTipsView alloc]init];
+    DZCommonTipsView *tipView = [[DZCommonTipsView alloc]init];
+    [tipView myOrder];
     [self.view addSubview:tipView];
     [tipView startAnimation];
 }

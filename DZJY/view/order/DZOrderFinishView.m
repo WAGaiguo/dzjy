@@ -35,7 +35,8 @@
     label2.font = [UIFont systemFontOfSize:15];
     label2.textColor = [UIColor colorWithHex:@"555555"];
     label2.textAlignment = NSTextAlignmentCenter;
-    label2.text = @"请在00小时59分钟59秒内完成支付";
+    label2.text = @"请在00小时00分钟00秒内完成支付";
+    label2.tag = 222;
     [self addSubview:label2];
     
     UILabel *label3 =[[UILabel alloc]initWithFrame:CGRectMake(0, label2.bottom + 10, SCREEN_WIDTH/2.0 - 8, 16)];
@@ -68,4 +69,13 @@
     [self addSubview:alertLabel];
     
 }
+- (void)setContent:(NSDictionary *)dic{
+    _moneyLabel.text = [NSString stringWithFormat:@"￥%@", [dic[@"totalMoney"] description]];
+    NSDictionary *dicDate = [dic objectForKey:@"payDeadLine"];
+    UILabel *label = [self viewWithTag:222];
+    if (dicDate) {
+        label.text = [NSString stringWithFormat:@"请在%@小时%@分钟%@秒内完成支付", [dicDate[@"hour"] isEqual:[NSNull null]] ? @"00": dicDate[@"hour"], [dicDate[@"minute"] isEqual:[NSNull null]] ? @"00":dicDate[@"minute"], [dicDate[@"second"] isEqual:[NSNull null]] ? @"00":dicDate[@"second"]];
+    }
+}
+
 @end

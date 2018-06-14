@@ -171,7 +171,7 @@
 - (void)setContent:(NSDictionary *)dic{
     [self typeStr:dic[@"delivBillStateType"]];
     _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"bulidDate"]];
-    _dealLabel.text = [NSString stringWithFormat:@"成交量：%@%@",dic[@"buyCount"],dic[@"measUnitName"]];
+    _dealLabel.text = [NSString stringWithFormat:@"发起交收量：%@%@",dic[@"buyCount"],dic[@"measUnitName"]];
     _companyLabel.text = dic[@"sellerName"];
     _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
     NSString *picStr = [NSString stringWithFormat:@"%@%@",DZCommonUrl,[[dic objectForKey:@"fileUrl"]description]];

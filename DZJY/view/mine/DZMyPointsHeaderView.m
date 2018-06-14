@@ -45,6 +45,9 @@
     UIImageView *rightPic = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"日期选择"]];
     rightPic.right = SCREEN_WIDTH - 13;
     rightPic.centerY = 75;
+    if (IS_IPHONE_X) {
+        rightPic.centerY = _timeLabel.centerY;
+    }
     [self addSubview:rightPic];
     rightPic.userInteractionEnabled = YES;
     [rightPic bk_whenTapped:^{

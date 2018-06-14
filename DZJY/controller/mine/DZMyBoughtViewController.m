@@ -115,9 +115,9 @@
             [_allAdapter reloadData:[obj objectForKey:@"list"]];
         }else if ([type isEqualToString:@"0"]){
             [_normalAdapter reloadData:[obj objectForKey:@"list"]];
-        }else if ([type isEqualToString:@"1"]){
-            [_revocationAdapter reloadData:[obj objectForKey:@"list"]];
         }else if ([type isEqualToString:@"2"]){
+            [_revocationAdapter reloadData:[obj objectForKey:@"list"]];
+        }else if ([type isEqualToString:@"1"]){
             [_passAdapter reloadData:[obj objectForKey:@"list"]];
         }
     }];

@@ -8,6 +8,7 @@
 
 #import "DZMyLadingCell.h"
 #import "NSDate+Format.h"
+#import "DZDataSourceModel.h"
 
 @implementation DZMyLadingCell
 @synthesize backView;
@@ -134,12 +135,11 @@
     btn.titleLabel.font = [UIFont systemFontOfSize:13];
     [backView addSubview:btn];
     [btn bk_addEventHandler:^(id sender) {
-        [HudUtils showMessage:@"打电话测试"];
         if (_callBlock) {
             _callBlock();
         }
     } forControlEvents:UIControlEventTouchUpInside];
-    [self test];
+
 }
 - (void)test{
     _timeLabel.text = @"2018-5-1";
@@ -157,12 +157,21 @@
     [self setType:[dic objectForKey:@"takeBillStateType"]];
     _titleLabel1.text = dic[@"commName"];
     _titleLabel2.text = [NSString stringWithFormat:@"%@*%@", dic[@"price"], dic[@"buyCount"]];
-    _methodsLabel.text = @"不知道";
+    _methodsLabel.text = [DZDataSourceModel typeName:@"distrModeType" value:[dic[@"distrModeType"] description]];
     
     _addressLabel.text = dic[@"takeAddress"];
-    _personLabel.text = dic[@"takeCommName"];
-    _carLabel.text = dic[@"takeCommBillNum"];
-    _companyLabel.text = @"不知道";
+    _personLabel.text = [NSString stringWithFormat:@"%@ %@ %@", [dic[@"takeCommName"] description], [dic[@"takeCommTel"] description], [dic[@"takeCommCardNum"] description]];
+    NSArray *arr = dic[@"delivCarInfo"];
+    if (arr) {
+        NSDictionary *dicItem = [arr firstObject];
+        _carLabel.text = [NSString stringWithFormat:@"%@ %@ %@", [dicItem[@"carNum"] description], [dicItem[@"driverName"] description], [dicItem[@"driverTel"] description]];
+    }
+    NSArray *sellerArr = dic[@"sellerInfo"];
+    if (sellerArr) {
+        NSDictionary *sellerDic = [sellerArr firstObject];
+        _companyLabel.text = [[sellerDic objectForKey:@"compFullName"] description];
+    }
+    
 }
 - (void)setType:(NSString *)type{
     if ([type isEqualToString:@"0"]) {

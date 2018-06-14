@@ -140,8 +140,8 @@
     _label1.text = [NSString stringWithFormat:@"求购编号：%@", [self fromatStr:dic[@"wantToBuyNumb"]]];
     _label2.text = [NSString stringWithFormat:@"交易员：%@", [self fromatStr:dic[@"releMembName"]]];
     _titleLabel.text = [NSString stringWithFormat:@"商品：%@",  [self fromatStr:dic[@"wantToBuyName"]]];
-    _numsLabel.text = [NSString stringWithFormat:@"采购量：%@ %@",  [self fromatStr:dic[@"buyCount"]], [self fromatStr:dic[@"measUnitName"]]];
-    _priceLabel.text = [NSString stringWithFormat:@"期望价格：%@/%@",  [self fromatStr:dic[@"expecPrice"]], [self fromatStr:dic[@"measUnitName"]]];
+    _numsLabel.text = [NSString stringWithFormat:@"采购量：%@ %@",  [self fromatStr:dic[@"buyCount"]], @"公斤"];//[self fromatStr:dic[@"measUnitName"]]
+    _priceLabel.text = [NSString stringWithFormat:@"期望价格：%@元/%@",  [self fromatStr:dic[@"expecPrice"]], @"公斤"];
     NSString *cityStr = [DZCityModel prov:[self fromatStr:dic[@"expecAreaProv"]]  city:[self fromatStr:dic[@"expecAreaCity"]] dist:[self fromatStr:dic[@"expecAreaDist"]]];
     _areaLabel.text = [NSString stringWithFormat:@"期望货源地：%@",cityStr];
     _releaseData.text = [NSString stringWithFormat:@"发布日期：%@", [NSDate timestampToTime:[self fromatStr:dic[@"releDate"]]]];

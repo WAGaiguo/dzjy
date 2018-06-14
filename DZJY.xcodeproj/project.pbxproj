@@ -128,6 +128,7 @@
 		1E5BE6B520CFCA5F001F5CBB /* DZMyInvoiceNormalAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6B420CFCA5F001F5CBB /* DZMyInvoiceNormalAddController.m */; };
 		1E5BE6B820CFCA89001F5CBB /* DZMyInvoiceNormalEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6B720CFCA89001F5CBB /* DZMyInvoiceNormalEditController.m */; };
 		1E5BE6DD20D0AD43001F5CBB /* DZMyInvoiceNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6DC20D0AD43001F5CBB /* DZMyInvoiceNormalCell.m */; };
+		1E5BE6E120D0FB05001F5CBB /* DZOrderTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6DF20D0FB05001F5CBB /* DZOrderTipsView.m */; };
 		1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */; };
 		1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED9207A186300169A64 /* DZHomeAdapter.m */; };
 		1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628EDD207B413200169A64 /* DZHomeListCell.m */; };
@@ -163,7 +164,6 @@
 		1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */; };
 		1E92D1122084E99800E31C62 /* wag.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E92D1112084E99800E31C62 /* wag.json */; };
 		1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */; };
-		1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */; };
 		1E92D11B2085F80300E31C62 /* DZOrderAttentionBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */; };
 		1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D11D2086D75700E31C62 /* DZOrderConfirmViewController.m */; };
 		1E92D1222086DE4300E31C62 /* DZOrderConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1212086DE4300E31C62 /* DZOrderConfirmCell.m */; };
@@ -436,6 +436,8 @@
 		1E5BE6B720CFCA89001F5CBB /* DZMyInvoiceNormalEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceNormalEditController.m; sourceTree = "<group>"; };
 		1E5BE6DB20D0AD43001F5CBB /* DZMyInvoiceNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZMyInvoiceNormalCell.h; sourceTree = "<group>"; };
 		1E5BE6DC20D0AD43001F5CBB /* DZMyInvoiceNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceNormalCell.m; sourceTree = "<group>"; };
+		1E5BE6DF20D0FB05001F5CBB /* DZOrderTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZOrderTipsView.m; sourceTree = "<group>"; };
+		1E5BE6E020D0FB05001F5CBB /* DZOrderTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZOrderTipsView.h; sourceTree = "<group>"; };
 		1E628ED4207A0F3D00169A64 /* NSDate+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		1E628ED8207A186300169A64 /* DZHomeAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeAdapter.h; sourceTree = "<group>"; };
@@ -505,8 +507,6 @@
 		1E92D1112084E99800E31C62 /* wag.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wag.json; sourceTree = "<group>"; };
 		1E92D1132085C30200E31C62 /* DZWeb2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWeb2ViewController.h; sourceTree = "<group>"; };
 		1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWeb2ViewController.m; sourceTree = "<group>"; };
-		1E92D1162085C70D00E31C62 /* DZOrderTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderTipsView.h; sourceTree = "<group>"; };
-		1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderTipsView.m; sourceTree = "<group>"; };
 		1E92D1192085F80300E31C62 /* DZOrderAttentionBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderAttentionBuyView.h; sourceTree = "<group>"; };
 		1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderAttentionBuyView.m; sourceTree = "<group>"; };
 		1E92D11C2086D75700E31C62 /* DZOrderConfirmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderConfirmViewController.h; sourceTree = "<group>"; };
@@ -1092,12 +1092,12 @@
 		1E92D10A2084952800E31C62 /* order */ = {
 			isa = PBXGroup;
 			children = (
+				1E5BE6E020D0FB05001F5CBB /* DZOrderTipsView.h */,
+				1E5BE6DF20D0FB05001F5CBB /* DZOrderTipsView.m */,
 				1E92D10B2084955500E31C62 /* DZOrderFinishView.h */,
 				1E92D10C2084955500E31C62 /* DZOrderFinishView.m */,
 				1E92D10E2084A27200E31C62 /* DZOrderBuyView.h */,
 				1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */,
-				1E92D1162085C70D00E31C62 /* DZOrderTipsView.h */,
-				1E92D1172085C70D00E31C62 /* DZOrderTipsView.m */,
 				1E92D1192085F80300E31C62 /* DZOrderAttentionBuyView.h */,
 				1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */,
 				1E92D12720872F7400E31C62 /* DZOrderConfirmFooterView.h */,
@@ -1566,7 +1566,6 @@
 				1EC8384F20BE92BB00395C77 /* DZCommonTipsView.m in Sources */,
 				1E628F21207F43DD00169A64 /* DZSearchNilView.m in Sources */,
 				1E34365A2091600300190689 /* DZMyOrderAdapter.m in Sources */,
-				1E92D1182085C70D00E31C62 /* DZOrderTipsView.m in Sources */,
 				1E7073F520AAB3EF00A90A98 /* DZMyDeliveryAbnormalAdapter.m in Sources */,
 				1E27224D20B3EAEB006127F0 /* DZOrderCheck2Cell.m in Sources */,
 				1EA047AE206A10170029C481 /* DZTableViewController.m in Sources */,
@@ -1592,6 +1591,7 @@
 				1E27225020B3F4FE006127F0 /* DZOrderCheck3Cell.m in Sources */,
 				1E3436CE209AB1E500190689 /* DZMyInvoiceCell.m in Sources */,
 				1E628F13207DFA0900169A64 /* DZCityCell.m in Sources */,
+				1E5BE6E120D0FB05001F5CBB /* DZOrderTipsView.m in Sources */,
 				1E628EF3207CB75B00169A64 /* DZCategoryDetailController.m in Sources */,
 				1E34364B2090306400190689 /* DZMyClientAdapter.m in Sources */,
 				1E3436DA209AEA0200190689 /* DZMyInvoiceEditViewController.m in Sources */,

@@ -81,11 +81,8 @@
     _priceLabel.font = [UIFont systemFontOfSize:12];
     _priceLabel.textColor = UICommonColor;
     [backView addSubview:_priceLabel];
-    
-//    _titleLabel.attributedText = [self attributeString:@"  No爱家of金额欧文IE奇偶发Joe鸡尾酒；而非叫我IE减肥 哦微积分" state:DZPayStateAll];
-//    _priceLabel.text = @"￥555.555";
-//    _imageV.backgroundColor = UICyanColor;
 }
+
 - (NSMutableAttributedString *)attributeString:(NSString *)content state:(DZPayState)state{
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:content];
     if (state == DZPayState1){
@@ -189,12 +186,14 @@
     
     NSString *titleStr = [NSString stringWithFormat:@"  %@", [dic[@"commName"] description]];
     
-    if ([[dic[@"listModeType"] description] isEqualToString:@"0"]) {
+    if ([[dic[@"listModeType"] description] isEqualToString:@"1"] && [[dic[@"payMethType"] description] isEqualToString:@"1"]) {
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState1];
-    } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"]){
+    } else if ([[dic[@"listModeType"] description] isEqualToString:@"0"] && [[dic[@"payMethType"] description] isEqualToString:@"0"]){
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState2];
-    } else{
+    } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"] && [[dic[@"payMethType"] description] isEqualToString:@"0"]){
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayStateAll];
+    } else{
+        _titleLabel.text = [dic[@"commName"] description];
     }
 }
 - (void)state:(NSString *)state{

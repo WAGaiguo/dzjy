@@ -148,7 +148,8 @@
     _timeLabel.text = [NSString stringWithFormat:@"申请时间：%@", [NSDate timestampToTime:dic[@"propDate"]]];
     _applyTopLabel.text = [dic[@"treatResltType"] isEqualToString:@"0"] ? @"合同结束，有违约金":@"合同结束，无违约金";
     NSString *buyOrSell = [dic[@"buySellFlag2"] isEqualToString:@"0"]?@"买方":@"卖方";
-    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@；违约金：%@", buyOrSell, dic[@"liquDama"]]];
+    NSString *dedit = [dic[@"liquDama"] isEqual:[NSNull null]] ? @"0" : dic[@"liquDama"];
+    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@；违约金：%@", buyOrSell, dedit]];
     
     _reasonLabel.text = dic[@"endReason"];
     _contractTopLabel.text = dic[@"commName"];

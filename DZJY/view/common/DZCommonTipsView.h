@@ -17,6 +17,7 @@
 - (void)myDeliveryText;
 - (void)myDeliveryAbnormalText;
 - (void)myLadingText;
+- (void)myOrder;
 @end
 
 @interface DZCommonTipsShortView : UIView

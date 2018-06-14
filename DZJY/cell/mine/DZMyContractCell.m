@@ -173,27 +173,39 @@
 -(void)setContentDic:dic{
     [self typeStr:dic[@"contStateType"]];
     _timeLabel.text = [NSDate timestampToTime:dic[@"effeDate"]];
-    _dealLabel.text = [NSString stringWithFormat:@"成交量：%@%@",[dic[@"sureDelivWeight"] description], [dic[@"measUnitName"] description]];
+    _dealLabel.text = [NSString stringWithFormat:@"合同量：%@%@", [dic[@"buyCount"] description], [dic[@"measUnitName"] description]];
     _companyLabel.text = [dic objectForKey:@"sellerName"];
     
     
     NSString *titleStr = [NSString stringWithFormat:@"  %@", [dic[@"commName"] description]];
     
-    if ([[dic[@"listModeType"] description] isEqualToString:@"0"]) {
+    if ([[dic[@"listModeType"] description] isEqualToString:@"1"] && [[dic[@"payMethType"] description] isEqualToString:@"1"]) {
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState1];
-    } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"]){
+    } else if ([[dic[@"listModeType"] description] isEqualToString:@"0"] && [[dic[@"payMethType"] description] isEqualToString:@"0"]){
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayState2];
-    } else{
+    } else if ([[dic[@"listModeType"] description] isEqualToString:@"1"] && [[dic[@"payMethType"] description] isEqualToString:@"0"]){
         _titleLabel.attributedText = [self attributeString:titleStr state:DZPayStateAll];
+    } else{
+        _titleLabel.text = [dic[@"commName"] description];
     }
     
     
-    _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+    _priceLabel.attributedText = [self priceStr:[dic[@"price"] description] unitStr:[dic[@"measUnitName"] description]];//[NSString stringWithFormat:@"￥%@元/%@", [dic[@"price"] description], [dic[@"measUnitName"] description]];
+    _totalLabel.attributedText = [self formateString: [NSString stringWithFormat:@"商品总价：￥%@", [dic[@"totalMoney"] description]]];
     
     NSString *picStr = [NSString stringWithFormat:@"%@%@",DZCommonUrl,[[dic objectForKey:@"fileUrl"]description]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:picStr]];
     
-    
+}
+- (NSMutableAttributedString *)formateString:(NSString *)string{
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:string];
+    [str addAttribute:NSForegroundColorAttributeName value:UITitleColor range:NSMakeRange(0, 5)];
+    return str;
+}
+- (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@元/%@",priceStr,unitStr]];
+    [attString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, priceStr.length)];
+    return attString;
 }
 - (void)typeStr:(NSString *)type{
     if ([type isEqualToString:@"0"]) {

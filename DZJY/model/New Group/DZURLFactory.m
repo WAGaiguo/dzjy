@@ -107,7 +107,7 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
     return [self absulteString:@"/memb/w/integ/list"];
 }
 + (NSString *)pointsSumCount{
-    return [self absulteString:@"/memb/w/integ/sumCount"];
+    return [self absulteString:@"/memb/w/mobile/integ/getSumByDate"];
 }
 // 资金
 + (NSString *)fundInfo{

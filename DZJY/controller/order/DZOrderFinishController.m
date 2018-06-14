@@ -37,11 +37,26 @@
 }
 
 - (void)changeMoney{
-    _finshView.moneyLabel.text = [NSString stringWithFormat:@"￥%@", _dataDic[@"totalMoney"]];
+    
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [_finshView setContent:obj];
+    }];
+    DZRequestParams *params = [DZRequestParams new];
+    [params putString:[_dataDic[@"orderId"] description] forKey:@"id"];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory orderCheck]];
+    [manager setParams:[params dicParams]];
+    [manager setHandler:handler];
+    [manager post];
 }
 
 - (void)more{
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)back{
+    [self more];
 }
 
 - (void)didReceiveMemoryWarning {

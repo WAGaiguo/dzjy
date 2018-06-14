@@ -26,6 +26,7 @@
         cell = [[DZMyContractAbormalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contractAbormalCell"];
     }
     [cell setCallBlock:^{
+        
         [self makePhoneCall:self.dataSource[indexPath.row][@"contactMobile"]];
     }];
     [cell setContent:self.dataSource[indexPath.row]];
