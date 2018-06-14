@@ -80,12 +80,17 @@
         nilView = nil;
     }
 }
+// *** d导航搜索条 ***
 - (void)makeRightBtn{
     CGFloat s_width = self.titleView.leftView.right;
     DZSearchView *searchV = [[DZSearchView alloc]initWithFrame:CGRectMake(s_width, DZ_TOP - 40, SCREEN_WIDTH - s_width - 40, 40)];
     [searchV setPlaceholder:_searchTitle];
     [searchV setTapBlock:^{
-        [DZSearchModel makeSearchViewController:self];
+        if (![_searchTitle isBlankString]) {
+            [self.navigationController popViewControllerAnimated:NO];
+        }else{
+          [DZSearchModel makeSearchViewController:self];
+        }
     }];
     [self.titleView addSubview:searchV];
     [self setHasRightBtn:YES];
@@ -283,8 +288,9 @@
     [params putString:_searchTitle forKey:@"commName"];
     [params putString:checkArea forKey:@"checkArea"];
     [params putString:orderBy forKey:@"orderBy"];
+    [params putString:@"DESC" forKey:@"sortOrder"];
     [params putString:_commFirstId forKey:@"commFirstId"];
-    [params putString:_commCateSecondId forKey:@"commCateSecondId"];
+    [params putString:_commCateSecondId forKey:@"commCataSecondId"];
     [params putString:_commCatgId forKey:@"commCatgId"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory search]];

@@ -43,12 +43,12 @@
 }
 - (void)makeDataSource{
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wag" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"areas" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     _proviceData = [NSArray arrayWithArray:jsonArr];
     _cityData = [NSArray arrayWithArray:_proviceData[1][@"children"]];
-    _provinceStr = [_proviceData firstObject][@"name"];
+    _provinceStr = [_proviceData firstObject][@"label"];
 }
 - (void)configProvince{
     _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT - DZ_TOP - 43)];
@@ -101,7 +101,7 @@
     WEAK_SELF
     [backView bk_whenTapped:^{
         if (me.tapCityBlock){
-            me.tapCityBlock(_proviceData[me.selectRow][@"name"]);
+            me.tapCityBlock(_proviceData[me.selectRow][@"label"]);
         }
         [me setSelfHide];
     }];

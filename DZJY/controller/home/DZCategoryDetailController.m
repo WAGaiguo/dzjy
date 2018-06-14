@@ -18,6 +18,7 @@
 #import "DZHomeCategoryView.h"
 #import "DZSearchModel.h"
 #import "DZWeb2ViewController.h"
+#import "NSString+Common.h"
 
 #define COMMON_FRAME CGRectMake(0, DZ_TOP + 43, SCREEN_WIDTH, SCREEN_HEIGHT - DZ_TOP - 43)
 
@@ -92,7 +93,12 @@
     DZSearchView *searchV = [[DZSearchView alloc]initWithFrame:CGRectMake(s_width, DZ_TOP - 40, SCREEN_WIDTH - s_width - 40, 40)];
     [searchV setPlaceholder:_searchTitle];
     [searchV setTapBlock:^{
-        [DZSearchModel makeSearchViewController:self];
+        if (![_searchTitle isBlankString]) {
+            NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-2]animated:NO];
+        }else{
+            [DZSearchModel makeSearchViewController:self];
+        }
     }];
     [self.titleView addSubview:searchV];
     [self setHasRightBtn:YES];

@@ -36,8 +36,8 @@
     
 }
 - (void)setContent:(NSDictionary *)dic{
-    _titleLabel.text = [[dic objectForKey:@"name"] description];
-    _cityId = [[dic objectForKey:@"id"] description];
+    _titleLabel.text = [[dic objectForKey:@"label"] description];
+    _cityId = [[dic objectForKey:@"value"] description];
 }
 
 @end
@@ -79,7 +79,7 @@
     }
 }
 - (void)setContent:(NSDictionary *)dic{
-    _titleLabel.text = [dic[@"name"] description];
-    _id = [dic[@"id"] description];
+    _titleLabel.text = [dic[@"label"] description];
+    _id = [dic[@"value"] description];
 }
 @end

@@ -82,31 +82,31 @@
         DZSearchResultViewController *searchResult = [DZSearchResultViewController new];
         if (indexPath.item == 0){
             searchResult.categoryTitle = @"茄果菜类";
-            searchResult.commCateSecondId = @"500283373999563365";
+            searchResult.commCateSecondId = @"2000018";
         }
         if (indexPath.item == 1){
             searchResult.categoryTitle = @"瓜果类";
-            searchResult.commCateSecondId = @"4413840363314912797";
+            searchResult.commCateSecondId = @"50028337399956336";
         }
         if (indexPath.item == 2){
             searchResult.categoryTitle = @"叶菜类";
-            searchResult.commCateSecondId = @"500283373999563363";
+            searchResult.commCateSecondId = @"2000026";
         }
         if (indexPath.item == 3) {
             searchResult.categoryTitle = @"甘蓝类";
-            searchResult.commCateSecondId = @"500283373999563361";
+            searchResult.commCateSecondId = @"2000025";
         }
         else if (indexPath.item == 4) {
             searchResult.categoryTitle = @"根茎菜类";
-            searchResult.commCateSecondId = @"";
+            searchResult.commCateSecondId = @"2000024";
         }
         else if (indexPath.item == 5) {
             searchResult.categoryTitle = @"豆菜类";
-            searchResult.commCateSecondId = @"";
+            searchResult.commCateSecondId = @"2000019";
         }
         else if (indexPath.item == 6) {
             searchResult.categoryTitle = @"葱姜蒜类";
-            searchResult.commCateSecondId = @"";
+            searchResult.commCateSecondId = @"2000021";
         }
         else if (indexPath.item == 7) {
             searchResult.categoryTitle = @"全部菜类";

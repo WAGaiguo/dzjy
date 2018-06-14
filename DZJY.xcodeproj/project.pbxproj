@@ -129,6 +129,7 @@
 		1E5BE6B820CFCA89001F5CBB /* DZMyInvoiceNormalEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6B720CFCA89001F5CBB /* DZMyInvoiceNormalEditController.m */; };
 		1E5BE6DD20D0AD43001F5CBB /* DZMyInvoiceNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6DC20D0AD43001F5CBB /* DZMyInvoiceNormalCell.m */; };
 		1E5BE6E120D0FB05001F5CBB /* DZOrderTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BE6DF20D0FB05001F5CBB /* DZOrderTipsView.m */; };
+		1E5BE6E420D25207001F5CBB /* areas.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E5BE6E320D25207001F5CBB /* areas.json */; };
 		1E628ED6207A0F3E00169A64 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */; };
 		1E628EDA207A186300169A64 /* DZHomeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628ED9207A186300169A64 /* DZHomeAdapter.m */; };
 		1E628EDE207B413200169A64 /* DZHomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E628EDD207B413200169A64 /* DZHomeListCell.m */; };
@@ -162,7 +163,6 @@
 		1E92D1092084951600E31C62 /* DZOrderFinishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1082084951600E31C62 /* DZOrderFinishController.m */; };
 		1E92D10D2084955500E31C62 /* DZOrderFinishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10C2084955500E31C62 /* DZOrderFinishView.m */; };
 		1E92D1102084A27200E31C62 /* DZOrderBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */; };
-		1E92D1122084E99800E31C62 /* wag.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E92D1112084E99800E31C62 /* wag.json */; };
 		1E92D1152085C30200E31C62 /* DZWeb2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */; };
 		1E92D11B2085F80300E31C62 /* DZOrderAttentionBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D11A2085F80300E31C62 /* DZOrderAttentionBuyView.m */; };
 		1E92D11E2086D75700E31C62 /* DZOrderConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92D11D2086D75700E31C62 /* DZOrderConfirmViewController.m */; };
@@ -438,6 +438,7 @@
 		1E5BE6DC20D0AD43001F5CBB /* DZMyInvoiceNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZMyInvoiceNormalCell.m; sourceTree = "<group>"; };
 		1E5BE6DF20D0FB05001F5CBB /* DZOrderTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZOrderTipsView.m; sourceTree = "<group>"; };
 		1E5BE6E020D0FB05001F5CBB /* DZOrderTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZOrderTipsView.h; sourceTree = "<group>"; };
+		1E5BE6E320D25207001F5CBB /* areas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = areas.json; sourceTree = "<group>"; };
 		1E628ED4207A0F3D00169A64 /* NSDate+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		1E628ED5207A0F3D00169A64 /* NSDate+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		1E628ED8207A186300169A64 /* DZHomeAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZHomeAdapter.h; sourceTree = "<group>"; };
@@ -504,7 +505,6 @@
 		1E92D10C2084955500E31C62 /* DZOrderFinishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderFinishView.m; sourceTree = "<group>"; };
 		1E92D10E2084A27200E31C62 /* DZOrderBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderBuyView.h; sourceTree = "<group>"; };
 		1E92D10F2084A27200E31C62 /* DZOrderBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZOrderBuyView.m; sourceTree = "<group>"; };
-		1E92D1112084E99800E31C62 /* wag.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wag.json; sourceTree = "<group>"; };
 		1E92D1132085C30200E31C62 /* DZWeb2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZWeb2ViewController.h; sourceTree = "<group>"; };
 		1E92D1142085C30200E31C62 /* DZWeb2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZWeb2ViewController.m; sourceTree = "<group>"; };
 		1E92D1192085F80300E31C62 /* DZOrderAttentionBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZOrderAttentionBuyView.h; sourceTree = "<group>"; };
@@ -1063,8 +1063,8 @@
 		1E628F2720823EA800169A64 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				1E5BE6E320D25207001F5CBB /* areas.json */,
 				1EF8B6AF20A56B56008EB028 /* agreement.html */,
-				1E92D1112084E99800E31C62 /* wag.json */,
 				1E23344820CA2D7500B1D276 /* dataSourceDict.json */,
 				1EF8B6AC20A55E5C008EB028 /* DZCityModel.h */,
 				1EF8B6AD20A55E5C008EB028 /* DZCityModel.m */,
@@ -1431,8 +1431,8 @@
 				1E23344C20CA3E6700B1D276 /* dataSourceDict.json in Resources */,
 				1E343715209C5C8E00190689 /* GTLCalendarHeaderReusableView.xib in Resources */,
 				1E23343620C5258400B1D276 /* CKRefreshHeader.xib in Resources */,
-				1E92D1122084E99800E31C62 /* wag.json in Resources */,
 				1E23343420C5258400B1D276 /* CKLoadingMoreFooter.xib in Resources */,
+				1E5BE6E420D25207001F5CBB /* areas.json in Resources */,
 				1EF8B6B020A56D3E008EB028 /* agreement.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1801,7 +1801,7 @@
 				INFOPLIST_FILE = DZJY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dazongjiaoyi.cn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fengkonglm.shouguang.nativemall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1822,7 +1822,7 @@
 				INFOPLIST_FILE = DZJY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dazongjiaoyi.cn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fengkonglm.shouguang.nativemall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

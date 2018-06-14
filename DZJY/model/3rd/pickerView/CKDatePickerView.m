@@ -232,13 +232,13 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (component == 0) {
-        provinceName = [_provinceArray[row] objectForKey:@"name"];
+        provinceName = [_provinceArray[row] objectForKey:@"label"];
         return provinceName;
     }else if(component == 1){
-        cityName = [_cityArray[row] objectForKey:@"name"];
+        cityName = [_cityArray[row] objectForKey:@"label"];
         return cityName;
     }else {
-        districtName = [_districtArray[row] objectForKey:@"name"];
+        districtName = [_districtArray[row] objectForKey:@"label"];
         return districtName;
     }
 }
@@ -247,27 +247,27 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
     if (component == 0) {
         _cityArray = [_provinceArray[row] objectForKey:@"children"];
         _districtArray = [_cityArray[0] objectForKey:@"children"];
-        provinceName = [_provinceArray[row] objectForKey:@"name"];
-        provinceId = [_provinceArray[row] objectForKey:@"code"];
-        cityName = [_cityArray[0] objectForKey:@"name"];
-        cityId = [_cityArray[0] objectForKey:@"code"];
-        districtName = [_districtArray[0] objectForKey:@"name"];
-        districtId = [_districtArray[0] objectForKey:@"code"];
+        provinceName = [_provinceArray[row] objectForKey:@"label"];
+        provinceId = [_provinceArray[row] objectForKey:@"value"];
+        cityName = [_cityArray[0] objectForKey:@"label"];
+        cityId = [_cityArray[0] objectForKey:@"value"];
+        districtName = [_districtArray[0] objectForKey:@"label"];
+        districtId = [_districtArray[0] objectForKey:@"value"];
         [self.pickerView reloadComponent:1];
         [self.pickerView reloadComponent:2];
         [self.pickerView selectRow:0 inComponent:1 animated:YES];
         [self.pickerView selectRow:1 inComponent:2 animated:YES];
     }else if (component == 1){
-        cityName = [_cityArray[row] objectForKey:@"name"];
-        cityId = [_cityArray[row] objectForKey:@"code"];
-        districtName = [_districtArray[0] objectForKey:@"name"];
-        districtId = [_districtArray[0] objectForKey:@"code"];
+        cityName = [_cityArray[row] objectForKey:@"label"];
+        cityId = [_cityArray[row] objectForKey:@"value"];
+        districtName = [_districtArray[0] objectForKey:@"label"];
+        districtId = [_districtArray[0] objectForKey:@"value"];
         _districtArray = [_cityArray[row] objectForKey:@"children"];
         [self.pickerView reloadComponent:2];
         [self.pickerView selectRow:1 inComponent:2 animated:YES];
     }else{
-        districtId = [_districtArray[row] objectForKey:@"code"];
-        districtName = [_districtArray[row] objectForKey:@"name"];
+        districtId = [_districtArray[row] objectForKey:@"value"];
+        districtName = [_districtArray[row] objectForKey:@"label"];
     }
 }
 
@@ -294,18 +294,18 @@ static const void * kZXPPickerViewKey = &kZXPPickerViewKey;
 }
 
 - (void)p_setupInitDataSource {
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"wag" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"areas" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     _provinceArray = [NSArray arrayWithArray:jsonArr];
     _cityArray = [_provinceArray[0] objectForKey:@"children"];
     _districtArray = [_cityArray[0] objectForKey:@"children"];
-    provinceName = [_provinceArray[0] objectForKey:@"name"];
-    provinceId = [_provinceArray[0] objectForKey:@"code"];
-    cityName = [_cityArray[0] objectForKey:@"name"];
-    cityId = [_cityArray[0] objectForKey:@"code"];
-    districtName = [_districtArray[0] objectForKey:@"name"];
-    districtId = [_districtArray[0] objectForKey:@"code"];
+    provinceName = [_provinceArray[0] objectForKey:@"label"];
+    provinceId = [_provinceArray[0] objectForKey:@"value"];
+    cityName = [_cityArray[0] objectForKey:@"label"];
+    cityId = [_cityArray[0] objectForKey:@"value"];
+    districtName = [_districtArray[0] objectForKey:@"label"];
+    districtId = [_districtArray[0] objectForKey:@"value"];
     [self.pickerView selectRow:0 inComponent:0 animated:YES];
     [self.pickerView selectRow:0 inComponent:1 animated:YES];
     [self.pickerView selectRow:0 inComponent:2 animated:YES];
