@@ -16,10 +16,6 @@
 #import "DZLoginViewController.h"
 #import "DZSearchResultViewController.h"
 
-#import "DZCategoryAllController.h"
-#import "DZCategoryFirstController.h"
-#import "NSDate+Format.h"
-#import "DZDataSourceModel.h"
 
 @interface DZHomeViewController (){
     DZSearchView *_searchView;

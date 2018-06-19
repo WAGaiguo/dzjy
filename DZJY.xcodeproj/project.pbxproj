@@ -1389,12 +1389,12 @@
 		1EAD73BA2068CD1C00BD7EF7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = wangaiguo;
 				TargetAttributes = {
 					1EAD73C12068CD1C00BD7EF7 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1794,17 +1794,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5J3D27HWQC;
+				CODE_SIGN_IDENTITY = "iPhone Developer: li dongmei (7UE46TBU33)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: li dongmei (7UE46TBU33)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9ZV4BAZA76;
 				GCC_PREFIX_HEADER = DZJY/DZHeader.h;
 				INFOPLIST_FILE = DZJY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengkonglm.shouguang.nativemall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a369e739-b746-4cd0-bbba-5be9351d2c13";
+				PROVISIONING_PROFILE_SPECIFIER = shouguang_development;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1815,17 +1816,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5J3D27HWQC;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing New Union Risk Management Technology Co.,Ltd. (9ZV4BAZA76)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing New Union Risk Management Technology Co.,Ltd. (9ZV4BAZA76)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9ZV4BAZA76;
 				GCC_PREFIX_HEADER = DZJY/DZHeader.h;
 				INFOPLIST_FILE = DZJY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengkonglm.shouguang.nativemall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "516cde45-25f6-4133-8b28-ed54a88c8069";
+				PROVISIONING_PROFILE_SPECIFIER = shouguang_distribution;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

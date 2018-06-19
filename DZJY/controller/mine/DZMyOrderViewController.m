@@ -169,7 +169,7 @@
     if (integer == 0) {
         [self requstData:@""];
     }else{
-        [self requstData:[NSString stringWithFormat:@"%ld", integer - 1]];
+        [self requstData:[NSString stringWithFormat:@"%ld", (long)(integer - 1)]];
     }
 }
 @end

@@ -9,13 +9,14 @@
 #import "NSString+Base64.h"
 
 @implementation NSString (Base64)
-- (NSString *)base64EncodedString{
+- (NSString *)base64NativeEncodedString{
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
-    return [NSString stringWithFormat:@"%@",[data base64EncodedDataWithOptions:0]];
+    NSData *base64Data = [data base64EncodedDataWithOptions:0];
+    NSString *base64String = [[NSString alloc]initWithData:base64Data encoding:NSUTF8StringEncoding];
+    return base64String;
 }
 - (NSString *)base64DecodedString{
     NSData *data = [[NSData alloc]initWithBase64EncodedString:self options:0];
     return [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 }
-
 @end

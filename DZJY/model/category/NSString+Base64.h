@@ -12,7 +12,7 @@
 /**
  * 转换为Base64编码
  */
-- (NSString *)base64EncodedString;
+- (NSString *)base64NativeEncodedString;
 
 /**
  * 将Base64编码还原

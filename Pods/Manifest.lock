@@ -41,9 +41,6 @@ PODS:
   - SDWebImage/Core (4.3.3)
   - SVPullToRefresh (0.4.1)
   - TKRoundedView (0.5)
-  - YYKit (1.0.9):
-    - YYKit/no-arc (= 1.0.9)
-  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -57,7 +54,6 @@ DEPENDENCIES:
   - SDWebImage
   - SVPullToRefresh
   - TKRoundedView (~> 0.5)
-  - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -71,8 +67,7 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TKRoundedView: 0886ec88ad9d8f9c1de7503babecfacc06263920
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: a6d875a62a2d2f914464cf8b63ba217d0d0ee3b6
+PODFILE CHECKSUM: b9e41d300f34d32d8f1bcb3a7430478313f83316
 
 COCOAPODS: 1.4.0

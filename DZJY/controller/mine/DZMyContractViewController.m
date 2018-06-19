@@ -165,7 +165,7 @@
     if (integer == 0) {
         [self requestData:@""];
     }else{
-        [self requestData:[NSString stringWithFormat:@"%ld", integer - 1]];
+        [self requestData:[NSString stringWithFormat:@"%ld", (long)integer - 1]];
     }
 }
 - (void)more{

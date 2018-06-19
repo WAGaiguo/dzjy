@@ -132,20 +132,13 @@
     [HudUtils show:MAIN_WINDOW];
     NSString *username = _usernameField.text;
     NSString *passWord = _passwordField.text;
-    // 测试
-//    username = @"lixue01";
-//    passWord = @"a123456";
-    // 开发
-//    username = @"newmaijia711";
-//    passWord = @"a123456";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSString *md5PassWord = [passWord MD5Hash];
     NSString *userAndPassword = [NSString stringWithFormat:@"%@:%@",username,md5PassWord];
-    NSString *headerStr = [NSString stringWithFormat:@"Basic %@",[userAndPassword base64EncodedString]];
+    NSString *headerStr = [NSString stringWithFormat:@"Basic %@",[userAndPassword base64NativeEncodedString]];
     [manager.requestSerializer setValue:headerStr forHTTPHeaderField:@"Authorization"];
-   
     [manager POST:[DZURLFactory login] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [HudUtils hide:MAIN_WINDOW];
         if (responseObject == [NSNull null]) {

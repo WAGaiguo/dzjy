@@ -50,9 +50,8 @@
     NSString *filePath = UIDocumentFile(@"address.plist");
     NSDictionary *dic1 = @{@"address":@"111111111111111", @"id":@"1"};
     NSDictionary *dic2 = @{@"address":@"222222222222222", @"id":@"2"};
-//    NSArray *arr = @[dic1, dic2];
     NSMutableArray *mutalbeArr = [NSMutableArray array];
-    NSLog(@"----%ld", [mutalbeArr count]);
+    NSLog(@"----%lu", (unsigned long)[mutalbeArr count]);
     [mutalbeArr addObject:dic1];
     [mutalbeArr addObject:dic2];
     [mutalbeArr writeToFile:filePath atomically:YES];
@@ -66,7 +65,7 @@
 
     NSString *filePath = UIDocumentFile(@"address.plist");
     NSArray *arr = [NSArray arrayWithContentsOfFile:filePath];
-        NSLog(@"%ld",[arr count]);
+//    NSLog(@"%lu",(unsigned long)[arr count]);
     [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSLog(@"address:%@, id:%@",obj[@"address"], obj[@"id"]);
     }];
@@ -83,14 +82,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -222,17 +222,7 @@
         }];
     }
 }
-- (void)test{
-    _stateLabel.text = [NSString stringWithFormat:@"%@", @"待双发支付"];
-    _timeLabel.text = [NSString stringWithFormat:@"申请时间: %@",@"2018-04-20 10:18:00"];
-    _companyLabel.text = @"联信智源公司";
-    _applyTopLabel.text = @"合同合同，合同";
-    _applayBottomLabel.text = @"违约方";
-    _reasonLabel.text = @"合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同";
-    _contractTopLabel.text = @"合同合同，合同合同合同，合同";
-    _contractBottomLabel.text = @"合同合同，合同合同合同，合";
-    _imageV5.backgroundColor = _imageV1.backgroundColor = UICyanColor;
-}
+
 @end
 
 @implementation DZLeftTob2Label

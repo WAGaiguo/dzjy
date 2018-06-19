@@ -97,7 +97,7 @@
         attach.image = [UIImage imageNamed:@"预付"];
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
         [attString insertAttributedString:attributeStr2 atIndex:0];
-        [attString insertString:@"  " atIndex:0];
+        [attString insertAttributedString:[[NSAttributedString alloc]initWithString:@"  "] atIndex:0];
         NSTextAttachment *attach1 = [[NSTextAttachment alloc] init];
         attach1.image = [UIImage imageNamed:@"先款"];
         NSAttributedString *attributeStr1 = [NSAttributedString attributedStringWithAttachment:attach1];

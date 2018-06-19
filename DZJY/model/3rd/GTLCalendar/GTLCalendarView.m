@@ -419,7 +419,7 @@
     NSDateFormatter *yyMMDateFormatter = [[NSDateFormatter alloc] init];
     yyMMDateFormatter.dateFormat = @"yyyy年MM月";
     NSString *yyMMString = [yyMMDateFormatter stringFromDate:date];
-    NSString *yyMMDDString = [NSString stringWithFormat:@"%@%02ld日", yyMMString, day];
+    NSString *yyMMDDString = [NSString stringWithFormat:@"%@%02ld日", yyMMString, (long)day];
     
     NSDateFormatter *yyMMDDDateFormatter = [[NSDateFormatter alloc] init];
     yyMMDDDateFormatter.dateFormat = @"yyyy年MM月dd日";
