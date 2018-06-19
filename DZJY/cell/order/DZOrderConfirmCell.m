@@ -7,9 +7,9 @@
 //
 
 #import "DZOrderConfirmCell.h"
-#import <YYAnimatedImageView.h>
-#import <NSString+YYAdd.h>
-#import <NSAttributedString+YYText.h>
+//#import <YYAnimatedImageView.h>
+//#import <NSString+YYAdd.h>
+//#import <NSAttributedString+YYText.h>
 #import "UIToolbar+Builder.h"
 #import "NSString+Common.h"
 

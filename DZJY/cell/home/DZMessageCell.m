@@ -78,11 +78,6 @@
     
 }
 
-//- (void)test{
-//    _titleLabel.text = @"标题标题";
-//    _timeLabel.text = @"2018-03-45";
-//}
-
 - (void)setIsFolder:(BOOL)isFolder{
     _isFolder = isFolder;
     if (isFolder) {

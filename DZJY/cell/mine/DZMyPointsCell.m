@@ -72,15 +72,8 @@
     _pointsLabel.font = [UIFont systemFontOfSize:12];
     _pointsLabel.textColor = RGBCOLOR(254, 82, 0);
     [backView addSubview:_pointsLabel];
-    
-//    [self test];
 }
-- (void)test{
-    [_timeLabel setText:@"2018-04-20 10:10:10"];
-    [_titleLabel setText:@"合同测试测试测试9000元"];
-    [_pointsLabel setText:@"交易额积分：+59"];
-    _imageV.backgroundColor = UICyanColor;
-}
+
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSDate timestampToTime:[dic[@"date"] description]];
     _titleLabel.text = [dic[@"abst"] description];

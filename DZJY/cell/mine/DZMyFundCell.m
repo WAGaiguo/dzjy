@@ -53,15 +53,8 @@
     _timeLabel.textColor = UISubTitleColor;
     [backView addSubview:_timeLabel];
     
-//    [self test];
 }
 
-- (void)test{
-    _titleLabel.text = @"寿光百胜盟电子商务";
-    _moneyLabel.text = @"-99999";
-    _descLabel.text = [NSString stringWithFormat:@"摘要：%@",@"blakjfoiewfjei"];
-    _timeLabel.text = [NSString stringWithFormat:@"时间：%@",@"2018-05-01"];
-}
 
 - (void)setContent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"othPartyName"] description];

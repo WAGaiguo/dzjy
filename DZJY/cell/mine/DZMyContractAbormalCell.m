@@ -130,20 +130,8 @@
             _callBlock();
         }
     } forControlEvents:UIControlEventTouchUpInside];
-//    [self test];
 }
 
-- (void)test{
-    _stateLabel.text = [NSString stringWithFormat:@"%@", @"待双发支付"];
-    _timeLabel.text = [NSString stringWithFormat:@"申请时间: %@",@"2018-04-20 10:18:00"];
-    _companyLabel.text = @"联信智源公司";
-    
-    _applyTopLabel.text = @"合同合同，合同";
-    _applayBottomLabel.text = @"违约方";
-    _reasonLabel.text = @"合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同合同合同，合同";
-    _contractTopLabel.text = @"合同合同，合同合同合同，合同";
-    _contractBottomLabel.text = @"合同合同，合同合同合同，合";
-}
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSString stringWithFormat:@"申请时间：%@", [NSDate timestampToTime:dic[@"propDate"]]];
     _applyTopLabel.text = [dic[@"treatResltType"] isEqualToString:@"0"] ? @"合同结束，有违约金":@"合同结束，无违约金";

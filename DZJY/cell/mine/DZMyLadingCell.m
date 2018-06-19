@@ -141,17 +141,7 @@
     } forControlEvents:UIControlEventTouchUpInside];
 
 }
-- (void)test{
-    _timeLabel.text = @"2018-5-1";
-    _stateLabel.text = @"待打印";
-    _titleLabel1.text = @"荷兰土豆";
-    _titleLabel2.text = @"￥2.0*1000公斤";
-    _methodsLabel.text = @"买家自提";
-    _addressLabel.text = @"银川市";
-    _personLabel.text = @"momomo";
-    _carLabel.text = @"冀A-666666";
-    _companyLabel.text = @"联信智源";
-}
+
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSDate timestampToCommonTime:dic[@"bulidDate"]];
     [self setType:[dic objectForKey:@"takeBillStateType"]];

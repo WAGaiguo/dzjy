@@ -8,7 +8,6 @@
 
 #import "DZOrderCheckCell.h"
 #import "NSString+Common.h"
-#import <NSAttributedString+YYText.h>
 
 @implementation DZOrderCheckCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{

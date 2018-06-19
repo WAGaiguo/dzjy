@@ -87,20 +87,8 @@
     _newsLabel.textAlignment = NSTextAlignmentRight;
     _newsLabel.textColor = UITitleColor;
     [backView addSubview:_newsLabel];
-    
-//    [self makeTEST];
 }
 
-- (void)makeTEST{
-    _titleLabel.text = @"紫皮大蒜";
-    _descLabel.text = @"荷兰荷兰15号土豆";
-    _cityLabel.text = @"期望货源地：";
-    _timeLabel.text = @"2018-02-25~2018";
-    _currentsLabel.text = @"当前有10家工艺上";
-    _newsLabel.text = @"有2家新意向";
-    _priceLabel.text = @"2/公斤";
-    [self setType:MyBoughtTypeNormal];
-}
 - (void)setCellConttent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"wantToBuyName"] description];
     _descLabel.text = [NSString stringWithFormat:@"%@%@",[self formatString:dic[@"category"]],[self formatString:dic[@"vari"]]];

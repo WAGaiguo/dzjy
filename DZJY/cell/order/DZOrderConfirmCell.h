@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <PPNumberButton.h>
-#import <YYLabel.h>
 typedef NS_ENUM(NSUInteger, DZPayState) {
     DZPayState1,
     DZPayState2,

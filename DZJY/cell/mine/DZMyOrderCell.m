@@ -7,7 +7,6 @@
 //
 
 #import "DZMyOrderCell.h"
-#import <NSAttributedString+YYText.h>
 #import "NSDate+Format.h"
 
 @implementation DZMyOrderCell
@@ -156,20 +155,8 @@
             _callBlock();
         }
     } forControlEvents:UIControlEventTouchUpInside];
-    
-//    [self test];
-    
 }
-- (void)test{
-    _stateLabel.text = [NSString stringWithFormat:@"%@", @"待双发支付"];
-    _orderNums.text = [NSString stringWithFormat:@"订单编号：%@",@"dd200ijijofa"];
-    _timeLabel.text = [NSString stringWithFormat:@"2018-04-20 10:18:00"];
-    _dealLabel.text = [NSString stringWithFormat:@"成交量：%@",@"500公斤"];
-    _totalLabel.attributedText = [self str:[NSString stringWithFormat:@"总成交量：%@",@"7000公斤"]];
-    _companyLabel.text = @"联信智源公司";
-    
-    
-}
+
 - (NSMutableAttributedString *)str:(NSString *)str{
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:str];
     [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:85.0f/255.0f green:85.0f/255.0f blue:85.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 5)];

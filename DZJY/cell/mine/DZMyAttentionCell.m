@@ -69,16 +69,8 @@
             _cancelBlock(self);
         }
     } forControlEvents:UIControlEventTouchUpInside];
-    
-    
-//    [self test];
 }
-- (void)test{
-    _imageV.backgroundColor = UICyanColor;
-    _titleLabel.text = @"荷兰土豆";
-    _pirceLabel.text = @"5.0元/公斤";
-    _typeLabel.text = @"已下架";
-}
+
 - (void)setDic:(NSDictionary *)dic{
     _titleLabel.text = [[dic objectForKey:@"commName"] description];
     _pirceLabel.text = [NSString stringWithFormat:@"%@元%@",[dic objectForKey:@"basePrice"],[self isNullString:[dic objectForKey:@"measUnitName"]]];
