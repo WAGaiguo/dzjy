@@ -132,7 +132,7 @@
     [manager post];
 }
 - (void)setTotleContent:(NSDictionary *)dic{
-    [_headerView setBottomFundContent:[dic[@"totalDisbMoney"] isEqual:[NSNull null]]?@"0":dic[@"totalDisbMoney"] reve:[dic[@"totalReveMoney"] isEqual:[NSNull null]]?@"0":dic[@"totalReveMoney"]];
+    [_headerView setBottomFundContent:([dic[@"totalDisbMoney"] isEqual:[NSNull null]] || (dic[@"totalDisbMoney"] == nil)) ? @"0":dic[@"totalDisbMoney"] reve: ([dic[@"totalReveMoney"] isEqual:[NSNull null]] || (dic[@"totalReveMoney"] == nil)) ? @"0":dic[@"totalReveMoney"]];
 }
 - (void)reqeustData{
     if (_segmentView.selectedIndex == 0) {

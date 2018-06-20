@@ -162,6 +162,8 @@
     [params putString:_startDate forKey:@"starDate"];
     [params putString:_endDate forKey:@"endDate"];
     [params putString:type forKey:@"integType"];
+//    [params putString:@"60" forKey:@"pageSize"];
+//    [params putString:@"1" forKey:@"pageNo"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsList]];
     [manager setParams:[params params]];

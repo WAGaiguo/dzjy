@@ -7,6 +7,7 @@
 //
 
 #import "DZMyPointsHeaderView.h"
+#import "NSString+Common.h"
 
 @implementation DZMyPointsHeaderView
 
@@ -66,6 +67,9 @@
     _timeLabel.text = str;
 }
 - (void)setBottomContent:(NSString *)str{
+    if ([str isEqual:[NSNull null]] || str == nil || [str isEqualToString:@"null"]) {
+        str = @"0";
+    }
     [_pointsLabel setText:[NSString stringWithFormat:@"总积分：%@",str]];
     [_pointsLabel sizeToFit];
     _pointsLabel.height = 25;
@@ -73,7 +77,7 @@
     _pointsLabel.centerX = SCREEN_WIDTH/2.0;
 }
 - (void)setBottomFundContent:(NSString *)disb reve:(NSString *)reve{
-    [_pointsLabel setText:[NSString stringWithFormat:@"总支出：%@ 总收入%@",disb, reve]];
+    [_pointsLabel setText:[NSString stringWithFormat:@"总支出：%@  总收入：%@",disb, reve]];
     [_pointsLabel sizeToFit];
     _pointsLabel.height = 25;
     _pointsLabel.width = _pointsLabel.width + 20;

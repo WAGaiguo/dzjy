@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (_navigationTitle == nil){
-        _navigationTitle = @"内容详情";
+        _navigationTitle = @"商品详情";
     }
     [self setBackEnabled:YES];
     [self setBackImageGray];

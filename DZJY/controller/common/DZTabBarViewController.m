@@ -43,7 +43,6 @@
     _messageViewController.tabBarItem.title = @"消息";
     _messageViewController.tabBarItem.image = [UIImage imageNamed:@"消息"];
     _messageViewController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",0];
-//    _messageViewController.tabBarItem.badgeValue = nil;
     
     self.tabBar.tintColor = UICommonColor;
     self.viewControllers = @[_homeViewController, _messageViewController, _mineViewController];
@@ -62,7 +61,7 @@
 - (void)setDecreaseBadageValue{
     if (_messageViewController.tabBarItem.badgeValue != nil) {
         NSInteger currentNums = [_messageViewController.tabBarItem.badgeValue integerValue];
-        [self setBadageValue:[NSString stringWithFormat:@"%ld", currentNums - 1]];
+        [self setBadageValue:[NSString stringWithFormat:@"%li", currentNums - 1]];
     }
 }
 

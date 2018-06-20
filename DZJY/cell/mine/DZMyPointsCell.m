@@ -77,6 +77,11 @@
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSDate timestampToTime:[dic[@"date"] description]];
     _titleLabel.text = [dic[@"abst"] description];
-    _pointsLabel.text = [NSString stringWithFormat:@"交易额积分：+%d", [dic[@"integVal"] intValue]];
+    if ([dic[@"integType"] isEqualToString:@"1"]) {
+        _pointsLabel.text = [NSString stringWithFormat:@"交易额积分：+%d", [dic[@"integVal"] intValue]];
+    }else if ([dic[@"integType"] isEqualToString:@"0"]){
+        _pointsLabel.text = [NSString stringWithFormat:@"评价积分：+%d", [dic[@"integVal"] intValue]];
+    }
+  
 }
 @end
