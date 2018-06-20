@@ -51,12 +51,17 @@
     
     _descLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 45, SCREEN_WIDTH - 100, 22)];
     _descLabel.font = [UIFont systemFontOfSize:12];
-    _descLabel.textColor = RGBCOLOR(119, 119, 199);
+    _descLabel.textColor = [UIColor colorWithHex:@"777777"];
     [backView addSubview:_descLabel];
+    
+    _expectPriceLabel = [[UILabel alloc]initWithFrame:CGRectMake(backView.width/2.0, 45, backView.width/2.0, 22)];
+    _expectPriceLabel.font = [UIFont systemFontOfSize:12];
+    _expectPriceLabel.textColor = [UIColor colorWithHex:@"777777"];
+    [backView addSubview:_expectPriceLabel];
     
     _priceLabel = [[UILabel alloc]init];
     _priceLabel.font = [UIFont systemFontOfSize:12];
-    _priceLabel.textColor = RGBCOLOR(119, 119, 119);
+    _priceLabel.textColor = [UIColor colorWithHex:@"777777"];
     _priceLabel.height = 22;
     _priceLabel.right = SCREEN_WIDTH - 24;
     _priceLabel.top = _descLabel.top;
@@ -65,13 +70,18 @@
     
     _cityLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _descLabel.bottom, SCREEN_WIDTH - 100, 22)];
     _cityLabel.font = [UIFont systemFontOfSize:12];
-    _cityLabel.textColor = RGBCOLOR(119, 119, 199);
+    _cityLabel.textColor = [UIColor colorWithHex:@"777777"];
     [backView addSubview:_cityLabel];
     
     _timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _cityLabel.bottom, SCREEN_WIDTH - 100, 22)];
     _timeLabel.font = [UIFont systemFontOfSize:12];
-    _timeLabel.textColor = RGBCOLOR(119, 119, 199);
+    _timeLabel.textColor = [UIColor colorWithHex:@"777777"];
     [backView addSubview:_timeLabel];
+    
+    _effeTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(backView.width/2.0, _timeLabel.top, backView.width/2.0 , 22)];
+    _effeTimeLabel.font = [UIFont systemFontOfSize:12];
+    _effeTimeLabel.textColor = [UIColor colorWithHex:@"777777"];
+    [backView addSubview:_effeTimeLabel];
     
     UIView *lineView2 = [[UIView alloc]initWithFrame:CGRectMake(0, 124, SCREEN_WIDTH - 14, ONE_PIXEL)];
     lineView2.backgroundColor = UISeperatorColor;
@@ -87,18 +97,32 @@
     _newsLabel.textAlignment = NSTextAlignmentRight;
     _newsLabel.textColor = UITitleColor;
     [backView addSubview:_newsLabel];
+    
+    _tipView = [[UIView alloc]initWithFrame:CGRectMake(_newsLabel.width, 7, 5, 5)];
+    _tipView.layer.masksToBounds = YES;
+    _tipView.layer.cornerRadius = 2.5f;
+    _tipView.backgroundColor = UIRedColor;
+    [_newsLabel addSubview:_tipView];
 }
 
 - (void)setCellConttent:(NSDictionary *)dic{
     _titleLabel.text = [dic[@"wantToBuyName"] description];
-    _descLabel.text = [NSString stringWithFormat:@"%@%@",[self formatString:dic[@"category"]],[self formatString:dic[@"vari"]]];
+    _descLabel.text = [NSString stringWithFormat:@"采购量：%@%@",[self formatString2:[dic objectForKey:@"buyCount"]], [self formatString:dic[@"measUnitName"]]];
+    _expectPriceLabel.text = [NSString stringWithFormat:@"期望价格：%@元/%@",[self formatString2:dic[@"expecPrice"]], [self formatString:dic[@"measUnitName"]]];
     NSString *areaStr = [DZCityModel prov:[self formatString:dic[@"expecAreaProv"]] city:[self formatString:dic[@"expecAreaCity"]] dist:[self formatString:dic[@"expecAreaDist"]]];
     _cityLabel.text = [NSString stringWithFormat:@"期望货源地：%@", areaStr];
-    _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"releDate"]];
+    _timeLabel.text = [NSString stringWithFormat:@"发布日期：%@", [NSDate timestampToCommonTime:[dic objectForKey:@"releDate"]]];
+    _effeTimeLabel.text = [NSString stringWithFormat:@"有效日期：%@", [NSDate timestampToCommonTime:[dic objectForKey:@"effePer"]]];
     _currentsLabel.text = [NSString stringWithFormat:@"当前有%@家供应商",[self formatString2:[dic objectForKey:@"recomCount"]]];
     
     _newsLabel.text = [NSString stringWithFormat:@"有%@家新意向",[self formatString2:[dic objectForKey:@"hasReadCount"]]];
     [self setCurrentType:dic[@"wantToBuyState"]];
+    
+    if ([[self formatString2:[dic objectForKey:@"hasReadCount"]] integerValue] <= 0) {
+        _tipView.hidden = YES;
+    } else {
+        _tipView.hidden = NO;
+    }
     
 }
 - (NSString *) formatString:(NSString *)string{

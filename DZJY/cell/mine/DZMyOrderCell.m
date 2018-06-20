@@ -169,6 +169,7 @@
     _companyLabel.text = [dic[@"sellerName"] description];
     [self state:dic[@"ordStateType"]];
     _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+    _totalLabel.attributedText = [self formateString: [NSString stringWithFormat:@"商品总价：￥%@", [dic[@"totalMoney"] description]]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, dic[@"fileUrl"]]]];
     
     NSString *titleStr = [NSString stringWithFormat:@"  %@", [dic[@"commName"] description]];
@@ -197,5 +198,10 @@
     }else if ([state isEqualToString:@"5"]){
         _stateLabel.text = @"已生成合同";
     }
+}
+- (NSMutableAttributedString *)formateString:(NSString *)string{
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:string];
+    [str addAttribute:NSForegroundColorAttributeName value:UITitleColor range:NSMakeRange(0, 5)];
+    return str;
 }
 @end

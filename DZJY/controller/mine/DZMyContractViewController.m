@@ -155,9 +155,13 @@
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:type forKey:@"contStateType"];
+    NSDictionary *dic1 = @{@"pageInfo":@{@"pageNo":@"1", @"pageSize":@"50"}};
+    NSMutableDictionary *dicAll = [NSMutableDictionary dictionary];
+    [dicAll addEntriesFromDictionary:dic1];
+    [dicAll addEntriesFromDictionary:[params params]];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory contractList]];
-    [manager setParams:[params params]];
+    [manager setParams:dicAll];
     [manager setHandler:handler];
     [manager post];
 }

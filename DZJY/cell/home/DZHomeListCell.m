@@ -108,8 +108,8 @@
     _areaLabel.text = [[dic objectForKey:@"provCityDist"]description];
     _mininumLabel.text = [NSString stringWithFormat:@"起订量：%@ %@", [[dic objectForKey: @"startBuyCount"]description], [[dic objectForKey:@"measUnit"]description]];
     _numsLabel.text = [NSString stringWithFormat:@"可购买量：%@ %@",[[dic objectForKey:@"allowBuyCount"]description],[[dic objectForKey:@"measUnitName"]description]];
-    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
-    [NSString stringWithFormat:@"%@元/%@",[dic[@"basePrice"]description], [[dic objectForKey:@"measUnit"]description]];
+    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnitName"]description]];
+    [NSString stringWithFormat:@"%@元/%@",[dic[@"basePrice"]description], [[dic objectForKey:@"measUnitName"]description]];
     _timeLabel.text = [NSDate updateTimeForNow:[[dic objectForKey:@"createDate"]description]];
     NSString *picStr = [NSString stringWithFormat:@"%@%@",DZCommonUrl,[[dic objectForKey:@"fileUrl"]description]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:picStr]];

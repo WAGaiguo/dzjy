@@ -16,12 +16,15 @@ typedef NS_ENUM(NSUInteger, MyBoughtType) {
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *typeLabel;
 @property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) UILabel *expectPriceLabel;
 @property (nonatomic, strong) UILabel *cityLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) UILabel *effeTimeLabel;
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *currentsLabel;
 @property (nonatomic, strong) UILabel *newsLabel;
 @property (nonatomic, assign) MyBoughtType type;
+@property (nonatomic, strong) UIView *tipView;
 
 - (void)setCellConttent:(NSDictionary *)dic;
 @end

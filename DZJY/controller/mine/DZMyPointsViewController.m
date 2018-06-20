@@ -162,11 +162,13 @@
     [params putString:_startDate forKey:@"starDate"];
     [params putString:_endDate forKey:@"endDate"];
     [params putString:type forKey:@"integType"];
-//    [params putString:@"60" forKey:@"pageSize"];
-//    [params putString:@"1" forKey:@"pageNo"];
+    NSDictionary *dic1 = @{@"pageInfo":@{@"pageNo":@"1", @"pageSize":@"40"}};
+    NSMutableDictionary *dicAll = [NSMutableDictionary dictionary];
+    [dicAll addEntriesFromDictionary:dic1];
+    [dicAll addEntriesFromDictionary:[params params]];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory pointsList]];
-    [manager setParams:[params params]];
+    [manager setParams:dicAll];
     [manager setHandler:handler];
     [manager post];
 }
