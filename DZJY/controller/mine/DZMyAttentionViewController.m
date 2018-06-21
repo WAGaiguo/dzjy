@@ -26,9 +26,10 @@
     _adapter = [[DZMyAttentionAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [_adapter setDidCellSelected:^(DZMyAttentionCell * cell, NSIndexPath *indexPath) {
-
-    }];
+    
+//    [_adapter setDidCellSelected:^(DZMyAttentionCell * cell, NSIndexPath *indexPath) {
+//
+//    }];
     [self requestData];
 }
 
