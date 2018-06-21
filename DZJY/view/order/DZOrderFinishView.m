@@ -70,11 +70,12 @@
     
 }
 - (void)setContent:(NSDictionary *)dic{
-    _moneyLabel.text = [NSString stringWithFormat:@"￥%@", [dic[@"totalMoney"] description]];
+    _moneyLabel.text = [NSString stringWithFormat:@"￥%@", [dic[@"buyerSerChargeAndBuyerBailTotal"] description]];
     NSDictionary *dicDate = [dic objectForKey:@"payDeadLine"];
     UILabel *label = [self viewWithTag:222];
     if (dicDate) {
-        label.text = [NSString stringWithFormat:@"请在%@小时%@分钟%@秒内完成支付", [dicDate[@"hour"] isEqual:[NSNull null]] ? @"00": dicDate[@"hour"], [dicDate[@"minute"] isEqual:[NSNull null]] ? @"00":dicDate[@"minute"], [dicDate[@"second"] isEqual:[NSNull null]] ? @"00":dicDate[@"second"]];
+//        label.text = [NSString stringWithFormat:@"请在%@小时%@分钟%@秒内完成支付", [dicDate[@"hour"] isEqual:[NSNull null]] ? @"00": dicDate[@"hour"], [dicDate[@"minute"] isEqual:[NSNull null]] ? @"00":dicDate[@"minute"], [dicDate[@"second"] isEqual:[NSNull null]] ? @"00":dicDate[@"second"]];
+        label.text = [NSString stringWithFormat:@"请最晚%@-%@-%@完成支付", [dicDate[@"year"] description], [dicDate[@"monthValue"] description], [dicDate[@"dayOfMonth"] description]];
     }
 }
 

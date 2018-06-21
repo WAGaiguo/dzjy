@@ -168,7 +168,7 @@
     _dealLabel.text = [NSString stringWithFormat:@"成交量：%@%@",dic[@"buyCount"], dic[@"measUnitName"]];
     _companyLabel.text = [dic[@"sellerName"] description];
     [self state:dic[@"ordStateType"]];
-    _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+    _priceLabel.attributedText = [self priceStr:[dic[@"price"] description] unitStr:[dic[@"measUnitName"] description]];
     _totalLabel.attributedText = [self formateString: [NSString stringWithFormat:@"商品总价：￥%@", [dic[@"totalMoney"] description]]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, dic[@"fileUrl"]]]];
     
@@ -203,5 +203,10 @@
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:string];
     [str addAttribute:NSForegroundColorAttributeName value:UITitleColor range:NSMakeRange(0, 5)];
     return str;
+}
+- (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@元/%@",priceStr,unitStr]];
+    [attString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, priceStr.length)];
+    return attString;
 }
 @end

@@ -142,11 +142,16 @@
     [self setHidden:NO];
     [_backContentV setTop:SCREEN_HEIGHT];
     _backgroudV.alpha = 0;
+//    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        [_backContentV setTop:SCREEN_HEIGHT - 350];
+//    } completion:^(BOOL finished) {
+//        [_backgroudV setAlpha:0.5];
+//    }];
     [UIView animateWithDuration:0.33 animations:^{
         [_backContentV setTop:SCREEN_HEIGHT - 350];
         [_backgroudV setAlpha:0.5];
     } completion:^(BOOL finished) {
-        
+
     }];
 }
 - (NSMutableAttributedString *)priceStr:(NSString *)priceStr unitStr:(NSString *)unitStr{

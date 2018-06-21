@@ -164,8 +164,8 @@
 }
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"propDate"]];
-//    [self stateType:dic[@"examCommDissState"]];
-    _stateLabel.text = [DZDataSourceModel typeName:@"examCommDissState" value: dic[@"examCommDissState"]];
+    [self stateType:dic[@"examCommDissState"]];
+//    _stateLabel.text = [DZDataSourceModel typeName:@"examCommDissState" value: dic[@"examCommDissState"]];
     NSString *shenqing1 = [dic[@"dissTreatResltType"] isEqualToString:@"0"] ? @"交收单继续":@"解除交收单";
     NSString *shenqing2 = [NSDate timestampToCommonTime: [dic[@"newExamCommDeadLine"] description]];
     _applyTopLabel.text = [NSString stringWithFormat:@"%@,于%@前重新验货；",shenqing1,shenqing2];
@@ -173,7 +173,7 @@
         _applyTopLabel.text = shenqing1;
     }
     NSString *buyOrSell = [dic[@"buySellFlag2"] isEqualToString:@"0"]?@"买方":@"卖方";
-    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@；违约金：%@", buyOrSell, dic[@"liquDama"]]];
+    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@；违约金：%@元", buyOrSell, dic[@"liquDama"]]];
     _objectionTypeLabel.text = [[dic[@"dissType"] description] isEqualToString:@"0"] ? @"未到货":@"货有问题";
     _reasonLabel.text = [dic objectForKey:@"probDesc"];
     _contractTopLabel.text = [dic[@"commName"] description];
