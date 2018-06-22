@@ -175,7 +175,6 @@
     }else if ([type isEqualToString:@"4"]){
         _stateLabel.text = @"待买方确认";
     }
-    NSLog(@"%@", type);
 }
 @end
 
