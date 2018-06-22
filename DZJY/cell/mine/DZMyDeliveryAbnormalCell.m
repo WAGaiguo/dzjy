@@ -194,7 +194,7 @@
     }else if ([type isEqualToString:@"3"]){
         _stateLabel.text = @"强制取消";
     }else if ([type isEqualToString:@"4"]){
-        _stateLabel.text = @"待买方确认";
+        _stateLabel.text = @"待卖方确认";
     }
 }
 - (NSMutableAttributedString *)addColor:(NSString *)str{

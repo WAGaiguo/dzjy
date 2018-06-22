@@ -9,6 +9,7 @@
 #import "DZPasswordChangeController.h"
 #import "NSString+MD5.h"
 #import "DZRegisterViewController.h"
+#import "DZCommonSaveView.h"
 
 @interface DZPasswordChangeController (){
     UITextField *_usernameField;
@@ -36,7 +37,6 @@
     backgroundView.backgroundColor = [UIColor whiteColor];
      [backView addSubview:backgroundView];
     self.tableView.tableHeaderView = backView;
-   
     
     UIView *firstView = [self commonFieldView:@"用户名" rightImage:nil text:@"用户名:"];
     firstView.top = 0;
@@ -63,7 +63,6 @@
     [backgroundView addSubview:confirmView];
     _confirmField = [self textField:@"再次输入"];
     [confirmView addSubview:_confirmField];
-    
 }
 
 - (UITextField *)textField:(NSString *)placeHodler {
@@ -127,22 +126,14 @@
             imageV.image = [UIImage imageNamed:@"显示"];
         }
 }
+// 完成按钮
 - (void)configFooterView{
-    UIView *backView = [[UIView alloc]init];
-    backView.width = SCREEN_WIDTH;
-    backView.height = 43;
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(7, 0, SCREEN_WIDTH - 14, 43);
-    [btn setBackgroundImage:[UIImage imageNamed:@"导航条"] forState:UIControlStateNormal];
-    [btn setTitle:@"完成" forState:UIControlStateNormal];
-    [btn setTitleColor:UIWhiteColor forState:UIControlStateNormal];
-    btn.layer.masksToBounds = YES;
-    btn.layer.cornerRadius = 5;
-    [btn bk_addEventHandler:^(id sender) {
+    DZCommonSaveView *backView = [[DZCommonSaveView alloc]init];
+    [backView setTitleText:@"完成"];
+    [backView setSaveBlock:^{
         [self testField];
-    } forControlEvents:UIControlEventTouchUpInside];
-    [backView addSubview:btn];
-    self.tableView.sectionFooterHeight = 7;
+    }];
+    self.tableView.sectionFooterHeight = 0;
     self.tableView.tableFooterView = backView;
 }
 - (void)testField{
@@ -183,6 +174,7 @@
     [manager setParams:[params dicParams]];
     [manager post];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

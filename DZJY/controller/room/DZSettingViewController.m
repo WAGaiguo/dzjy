@@ -21,7 +21,6 @@
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
 }
-
 @end
 
 @implementation DZSettingViewController
@@ -59,7 +58,7 @@
             [me.navigationController pushViewController:[DZMyAddressViewController new] animated:YES];
         }else if (indexPath.row == 5){// 清除缓存
             [me clearCache];
-        }else if (indexPath.row == 6){
+        }else if (indexPath.row == 6){// 关于我们
             [me.navigationController pushViewController:[DZAboutUsViewController new] animated:YES];
         }else if (indexPath.row == 7){
             [HudUtils showMessage:@"当前已是最新版本"];
@@ -87,29 +86,32 @@
 }
 #pragma 注销功能
 - (void)logout{
-    // 暂时这边还是APP端来控制  因为过期的话退出登录没有权限
-//    DZResponseHandler *handler = [DZResponseHandler new];
-//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//
-//    }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
-//        [HudUtils showMessage:@"退出登录异常，请稍后再试"];
-//    }];
-//    DZRequestMananger *manager = [DZRequestMananger new];
-//    [manager setUrlString:[DZURLFactory logout]];
-//    [manager setHandler:handler];
-//    [manager post];
-    
     if (![[DZUserManager manager] isLogined]) {
         [HudUtils showMessage:@"您当前还没有登录"];return;
     }
     [[DZUserManager manager] logout];
+    [self logoutRequest];
     if ([DZUserManager manager].user == nil) {
-        [HudUtils showMessage:@"退出登录成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+        
     } else {
         [HudUtils showMessage:@"退出登录异常，请稍后再试"];
     }
+}
+#pragma 网络请求注销
+- (void)logoutRequest{
+    DZResponseHandler *handler = [DZResponseHandler new];
+    [handler setType:HZRequestManangerTypeTipsOnly];
+    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
+        [HudUtils showMessage:@"退出登录成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [handler setDidFailed:^(DZRequestMananger *manager) {
+        [HudUtils showMessage:@"退出登录异常，请稍后再试"];
+    }];
+    DZRequestMananger *manager = [DZRequestMananger new];
+    [manager setUrlString:[DZURLFactory logout]];
+    [manager setHandler:handler];
+    [manager post];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

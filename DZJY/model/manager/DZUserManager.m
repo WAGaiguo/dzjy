@@ -63,7 +63,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(DZUserManager, manager);
 - (BOOL)isTokenExpired{
     NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
     _lastSign = [[NSUserDefaults standardUserDefaults]doubleForKey:@"sign_time"];
-    NSLog(@"---%f---%f---%f---", currentTime, _lastSign, currentTime - _lastSign);
+//    NSLog(@"---%f---%f---%f---", currentTime, _lastSign, currentTime - _lastSign);
     if ((currentTime - _lastSign) < 24 * 3600) {
         return YES;
     }else{

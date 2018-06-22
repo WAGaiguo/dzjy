@@ -151,7 +151,7 @@ NSString * const DZCommonUrl = @"http://192.168.20.243/sr/";
 }
 // 提单
 + (NSString *)ladingList{
-    return [self absulteString:@"/prumt/w/take/comm/list"];
+    return [self absulteString:@"/prumt/w/take/comm/listApp"];
 }
 
 + (NSString *)memberInfo{

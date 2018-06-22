@@ -101,14 +101,6 @@
             _titleLeftLabel.text = @"主营产品";
             _titleRightLabel.text = [self isNull:_dic[@"mainProduct"]]?@"":_dic[@"mainProduct"];
             break;
-//        case 7:
-//            _titleLeftLabel.text = @"证件类型";
-//            _titleRightLabel.text = [_dic[@""] description];
-//            break;
-//        case 8:
-//            _titleLeftLabel.text = @"证件号码";
-//            _titleRightLabel.text = [_dic[@""] description];
-//            break;
         case 7:
             _titleLeftLabel.text = @"公司地址";
             _titleRightLabel.text = [DZCityModel prov:_dic[@"compAreaLists"][0] city:_dic[@"compAreaLists"][1] dist:_dic[@"compAreaLists"][2]];

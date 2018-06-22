@@ -221,11 +221,9 @@
     _companyLabel.text = [[dic[@"membInfo"] objectForKey:@"compFullName"] description];
     _personLabel.text = [NSString stringWithFormat:@"%@   %@", [NSString formateString:[dic[@"membInfo"] objectForKey:@"userName"]], [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactMobile"]]];
     
-    
     _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[[NSString formateString:dic[@"payMethType"]] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
-    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnitName"]description]];
+    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl,[dic[@"commPicture"] firstObject][@"fileUrl"]]]];
-    
     
     _startNumsLabel.text = [dic[@"startBuyCount"] description];
     _buyNumsLabel.text = [dic[@"allowBuyCount"] description];

@@ -41,7 +41,6 @@
     webV.opaque = NO;
     webV.frame = CGRectMake(0, DZ_TOP, SCREEN_WIDTH, SCREEN_HEIGHT - (DZ_TOP));
     webV.scrollView.delegate = self;
-//    webV.scrollView.bounces = NO;
     _content = [DZURLFactory homeListDetail:_dic[@"data"][@"id"]];
     [self.view addSubview:webV];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_content]];
@@ -78,11 +77,10 @@
     [buyView animation];
     WEAK_SELF
     [buyView setTapBuyBlock:^(double nums) {
-//        NSString *allowBuyCount = me.dic[@"data"][@"allowBuyCount"];
         if (nums > _buyCount) {
             [HudUtils showMessage:@"亲，您买的有点多"]; return ;
         }
-        NSString *startBuyCount = me.dic[@"data"][@"startBuyCount"];
+        NSString *startBuyCount = me.dataDic[@"startBuyCount"];
         if (nums < [startBuyCount doubleValue]) {
             [HudUtils showMessage:[NSString stringWithFormat:@"亲，您购买的数量必须大于%@%@", startBuyCount, [NSString isBlankString:me.dic[@"measUnitName"]]]]; return;
         }
@@ -94,8 +92,8 @@
         }
         DZOrderConfirmViewController *confirmV = [DZOrderConfirmViewController new];
         confirmV.buyCount = nums;
-        confirmV.cid = [me.dic[@"data"][@"commCatgId"] description];
-        confirmV.membId = [me.dic[@"data"][@"membId"] description];
+        confirmV.cid = [me.dataDic[@"commCatgId"] description];
+        confirmV.membId = [me.dataDic[@"membId"] description];
         confirmV.dataDic = me.dataDic;
         [me.navigationController pushViewController:confirmV animated:YES];
     }];
