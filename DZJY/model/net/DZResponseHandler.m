@@ -112,8 +112,11 @@
     [self dismissLoading];
     NSString  *message = [error localizedDescription];
     if (error.code == -1011) {
-        message = @"登录过期，请重新登录";
-//        [[DZUserManager manager] logout];
+        NSDictionary *errorDic = [NSJSONSerialization JSONObjectWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONReadingMutableContainers error:nil];
+        if ([[errorDic[@"error_description"] description] containsString:@"Access token expired"]) {
+            message = @"登录过期，请重新登录";
+            [[DZUserManager manager] logout];
+        }
     }else if(error.code == 3840){
         message = @"数据解析错误";
     }else if(error.code == -1001){
@@ -124,20 +127,21 @@
             message = @"登录过期，请重新登录";
         }
     }
-    if (error.code == 3) {
+//    if (error.code == 3) {
 //        [request cancelAll];
 //        [KickoutUtils kickout];
-    }else if(error.code == 2){
+//    }else if(error.code == 2){
 //        [HudUtils showMessage:@"请先完成实名认证!"];
 //        HZIdentityVerifyViewController *idc = [HZIdentityVerifyViewController new];
 //        [APPDELEGATE.navigationController pushViewController:idc animated:YES];
-    }
+//    }
+
     if([self willShowTips]){
         [HudUtils showMessage:message view:self.hudView duration:1.4f];
     }
     if (_didFailed) {
         _didFailed(request);
     }
-    NSLog(@"request error %@",error);
+    NSLog(@"request error %@", error);
 }
 @end

@@ -17,7 +17,6 @@
  实例方法是通过对象调用的，当这个对象为空时调用方法的时候就不会执行。
  */
 - (BOOL)isBlankString;
-- (BOOL)isNullString;
 - (NSString *)formatString;
 + (NSString *)isBlankString:(id)string;
 + (NSString *)formateString:(NSString *)string;

@@ -7,6 +7,7 @@
 //
 
 #import "DZMyAddressCell.h"
+#import "DZCityModel.h"
 
 @interface DZMyAddressCell(){
     UIView *backV;
@@ -88,7 +89,8 @@
 - (void)setContent:(NSDictionary *)dic{
     _nameLabel.text = [[dic objectForKey:@"contactName"] description];
     _phoneLabel.text = [[dic objectForKey:@"mobile"] description];
-    _addressLabel.text = [[dic objectForKey:@"address"] description];
+    NSString *headerArea = [DZCityModel prov:dic[@"compAreaProv"] city:dic[@"compAreaCity"] dist:dic[@"compAreaDist"]];
+    _addressLabel.text = [NSString stringWithFormat:@"%@%@", headerArea, [[dic objectForKey:@"address"] description]];
     if ([[dic objectForKey:@"defaultFlag"] isEqualToString:@"1"]) {
         [_editView setDefalut:NO];
     }else{

@@ -19,7 +19,7 @@
     static NSString *provs = @"";
     static NSString *citys = @"";
     static NSString *dists = @"";
-    if ([prov isBlankString]) {
+    if ([NSString isNullString:prov]) {
         return @"";
     }
     [provinceArray enumerateObjectsUsingBlock:^(NSDictionary * provObj, NSUInteger idx, BOOL * _Nonnull stop) {// 第一次循环 *省*
@@ -28,13 +28,13 @@
                 provs = [provObj objectForKey:@"label"];
                 citys = @"";
                 dists = @"";
-                if (![city isBlankString]) {
+                if (![NSString isNullString: city]) {
                     [[provObj objectForKey:@"children"] enumerateObjectsUsingBlock:^(NSDictionary *cityObj, NSUInteger idx, BOOL * _Nonnull stop) {// 第二次循环 *市*
                         @autoreleasepool{
                             if ([cityObj[@"value"] isEqualToString:city]) {
                                 citys = cityObj[@"label"];
                                 dists = @"";
-                                if (![dist isBlankString]) {
+                                if (![NSString isNullString: dist]) {
                                     [cityObj[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *distObj, NSUInteger idx, BOOL * _Nonnull stop) {// 第三次循环 *县* 地区
                                         @autoreleasepool{
                                             if ([distObj[@"value"] isEqualToString:dist]) {

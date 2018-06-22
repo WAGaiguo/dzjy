@@ -24,12 +24,7 @@
     }
     return NO;
 }
-- (BOOL)isNullString{
-    if ([self isEqual:[NSNull null]]) {
-        return YES;
-    }
-    return NO;
-}
+
 - (NSString *)formatString{
     if ([self isEqual:[NSNull null]]) {
         return @"";

@@ -165,6 +165,7 @@
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSDate timestampToTime:[dic objectForKey:@"propDate"]];
     [self stateType:dic[@"examCommDissState"]];
+    [self stateType:dic[@"examInvoDissState"]];
 //    _stateLabel.text = [DZDataSourceModel typeName:@"examCommDissState" value: dic[@"examCommDissState"]];
     NSString *shenqing1 = [dic[@"dissTreatResltType"] isEqualToString:@"0"] ? @"交收单继续":@"解除交收单";
     NSString *shenqing2 = [NSDate timestampToCommonTime: [dic[@"newExamCommDeadLine"] description]];

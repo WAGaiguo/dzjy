@@ -127,12 +127,7 @@
     [params putString:addressId forKey:@"id"];
     DZResponseHandler *handler = [DZResponseHandler new];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-        [HudUtils showMessage:@"保存成功"];
-        if (_backBlock) {
-            _backBlock();
-        }
         [self requestSetDefault];
-        [self.navigationController popViewControllerAnimated:YES];
     }];
     [handler setDidFailed:^(DZRequestMananger *manager) {
         NSLog(@"失败----失败");
@@ -152,7 +147,11 @@
             DZResponseHandler *handler = [DZResponseHandler new];
             [handler setType:HZRequestManangerTypeBackground];
             [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-                NSLog(@"%@", obj);
+                [HudUtils showMessage:@"保存成功"];
+                if (_backBlock) {
+                    _backBlock();
+                }
+                [self.navigationController popViewControllerAnimated:YES];
             }];
             DZRequestParams *params = [DZRequestParams new];
             [params putString:[_dic[@"id"] description] forKey:@"id"];
@@ -166,24 +165,6 @@
 }
 
 - (void)requestData{
-//    DZRequestParams *params = [DZRequestParams new];
-////    NSLog(@"id::::::  %@",_dic[@"id"]);
-//    [params putString:@"3304123598642999226" forKey:@"id"];
-//    DZResponseHandler *handler = [DZResponseHandler new];
-//    [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
-//        NSLog(@"%@", [obj mj_JSONString]);
-//    }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
-//        NSLog(@"---失败---");
-//    }];
-//    DZRequestMananger *manager = [DZRequestMananger new];
-////    NSString *strUrl = @"http://192.168.20.243/memb/w/address/get?id=3304123598642999226";
-//    [manager setUrlString:[DZURLFactory addressGet]];
-//    [manager setHandler:handler];
-//    [manager setParams:[params params]];
-//    [manager post];
-    
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
@@ -201,35 +182,8 @@
     }];
 }
 
-// 根据返回的code进行拼接城市地址
-//- (NSString *)prov:(NSString*)prov city:(NSString *)city dist:(NSString *)dist{
-//    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"wag" ofType:@"json"];
-//    NSData *data = [NSData dataWithContentsOfFile:filePath];
-//    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//    NSArray * provinceArray = [NSArray arrayWithArray:jsonArr];
-//    static NSString *provs = @"";
-//    static NSString *citys = @"";
-//    static NSString *dists = @"";
-//    [provinceArray enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        if ([[obj objectForKey:@"code"] isEqualToString:prov]) {
-//            provs = [obj objectForKey:@"name"];
-//            [[obj objectForKey:@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                if ([obj[@"code"] isEqualToString:city]) {
-//                    citys = obj[@"name"];
-//                    [obj[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                        if ([obj[@"code"] isEqualToString:dist]) {
-//                            dists = obj[@"name"];
-//                            *stop = YES;
-//                        }
-//                    }];
-//                    *stop = YES;
-//                }
-//            }];
-//            *stop = YES;
-//        }
-//    }];
-//    return [NSString stringWithFormat:@"%@%@%@",provs, citys, dists];
-//}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

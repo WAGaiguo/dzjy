@@ -167,9 +167,13 @@
             [params putString:[[DZUserManager manager] user].parentId forKey:@"accId"];
         }
     }
+    NSDictionary *dic1 = @{@"pageInfo":@{@"pageNo":@"1", @"pageSize":@"100"}};
+    NSMutableDictionary *dicAll = [NSMutableDictionary dictionary];
+    [dicAll addEntriesFromDictionary:dic1];
+    [dicAll addEntriesFromDictionary:[params params]];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory fundList]];
-    [manager setParams:[params params]];
+    [manager setParams: dicAll];
     [manager setHandler:handler];
     [manager post];
 }

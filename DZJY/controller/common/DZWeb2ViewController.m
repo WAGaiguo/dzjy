@@ -46,7 +46,7 @@
     [self.view addSubview:webV];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_content]];
     [webV loadRequest:request];
-            
+//    NSLog(@"------=====-----%@", _content);
     [self makeBtnView];
     [self reqeustDetailData];
 }
@@ -84,7 +84,7 @@
         }
         NSString *startBuyCount = me.dic[@"data"][@"startBuyCount"];
         if (nums < [startBuyCount doubleValue]) {
-            [HudUtils showMessage:[NSString stringWithFormat:@"亲，您购买的数量必须大于%@%@", startBuyCount, [NSString isBlankString:me.dic[@"measUnit"]]]]; return;
+            [HudUtils showMessage:[NSString stringWithFormat:@"亲，您购买的数量必须大于%@%@", startBuyCount, [NSString isBlankString:me.dic[@"measUnitName"]]]]; return;
         }
 //        if ([allowBuyCount doubleValue] - nums < [startBuyCount doubleValue]) {
 //            [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;

@@ -135,29 +135,34 @@
 - (void)setContent:(NSDictionary *)dic{
     _timeLabel.text = [NSString stringWithFormat:@"申请时间：%@", [NSDate timestampToTime:dic[@"propDate"]]];
     _applyTopLabel.text = [dic[@"treatResltType"] isEqualToString:@"0"] ? @"合同结束，有违约金":@"合同结束，无违约金";
-    NSString *buyOrSell = [dic[@"buySellFlag2"] isEqualToString:@"0"]?@"买方":@"卖方";
+    NSString *buyOrSell = [dic[@"buySellFlag2"] isEqualToString:@"0"]?@"买方；":@"卖方；";
+    if ([dic[@"treatResltType"] isEqualToString:@"1"]) {
+        buyOrSell = @"   ";
+    }
     NSString *dedit = [dic[@"liquDama"] isEqual:[NSNull null]] ? @"0" : dic[@"liquDama"];
-    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@；违约金：%@", buyOrSell, dedit]];
+    _applayBottomLabel.attributedText = [self addColor: [NSString stringWithFormat:@"违约方：%@违约金：%@", buyOrSell, dedit]];
     
     _reasonLabel.text = dic[@"endReason"];
     _contractTopLabel.text = dic[@"commName"];
     _contractBottomLabel.text = [NSString stringWithFormat:@"￥%@*%@%@，共计：￥%@",dic[@"price"],dic[@"buyCount"],dic[@"measUnitName"],dic[@"totalMoney"]];
     _companyLabel.text = dic[@"sellerName"];
     [self setTypeStr:dic[@"termiContStateType"]];
-    
 }
+
 - (NSString *)isNull:(NSString *)str{
     if ([str isEqual:[NSNull null]]) {
         return @"";
     }
     return str;
 }
+
 - (NSMutableAttributedString *)addColor:(NSString *)str{
     NSMutableAttributedString *colorStr = [[NSMutableAttributedString alloc]initWithString:str];
     [colorStr addAttribute:NSForegroundColorAttributeName value:UICommonColor range:NSMakeRange(4, 2)];
     [colorStr addAttribute:NSForegroundColorAttributeName value:UICommonColor range:NSMakeRange(11, str.length - 11)];
     return colorStr;
 }
+
 - (void)setTypeStr:(NSString *)type{
     if ([type isEqualToString:@"0"]) {
         _stateLabel.text = @"取消";
@@ -170,6 +175,7 @@
     }else if ([type isEqualToString:@"4"]){
         _stateLabel.text = @"待买方确认";
     }
+    NSLog(@"%@", type);
 }
 @end
 

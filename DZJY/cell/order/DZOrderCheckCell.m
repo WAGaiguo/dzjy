@@ -214,11 +214,11 @@
     
     
     _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[[NSString formateString:dic[@"payMethType"]] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
-    _priceLabel.attributedText = [NSString priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
+    _priceLabel.attributedText = [NSString priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnitName"]description]];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl,[dic[@"commPicture"] firstObject][@"fileUrl"]]]];
     
     _startNumsLabel.text = [NSString stringWithFormat:@"￥%@", dataDic[@"price"]];
-    _buyNumsLabel.text = [NSString stringWithFormat:@"%@%@", dataDic[@"buyCount"], dataDic[@"measUnit"]];
+    _buyNumsLabel.text = [NSString stringWithFormat:@"%@%@", dataDic[@"buyCount"], dataDic[@"measUnitName"]];
     _totalMoneyLabel.text = [NSString stringWithFormat:@"￥%@", dataDic[@"totalMoney"]];
     _moneyLabel1.text = [NSString stringWithFormat:@"￥%@", dataDic[@"buyerBail"]];
     _moneyLabel2.text = [NSString stringWithFormat:@"￥%@", dataDic[@"buyerSerCharge"]];

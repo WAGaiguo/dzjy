@@ -9,12 +9,12 @@
 #import "DZMyBoughtDetailController.h"
 #import "DZMyBoughtDetailHeaderView.h"
 #import "DZMyBoughtDetailAdapter.h"
+#import "DZWeb2ViewController.h"
 
 @interface DZMyBoughtDetailController (){
     DZMyBoughtDetailHeaderView *_headerView;
-    DZMyBoughtDetailAdapter *_adapter; 
 }
-
+@property (nonatomic, strong)DZMyBoughtDetailAdapter *adapter;
 @end
 
 @implementation DZMyBoughtDetailController
@@ -35,6 +35,13 @@
 - (void)configAdapter{
     _adapter = [[DZMyBoughtDetailAdapter alloc]init];
     [self.tableView setAdapter:_adapter];
+    WEAK_SELF
+    [_adapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
+        DZWeb2ViewController *web = [DZWeb2ViewController new];
+        web.dic = @{@"data": me.adapter.dataSource[indexPath.row]};
+        web.buyCount = [[me.adapter.dataSource[indexPath.row] objectForKey:@"allowBuyCount"] floatValue];
+        [me.navigationController pushViewController:web animated:YES];
+    }];
 }
 - (void)requestInforData{
     DZResponseHandler *handler = [DZResponseHandler new];
