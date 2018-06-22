@@ -161,9 +161,16 @@
 }
 - (void)setContentDic:(NSDictionary *)dic{
     _titleLabel.text = [[dic objectForKey:@"commName"]description];
-    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnitName"]description]];
-    _numsBottomLabel.text = [NSString stringWithFormat:@"库存：%@%@",[NSString formateString: dic[@"listCount"]], [[dic objectForKey:@"measUnitName"]description]];
-    _unitLabel.text = [NSString formateString: [dic objectForKey:@"measUnitName"]];
+    
+    NSString *unitString = @"kg";
+    if (dic[@"measUnitName"] != nil) {
+        unitString = dic[@"measUnitName"];
+    } else {
+        unitString = dic[@"measUnit"];
+    }
+    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:unitString];
+    _numsBottomLabel.text = [NSString stringWithFormat:@"库存：%@%@",[NSString formateString: dic[@"listCount"]], unitString];
+    _unitLabel.text = [NSString formateString: unitString];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, [dic objectForKey:@"fileUrl"]]]];
 //    _numberButton.maxValue = [dic[@"listCount"] doubleValue];
 }

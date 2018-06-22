@@ -156,7 +156,11 @@
     [params putString:type forKey:@"delivBillStateType"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory deliveryList]];
-    [manager setParams:[params params]];
+    NSDictionary *dic1 = @{@"pageInfo":@{@"pageNo":@"1", @"pageSize":@"100"}};
+    NSMutableDictionary *dicAll = [NSMutableDictionary dictionary];
+    [dicAll addEntriesFromDictionary:dic1];
+    [dicAll addEntriesFromDictionary:[params params]];
+    [manager setParams:dicAll];
     [manager setHandler:handler];
     [manager post];
 }

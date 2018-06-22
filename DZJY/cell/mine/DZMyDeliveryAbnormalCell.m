@@ -168,7 +168,13 @@
     [self stateType:dic[@"examInvoDissState"]];
 //    _stateLabel.text = [DZDataSourceModel typeName:@"examCommDissState" value: dic[@"examCommDissState"]];
     NSString *shenqing1 = [dic[@"dissTreatResltType"] isEqualToString:@"0"] ? @"交收单继续":@"解除交收单";
-    NSString *shenqing2 = [NSDate timestampToCommonTime: [dic[@"newExamCommDeadLine"] description]];
+    NSString *shenqing2 = @"";
+    if (dic[@"newExamCommDeadLine"] != nil) {
+        shenqing2 = [NSDate timestampToCommonTime: [dic[@"newExamCommDeadLine"] description]];
+    }else{
+        shenqing2 = [NSDate timestampToCommonTime: [dic[@"newExamInvoDeadLine"] description]];
+    }
+   
     _applyTopLabel.text = [NSString stringWithFormat:@"%@,于%@前重新验货；",shenqing1,shenqing2];
     if ([dic[@"dissTreatResltType"] isEqualToString:@"1"]) {
         _applyTopLabel.text = shenqing1;

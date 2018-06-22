@@ -219,10 +219,16 @@
     NSDictionary *dic = [arr firstObject];
     
     _companyLabel.text = [[dic[@"membInfo"] objectForKey:@"compFullName"] description];
-    _personLabel.text = [NSString stringWithFormat:@"%@   %@", [NSString formateString:[dic[@"membInfo"] objectForKey:@"userName"]], [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactMobile"]]];
+    _personLabel.text = [NSString stringWithFormat:@"%@   %@", [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactName"]], [NSString formateString:[dic[@"membInfo"] objectForKey:@"contactMobile"]]];
     
     _titleLabel.attributedText = [self attributeString:[NSString stringWithFormat:@"   %@",[dic[@"commName"] description]] state:[[NSString formateString:dic[@"payMethType"]] isEqualToString:@"0"] ? DZPayState1: DZPayState2];
-    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:[[dic objectForKey:@"measUnit"]description]];
+    NSString *unitString = @"kg";
+    if (dic[@"measUnitName"] != nil) {
+        unitString = dic[@"measUnitName"];
+    } else {
+        unitString = dic[@"measUnit"];
+    }
+    _priceLabel.attributedText = [self priceStr:[dic[@"basePrice"]description] unitStr:unitString];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",DZCommonUrl,[dic[@"commPicture"] firstObject][@"fileUrl"]]]];
     
     _startNumsLabel.text = [dic[@"startBuyCount"] description];

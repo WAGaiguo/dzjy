@@ -160,7 +160,11 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putString:type forKey:@"ordStateType"];
     DZRequestMananger *manager = [DZRequestMananger new];
-    [manager setParams:[params dicParams]];
+    NSDictionary *dic1 = @{@"pageInfo":@{@"pageNo":@"1", @"pageSize":@"100"}};
+    NSMutableDictionary *dicAll = [NSMutableDictionary dictionary];
+    [dicAll addEntriesFromDictionary:dic1];
+    [dicAll addEntriesFromDictionary:[params params]];
+    [manager setParams: dicAll];
     [manager setHandler:handler];
     [manager setUrlString:[DZURLFactory orderList]];
     [manager post];

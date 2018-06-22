@@ -119,7 +119,7 @@
         [obj setAdapter:adapterArr[idx]];
     }];
     [_allAdapter setDidCellSelected:^(id cell, NSIndexPath *indexPath) {
-        [HudUtils showMessage:@"点击测试"];
+
     }];
 }
 #pragma _segement delegate
@@ -131,7 +131,7 @@
 // *** 积分总量数据请求 ***
 - (void)reqeustDataSumCount{
     DZResponseHandler *handler = [DZResponseHandler new];
-    [handler setType:HZRequestManangerTypeTipsOnly];
+    [handler setType:HZRequestManangerTypeBackground];
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [_headerView setBottomContent:obj];
     }];

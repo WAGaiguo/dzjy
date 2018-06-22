@@ -11,8 +11,8 @@
 /*
      线上部署环境
  */
-//NSString * const DZBaseUrl = @"http://192.168.20.5";
-//NSString * const DZCommonUrl = @"http://192.168.20.11/";
+//NSString * const DZBaseUrl = @"http://www.ncpdzjy.com.cn";
+//NSString * const DZCommonUrl = @"http://www.ncpdzjy.com.cn/sr/";
 
 /*
  *  测试部署环境

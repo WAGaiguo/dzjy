@@ -136,8 +136,12 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putString:type forKey:@"takeBillStateType"];
     DZRequestMananger *manager = [DZRequestMananger new];
+    NSDictionary *dic1 = @{@"pageInfo":@{@"pageNo":@"1", @"pageSize":@"100"}};
+    NSMutableDictionary *dicAll = [NSMutableDictionary dictionary];
+    [dicAll addEntriesFromDictionary:dic1];
+    [dicAll addEntriesFromDictionary:[params params]];
     [manager setUrlString:[DZURLFactory ladingList]];
-    [manager setParams:[params params]];
+    [manager setParams:dicAll];
     [manager setHandler: handler];
     [manager post];
 }
