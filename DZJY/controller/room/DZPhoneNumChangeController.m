@@ -12,6 +12,7 @@
 #import "NSString+Common.h"
 #import "NSString+PDRegex.h"
 #import "UIToolbar+Builder.h"
+#import "NSString+MD5.h"
 
 @interface DZPhoneNumChangeController (){
     UIScrollView *_scrollView;
@@ -113,7 +114,7 @@
         if ([_passwordField.text isBlankString]) {
             [HudUtils showMessage:@"请输入登录密码"]; return;
         }
-        if (!(_codeField.text.length == 6) && ![_codeField.text isNumber]) {
+        if (!(_codeField.text.length == 6) || ![_codeField.text isNumber]) {
             [HudUtils showMessage:@"请输入正确的验证码"]; return;
         }
         [self requestFirstData];
@@ -265,7 +266,7 @@
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_phoneField.text forKey:@"mobile"];
     [params putString:_codeField.text forKey:@"mobileCode"];
-    [params putString:_passwordField.text forKey:@"password"];
+    [params putString:[_passwordField.text MD5Hash] forKey:@"password"];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory mobileUpdateFirst]];
     [manager setParams:[params dicParams]];
