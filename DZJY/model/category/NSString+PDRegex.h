@@ -10,7 +10,7 @@
 
 #define Email_Check_Format  @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
 #define Phone_Check_Format  @"^1[34578][0-9]{9}$"
-#define Password_Check_Format  @"^[a-zA-Z0-9]{6,30}$"
+#define Password_Check_Format  @"^[a-zA-Z0-9_]{6,12}$"
 #define Name_Check_Format  @"^[a-zA-Z0-9]{2,20}$"
 #define Identity_Check_Format  @"(^\\d{15}$)|(^\\d{17}([0-9]|X|x)$)"
 #define Number_Check_Format  @"^[0-9]\\d*$"

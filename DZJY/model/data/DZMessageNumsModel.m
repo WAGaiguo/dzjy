@@ -29,12 +29,12 @@
         }
         [self myOrder];
     }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
+    [handler setDidFailed:^(DZRequestMananger *manager) {
 //        [HudUtils showMessage:@"请求异常，请稍后重试"];
-//        if (_faildBlock) {
-//            _faildBlock();
-//        }
-//    }];
+        if (_faildBlock) {
+            _faildBlock();
+        }
+    }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory boughtNums]];
@@ -54,12 +54,12 @@
         }
         [self myContract];
     }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
+    [handler setDidFailed:^(DZRequestMananger *manager) {
 //        [HudUtils showMessage:@"请求异常，请稍后重试"];
-//        if (_faildBlock) {
-//            _faildBlock();
-//        }
-//    }];
+        if (_faildBlock) {
+            _faildBlock();
+        }
+    }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory orderNums]];
@@ -79,12 +79,12 @@
         }
         [self myDelivery];
     }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
+    [handler setDidFailed:^(DZRequestMananger *manager) {
 //        [HudUtils showMessage:@"请求异常，请稍后重试"];
-//        if (_faildBlock) {
-//            _faildBlock();
-//        }
-//    }];
+        if (_faildBlock) {
+            _faildBlock();
+        }
+    }];
     DZRequestParams *params = [DZRequestParams new];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory contractNums]];
@@ -107,12 +107,12 @@
             _successBlock(_dataDic);
         }
     }];
-//    [handler setDidFailed:^(DZRequestMananger *manager) {
+    [handler setDidFailed:^(DZRequestMananger *manager) {
 //        [HudUtils showMessage:@"请求异常，请稍后重试"];
-//        if (_faildBlock) {
-//            _faildBlock();
-//        }
-//    }];
+        if (_faildBlock) {
+            _faildBlock();
+        }
+    }];
     DZRequestParams *params = [DZRequestParams new];
     [manager setUrlString:[DZURLFactory deliveryNums]];
     [manager setParams:[params dicParams]];

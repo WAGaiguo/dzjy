@@ -10,6 +10,7 @@
 #import "NSString+MD5.h"
 #import "DZRegisterViewController.h"
 #import "DZCommonSaveView.h"
+#import "NSString+PDRegex.h"
 
 @interface DZPasswordChangeController (){
     UITextField *_usernameField;
@@ -149,9 +150,13 @@
     if (confirmStr == nil || confirmStr.length ==0) {
         [HudUtils showMessage:@"请输入您的确认密码"];return;
     }
+    if (![newStr isPassword]) {
+        [HudUtils showMessage:@"6-12位字母、数字、或下划线‘_’组成"];return;
+    }
     if (![newStr isEqualToString:confirmStr]) {
         [HudUtils showMessage:@"两次密码输入不一致"];return;
     }
+   
     [self requestData:oldStr newStr:newStr];
 }
 /**

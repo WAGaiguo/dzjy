@@ -10,7 +10,7 @@
 
 @implementation DZDataSourceModel
 + (NSString *)typeName:(NSString *)typeName value:(NSString *)value{
-    static NSString *resultStr = nil;
+    __block NSString *resultStr = nil;
     NSString *filePath = [[NSBundle mainBundle]pathForResource:@"dataSourceDict" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];

@@ -16,9 +16,9 @@
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     NSArray * provinceArray = [NSArray arrayWithArray:jsonArr];
-    static NSString *provs = @"";
-    static NSString *citys = @"";
-    static NSString *dists = @"";
+    __block NSString *provs = @"";
+    __block NSString *citys = @"";
+    __block NSString *dists = @"";
     if ([NSString isNullString:prov]) {
         return @"";
     }
@@ -26,14 +26,14 @@
         @autoreleasepool{
             if ([[provObj objectForKey:@"value"] isEqualToString:prov]) {
                 provs = [provObj objectForKey:@"label"];
-                citys = @"";
-                dists = @"";
+//                citys = @"";
+//                dists = @"";
                 if (![NSString isNullString: city]) {
                     [[provObj objectForKey:@"children"] enumerateObjectsUsingBlock:^(NSDictionary *cityObj, NSUInteger idx, BOOL * _Nonnull stop) {// 第二次循环 *市*
                         @autoreleasepool{
                             if ([cityObj[@"value"] isEqualToString:city]) {
                                 citys = cityObj[@"label"];
-                                dists = @"";
+//                                dists = @"";
                                 if (![NSString isNullString: dist]) {
                                     [cityObj[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *distObj, NSUInteger idx, BOOL * _Nonnull stop) {// 第三次循环 *县* 地区
                                         @autoreleasepool{

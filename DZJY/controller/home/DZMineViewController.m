@@ -24,13 +24,11 @@
 #import "DZMyLadingViewController.h"
 #import "DZMessageNumsModel.h"
 
-
 @interface DZMineViewController ()
 {
     DZMineHeaderView *_headerView;
     DZMineFooterView *_footerView;
     
-//    DZTestAdapter *_adapter;
     UICollectionView *_collectionV;
     NSMutableArray *_sectionState;
     DZUserManager *manager;
@@ -245,15 +243,17 @@
     handler.type = HZRequestManangerTypeBackground;
     [handler setDidSuccess:^(DZRequestMananger *manager1, id obj) {
         [_headerView setTitle:manager.user.loginName subTitle:[obj[@"compFullName"] description] img:[NSString stringWithFormat:@"%@%@",DZCommonUrl, obj[@"compLogo"]] type:obj[@"memebGrade"]];
+        [[NSUserDefaults standardUserDefaults]setValue:[obj[@"mobile"] description] forKey:@"memb_mobile"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }];
     DZRequestMananger *manager = [DZRequestMananger new];
     [manager setUrlString:[DZURLFactory memberInfo]];
     [manager setHandler:handler];
     [manager post];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 @end

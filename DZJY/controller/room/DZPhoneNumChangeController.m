@@ -74,7 +74,8 @@
     
     _phoneField = [self textField:@"请输入手机号"];
     _phoneField.top = 54;
-    _phoneField.text = [DZUserManager manager].user.mobile;
+//    _phoneField.text = [DZUserManager manager].user.mobile;
+    _phoneField.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"memb_mobile"];
     _phoneField.textColor = UI333333Color;
     _phoneField.enabled = NO;
     [backView addSubview:_phoneField];
@@ -293,9 +294,11 @@
         [self back];
         
         // 更新本地存储信息
-        NSMutableDictionary *dic = [DZUserManager manager].user.jsonObject;
-        dic[@"user"][@"mobile"] = _newPhoneField.text;
-        [[DZUserManager manager]login:dic];
+//        NSMutableDictionary *dic = [DZUserManager manager].user.jsonObject;
+//        dic[@"user"][@"mobile"] = _newPhoneField.text;
+//        [[DZUserManager manager]login:dic];
+        [[NSUserDefaults standardUserDefaults]setValue:_newPhoneField.text forKey:@"memb_mobile"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }];
     DZRequestParams *params = [DZRequestParams new];
     [params putString:_newPhoneField.text forKey:@"mobile"];

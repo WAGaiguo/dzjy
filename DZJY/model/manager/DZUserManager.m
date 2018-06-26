@@ -74,6 +74,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(DZUserManager, manager);
     }
 }
 - (void)logout{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"memb_mobile"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"sign_time"];
     [[NSFileManager defaultManager] removeItemAtPath:UIDocumentFile(@"user.bat") error:nil];
     _user = nil;
