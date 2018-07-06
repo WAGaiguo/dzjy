@@ -10,7 +10,7 @@
 #import "NSString+Common.h"
 
 @implementation DZCityModel
-// 根据返回的code进行拼接城市地址
+// *** 根据返回的code进行拼接城市地址 ***
 + (NSString *)prov:(NSString*)prov city:(NSString *)city dist:(NSString *)dist{
     NSString *filePath = [[NSBundle mainBundle]pathForResource:@"areas" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];

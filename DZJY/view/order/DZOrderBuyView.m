@@ -172,6 +172,10 @@
     _numsBottomLabel.text = [NSString stringWithFormat:@"库存：%@%@",[NSString formateString: dic[@"listCount"]], unitString];
     _unitLabel.text = [NSString formateString: unitString];
     [_imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", DZCommonUrl, [dic objectForKey:@"fileUrl"]]]];
+//    NSLog(@"%@", dic);
+    
+    _numberButton.minValue = [dic[@"startBuyCount"] floatValue];
+    _numberButton.currentNumber = [dic[@"startBuyCount"] floatValue];
 //    _numberButton.maxValue = [dic[@"listCount"] doubleValue];
 }
 @end

@@ -82,7 +82,7 @@
         }
         if (indexPath.item == 1){
             searchResult.categoryTitle = @"瓜果类";
-            searchResult.commCateSecondId = @"50028337399956336";
+            searchResult.commCateSecondId = @"2000053";
         }
         if (indexPath.item == 2){
             searchResult.categoryTitle = @"叶菜类";

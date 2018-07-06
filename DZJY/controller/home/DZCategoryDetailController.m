@@ -334,7 +334,10 @@
     NSDictionary *commAttriIdDic = @{@"commAttriId": _commAttrildArr};
     NSDictionary *commAttribtValDic = @{@"commAttribtVal": _commAttribtValArr};
     NSDictionary *dic = @{@"commVarietList": @[_varietyId]};
-    [dicParams addEntriesFromDictionary:[params params]];
+    if (_varietyId.length == 0 || _varietyId == nil) {
+        dic = @{@"commVarietList": @[]};
+    }
+    [dicParams addEntriesFromDictionary:[params dicParams]];
     [dicParams addEntriesFromDictionary:dic];
     [dicParams addEntriesFromDictionary:commSetAttriIdDic];
     [dicParams addEntriesFromDictionary:commAttriIdDic];

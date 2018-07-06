@@ -102,7 +102,6 @@
         [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
             if (obj) {
                 [_adapter2 reloadData:obj[@"page"][@"list"]];
-//                NSLog(@"%@", obj[@"page"][@"list"]);
                 isFirst = NO;
             }
         }];

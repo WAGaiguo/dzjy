@@ -144,7 +144,7 @@
 }
 - (void)fouth{
     UIView *lineView7 = [self viewWithTag:77];
-    [self commenLabel:@"贷款合金额:" frame:CGRectMake(SCREEN_WIDTH/2.0, lineView7.bottom + 2, SCREEN_WIDTH/4.0, 33)];
+    [self commenLabel:@"贷款总金额:" frame:CGRectMake(SCREEN_WIDTH/2.0, lineView7.bottom + 2, SCREEN_WIDTH/4.0, 33)];
     [self commenLabel:@"需交保证金:" frame:CGRectMake(SCREEN_WIDTH/2.0, lineView7.bottom + 35, SCREEN_WIDTH/4.0, 33)];
     [self commenLabel:@"需交手续费:" frame:CGRectMake(SCREEN_WIDTH/2.0, lineView7.bottom + 67, SCREEN_WIDTH/4.0, 33)];
     
@@ -182,14 +182,12 @@
     if (state == DZPayState1){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
         attach.image = [UIImage imageNamed:@"先款"];
-//        attach.bounds = CGRectMake(0, 0, 32, 16);
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
         [attString insertAttributedString:attributeStr2 atIndex:0];
     }else if (state == DZPayState2){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
         attach.image = [UIImage imageNamed:@"预付"];
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
-//        attach.bounds = CGRectMake(0, 0, 32, 16);
         [attString insertAttributedString:attributeStr2 atIndex:0];
     }else if (state == DZPayStateAll){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];

@@ -24,12 +24,8 @@ AFHTTPSessionManager* defaultRequestManager;
         AFHTTPResponseSerializer* responseSerializer = [AFHTTPResponseSerializer
                                                         serializer];
         responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"image/png", nil];
-        
         [defaultRequestManager setResponseSerializer:responseSerializer];
-       
-        // 请求格式
-//        AFHTTPRequestSerializer* requestSerializer = [AFHTTPRequestSerializer serializer];
-        AFJSONRequestSerializer * requestSerializer = [AFJSONRequestSerializer serializer];
+        AFJSONRequestSerializer * requestSerializer = [AFJSONRequestSerializer serializer]; // 请求格式 json
         // 设置请求头
         if ([[DZUserManager manager] isLogined]) {
             [requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
@@ -64,7 +60,6 @@ AFHTTPSessionManager* defaultRequestManager;
     if ([[DZUserManager manager] isLogined]) {
         [defaultRequestManager.requestSerializer setValue:[NSString stringWithFormat:@"%@ %@",[[DZUserManager manager] user].tokenType,[[DZUserManager manager] user].accessToken] forHTTPHeaderField:@"Authorization"];
     }
-    
 }
 
 - (void)get{

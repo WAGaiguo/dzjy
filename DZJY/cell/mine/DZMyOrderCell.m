@@ -87,14 +87,12 @@
     if (state == DZPayState1){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
         attach.image = [UIImage imageNamed:@"预付"];
-        //        attach.bounds = CGRectMake(0, 0, 32, 16);
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
         [attString insertAttributedString:attributeStr2 atIndex:0];
     }else if (state == DZPayState2){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
         attach.image = [UIImage imageNamed:@"先款"];
         NSAttributedString *attributeStr2 = [NSAttributedString attributedStringWithAttachment:attach];
-        //        attach.bounds = CGRectMake(0, 0, 32, 16);
         [attString insertAttributedString:attributeStr2 atIndex:0];
     }else if (state == DZPayStateAll){
         NSTextAttachment *attach = [[NSTextAttachment alloc] init];
