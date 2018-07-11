@@ -87,14 +87,19 @@
 //        if ([allowBuyCount doubleValue] - nums < [startBuyCount doubleValue]) {
 //            [HudUtils showMessage:@"亲，请重新选择您的购买量"]; return;
 //        }
-        if ([[me.dic[@"data"][@"id"] description] isEqualToString:[DZUserManager manager].user.id]) {
-            [HudUtils showMessage:@"自己就不要买自己的东西了"];return;
+        if ([[me.dataDic[@"membId"] description] isEqualToString:[DZUserManager manager].user.id]) {
+            [HudUtils showMessage:@"自己就不要买自己的东西了"]; return;
         }
+        if ([[me.dataDic[@"membId"] description] isEqualToString:[DZUserManager manager].user.parentId]) {
+            [HudUtils showMessage:@"自己就不要买自己的东西了"]; return;
+        }
+        
         DZOrderConfirmViewController *confirmV = [DZOrderConfirmViewController new];
         confirmV.buyCount = nums;
         confirmV.cid = [me.dataDic[@"commCatgId"] description];
         confirmV.membId = [me.dataDic[@"membId"] description];
         confirmV.dataDic = me.dataDic;
+//        NSLog(@"data_id:%@, id:%@, parentId:%@", me.dic[@"data"][@"id"], [DZUserManager manager].user.id, me.dataDic[@"membId"]);return;
         [me.navigationController pushViewController:confirmV animated:YES];
     }];
 }

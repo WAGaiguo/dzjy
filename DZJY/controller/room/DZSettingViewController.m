@@ -17,6 +17,7 @@
 #import "DZLoginViewController.h"
 #import "DZCommonSaveView.h"
 #import "DZAboutUsViewController.h"
+#import "DZTabBarViewController.h"
 
 @interface DZSettingViewController (){
     DZSettingAdapter *_adapter;
@@ -99,6 +100,7 @@
     [handler setDidSuccess:^(DZRequestMananger *manager, id obj) {
         [[DZUserManager manager] logout];
         [HudUtils showMessage:@"退出登录成功"];
+        [(DZTabBarViewController *) [self.navigationController.viewControllers objectAtIndex:0] setBadageValue:@"0"];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 //    [handler setDidFailed:^(DZRequestMananger *manager) {

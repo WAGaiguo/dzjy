@@ -69,7 +69,7 @@
     _numsTopLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, lineView.bottom + 30, 100, 15)];
     _numsTopLabel.textColor = RGBCOLOR(85, 85, 85);
     _numsTopLabel.font = [UIFont systemFontOfSize:13];
-    _numsTopLabel.text = @"可购买量";
+    _numsTopLabel.text = @"购买数量";
     [_backContentV addSubview:_numsTopLabel];
     
     _numsBottomLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, _numsTopLabel.bottom + 10, SCREEN_WIDTH/2.0, 14)];
@@ -123,11 +123,6 @@
     _unitLabel.textColor = UITitleColor;
     [_backContentV addSubview:_unitLabel];
     
-    
-//    _unitLabel.text = @"箱";
-//    _imageV.backgroundColor = UICyanColor;
-//    _titleLabel.text = @";aewjfoiajefiejwfiji";
-//    _priceLabel.text = @"￥55";
 }
 - (void)setSelfHiden{
     [MAIN_WINDOW endEditing:YES];

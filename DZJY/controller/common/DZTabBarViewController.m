@@ -33,7 +33,6 @@
     _mineViewController = [[DZMineViewController alloc]init];
     _messageViewController = [[DZMessageViewController alloc]init];
     
-    
     _homeViewController.tabBarItem.title = @"首页";
     _homeViewController.tabBarItem.image = [UIImage imageNamed:@"首页"];
     
@@ -77,7 +76,7 @@
     return YES;
 }
 
-// 消息数量
+// 消息数量 数据请求
 - (void)requestData{
     DZResponseHandler *handler = [DZResponseHandler new];
     handler.type = HZRequestManangerTypeBackground;
@@ -94,7 +93,9 @@
     [manager setHandler: handler];
     [manager post];
     
-    [self performSelector:@selector(requestData) withObject:nil afterDelay:5 * 60];
+    if ([[DZUserManager manager] isLogined]) { // 增加登录判断、要不后台24小时之内默认始终是登录状态；
+        [self performSelector:@selector(requestData) withObject:nil afterDelay:5 * 60];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
