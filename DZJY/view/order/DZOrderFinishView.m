@@ -65,7 +65,7 @@
     alertLabel.font = [UIFont systemFontOfSize:12];
     alertLabel.textColor = [UIColor colorWithHex:@"fe5200"];
     alertLabel.numberOfLines = 2;
-    alertLabel.text = @"线下交易私自打款有风险，推荐使用平台在线交易，防止卖家收款不发货等不诚信行为。";
+    alertLabel.text = @"强烈建议：使用银联支付，请登录平台Web端操作，以获得更好的操作体验。";
     [self addSubview:alertLabel];
     
 }
